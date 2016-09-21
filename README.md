@@ -37,4 +37,6 @@ More advanced development should provide conditional and custom CSS/template (tb
   
   a. Select -> Menu->DataTypes then 'ADD NEW DATATYPE' from list (you should see your module - if not go back through steps)
 
+  b. To use the module: From a "Subject" select "Add Experiment" and select it from the list
+
 
