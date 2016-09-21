@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+$page.setTitle("QBI NeuroPsych Assessment")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+	#set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+	#set ($popup = "false")
+#end
+
+<table width="100%">
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td align="left" valign="middle">
+						<div class="edit_title">QBI Neuropysch Assessment</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td valign="top">
+						<table class="resultstable">
+            				<tr class="resultsheader">
+            					<th>Description</th>
+            					<th>Value</th>				
+            				</tr>
+            				<tr><td colspan="2"><hr /></td></tr>
+            				<tr>
+            					<th>Assessment date</th>
+            					<td>$!item.getDateProperty("qbi:npsData/date")</td>
+                            </tr>                
+            				<tr>
+            					<th>Number of Tests  Performed</th>
+            					<td>$!item.getIntegerProperty("qbi:npsData/tests_performed")</td>
+            				</tr>
+            				<tr>
+            					<th>Summary</th>
+            					<td>$!item.getStringProperty("qbi:npsData/summary")</td>
+            				</tr>
+            				<tr>
+            					<th>Comments</th>
+            					<td>$!item.getStringProperty("qbi:npsData/comments")</td>
+            				</tr>
+            				
+						</table>
+					</td>
+					<td valign="top" align="right">
+						#elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table><br>#parse("/screens/ReportProjectSpecificFields.vm")

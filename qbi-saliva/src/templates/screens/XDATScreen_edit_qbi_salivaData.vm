@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+$page.setTitle("QBI Saliva sample Creation Form")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#if ($data.message)
+<font color="red" size="3">$data.message</font>
+#end
+<p>
+<form ID="form1" name="form1" method="post" action="$link.setAction('ModifySubjectAssessorData')">
+<input type="hidden" name="project" value="$!{project}" >
+#if($vr)
+	<font color="red">Invalid parameters:<br>$vr.toHTML()</font>
+<hr>
+#end
+
+<table width="100%">
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td align="left" valign="middle">
+						<div class="edit_title">QBI Saliva sample #if($om.getId()) Modification Form #else Creation Form #end</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td valign="top">
+						<table class="formfieldstable">
+							<tr><td colspan="2">
+								#parse("/screens/xnat_edit_subjectAssessorData.vm")
+							</td></tr>
+							<tr>
+								<td colspan="2">#parse("/screens/EditProjectSpecificFields.vm")</td>
+							</tr>
+            				<tr>
+            					<th>Description</th>
+            					<th>Value</th>			
+            				</tr>
+		                    <tr><td colspan='2'><hr/></td></tr>
+		                    <tr>
+            					<th>Collection date</th>
+            					<td>#xdatDateBox("qbi:salivaData/date" $item $vr $years)</td>
+                            </tr>
+                            <tr>
+            					<th>Comments</th>
+            					<td>#xdatTextArea("qbi:salivaData/comments" $item "" $vr "3" "50")</td>
+            				</tr>
+            				<tr>
+            					<th>Remaining</th>
+            					<td>#xdatTextBox("qbi:salivaData/remaining"  $item "" $vr)</td>
+            				</tr>
+            				<tr>
+            					<th>Total tubes</th>
+            					<td>#xdatTextBox("qbi:salivaData/total"  $item "" $vr)</td>
+            				</tr>
+            				
+            			</table>
+            			<hr/>
+            			<table class="formfieldstable">
+							<tr>
+								<th>Tube Number</th>
+								<th>Date Analysed</th>
+								<th>Ratio</th>
+								<th>Concentration</th>
+								<th>To Be Rechecked</th>
+							</tr>
+							#foreach($salivatube_COUNTER in [0..5])
+								#set $idx = $salivatube_COUNTER + 1
+								<tr>
+									<td>#xdatTextBox("qbi:salivaData/tubes[$salivatube_COUNTER]/tube/tube_number" $item $idx $vr)</td>
+									<td>#xdatDateBox("qbi:salivaData/tubes[$salivatube_COUNTER]/tube/date_analysed" $item $vr $years)</td>
+									<td>#xdatTextBox("qbi:salivaData/tubes[$salivatube_COUNTER]/tube/ratio" $item "" $vr)</td>
+									<td>#xdatTextBox("qbi:salivaData/tubes[$salivatube_COUNTER]/tube/concentration" $item "" $vr)</td>
+									<td>#xdatBooleanCheckbox("qbi:salivaData/tubes[$salivatube_COUNTER]/tube/recheck" $item $vr)</td>
+								</tr>
+							#end
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		#xdatEditProps($item $edit_screen)
+		<tr><td colspan=2 align=left><input type="button" onclick="validateForm();"  name="eventSubmit_doInsert" value="Submit"/></td></tr>
+		</td>
+	</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+function validateForm()
+{
+   //INSERT CUSTOM CONTENT HERE
+
+   validateSubjectAssessorForm();
+   return false;
+}
+</script>

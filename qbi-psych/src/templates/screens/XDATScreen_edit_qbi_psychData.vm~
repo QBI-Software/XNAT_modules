@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+$page.setTitle("QBI NeuroPsych Assessment Creation Form")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#if ($data.message)
+<font color="red" size="3">$data.message</font>
+#end
+<p>
+<form ID="form1" name="form1" method="post" action="$link.setAction('ModifySubjectAssessorData')">
+<input type="hidden" name="project" value="$!{project}" >
+#if($vr)
+	<font color="red">Invalid parameters:<br>$vr.toHTML()</font>
+<hr>
+#end
+
+<table width="100%">
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td align="left" valign="middle">
+						<div class="edit_title">QBI NeuroPsych Assessment #if($om.getId()) Modification Form #else Creation Form #end</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td valign="top">
+						<table class="formfieldstable">
+							<tr><td colspan="2">
+								#parse("/screens/xnat_edit_subjectAssessorData.vm")
+							</td></tr>
+							<tr>
+								<td colspan="2">#parse("/screens/EditProjectSpecificFields.vm")</td>
+							</tr>
+            				
+		                    <tr class="resultsheader">
+            					<th>Description</th>
+            					<th>Value</th>					
+            				</tr>
+		                    <tr><td colspan="2"><hr/></td></tr>
+            				<tr>
+            					<th>Assessment date</th>
+            					<td>#xdatDateBox("qbi:npsData/date" $item $vr $years)</td>
+                            </tr>
+                            <tr>
+            					<th>Number of Tests Performed</th>
+            					<td>#xdatTextBox("qbi:npsData/tests_performed" $item "" $vr)</td>
+            				</tr>
+            				<tr>
+            					<th>Summary</th>
+            					<td width="20%">#xdatTextBox("qbi:npsData/summary" $item "" $vr)</td>
+            				</tr>
+            				<tr>
+            					<th>Comments</th>
+            					<td>#xdatTextBox("qbi:npsData/comments" $item "" $vr)</td>
+            				</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		#xdatEditProps($item $edit_screen)
+		<tr><td colspan="2" align=left><input type="button" onclick="validateForm();"  name="eventSubmit_doInsert" value="Submit"/></td></tr>
+		</td>
+	</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+function validateForm()
+{
+   //INSERT CUSTOM CONTENT HERE
+
+   validateSubjectAssessorForm();
+   return false;
+}
+</script>

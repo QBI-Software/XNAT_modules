@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+$page.setTitle("QBI Brain Sample")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+	#set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+	#set ($popup = "false")
+#end
+
+<table width="100%">
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td align="left" valign="middle">
+						<div class="edit_title">QBI Brain Sample</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td valign="top">
+						<table class="resultstable">
+							<tr class="resultsheader">
+            					<th>Description</th>
+            					<th>Value</th>				
+            				</tr>
+                            <tr><td colspan="2"><hr/></td></tr>
+                            <tr>
+            					<th>Assessment date</th>
+            					<td colspan="2">$!item.getDateProperty("qbi:brainData/date")</td>
+                            </tr>
+                            <tr>
+            					<th>Date Analysed</th>
+            					<td>$!item.getDateProperty("qbi:brainData/date_analysed")</td>
+            				</tr>
+            				<tr>
+            					<th>Summary</th>
+            					<td>$!item.getStringProperty("qbi:brainData/summary")</td>
+            				</tr>
+            				<tr>
+            					<th>Comments</th>
+            					<td>$!item.getStringProperty("qbi:brainData/comments")</td>
+            				</tr>
+            				
+						</table>
+					</td>
+					<td valign="top" align="right">
+						#elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table><br>#parse("/screens/ReportProjectSpecificFields.vm")
