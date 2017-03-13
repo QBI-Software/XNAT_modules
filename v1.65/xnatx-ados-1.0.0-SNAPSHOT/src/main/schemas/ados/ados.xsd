@@ -1,0 +1,2217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Eclipse Build id: 20090619-0625 (http://eclipse.org/) by Jenny Gurney (Washington University) 09/28/2009-->
+<xs:schema targetNamespace="http://nrg.wustl.edu/ados" xmlns:ados="http://nrg.wustl.edu/ados" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+<xs:element name="ADOS2001Module2" type="ados:ados2001Module2Data"/>
+<xs:element name="ADOS2001Module3" type="ados:ados2001Module3Data"/>
+<xs:element name="ADOS2001Module4" type="ados:ados2001Module4Data"/>
+<xs:complexType name="ados2001Module2Data">
+  <xs:complexContent>
+    <xs:extension base="xnat:subjectAssessorData">
+      <xs:sequence>
+        <xs:element name="commtot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxExclusive value="10"></xs:maxExclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="commtot_note" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="scintot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Social Interaction Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="14"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="scintot_note" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Social Interaction Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="cmsitot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication + Social Interaction Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="24"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="cmsitot_note" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication + Social Interaction Total
+        			Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="playtot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>ADOS Play Total</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="4"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="playtot_note" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Play Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="imaginetot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Imagination/Creativity Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="imaginetot_note" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Imagination/Creativity Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="sbritot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Stereotyped Behaviors and Restrictive Interests
+        			Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="sbritot_note" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Stereotyped Behaviors and Restrictive Interests
+        			Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="ScoreForm" minOccurs="0" maxOccurs="1">
+	    <xs:annotation>
+         	<xs:documentation>ADOS Module 2 Form</xs:documentation>
+       	</xs:annotation>
+       <xs:complexType>
+		<xs:sequence>
+        <xs:element name="diagnosis" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+      		<xs:documentation>Diagnosis</xs:documentation>
+    	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>              
+        <xs:element name="adosclas" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Classifications AS GIVEN ON THE ADOS</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="overallDiag" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Overall Diagnosis as Given on the ADOS</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="observation" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+         	<xs:documentation>Observation</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="constrTaskNote" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>1. Construction Task Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="respName" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>2. Response to Name Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="makeBelieve" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>3. Make-Believe Play Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="jointPlay" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>4. Joint Interactive Play Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="convs" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>5. Conversation Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="respJointAttn" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>6. Response to Joint Attention Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demonst" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>7. Demonstration Task Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="descPicture" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>8. Description of a Picture Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="tellStory" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>9. Telling a Story From a Book Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="freePlay" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>10. Free Play Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bdayParty" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>11. Birthday Party Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="snack" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>12. Snack Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="antcpRoutine" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>13. Anticipation of a Routine with Objects Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>     
+        <xs:element name="bubblePlayNotes" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>14. Bubble Play Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bubbPlayStrats" minOccurs="0" maxOccurs="1">
+          <xs:annotation>       
+            <xs:documentation>Bubble Play Strategies</xs:documentation>
+          </xs:annotation>
+       	  <xs:complexType>
+       	  <xs:sequence>
+       	     <xs:element name="pointFing" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>pointing with index finger</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="openReach" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>open-handed reach</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="otherGest" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>other gesture, specify:</xs:documentation>
+	          </xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+              </xs:element>
+              <xs:element name="vocaliz" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>vocalization</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="eyeCont" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>eye contact</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="words" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>words</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="alone" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>alone</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="withVocaliz" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>with vocalization</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="nonverb" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>nonverbal</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="withPoint" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>with pointing</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+       	  </xs:sequence>
+       	  </xs:complexType>
+        </xs:element>
+        <xs:element name="bubbPlayObjs" minOccurs="0" maxOccurs="1">
+          <xs:annotation>       
+            <xs:documentation>Bubble Objects Referenced</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+       	  <xs:sequence>
+       	     <xs:element name="mechAnml" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>mechanical animal</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="balloon" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>balloon</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="bubbles" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>bubbles</xs:documentation>
+	          </xs:annotation>
+          		<xs:simpleType>
+		       		<xs:restriction base="xs:integer">
+		       			<xs:minInclusive value="0"></xs:minInclusive>
+		       			<xs:maxInclusive value="1"></xs:maxInclusive>
+		       		</xs:restriction>
+	       		</xs:simpleType>
+              </xs:element>
+              <xs:element name="otherObj" minOccurs="0" maxOccurs="1">
+	          <xs:annotation>
+	            <xs:documentation>other object, specify:</xs:documentation>
+	          </xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+              </xs:element>
+          </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionA" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>A. Language and Communication</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="nonechoedLang" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Overall Level of Non-Echoed Language
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="7"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="amtSocOverture" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Amount of Social Overtures/Maintenance of Attention
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="7"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="speechAbnorm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Speech Abnormalities Associated with Autism (Intonation/Volume/Rhythm/Rate)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="immedEcholalia" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Immediate Echolalia
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="stIdiosyncWords" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Stereotyped/Idiosyncratic Use of Words or Phrases
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="conversation" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			6. Conversation
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+       <xs:element name="pointing" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			7. Pointing
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="descInformGest" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			8. Descriptive, Conventional, Instrumental, or Informational Gestures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+           		<xs:documentation>B. Reciprocal Social Interaction</xs:documentation>
+         	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="unuslEyeCont" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Unusual Eye Contact
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="facExprOth" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Facial Expressions Directed to Others
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="shareEnjoy" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Shared Enjoyment in Interaction
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+       <xs:element name="respName" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Response to name
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="showing" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Showing
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>        
+         <xs:element name="spontInitJntAtten" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			6. Spontaneous Initiation of Joint Attention
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="respJntAtten" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			7. Response to Joint Attention
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="qualSocOverture" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			8. Quality of Social Overtures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="qualSocResp" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			9. Quality of Social Response
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="amtRecipSocComm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			10. Amount of Reciprocal Social Communication
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="overallQualRapp" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			11. Overall Quality of Rapport
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+        	<xs:documentation>C. Play</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="funcPlayObj" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Functional Play with Objects
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="imagCreativ" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Imagination/Creativity
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionD" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+      			<xs:documentation>D. Stereotyped Behaviors and Restricted Interests</xs:documentation>
+         	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>               
+         <xs:element name="unuslSensInt" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Unusual Sensory Interest in Play Material/Person
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="handFgrComplx" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Hand and Finger and Other Complex Mannerisms
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="selfInjurBehav" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Self-Injurious Behavior
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="unusRepetInrst" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Unusually Repetitive Interests or Stereotyped Behaviors
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+		<xs:element name="sectionE" minOccurs="0" maxOccurs="1"> 
+        <xs:annotation>
+        	<xs:documentation>E. Other Abnormal Behaviors</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="overactiv" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Overactivity
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>       
+         <xs:element name="tantrmAgress" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Tantrums, Aggression, Negative or Disruptive Behavior
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="anxiety" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Anxiety
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element> 
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ados2001Module3Data">
+  <xs:complexContent>
+    <xs:extension base="xnat:subjectAssessorData">
+      <xs:sequence>
+        <xs:element name="commtot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxExclusive value="10"></xs:maxExclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="commtot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Communication Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="scintot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Social Interaction Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="14"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="scintot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Social Interaction Total Note</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="cmsitot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication + Social Interaction Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="24"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="cmsitot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Communication + Social Interaction Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="playtot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>ADOS Play Total</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="4"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="playtot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Play Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="imaginetot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Imagination/Creativity Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="imaginetot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Imagination/Creativity Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="sbritot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Stereotyped Behaviors and Restrictive Interests
+        			Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="sbritot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Stereotyped Behaviors and Restrictive Interests Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="ScoreForm" minOccurs="0" maxOccurs="1">
+	    <xs:annotation>
+         	<xs:documentation>ADOS Module 3 Form</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="diagnosis" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+      		<xs:documentation>Diagnosis</xs:documentation>
+    	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="adosclas" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Classifications AS GIVEN ON THE ADOS</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="overallDiag" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Overall Diagnosis as Given on the ADOS</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="observation" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+ 			<xs:documentation>Observation</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+		<xs:sequence>              
+       	 <xs:element name="constrTask" type="xs:string" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+           <xs:documentation>1. Construction Task Notes</xs:documentation>
+         </xs:annotation>
+        </xs:element> 
+        <xs:element name="makeBelieve" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>2. Make-Believe Play Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="jointPlay" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>3. Joint Interactive Play Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demonst" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>4. Demonstration Task Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>  
+        <xs:element name="descPicture" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>5. Description of a Picture Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="tellStory" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>6. Telling a Story From a Book Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="cartoons" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>7. Cartoons Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="convsReport" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>8. Conversation and Reporting Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="emotions" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>9. Emotions Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="socDiffAnnoy" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>10. Social Difficulties and Annoyance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="break" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>11. Break Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="friendMarrg" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>12. Friends and Marriage Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>        
+        <xs:element name="loneliness" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>13. Loneliness Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="createStory" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>14. Creating a Story Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionA" minOccurs="0" maxOccurs="1">        
+        <xs:annotation>
+        	<xs:documentation>A. Language and Communication</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="nonechoedLang" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Overall Level of Non-Echoed Language
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="7"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="speechAbnorm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Speech Abnormalities Associated with Autism (Intonation/Volume/Rhythm/Rate)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="immedEcholalia" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Immediate Echolalia
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="stIdiosyncWords" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Stereotyped/Idiosyncratic Use of Words or Phrases
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="offInform" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Offers Information
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="askInform" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			6. Asks for Information
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="reportEvents" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			7. Reporting of Events
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="conversation" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			8. Conversation
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="descInformGest" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			9. Descriptive, Conventional, Instrumental, or Informational Gestures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+        	<xs:documentation>B. Reciprocal Social Interaction</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="unuslEyeCont" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Unusual Eye Contact
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="facExprOth" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Facial Expressions Directed to Others
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>      
+         <xs:element name="langProd" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Language Production and Linked Nonverbal Communication
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="shareEnjoy" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Shared Enjoyment in Interaction
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>       
+         <xs:element name="empathComm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Empathy/Comments on Others' Emotions
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="insight" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			6. Insight
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>      
+         <xs:element name="qualSocOverture" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			7. Quality of Social Overtures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="qualSocResp" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			8. Quality of Social Response
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="amtRecipSocComm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			9. Amount of Reciprocal Social Communication
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="overallQualRapp" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			10. Overall Quality of Rapport
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>C. Imagination</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="imagCreativ" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Imagination/Creativity
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionD" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+        	<xs:documentation>D. Stereotyped Behaviors and Restricted Interests</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+         <xs:element name="unuslSensInt" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Unusual Sensory Interest in Play Material/Person
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="handFgrComplx" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Hand and Finger and Other Complex Mannerisms
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="selfInjurBehav" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Self-Injurious Behavior
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="excessInterstUnusl" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Excessive Interest in or References to Unusual or Highly Specific Topics or Objects or Repetitive Behaviors
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="compulRitual" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Compulsions or Rituals
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionE" minOccurs="0" maxOccurs="1">     
+        <xs:annotation>
+        	<xs:documentation>E. Other Abnormal Behaviors</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+         <xs:element name="overactAgit" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Overactivity/Agitation
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="tantrmAgress" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Tantrums, Aggression, Negative or Disruptive Behavior
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="anxiety" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Anxiety
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element> 
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>	
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ados2001Module4Data">
+  <xs:complexContent>
+    <xs:extension base="xnat:subjectAssessorData">
+      <xs:sequence>
+        <xs:element name="commtot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxExclusive value="10"></xs:maxExclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="commtot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Communication Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="scintot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Social Interaction Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="14"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="scintot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Social Interaction Total Note</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="cmsitot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Communication + Social Interaction Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="24"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="cmsitot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Communication + Social Interaction Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="playtot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>ADOS Play Total</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="4"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="playtot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Play Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="imaginetot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Imagination/Creativity Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="imaginetot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Imagination/Creativity Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="sbritot" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADOS Stereotyped Behaviors and Restrictive Interests
+        			Total
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="sbritot_note" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Stereotyped Behaviors and Restrictive Interests Total Notation</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="ScoreForm" minOccurs="0" maxOccurs="1">
+	    <xs:annotation>
+         	<xs:documentation>ADOS Module 4 Form</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="diagnosis" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>Diagnosis</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="adosclas" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>ADOS Classifications AS GIVEN ON THE ADOS</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="overallDiag" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Overall Diagnosis as Given on the ADOS</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="observation" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+           	<xs:documentation>Observation</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="constrTask" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>1. Construction Task Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="tellStory" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>2. Telling a Story From a Book Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="descPicture" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>3. Description of a Picture Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="convsReport" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>4. Conversation and Reporting Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="currWorkSchl" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>5. Current Work or School Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="socDiffAnnoy" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>6. Social Difficulties and Annoyance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="emotions" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>7. Emotions Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demonst" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>8. Demonstration Task Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element> 
+        <xs:element name="cartoons" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>9. Cartoons Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="break" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>10. Break Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="dailyLiv" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>11. Daily Living Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="friendMarrg" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>12. Friends and Marriage Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="loneliness" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>13. Loneliness Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="plansHopes" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>14. Plans and Hopes Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="createStory" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>15. Creating a Story Notes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionA" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>A. Language and Communication</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="nonechoedLang" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Overall Level of Non-Echoed Language
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="7"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="speechAbnorm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Speech Abnormalities Associated with Autism (Intonation/Volume/Rhythm/Rate)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="immedEcholalia" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Immediate Echolalia
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="stIdiosyncWords" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Stereotyped/Idiosyncratic Use of Words or Phrases
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="offInform" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Offers Information
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="askInform" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			6. Asks for Information
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="reportEvents" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			7. Reporting of Events
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="conversation" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			8. Conversation
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="descInformGest" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			9. Descriptive, Conventional, Instrumental, or Informational Gestures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="emphatEmot" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			10. Emphatic or Emotional Gestures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>B. Reciprocal Social Interaction</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="unuslEyeCont" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Unusual Eye Contact
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="facExprOth" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Facial Expressions Directed to Others
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="langProd" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Language Production and Linked Nonverbal Communication
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="shareEnjoy" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Shared Enjoyment in Interaction
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="8"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="commOwnAffct" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Communication of Own Affect
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="empathComm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			6. Empathy/Comments on Others' Emotions
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="insight" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			7. Insight
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="responsbl" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			8. Responsibility
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="qualSocOverture" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			9. Quality of Social Overtures
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="qualSocResp" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			10. Quality of Social Response
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="amtRecipSocComm" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			11. Amount of Reciprocal Social Communication
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="overallQualRapp" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			12. Overall Quality of Rapport
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         		<xs:documentation>C. Imagination</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+        <xs:element name="imagCreativ" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Imagination/Creativity
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionD" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>D. Stereotyped Behaviors and Restricted Interests</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+         <xs:element name="unuslSensInt" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Unusual Sensory Interest in Play Material/Person
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="handFgrComplx" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Hand and Finger and Other Complex Mannerisms
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="selfInjurBehav" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Self-Injurious Behavior
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="excessInterstUnusl" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			4. Excessive Interest in or References to Unusual or Highly Specific Topics or Objects or Repetitive Behaviors
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="3"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="compulRitual" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			5. Compulsions or Rituals
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionE" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+        	<xs:documentation>E. Other Abnormal Behaviors</xs:documentation>
+      	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+         <xs:element name="overactAgit" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			1. Overactivity/Agitation
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="tantrmAgress" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			2. Tantrums, Aggression, Negative or Disruptive Behavior
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+         <xs:element name="anxiety" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			3. Anxiety
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        			<xs:maxInclusive value="2"></xs:maxInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element> 
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+</xs:schema>

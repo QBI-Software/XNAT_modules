@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.nrg.xnat:xnat-data-models:1.7.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nrg.xnat/xnat-data-models/1.7.3-SNAPSHOT/9e70dc3f6e4d44304c3732cc38676c8e81aeb917/xnat-data-models-1.7.3-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nrg.xnat/xnat-data-models/1.7.3-SNAPSHOT/4f5afb0dd1d858454237d811319c67993d2b634/xnat-data-models-1.7.3-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

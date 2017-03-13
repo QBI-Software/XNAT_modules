@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("Edit ADOS Module 2 Summary Scores")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#set($int_note_vals=["-999","N/A","N/R","N/K"])
+#if ($data.message)
+<font color="red" size="3">$data.message</font>
+#end
+<p>
+<form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
+<input type="hidden" name="project" value="$!{project}" >
+#if($vr)
+	<font color="red">Invalid parameters:<BR>$vr.toHTML()</font>
+<HR>
+#end
+
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<DIV class="edit_title">ADOS Module 2 Assessment #if($om.getId()) Modification Form #else Creation Form #end</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+							<TR><TD colspan='2'>
+								#parse("/screens/xnat_edit_subjectAssessorData.vm")
+							</TD></TR>
+							<tr>
+								<TD colspan="2">#parse("/screens/EditProjectSpecificFields.vm")</TD>
+							</tr>
+            				<TR>
+            					<TD width="35%">Assessment Date</TD>
+            					<TD colspan='2'>#xdatDateBox("ados:ados2001Module2Data/date" $item $vr $years)</TD>
+            				</TR>
+                            <TR><TD colspan='3'><BR /></TD></TR>
+            				<TR>
+            					<TH width="35%" align="left">Description</TH>
+            					<TH width="20%" align="left">Value</TH>
+            					<TH align="left">&nbsp;Notation</TH>				
+            				</TR>
+            				<TR>
+            					<TD align="left">Communication Total</TD>
+            					<TD>#xdatTextBox("ados:ados2001Module2Data/commtot" $item "" $vr)</TD>
+            					<TD>#xdatSelectBoxWSingleValue("ados:ados2001Module2Data/commtot_note" $item $int_note_vals $vr)</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Social Interaction Total</TD>
+            					<TD>#xdatTextBox("ados:ados2001Module2Data/scintot" $item "" $vr)</TD>
+            					<TD>#xdatSelectBoxWSingleValue("ados:ados2001Module2Data/scintot_note" $item $int_note_vals $vr)</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Communication + Social Interaction Total</TD>
+            					<TD>#xdatTextBox("ados:ados2001Module2Data/cmsitot" $item "" $vr)</TD>
+            					<TD>#xdatSelectBoxWSingleValue("ados:ados2001Module2Data/cmsitot_note" $item $int_note_vals $vr)</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Play Total</TD>
+            					<TD>#xdatTextBox("ados:ados2001Module2Data/playtot" $item "" $vr)</TD>
+            					<TD>#xdatSelectBoxWSingleValue("ados:ados2001Module2Data/playtot_note" $item $int_note_vals $vr)</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Imagination/Creativity Total</TD>
+            					<TD>#xdatTextBox("ados:ados2001Module2Data/imaginetot" $item "" $vr)</TD>
+            					<TD>#xdatSelectBoxWSingleValue("ados:ados2001Module2Data/imaginetot_note" $item $int_note_vals $vr)</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Stereotyped Behaviors and Restrictive Interests Total</TD>
+            					<TD>#xdatTextBox("ados:ados2001Module2Data/sbritot" $item "" $vr)</TD>
+            					<TD>#xdatSelectBoxWSingleValue("ados:ados2001Module2Data/sbritot_note" $item $int_note_vals $vr)</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Classification (as given on the ADOS)</TD>
+            					<TD>#xdatStringBox("ados:ados2001Module2Data/ScoreForm/diagnosis/adosclas" $item "" $vr)</TD>
+            				</TR>
+						</TABLE>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	
+	<TR>
+		<TD>
+		#xdatEditProps($item $edit_screen)
+		<TR><TD COLSPAN=2 ALIGN=left><input type="button" ONCLICK="validateForm();"  name="eventSubmit_doInsert" value="Submit"/></TD></TR>
+		</TD>
+	</TR>
+</TABLE>
+</form>
+
+<script type="text/javascript">
+function validateForm()
+{
+   //INSERT CUSTOM CONTENT HERE
+
+   validateSubjectAssessorForm();
+   return false;
+}
+</script>

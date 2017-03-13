@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd" schema-element="ados:ados2001Module2Data" full-description="ADOS2001Module2" brief-description="ADOS2001Module2">
+	<Arc name="PARTICIPANT_EXPERIMENT">
+		<CommonField id="PART_ID" local-field="SUBJECT_ID"/>
+		<CommonField id="DATE" local-field="DATE"/>
+		<CommonField id="EXPT_ID" local-field="EXPT_ID"/>
+	</Arc>
+	<DisplayField id="SUBJECT_ID" header="Subject" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.subject_ID"/>
+		<HTML-Link>
+			<Property name="HREF" value="none"/>
+			<Property name="ONCLICK" value="return rpt('@Field1','xnat:subjectData','xnat:subjectData.ID');">
+				<InsertValue id="Field1" field="SUBJECT_ID"/>
+			</Property>
+		</HTML-Link>
+	</DisplayField>
+	<DisplayField id="EXPT_ID" header="ID" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.ID"/>
+		<HTML-Link>
+			<Property name="HREF" value="none"/>
+			<Property name="ONCLICK" value="return rpt('@Field1','ados:ados2001Module2Data','ados:ados2001Module2Data.ID');">
+				<InsertValue id="Field1" field="EXPT_ID"/>
+			</Property>
+		</HTML-Link>
+	</DisplayField>
+	<DisplayField id="RPT" header="ID" visible="true" image="true">
+		<Content type="sql">'/@WEBAPP/images/r.gif'::text</Content>
+		<HTML-Link>
+			<Property name="HREF" value="none"/>
+			<Property name="ONCLICK" value="return rpt('@Field1','ados:ados2001Module2Data','ados:ados2001Module2Data.ID');">
+				<InsertValue id="Field1" field="EXPT_ID"/>
+			</Property>
+		</HTML-Link>
+	</DisplayField>
+	<DisplayField id="DATE" header="Date" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.date"/>
+	</DisplayField>
+	<DisplayField id="AGE" header="Age" visible="true" searchable="true" data-type="integer">
+	<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.date"/>
+	<DisplayFieldElement name="Field2" schema-element="xnat:demographicData.dob"/>
+	<DisplayFieldElement name="Field3" schema-element="xnat:demographicData.yob"/>
+	<Content type="sql">CAST(COALESCE(EXTRACT(YEAR FROM AGE(@Field1, @Field2)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)</Content>
+	</DisplayField>
+	<DisplayField header="Projects" id="PROJECTS" data-type="string">
+		<DisplayFieldElement name="Field1" viewName="ADOS_ADOS2001MODULE2DATA_PROJECTS" viewColumn="PROJECTS"/>
+	</DisplayField>
+	<DisplayField header="Label" id="LABEL" data-type="string">
+	<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.ID"/>
+	<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data.label"/>
+	<Content type="sql">COALESCE(@Field2, @Field1)</Content>
+		<HTML-Link>
+			<SecureLink elementName="ados:ados2001Module2Data">
+				<securityMappingValue displayFieldId="PROJECTS" schemaElementMap="ados:ados2001Module2Data/sharing/share/project"/>
+				<securityMappingValue displayFieldId="PROJECT" schemaElementMap="ados:ados2001Module2Data/project"/>
+			</SecureLink>
+			<Property name="HREF" value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/ados:ados2001Module2Data/search_field/ados:ados2001Module2Data.ID">
+				<InsertValue id="Field1" field="EXPT_ID"/>
+			</Property>
+			<Property name="ONCLICK" value="return rpt('@Field1','ados:ados2001Module2Data','ados:ados2001Module2Data.ID');">
+				<InsertValue id="Field1" field="EXPT_ID"/>
+			</Property>
+			<Property name="TITLE" value="Inserted: @Field1 (@Field2)">
+				<InsertValue id="Field1" field="INSERT_DATE"/>
+				<InsertValue id="Field2" field="INSERT_USER"/>
+			</Property>
+		</HTML-Link>
+	</DisplayField>
+	<DisplayField id="PROJECT" header="Project" visible="true" searchable="true" data-type="string">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.project"/>
+	</DisplayField>
+	<DisplayField id="ADOS_ADOS2001MODULE2DATA_PROJECT_IDENTIFIER" header="ADOS_ADOS2001MODULE2DATA ID" visible="true" searchable="false" data-type="string" xsi:type="SubQueryField">
+		<Content type="sql">ados_ados2001module2data_project_id</Content>
+		<HTML-Link>
+			<SecureLink elementName="ados:ados2001Module2Data">
+				<securityMappingValue displayFieldId="PROJECTS" schemaElementMap="ados:ados2001Module2Data/sharing/share/project"/>
+				<securityMappingValue displayFieldId="PROJECT" schemaElementMap="ados:ados2001Module2Data/project"/>
+			</SecureLink>
+			<Property name="HREF" value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/ados:ados2001Module2Data/search_field/ados:ados2001Module2Data.ID/project/@Field2">
+				<InsertValue id="Field1" field="EXPT_ID"/>
+				<InsertValue id="Field2" field="@WHERE"/>
+			</Property>
+		</HTML-Link>
+		<SubQuery>SELECT DISTINCT COALESCE(label,sharing_share_xnat_experimentda_id) AS ados_ados2001module2data_project_id,sharing_share_xnat_experimentda_id FROM (	SELECT sharing_share_xnat_experimentda_id,label FROM xnat_experimentdata_share WHERE project='@WHERE'	UNION 	SELECT id,label FROM xnat_experimentData WHERE project='@WHERE' )SEARCH</SubQuery>
+		<MappingColumns>
+			<MappingColumn schemaField="ados:ados2001Module2Data.ID" queryField="sharing_share_xnat_experimentda_id"/>
+		</MappingColumns>
+	</DisplayField>
+	<DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.meta.insert_date"/>
+	</DisplayField>
+	<DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data.meta.insert_user.login"/>
+	</DisplayField>
+	<DisplayField id="ADOS_ADOS2001MODULE2DATA_FIELD_MAP" header="Field" visible="true" searchable="false" data-type="string" xsi:type="SubQueryField">
+		<Content type="sql">field</Content>
+		<SubQuery>SELECT DISTINCT ON ( e.ID) e.ID AS expt_id,field FROM xnat_experimentData_field ef JOIN (SELECT ID,extension,element_name FROM xnat_experimentData e JOIN xdat_meta_element xme ON e.extension=xme.xdat_meta_element_id WHERE xme.element_name='ados:ados2001Module2Data') e on ef.fields_field_xnat_experimentdat_id=e.id WHERE name='@WHERE'</SubQuery>
+		<MappingColumns>
+			<MappingColumn schemaField="ados:ados2001Module2Data.ID" queryField="expt_id"/>
+		</MappingColumns>
+	</DisplayField>
+	<DisplayField id="COMMTOT" header="ADOS comm" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/commtot"/>
+		<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data/commtot_note"/>
+		<Content type="sql">CASE WHEN @Field1 IS NULL THEN CASE WHEN @Field2 IS NULL THEN '' ELSE @Field2 END ELSE cast (@Field1 as varchar) END</Content>
+	</DisplayField>
+	<DisplayField id="COMMTOT_NOTE" header="COMMTOT Notation" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/commtot_note"/>
+	</DisplayField>
+	<DisplayField id="SCINTOT" header="ADOS scin" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/scintot"/>
+		<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data/scintot_note"/>
+		<Content type="sql">CASE WHEN @Field1 IS NULL THEN CASE WHEN @Field2 IS NULL THEN '' ELSE @Field2 END ELSE cast (@Field1 as varchar) END</Content>
+	</DisplayField>
+	<DisplayField id="SCINTOT_NOTE" header="SCINTOT Notation" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/scintot_note"/>
+	</DisplayField>
+	<DisplayField id="CMSITOT" header="ADOS cmsi" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/cmsitot"/>
+		<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data/cmsitot_note"/>
+		<Content type="sql">CASE WHEN @Field1 IS NULL THEN CASE WHEN @Field2 IS NULL THEN '' ELSE @Field2 END ELSE cast (@Field1 as varchar) END</Content>
+	</DisplayField>
+	<DisplayField id="CMSITOT_NOTE" header="CMSITOT Notation" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/cmsitot_note"/>
+	</DisplayField>
+	<DisplayField id="PLAYTOT" header="ADOS play" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/playtot"/>
+		<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data/playtot_note"/>
+		<Content type="sql">CASE WHEN @Field1 IS NULL THEN CASE WHEN @Field2 IS NULL THEN '' ELSE @Field2 END ELSE cast (@Field1 as varchar) END</Content>
+	</DisplayField>
+	<DisplayField id="PLAYTOT_NOTE" header="PLAYTOT Notation" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/playtot_note"/>
+	</DisplayField>
+	<DisplayField id="IMAGINETOT" header="ADOS imag" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/imaginetot"/>
+		<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data/imaginetot_note"/>
+		<Content type="sql">CASE WHEN @Field1 IS NULL THEN CASE WHEN @Field2 IS NULL THEN '' ELSE @Field2 END ELSE cast (@Field1 as varchar) END</Content>
+	</DisplayField>
+	<DisplayField id="IMAGINETOT_NOTE" header="IMAGINETOT Notation" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/imaginetot_note"/>
+	</DisplayField>
+	<DisplayField id="SBRITOT" header="ADOS sbri" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/sbritot"/>
+		<DisplayFieldElement name="Field2" schema-element="ados:ados2001Module2Data/sbritot_note"/>
+		<Content type="sql">CASE WHEN @Field1 IS NULL THEN CASE WHEN @Field2 IS NULL THEN '' ELSE @Field2 END ELSE cast (@Field1 as varchar) END</Content>
+	</DisplayField>
+	<DisplayField id="SBRITOT_NOTE" header="SBRITOT Notation" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/sbritot_note"/>
+	</DisplayField>
+	<DisplayField id="SCOREFORM_DIAGNOSIS_ADOSCLAS" header="ADOS Clas" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="ados:ados2001Module2Data/ScoreForm/diagnosis/adosclas"/>
+	</DisplayField>
+	<DisplayVersion versionName="listing" default-order-by="DATE" default-sort-order="DESC" brief-description="ADOS2001Module2" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="RPT"/>
+		<DisplayFieldRef id="LABEL"/>
+		<DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DATE"/>
+		<DisplayFieldRef id="GENDER" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="COMMTOT"/>
+		<DisplayFieldRef id="SCINTOT"/>
+		<DisplayFieldRef id="CMSITOT"/>
+		<DisplayFieldRef id="PLAYTOT"/>
+		<DisplayFieldRef id="IMAGINETOT"/>
+		<DisplayFieldRef id="SBRITOT"/>
+		<DisplayFieldRef id="SCOREFORM_DIAGNOSIS_ADOSCLAS"/>
+	</DisplayVersion>
+	<DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC" brief-description="ADOS2001Module2" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="LABEL"/>
+		<DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DATE"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="COMMTOT"/>
+		<DisplayFieldRef id="SCINTOT"/>
+		<DisplayFieldRef id="CMSITOT"/>
+		<DisplayFieldRef id="PLAYTOT"/>
+		<DisplayFieldRef id="IMAGINETOT"/>
+		<DisplayFieldRef id="SBRITOT"/>
+		<DisplayFieldRef id="SCOREFORM_DIAGNOSIS_ADOSCLAS"/>
+	</DisplayVersion>
+	<DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="ADOS2001Module2" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="EXPT_ID"/>
+		<DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DATE"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="COMMTOT"/>
+		<DisplayFieldRef id="SCINTOT"/>
+		<DisplayFieldRef id="CMSITOT"/>
+		<DisplayFieldRef id="PLAYTOT"/>
+		<DisplayFieldRef id="IMAGINETOT"/>
+		<DisplayFieldRef id="SBRITOT"/>
+		<DisplayFieldRef id="SCOREFORM_DIAGNOSIS_ADOSCLAS"/>
+	</DisplayVersion>
+	<DisplayVersion versionName="detailed" default-order-by="DATE" default-sort-order="DESC" brief-description="ADOS2001Module2" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="COMMTOT"/>
+		<DisplayFieldRef id="SCINTOT"/>
+		<DisplayFieldRef id="CMSITOT"/>
+		<DisplayFieldRef id="PLAYTOT"/>
+		<DisplayFieldRef id="IMAGINETOT"/>
+		<DisplayFieldRef id="SBRITOT"/>
+		<DisplayFieldRef id="SCOREFORM_DIAGNOSIS_ADOSCLAS"/>
+	</DisplayVersion>
+	<DisplayVersion versionName="project_bundle" default-order-by="DATE" default-sort-order="DESC" brief-description="ADOS2001Module2" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="ADOS_ADOS2001MODULE2DATA_PROJECT_IDENTIFIER"/>
+		<DisplayFieldRef id="SUB_PROJECT_IDENTIFIER" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DATE"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="COMMTOT"/>
+		<DisplayFieldRef id="SCINTOT"/>
+		<DisplayFieldRef id="CMSITOT"/>
+		<DisplayFieldRef id="PLAYTOT"/>
+		<DisplayFieldRef id="IMAGINETOT"/>
+		<DisplayFieldRef id="SBRITOT"/>
+		<DisplayFieldRef id="SCOREFORM_DIAGNOSIS_ADOSCLAS"/>
+	</DisplayVersion>
+	<ViewLink alias="ADOS_ADOS2001MODULE2DATA_PROJECTS">
+		<Mapping TableName="ADOS_ADOS2001MODULE2DATA_PROJECTS">
+			<MappingColumn rootElement="ados:ados2001Module2Data" fieldElement="ados:ados2001Module2Data.ID" mapsTo="id"/>
+		</Mapping>
+	</ViewLink>
+	<SQLView name="ADOS_ADOS2001MODULE2DATA_PROJECTS" sql="SELECT id, '&lt;' || expt.project || '&gt;' || xs_a_concat(', ' || shared.project) AS projects FROM xnat_experimentData expt LEFT JOIN xnat_experimentData_share shared ON expt.id=shared.sharing_share_xnat_experimentda_id LEFT JOIN xdat_meta_element xme ON expt.extension = xme.xdat_meta_element_id WHERE element_name='ados:ados2001Module2Data' GROUP BY expt.id,expt.project"/>
+</Displays>

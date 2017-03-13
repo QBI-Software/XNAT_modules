@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("SRS Total Scores")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+	#set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+	#set ($popup = "false")
+#end
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<DIV class="edit_title">SRS Assessment</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+							<TR><TD>Total Raw Score</TD><TD>$!item.getIntegerProperty("srs:srsVer2Data/total_raw")</TD></TR>
+							<TR><TD>Total T-Score</TD><TD>$!item.getIntegerProperty("srs:srsVer2Data/total_t")</TD></TR>
+							<TR><TD>Notation</TD><TD>$!item.getStringProperty("srs:srsVer2Data/total_note")</TD></TR>
+							<TR><TD>Test Type</TD><TD>$!item.getStringProperty("srs:srsVer2Data/testType")</TD></TR>
+						</TABLE>
+					</TD>
+					<TD valign="top" align="right">
+						#elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE><BR>#parse("/screens/ReportProjectSpecificFields.vm")

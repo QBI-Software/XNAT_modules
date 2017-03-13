@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.ldap:spring-ldap-core:2.0.4.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.0.4.RELEASE/f84822af651415f8ba263fa6c5c8cdd8989b53bb/spring-ldap-core-2.0.4.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.0.4.RELEASE/aa6c4d0cdb8b9d51f5e574268b34b33e502bf4e1/spring-ldap-core-2.0.4.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

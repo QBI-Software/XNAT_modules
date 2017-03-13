@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("Edit SRS Total Scores")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#set($test_types=["adult","child"])
+#set($int_note_vals=["-999","N/A","N/R","N/K"])
+
+#if ($data.message)
+<font color="red" size="3">$data.message</font>
+#end
+<p>
+<form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
+<input type="hidden" name="project" value="$!{project}" >
+#if($vr)
+	<font color="red">Invalid parameters:<BR>$vr.toHTML()</font>
+<HR>
+#end
+
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<DIV class="edit_title">SRS Assessment #if($om.getId()) Modification Form #else Creation Form #end</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+							<TR><TD colspan='2'>
+								#parse("/screens/xnat_edit_subjectAssessorData.vm")
+							</TD></TR>
+							<tr>
+								<TD colspan="2">#parse("/screens/EditProjectSpecificFields.vm")</TD>
+							</tr>
+            				<TR>
+            					<TD width="35%">Assessment Date</TD>
+            					<TD>#xdatDateBox("srs:srsVer2Data/date" $item $vr $years)</TD>
+            				</TR>
+							<TR>
+								<TD width="35%">Total Raw Score</TD>
+								<TD>#xdatTextBox("srs:srsVer2Data/total_raw" $item "" $vr)</TD>
+							</TR>
+							<TR>
+								<TD width="35%">Total T-Score</TD>
+								<TD>#xdatTextBox("srs:srsVer2Data/total_t" $item "" $vr)</TD>
+							</TR>
+							<TR>
+								<TD width="35%">Notation</TD>
+								<TD>#xdatSelectBoxWSingleValue("srs:srsVer2Data/total_note" $item $int_note_vals $vr)</TD>
+							</TR>
+							<TR>
+								<TD width="35%">Test Type</TD>
+								<TD>#xdatSelectBoxWSingleValue("srs:srsVer2Data/testType" $item $test_types $vr)</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		#xdatEditProps($item $edit_screen)
+		<TR><TD COLSPAN=2 ALIGN=left><input type="button" ONCLICK="validateForm();"  name="eventSubmit_doInsert" value="Submit"/></TD></TR>
+		</TD>
+	</TR>
+</TABLE>
+</form>
+
+<script type="text/javascript">
+function validateForm()
+{
+   //INSERT CUSTOM CONTENT HERE
+
+   validateSubjectAssessorForm();
+   return false;
+}
+</script>

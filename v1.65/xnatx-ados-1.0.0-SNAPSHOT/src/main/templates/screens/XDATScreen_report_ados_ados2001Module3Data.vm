@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("ADOS Module 3 Summary Scores")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+	#set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+	#set ($popup = "false")
+#end
+
+#macro(selectNotNull $value $note)
+	#if($value) 
+		$value
+	#else
+		$!note
+	#end
+#end
+
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<DIV class="edit_title">ADOS Module 3 Assessment</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+            				<TR>
+            					<TH align="left">Description</TH>
+            					<TH align="left">Value</TH>				
+            				</TR>
+            				<TR>
+            					<TD align="left">Communication Total</TD>
+            					<TD>#selectNotNull($!item.getIntegerProperty("ados:ados2001Module3Data/commtot") $!item.getStringProperty("ados:ados2001Module3Data/commtot_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Social Interaction Total</TD>
+            					<TD>#selectNotNull($!item.getIntegerProperty("ados:ados2001Module3Data/scintot") $!item.getStringProperty("ados:ados2001Module3Data/scintot_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Communication + Social Interaction Total</TD>
+            					<TD>#selectNotNull($!item.getIntegerProperty("ados:ados2001Module3Data/cmsitot") $!item.getStringProperty("ados:ados2001Module3Data/cmsitot_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Play Total</TD>
+            					<TD>#selectNotNull($!item.getIntegerProperty("ados:ados2001Module3Data/playtot") $!item.getStringProperty("ados:ados2001Module3Data/playtot_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Imagination/Creativity Total</TD>
+            					<TD>#selectNotNull($!item.getIntegerProperty("ados:ados2001Module3Data/imaginetot") $!item.getStringProperty("ados:ados2001Module3Data/imaginetot_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Stereotyped Behaviors and Restrictive Interests Total</TD>
+            					<TD>#selectNotNull($!item.getIntegerProperty("ados:ados2001Module3Data/sbritot") $!item.getStringProperty("ados:ados2001Module3Data/sbritot_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD align="left">Classification (as given on the ADOS)</TD>
+            					<TD>$!item.getStringProperty("ados:ados2001Module3Data/ScoreForm/diagnosis/adosclas")</TD>
+            				</TR>							
+						</TABLE>
+					</TD>
+					<TD valign="top" align="right">
+						#elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE><BR>#parse("/screens/ReportProjectSpecificFields.vm")

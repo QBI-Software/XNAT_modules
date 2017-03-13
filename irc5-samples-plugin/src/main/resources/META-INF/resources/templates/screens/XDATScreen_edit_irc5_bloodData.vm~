@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+$page.setTitle("QBI Blood Sample Creation Form")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+<script type="text/javascript">
+window.currentID="$!om.getId()";
+    #if($om.getProject())
+     #if($om.getProject().equals(""))
+window.currentProject="$!project";
+     #else
+window.currentProject="$!om.getProject()";
+     #end
+    #else
+window.currentProject="$!project";
+    #end
+
+window.currentSubject="$!om.getSubjectId()";
+window.currentLabel="$!om.getLabel()";
+</script>
+
+#if ($data.message)
+<div class="error">$data.message</div>
+#end
+<div id="irc5BloodSampleEdit" class="table-responsive">
+<form id="irc5BloodSampleForm" name="irc5BloodSampleForm" method="post" action="$link.setAction('ModifySubjectAssessorData')">
+<input type="hidden" name="project" value="$!{project}" >
+<input type="hidden" name="part_id" value="$!{subjectId}">
+#if($vr)
+	<span style="color: red; ">Invalid parameters:<br>$vr.toHTML()</span>
+<hr>
+#end
+
+<table class="table table-condensed">
+	<tr>
+		<td colspan="3" align="left" valign="middle">
+			<div class="edit_title">QBI Blood Sample #if($om.getId()) Modification Form #else Creation Form #end</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td valign="top">
+						<table class="formfieldstable">
+							<tr><td colspan="2">
+								#parse("/screens/xnat_edit_subjectAssessorData.vm")
+							</td></tr>
+							<tr>
+								<td colspan="2">#parse("/screens/EditProjectSpecificFields.vm")</td>
+							</tr>
+            				<tr>
+            					<th>Description</th>
+            					<th>Value</th>				
+            				</tr>
+            				<tr><td colspan="2"><hr/></td></tr>
+            				<tr>
+            					<th>#formLabel("date")</th>
+            					<td>#xdatDateBox("irc5:bloodData/date" $item $vr $years)</td>
+                            </tr>       
+            				<tr>
+            					<th>#formLabel("date_analysed")</th>
+            					<td>#xdatDateBox("irc5:bloodData/date_analysed" $item  $vr $years)</td>
+            				</tr>
+            				<tr>
+            					<th>#formLabel("summary")</th>
+            					<td>#xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")</td>
+            				</tr>
+            				<tr>
+            					<th>#formLabel("comments")</th>
+            					<td>#xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")</td>
+            				</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		#xdatEditProps($item $edit_screen)
+
+		<input type="button" onclick="validateForm();"  name="eventSubmit_doInsert" value="Submit"/>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+
+<script type="text/javascript">
+function validateForm()
+{
+   //INSERT CUSTOM CONTENT HERE
+
+   //validateSubjectAssessorForm();
+   return false;
+}
+</script>

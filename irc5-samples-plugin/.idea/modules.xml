@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/irc5-samples-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/irc5-samples-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/irc5-samples-plugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/irc5-samples-plugin_main.iml" group="irc5-samples-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/irc5-samples-plugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/irc5-samples-plugin_test.iml" group="irc5-samples-plugin" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+$page.setTitle("ADI-R Summary Scores")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+	#set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+	#set ($popup = "false")
+#end
+
+#macro(selectNotNull $value $note)
+	#if($value) 
+		$value
+	#else
+		$!note
+	#end
+#end
+
+<TABLE width="100%">
+	<TR>
+		<TD>
+			<table width="100%">
+				<TR>
+					<TD align="left" valign="middle">
+						<DIV class="edit_title">ADI-R Assessment</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE width="100%">
+				<TR>
+					<TD valign="top">
+						<TABLE>
+            				<TR>
+            					<TH width="50%" align="left">Description</TH>
+            					<TH width="20%" align="left">Value</TH>				
+            				</TR>
+                            <TR><TD colspan='3'><BR /></TD></TR>
+            				<TR>
+            					<TH width="50%" align="left">A Total</TH>
+            					<TD width="20%">#selectNotNull($!item.getIntegerProperty("adir:adir2007Data/a_total") $!item.getStringProperty("adir:adir2007Data/a_total_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>Qualitative Abnormalities in Reciprocal Social Interaction Total (Cutoff=10)</TD>             
+            				</TR>		
+            				<TR>
+            					<TH width="50%" align="left">B (Verbal) Total</TH>
+            					<TD width="20%">#selectNotNull($!item.getIntegerProperty("adir:adir2007Data/b_v_total") $!item.getStringProperty("adir:adir2007Data/b_v_total_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>Qualitative Abnormalities in Communication (Cutoff=8)</TD>             
+            				</TR>
+            				<TR>
+            					<TH width="50%" align="left">B (Non-Verbal) Total</TH>
+            					<TD width="20%">#selectNotNull($!item.getIntegerProperty("adir:adir2007Data/b_nv_total") $!item.getStringProperty("adir:adir2007Data/b_nv_total_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>Qualitative Abnormalities in Communication (Cutoff=7)</TD>             
+            				</TR>	
+            				<TR>
+            					<TH width="50%" align="left">C Total </TH>
+            					<TD width="20%">#selectNotNull($!item.getIntegerProperty("adir:adir2007Data/c_total") $!item.getStringProperty("adir:adir2007Data/c_total_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>Restricted, Repetitive, and Stereotyped Patterns in Behavior (Cutoff=3)</TD>             
+            				</TR>
+            				<TR>
+            					<TH width="50%" align="left">D Total</TH>
+            					<TD width="20%">#selectNotNull($!item.getIntegerProperty("adir:adir2007Data/d_total") $!item.getStringProperty("adir:adir2007Data/d_total_note"))</TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>Abnormality of Development Evident at or Before 36 Months (Cutoff=1)</TD>             
+            				</TR>
+            				<TR>
+            					<TH width="50%" align="left">Diagnosis</TH>
+            					<TD width="20%">$!item.getStringProperty("adir:adir2007Data/adi_r_dx")</TD>
+            					<TD></TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>According to the ADI-R</TD>             
+            				</TR>
+            				<TR>
+            					<TH width="50%" align="left">Affected Status Classification of the Diagnosis</TH>
+            					<TD width="20%">$!item.getStringProperty("adir:adir2007Data/adi_r_cl")</TD>
+            					<TD></TD>
+            				</TR>
+            				<TR>
+            					<TD colspan='1'>According to ADI-R (source was AGRE)</TD>             
+            				</TR>
+						</TABLE>
+					</TD>
+					<TD valign="top" align="right">
+						#elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE><BR>#parse("/screens/ReportProjectSpecificFields.vm")

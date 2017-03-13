@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework:spring-jms:4.2.9.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jms/4.2.9.RELEASE/bd8479b22cbb58cc1d3049058daa2370a5fd185b/spring-jms-4.2.9.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jms/4.2.9.RELEASE/e577873e147097b7dbee7fd308535c8eec5e9a9f/spring-jms-4.2.9.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

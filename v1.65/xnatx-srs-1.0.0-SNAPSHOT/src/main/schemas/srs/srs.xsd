@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Eclipse Build id: 20090619-0625 (http://eclipse.org/) by Jenny Gurney (Washington University) 09/28/2009-->
+<xs:schema targetNamespace="http://nrg.wustl.edu/srs" xmlns:srs="http://nrg.wustl.edu/srs" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+<xs:element name="SRSVer2" type="srs:srsVer2Data"/>
+<xs:complexType name="srsVer2Data">
+  <xs:complexContent>
+    <xs:extension base="xnat:subjectAssessorData">
+      <xs:sequence>
+         <xs:element name="total_raw" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>SRS Total Raw Score</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+          	<xs:restriction base="xs:integer">
+          		<!-- Update scores to bound correctly -->
+          		<xs:minInclusive value="0" />
+          		<xs:maxInclusive value="195" />
+          	</xs:restriction>
+          </xs:simpleType>
+         </xs:element>    
+        <xs:element name="total_t" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>SRS Total T-score</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+		    <xs:restriction base="xs:integer">
+		      <xs:minInclusive value="0"/>
+		      <xs:maxInclusive value="100"/>
+		    </xs:restriction>
+		  </xs:simpleType>
+        </xs:element> 
+        <xs:element name="total_note" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			SRS Total Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="testType" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>Adult or Child SRS</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:string">
+        			<xs:enumeration value="child"></xs:enumeration>
+        			<xs:enumeration value="adult"></xs:enumeration>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="ScoreForm" minOccurs="0" maxOccurs="1">
+		<xs:annotation>
+         	<xs:documentation>Social Responsiveness Scale Form</xs:documentation>
+       	</xs:annotation>
+        <xs:complexType>
+		<xs:sequence>
+       	  <xs:element name="filledOutByRelat" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>This form filled out by (relationship to patient):</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+		<xs:element name="sectionA" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+      	 <xs:element name="question1" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Seems much more uncomfortable in social
+      	 			situations than when alone
+      	 			Child: Seems much more fidgety in social situations than when alone
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>    	 	
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question2" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Expressions on his/her face don't match the
+      	 			meaning of what he/she is saying
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question3" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Seems self-confident when interacting with others
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question4" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			When under stress, seems to go on "auto-pilot"
+      	 			(for example, shows rigid or inflexible patterns
+      	 			of behavior which seem odd)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question5" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Doesn't recognize when others are trying to take
+      	 			advantage of him/her
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question6" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Would rather be alone than with others
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question7" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Seems aware of what others are thinking or
+      	 			feeling
+      	 			Child: Is aware of what others are thinking or feeling
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question8" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Behaves in ways that seem strange or bizarre
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question9" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Seems too dependent on others for help with
+      	 			meeting basic needs
+      	 			Child: Clings to adults, seems too dependent on them
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question10" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Takes things too literally and doesn't "get" the
+      	 			real meaning of a conversation
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question11" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has good self-confidence
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question12" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Is able to communicate his or her feelings to
+      	 			others
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 </xs:sequence>
+      	 </xs:complexType>
+      	 </xs:element>
+		<xs:element name="sectionB" minOccurs="0" maxOccurs="1">
+		<xs:complexType >
+		<xs:sequence>
+      	 <xs:element name="question13" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Is awkward in turn-taking interactions with
+      	 			others (for example, doesn't seem to understand
+      	 			the give and take of conversations)
+      	 			Child: Is awkward in turn-taking with peers (for example, doesn't seem to understand
+      	 			the give and take of conversations)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question14" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Is not well coordinated in physical activities
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question15" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Perceives and appropriately responds to changes
+      	 			in other people's tone of voice and facial
+      	 			expressions
+      	 			Child: Is able to understand the meaning of other people's tone of voice and facial expressions.
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question16" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Avoids eye contact, or has unusual eye contact
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question17" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Recognizes when something is unfair
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question18" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has difficulty making friends, even when trying
+      	 			his/her best
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question19" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Has difficulty getting ideas across in
+      	 			conversations
+      	 			Child: Gets frustrated trying to get ideas across in conversations
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question20" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Shows unusual sensory interests (such as smelling
+      	 			his/her fingers frequently) or strange repetitive
+      	 			ways of handling or manipulating small items
+      	 			within reach
+      	 			Child: Shows unusual sensory interests (such as mouthing or spinning objects) or strange ways of playing with toys
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 </xs:sequence>
+      	 </xs:complexType>
+      	 </xs:element>
+		<xs:element name="sectionC" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+      	 <xs:element name="question21" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Is able to imitate others' actions and demeanor
+      	 			when being prompted to do so for the sake of
+      	 			social appropriateness
+      	 			Child: Is able to imitate others' actions
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question22" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Interacts appropriately with other adults
+      	 			Child: Plays appropriately with children his/her age
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question23" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Does not join group activities or social events
+      	 			unless forced to do so
+      	 			Child: Does not join group activities unless told to do so
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question24" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Has more difficulty than others with changes in
+      	 			his/her routine
+      	 			Child: Has more difficulty than other children with changes in his/her routine
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question25" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Doesn't seem to mind being "out of step" or not
+      	 			on the "same wavelength" with others
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question26" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Offers comfort to others when they are sad
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question27" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Avoids starting social interactions (keeps to
+      	 			him/her self)
+      	 			Child: Avoids starting social interactions with peers or adults
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question28" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Thinks or talks about the same thing over and
+      	 			over
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question29" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Is regarded by others as odd or weird
+      	 			Child: Is regarded by other children as odd or weird
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question30" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Becomes upset in a situation with lots of things
+      	 			going on
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 </xs:sequence>
+      	 </xs:complexType>
+      	 </xs:element>
+		<xs:element name="sectionD" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+      	 <xs:element name="question31" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Can't get his/her mind off something once he/she
+      	 			starts thinking about it
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question32" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has good personal hygiene
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question33" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Is socially awkward, even when he/she is trying
+      	 			to be polite
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question34" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Avoids people who want to be emotionally close to
+      	 			him/her
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question35" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has trouble keeping up with the flow of a normal
+      	 			conversation
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question36" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Has difficulty "relating" to family members
+      	 			Child: Has difficulty "relating" to adults
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question37" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Has difficult "relating" to other adults
+      	 			Child: Has difficulty "relating" to peers
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question38" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Responds appropriately to mood changes in others
+      	 			(for example, when a friend's mood changes from
+      	 			happy to sad)
+      	 			Child: Responds appropriately to mood changes in others
+      	 			(for example, when a friend's or playmate's mood changes from
+      	 			happy to sad)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question39" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has a restricted (or unusually narrow) range of
+      	 			interests
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 </xs:sequence>
+      	 </xs:complexType>
+      	 </xs:element>
+		<xs:element name="sectionE" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+      	 <xs:element name="question40" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Is imaginative, (without losing touch with
+      	 			reality)
+      	 			Child: Is imaginative, good at pretending (without losing touch with reality)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question41" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Wanders unpredicatably from one activity to
+      	 			another
+      	 			Child: Wanders aimlessly from one activity to
+      	 			another
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question42" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Seems overly sensitive to sounds, textures, or
+      	 			smells
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question43" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Enjoys and is competent with "small talk" (casual
+      	 			conversation with others)
+      	 			Child: Separates easily from caregivers
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question44" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Doesn't understand how events are related to one
+      	 			another the way other people his/her age do (e.g.
+      	 			has problems with understanding cause and effect)
+      	 			Child: Doesn't understand how events are related to one
+      	 			another the way other children his/her age do (e.g.
+      	 			has problems with understanding cause and effect)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question45" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Generally gets interested in what others around
+      	 			him/her are interested in
+      	 			Child: Focuses his/her attention to where others are looking or listening
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question46" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Has an overly serious facial expression
+      	 			Child: Has overly serious facial expressions
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question47" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Laughs inappropriately
+      	 			Child: Is too silly or laughs inappropriately
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question48" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has a sense of humor, understands jokes
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question49" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Does extremely well at a few intellectual or
+      	 			computational tasks, but does not do as well at
+      	 			most other tasks
+      	 			Child: Does extremely well at a few tasks, but does not do as well at
+      	 			most other tasks
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 </xs:sequence>
+      	 </xs:complexType>
+      	 </xs:element>
+		<xs:element name="sectionF" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+      	 <xs:element name="question50" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Has repetitive odd behaviors
+      	 			Child: Has repetitive, odd behaviors such as hand flapping or rocking
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question51" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Has difficulty answering questions directly and
+      	 			ends up talking around the subject
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question52" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Knows when he/she is talking too loud or making
+      	 			too much noise
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question53" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Talks to people with an unusual tone of voice
+      	 			(for example, talks like a robot or like he/she
+      	 			is giving a lecture)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question54" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			A: Seems to treat or react to people as if they are
+      	 			objects
+      	 			C: Seems to react to people as if they are objects
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question55" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Knows when he/she is too close to someone or is
+      	 			invading someone's space
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question56" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Walks in between two people who are talking
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question57" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Isolative; tends not to leave his/her home
+      	 			Child: Gets teased a lot
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question58" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Concentrates too much on parts of things rather
+      	 			than "seeing the whole picture"
+      	 			Child: Concentrates too much on parts of things rather
+      	 			than "seeing the whole picture" (for example, if asked to describe what happened in a story, child may talk only about the kind of clothes the characters were wearing)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question59" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Is overly suspicious
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 </xs:sequence>
+      	 </xs:complexType>
+      	 </xs:element>
+		<xs:element name="sectionG" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+      	 <xs:element name="question60" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Is emotionally distant, doesn't show his/her
+      	 			emotions
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question61" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Is inflexible, rarely changes his/her mind
+      	 			Child: Is inflexible, has a hard time changing his/her mind
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question62" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Gives unusual or illogical reasons for doing
+      	 			things
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question63" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Adult: Touches or greets others in an unusual way
+      	 			Child: Touches others in an unusual way (for example, child may touch someone just to make contact and then walk away without saying anything)
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question64" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Is too tense in social settings
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	 <xs:element name="question65" minOccurs="0" maxOccurs="1">
+      	 	<xs:annotation>
+      	 		<xs:documentation>
+      	 			Stares or gazes off into space
+      	 		</xs:documentation>
+      	 	</xs:annotation>
+      	 	<xs:simpleType>
+      	 		<xs:restriction base="xs:integer">
+      	 			<xs:minInclusive value="0"></xs:minInclusive>
+      	 			<xs:maxInclusive value="3"></xs:maxInclusive>
+      	 		</xs:restriction>
+      	 	</xs:simpleType>
+      	 </xs:element>
+      	</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+     	</xs:sequence>
+     	</xs:complexType>
+     	</xs:element>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+</xs:schema>

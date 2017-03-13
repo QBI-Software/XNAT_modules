@@ -1,0 +1,1836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Eclipse Build id: 20090619-0625 (http://eclipse.org/) by Jenny Gurney (Washington University) 09/28/2009-->
+<xs:schema targetNamespace="http://nrg.wustl.edu/adir" xmlns:adir="http://nrg.wustl.edu/adir" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+<xs:element name="ADIR2007" type="adir:adir2007Data"/>
+<xs:complexType name="adir2007Data">
+  <xs:complexContent>
+    <xs:extension base="xnat:subjectAssessorData">
+      <xs:sequence> 
+        <xs:element name="adirVer" type="xs:string" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			ADI-R Version (for this document should always be the ADI-R 2007 version)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="a_total" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			A Total: Qualitative Abnormalities in Reciprocal
+        			Social Interaction Total (Cutoff = 10)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="30"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="a_total_note" type="xs:string" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			A Total Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="b_v_total" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			B (Verbal) Total: Qualitative Abnormalities in
+        			Communication (Cutoff = 8)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:minExclusive value="0"></xs:minExclusive>
+        			<xs:maxExclusive value="26"></xs:maxExclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="b_v_total_note" type="xs:string" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			B (Verbal) Total Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="b_nv_total" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			B (Non-Verbal) Total: Qualitative Abnormalities in
+        			Communication (Cutoff = 7)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="14"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="b_nv_total_note" type="xs:string" minOccurs="0"
+        	maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			B (Non-Verbal) Total Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="c_total" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			C Total: Restricted, Repetitive, and Stereotyped
+        			Patterns in Behavior (Cutoff = 3)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="12"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="c_total_note" type="xs:string" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			C Total Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="d_total" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			D Total: Abnormality of Development Evident at or
+        			Before 36 Months (Cutoff = 1)
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:integer">
+        			<xs:maxInclusive value="5"></xs:maxInclusive>
+        			<xs:minInclusive value="0"></xs:minInclusive>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="d_total_note" type="xs:string" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			D Total Notation If Total Not Available (e.g. -999, N/A, N/R, N/K)
+        		</xs:documentation>
+        	</xs:annotation>
+        </xs:element>
+        <xs:element name="adi_r_dx" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Diagnosis according to the ADI-R</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="adi_r_cl" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Affected status Classification of the d/x according to ADI-R (source was AGRE)</xs:documentation>
+          </xs:annotation>
+        </xs:element>      
+       <xs:element name="ScoreForm" minOccurs="0" maxOccurs="1">
+       <xs:annotation>
+       		<xs:documentation>Austism Diagnostic Interview-Revised Form</xs:documentation>
+       	</xs:annotation>
+       <xs:complexType>
+		<xs:sequence>	             
+        <xs:element name="respRltnSubj" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Respondent Relation to Subject</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="algUsed" minOccurs="0">
+        	<xs:annotation>
+        		<xs:documentation>
+        			Algorithm Used
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType>
+        		<xs:restriction base="xs:string">
+        			<xs:enumeration value="behav2"></xs:enumeration>
+        			<xs:enumeration value="behav4"></xs:enumeration>
+        			<xs:enumeration value="behav10"></xs:enumeration>
+        			<xs:enumeration value="diag2"></xs:enumeration>
+        			<xs:enumeration value="diag4"></xs:enumeration>
+        		</xs:restriction>
+        	</xs:simpleType>
+        </xs:element>
+        <xs:element name="sectionA1" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+           	<xs:documentation>A1: Failure to use nonverbal behaviors to regulate social interaction</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+				<xs:sequence>               
+	          	<xs:element name="dirGaze" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			50 Direct Gaze			
+	        		</xs:documentation>
+		        </xs:annotation>
+        		<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			 Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+	       	  		<xs:simpleType>
+			    		<xs:restriction base="xs:integer">
+			    			<xs:minInclusive value="0"></xs:minInclusive>
+			    			<xs:maxInclusive value="9"></xs:maxInclusive>
+			    		</xs:restriction>
+			   		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="socSmile" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			51 Social Smiling			
+	        		</xs:documentation>
+		        </xs:annotation>
+        		<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			 Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="facExpr" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			57 Range of Facial Expressions Used to Communicate			
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			 Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+  		<xs:element name="sectionA2" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>A2: Failure to develop peer relationships</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="imagPlay" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			49 Imaginative Play with Peers			
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>	
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			 Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="intChild" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			62 Interest in Children			
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>	
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			 Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="respAppr" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			63 Response to Approaches of Other Children		
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>	
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="grpPlay" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			64 Group Play with Peers		
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>	
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="friendships" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			65 Friendships		
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>	
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+        </xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionA3" minOccurs="0" maxOccurs="1">	
+		<xs:annotation>
+          	<xs:documentation>A3: Lack of shared enjoyment</xs:documentation>
+        </xs:annotation>
+		<xs:complexType>
+				<xs:sequence>   	
+	          	<xs:element name="showAttn" minOccurs="0" maxOccurs="1">
+        		<xs:annotation>
+	        		<xs:documentation>     
+	        			52 Showing and Directing Attention		
+	        		</xs:documentation>
+		        </xs:annotation>
+		        <xs:complexType>
+		        <xs:sequence>	
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="offShare" minOccurs="0" maxOccurs="1">	
+		<xs:annotation>
+	           <xs:documentation>53 Offering to Share </xs:documentation>
+	    </xs:annotation>
+		<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			53 Offering to Share Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="shareEnjoy" minOccurs="0" maxOccurs="1">	
+		<xs:annotation>
+	           <xs:documentation>
+	           54 Seeking to Share Enjoyment with Others 
+	           </xs:documentation>
+	    </xs:annotation>
+		<xs:complexType>
+		<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">	
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+				</xs:element>
+			</xs:sequence>		   
+			</xs:complexType>		
+			</xs:element>
+		</xs:sequence>		   
+		</xs:complexType>		
+		</xs:element>
+		<xs:element name="sectionA4" minOccurs="0" maxOccurs="1">
+		<xs:annotation>
+           	<xs:documentation>A4: Lack of socioemotional reciprocity</xs:documentation>
+        </xs:annotation>
+		<xs:complexType>
+			  <xs:sequence>
+	          <xs:element name="othBodyComm" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           31 Use of Others Body to Communicate 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="offComf" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           55 Offering Comfort 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+					<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="qualSocOvert" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           56 Quality of Social Overtures 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			 Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="inapFacExpr" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			          58 Inappropriate Facial Expressions  
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="apprSocResp" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           59 Appropriateness of Social Responses
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		      </xs:sequence>
+		      </xs:complexType>
+		      </xs:element>  
+		</xs:sequence>   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB1" minOccurs="0" maxOccurs="1">
+		<xs:annotation>
+           	<xs:documentation>B1: Lack of, or delay in, spoken language and failure to compensate through gesture</xs:documentation>
+        </xs:annotation>
+		<xs:complexType>
+				<xs:sequence>
+	          	<xs:element name="pointExprInt" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           42 Pointing to Express Interest  
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="nodding" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           43 Nodding
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="headShak" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           44 Head Shaking
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="convInstrGest" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           45 Conventional/Instrumental Gestures 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>	
+		    </xs:sequence>
+		    </xs:complexType>
+		    </xs:element>
+		</xs:sequence>   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>B4: Lack of varied spontaneous make-believe or social imitative play</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+		        <xs:element name="spontImit" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           47 Spontaneous Imitation of Actions 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="imagPlay" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           48 Imaginative Play 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="imitPlay" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           61 Imitative Social Play 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		    </xs:sequence>
+		    </xs:complexType>
+		    </xs:element>    
+		</xs:sequence>		   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB2" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>B2(V): Relative failure to initiate or sustain conversational interchange</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+	          	<xs:element name="socVerb" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           34 Social Verbalization/Chat 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="recipConv" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           35 Reciprocal Conversation
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		    </xs:sequence>
+		    </xs:complexType>
+		    </xs:element>	        
+		</xs:sequence>		   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionB3" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>B3(V): Stereotyped, repetitive, or idiosyncratic speech</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+	          	<xs:element name="stereoUtter" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           33 Stereotyped Utterances and Delayed Echolalia 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="inapprQuest" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           36 Inappropriate Questions or Statements 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+					<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="pronomRevers" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           37 Pronominal Reversal
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="neologIdio" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           38 Neologisms/Idiosyncratic Language
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		    </xs:sequence>
+		    </xs:complexType>
+		    </xs:element>        
+		</xs:sequence>	   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC1" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>C1: Encompassing preoccupation or circumscribed pattern of interest</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+	          	<xs:element name="unusPreocup" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           67 Unusual Preocupations 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="circumInts" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           68 Circumscribed Interests 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+					<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		      </xs:sequence>
+		      </xs:complexType>
+		      </xs:element>      
+		</xs:sequence>	   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC2" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>C2: Apparently compulsive adherence to nonfunctional routines or rituals</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+	          	<xs:element name="verbRits" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           39 Verbal Rituals 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="compulRits" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           70 Compulsions/Rituals 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		     </xs:sequence>
+		     </xs:complexType>
+		     </xs:element>	     
+		</xs:sequence>	   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC3" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>C3: Stereotyped and repetitive motor mannerisms</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+	          	<xs:element name="handFingManns" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           77 Hand and Finger Mannerisms 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="othComplxManns" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           78 Other Complex Mannerisms or Stereotyped Body Movements 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		    </xs:sequence>
+		    </xs:complexType>
+		    </xs:element>	        
+		</xs:sequence>	   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionC4" minOccurs="0" maxOccurs="1">	
+        <xs:annotation>
+         	<xs:documentation>C4: Preoccupation with parts of objects or nonfunctional elements of material</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>
+	          	<xs:element name="repetUseObjs" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           69 Repetitive Use of Objects or Interest in Parts of Objects  
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+	          	<xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>	
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="unusSensInts" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           56 Quality of Social Overtures 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+					<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="9"></xs:maxInclusive>
+			       		</xs:restriction>
+		       		</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="2"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		   </xs:sequence>
+		   </xs:complexType>
+		   </xs:element>	   
+		</xs:sequence>		   
+		</xs:complexType>
+		</xs:element>
+		<xs:element name="sectionD" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+         	<xs:documentation>D: Abnormality of Development Evident at or Before 36 Months</xs:documentation>
+       	</xs:annotation>
+		<xs:complexType>
+				<xs:sequence>	
+	          	<xs:element name="ageFirstNot" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           2 Age Parents First Noticed 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>        
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="200"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+			       	<xs:simpleType>
+			      		<xs:restriction base="xs:integer">
+			      			<xs:minInclusive value="0"></xs:minInclusive>
+			      			<xs:maxInclusive value="1"></xs:maxInclusive>
+			      		</xs:restriction>
+			      	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="ageFirstWord" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           9 Age of First Single Words
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="200"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			      		<xs:restriction base="xs:integer">
+			      			<xs:minInclusive value="0"></xs:minInclusive>
+			      			<xs:maxInclusive value="1"></xs:maxInclusive>
+			      		</xs:restriction>
+			      	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="ageFirstPhrase" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           10 Age of First Phrases 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="200"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			      		<xs:restriction base="xs:integer">
+			      			<xs:minInclusive value="0"></xs:minInclusive>
+			      			<xs:maxInclusive value="1"></xs:maxInclusive>
+			      		</xs:restriction>
+			      	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="ageFirstEvdnt" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           86 Age When Abnormality First Evident
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="200"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			      		<xs:restriction base="xs:integer">
+			      			<xs:minInclusive value="0"></xs:minInclusive>
+			      			<xs:maxInclusive value="1"></xs:maxInclusive>
+			      		</xs:restriction>
+			      	</xs:simpleType>
+		        </xs:element>
+		        </xs:sequence>
+		        </xs:complexType>
+		        </xs:element>
+		        <xs:element name="ageFirstManifst" minOccurs="0" maxOccurs="1">	
+				<xs:annotation>
+			           <xs:documentation>
+			           87 Interviewers Judgement on Age When Abnormalities First Manifest 
+			           </xs:documentation>
+			    </xs:annotation>
+				<xs:complexType>
+				<xs:sequence>
+		        <xs:element name="code" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Item Code			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			       		<xs:restriction base="xs:integer">
+			       			<xs:minInclusive value="0"></xs:minInclusive>
+			       			<xs:maxInclusive value="200"></xs:maxInclusive>
+			       		</xs:restriction>
+			       	</xs:simpleType>
+		        </xs:element>
+		        <xs:element name="score" minOccurs="0" maxOccurs="1">
+		        	<xs:annotation>
+		        		<xs:documentation>     
+		        			Diagnostic Algorithm Score			
+		        		</xs:documentation>
+		        	</xs:annotation>
+		        	<xs:simpleType>
+			      		<xs:restriction base="xs:integer">
+			      			<xs:minInclusive value="0"></xs:minInclusive>
+			      			<xs:maxInclusive value="1"></xs:maxInclusive>
+			      		</xs:restriction>
+			      	</xs:simpleType>
+		        </xs:element>
+		   </xs:sequence>
+		   </xs:complexType>
+		   </xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+</xs:schema>

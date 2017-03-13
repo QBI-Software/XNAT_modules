@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.nrg.xdat:core:1.7.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nrg.xdat/core/1.7.3-SNAPSHOT/b6e7763b16ef0409e18ad87ebda0e177b5b1128a/core-1.7.3-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nrg.xdat/core/1.7.3-SNAPSHOT/6a3d169e5dbeed7d5cf57418b2d3ac91bd470187/core-1.7.3-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

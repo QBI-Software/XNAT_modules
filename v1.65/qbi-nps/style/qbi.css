@@ -1,0 +1,11 @@
+/* Additional styles for QBI reports */
+.resultsheader{
+	padding: 6px 8px;
+	font-weight: bold;
+	background: none repeat scroll 0% 0% #084FAB;
+	color: #FFF;
+	font-size: 1.2em;
+}
+.resultstable th{
+	width:45%;
+}
