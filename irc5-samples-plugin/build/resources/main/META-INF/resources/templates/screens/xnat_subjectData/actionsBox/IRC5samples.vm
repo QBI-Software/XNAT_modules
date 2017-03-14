@@ -2,6 +2,19 @@
 #* @vtlvariable name="project" type="java.lang.String" *#
 #* @vtlvariable name="om" type="org.nrg.xdat.om.XnatSubjectdata" *#
 <!-- Sequence: 6 -->
-<li class="yuimenuitem">
-    <A href="$link.setPage("XDATScreen_edit_irc5_bloodData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Blood Sample</A>
+<li class="yuimenuitem yuimenuitem-hassubmenu" groupindex="1" index="0">
+    <a class="yuimenuitemlabel yuimenuitemlabel-hassubmenu" href="#insertbox">Add IRC5 Samples</a>
+    <div id="insertbox" class="yuimenu yui-module yui-overlay yui-overlay-hidden" style="position: absolute; visibility: hidden; z-index: 1;">
+        <div class="bd">
+            <ul class="first-of-type shadowed" style="width: 170px;">
+                <li class="yuimenuitem first-of-type" groupindex="0" index="0">
+                    <a href="$link.setPage("XDATScreen_edit_irc5_bloodData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)">
+                        <div class="ic">&nbsp;</div>
+                        <div class="ic_spacer">&nbsp;</div>IRC5 Blood Sample</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="yui-menu-shadow"></div>
+    </div>
 </li>

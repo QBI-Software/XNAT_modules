@@ -8,94 +8,92 @@ $page.setVlinkColor($ui.vlink)
 <script type="text/javascript">
 window.currentID="$!om.getId()";
     #if($om.getProject())
-		#if($om.getProject().equals(""))
-			window.currentProject="$!project";
-		#else
-			window.currentProject="$!om.getProject()";
-		#end
+     #if($om.getProject().equals(""))
+window.currentProject="$!project";
+     #else
+window.currentProject="$!om.getProject()";
+     #end
     #else
-		window.currentProject="$!project";
+window.currentProject="$!project";
     #end
 
 window.currentSubject="$!om.getSubjectId()";
 window.currentLabel="$!om.getLabel()";
 </script>
-
 #if ($data.message)
-<div class="error">$data.message</div>
+<div class="alert alert-danger error">$data.message</div>
 #end
-<div id="irc5BloodSampleEdit" class="table-responsive">
+<div id="EditForm" class="container">
 <form id="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
-<input type="hidden" name="project" value="$!{project}" >
-<input type="hidden" name="part_id" value="$!{subjectId}">
-    <input type='hidden' name='irc5:bloodData/ID' value='$!item.getProperty("ID")'/>
-    <input type="hidden" name="irc5:bloodData/project" value='$!{project}'/>
-    <input type='hidden' name='irc5:bloodData/subject_ID' value='$!{subjectId}'/>
-    <input type='hidden' name='irc5:bloodData/label' value='$!item.getProperty("irc5:bloodData/label")'/>
-    <input type="hidden" name="$om.getXSIType()/ID" id="$om.getXSIType()/ID" value="$!om.getId()"/>
+    <input type="hidden" name="project" value="$!{project}" >
+    <input type="hidden" name="part_id" value="$!{part_id}">
+    <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
+    <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
+    <input type='hidden' name='$om.getXSIType()/subject_ID' value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
+    <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
+    <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
+    <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
 #if($vr)
-	<span style="color: red; ">Invalid parameters:<br>$vr.toHTML()</span>
+<div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
 <hr/>
 #end
-
-<table class="table table-condensed">
-	<tr>
-		<td colspan="3" align="left" valign="middle">
-			<div class="edit_title">QBI Blood Sample #if($om.getId()) Modification Form #else Creation Form #end</div>
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<table width="100%">
-				<tr>
-					<td valign="top">
-						<table class="formfieldstable">
-							<tr><td colspan="3">
-								#parse("/screens/xnat_edit_subjectAssessorData.vm")
-							</td></tr>
-							<tr>
-								<td colspan="3">#parse("/screens/EditProjectSpecificFields.vm")</td>
-							</tr>
-            				<tr><th></th>
-            					<th>Description</th>
-            					<th>Value</th>				
-            				</tr>
-            				<tr><td colspan="3"><hr/></td></tr>
-
-            				<tr>
-            					<th>#formLabel("Date Analysed")</th>
-            					<td>#xdatDateBox("irc5:bloodData/date_analysed" $item  $vr $years)</td>
-            				</tr>
-            				<tr>
-            					<th>#formLabel("Summary")</th>
-            					<td>#xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")</td>
-            				</tr>
-            				<tr>
-            					<th>#formLabel("Comments")</th>
-            					<td>#xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")</td>
-            				</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td>
+    <h2 class="edit-title">IRC5 QBI Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+	<div class="form-group">
+		#parse("/screens/xnat_edit_subjectAssessorData.vm")
+    </div>
+    <div class="form-group">
+        #parse("/screens/EditProjectSpecificFields.vm")
+    </div>
+    <div class="form-group">
+        <label for="irc5:bloodData/date">Date Collected</label>
+        #xdatDateBox("irc5:bloodData/date" $item  $vr $years)
+    </div>
+    <div class="form-group">
+        <label for="irc5:bloodData/date_analysed">Date Analysed</label>
+        #xdatDateBox("irc5:bloodData/date_analysed" $item  $vr $years)
+    </div>
+    <div class="form-group">
+        <label for="irc5:bloodData/summary">Summary</label>
+        #xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")
+    </div>
+    <div class="form-group">
+        <label for="irc5:bloodData/comments">Comments</label>
+        #xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")
+    </div>
+    <div class="form-group">
 		#xdatEditProps($item $edit_screen)
 
-		<input type="button" onclick="validateForm();"  name="eventSubmit_doInsert" value="Submit"/>
-		</td>
-	</tr>
-</table>
+		<input class="btn-primary" type="button" onclick="validateForm();"  name="eventSubmit_doInsert" value="Submit"/>
+    <input class="btn-default" type="button" value="Cancel" onclick="goBack();"/>
+</div>
 </form>
 </div>
 
 <script type="text/javascript">
-function validateForm()
-{
-	document.getElementById("form1").submit();
-	//return true;
+function validateForm() {
+    //Cannot use validateSubjectAssessorForm as it uses wrong element root (xnat:experimentData)
+    var elementName = 'irc5:bloodData';
+    if (document.getElementById(elementName + "/ID").value != "") {
+        var label = document.getElementById(elementName + "/label").value;
+        if (confirm("Please confirm changes to Blood Sample with ID=" + label + ".")) {
+            submitHistory = true;
+            //submit
+            document.getElementById("form1").submit();
+        } else {
+            submitHistory = false;
+            return false;
+        }
+
+    } else {
+        // NO MATCHES FOUND
+        submitHistory = true;
+        //submit
+        document.getElementById("form1").submit();
+    }
+    return true;
+}
+
+function goBack() {
+    window.history.back();
 }
 </script>

@@ -7,35 +7,31 @@ $page.setVlinkColor($ui.vlink)
 	#set ($popup = "false")
 #end
 
-<table width="100%">
-	<tr>
-		<td>
+<div class="container">
+    <div class="row">
+        <h3>QBI Blood Sample</h3>
 			#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
-		</td>
-		<td valign="top" align="right">
-			#elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<table width="100%">
-				<tr>
-					<td align="left" valign="middle">
-						<div class="edit_title">QBI Blood Sample</div>
-					</td>
-				</tr>
-				<tr>
-					<td valign="top">
-						<table class="resultstable">
+
+        <div class="col-sm-4" align="right">
+                #elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+        </div>
+	</div>
+	<br/>
+    <div class="row">
+		<div class="col-sm-8">
+            <table class="table table-striped resultstable">
+                <thead>
 							<tr class="resultsheader">
             					<th>Description</th>
             					<th>Value</th>				
             				</tr>
-                            <tr><td colspan="2"><hr/></td></tr>
+
+				</thead>
+				<tbody>
                             <tr>
-            					<th>Assessment date</th>
-            					<td colspan="2">$!item.getDateProperty("irc5:bloodData/date")</td>
-                            </tr>
+            					<th>Date Collected</th>
+            					<td>$!item.getDateProperty("irc5:bloodData/date")</td>
+            				</tr>
                             <tr>
             					<th>Date Analysed</th>
             					<td>$!item.getDateProperty("irc5:bloodData/date_analysed")</td>
@@ -48,16 +44,16 @@ $page.setVlinkColor($ui.vlink)
             					<th>Comments</th>
             					<td>$!item.getStringProperty("irc5:bloodData/comments")</td>
             				</tr>
-            				
-						</table>
-					</td>
-					<tr>
+
+				<tr>
+                    <td></td>
 					<td valign="top">
 						#parse("/screens/ReportProjectSpecificFields.vm")
 					</td>
 				</tr>
-
+                </tbody>
 			</table>
-		</td>
-	</tr>
-</table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
