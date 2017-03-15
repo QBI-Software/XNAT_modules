@@ -1,2 +1,5 @@
-bak/
-dax-qbi-plugins/
+*.jar
+*.bin
+irc5-samples-plugin/.gradle
+irc5-samples-plugin/.idea
+irc5-samples-plugin/build
