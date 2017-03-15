@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-    $page.setTitle("QBI Blood Sample Creation Form")
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+    $page.setTitle("IRC5 QBI Brain Sample")
     $page.setLinkColor($ui.alink)
-    $page.setVlinkColor($ui.vlink)
-    #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-        "November", "December"])
-    #set($days = [ 1..31 ])
-    #set($years = [ $!turbineUtils.getYear()..1900])
+$page.setVlinkColor($ui.vlink)/*
 ##----------------------------------------
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+    "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
 <script type="text/javascript">
     window.currentID = "$!om.getId()";
         #if($om.getProject())
@@ -29,7 +29,7 @@
 <div class="alert alert-danger error">$data.message</div>
 #end
 <div id="EditForm" class="container">
-    <form id="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
+    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
         <input type="hidden" name="project" value="$!{project}">
         <input type="hidden" name="part_id" value="$!{part_id}">
         <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
@@ -42,7 +42,7 @@
         #if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
         #end
-        <h2 class="edit-title">IRC5 QBI Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+        <h2 class="edit-title">IRC5 QBI Brain Sample #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="form-group">
             #parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
@@ -50,20 +50,19 @@
             #parse("/screens/EditProjectSpecificFields.vm")
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/date">Date Collected</label>
-            #xdatDateBox("irc5:bloodData/date" $item  $vr $years)
+            <label for="irc5:brainData/date">Date Collected</label>
+            #xdatDateBox("irc5:brainData/date" $item $vr $years)
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/date_analysed">Date Analysed</label>
-            #xdatDateBox("irc5:bloodData/date_analysed" $item  $vr $years)
+            <label for="irc5:brainData/date_analysed">Date Analysed</label>
+            #xdatDateBox("irc5:brainData/date_analysed" $item $vr $years)</div>
+        <div class="form-group">
+            <label for="irc5:brainData/summary">Summary</label>
+            #xdatTextArea("irc5:brainData/summary" $item "" $vr "3" "50")
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/summary">Summary</label>
-            #xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")
-        </div>
-        <div class="form-group">
-            <label for="irc5:bloodData/comments">Comments</label>
-            #xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")
+            <label for="irc5:brainData/comments">Comments</label>
+            #xdatTextArea("irc5:brainData/comments" $item "" $vr "3" "50")
         </div>
         <div class="form-group">
             #xdatEditProps($item $edit_screen)
@@ -74,6 +73,7 @@
         </div>
     </form>
 </div>
+
 
 <script type="text/javascript">
     function validateForm() {

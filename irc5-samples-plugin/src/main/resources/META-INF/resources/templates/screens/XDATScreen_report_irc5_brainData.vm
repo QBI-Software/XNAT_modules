@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	$page.setTitle("IRC5 QBI Brain Tissue Sample")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+
+<div class="container">
+    <div class="row">
+        <h3>IRC5 QBI Brain Tissue Sample</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div class="col-sm-4" align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Date Collected</th>
+                    <td>$!item.getDateProperty("irc5:brainData/date")</td>
+                </tr>
+                <tr>
+                    <th>Date Analysed</th>
+                    <td>$!item.getDateProperty("irc5:brainData/date_analysed")</td>
+                </tr>
+                <tr>
+                    <th>Summary</th>
+                    <td>$!item.getStringProperty("irc5:brainData/summary")</td>
+                </tr>
+                <tr>
+                    <th>Comments</th>
+                    <td>$!item.getStringProperty("irc5:brainData/comments")</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" valign="top">
+						#parse("/screens/ReportProjectSpecificFields.vm")
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">&nbsp;</div>
+    </div>
+</div>

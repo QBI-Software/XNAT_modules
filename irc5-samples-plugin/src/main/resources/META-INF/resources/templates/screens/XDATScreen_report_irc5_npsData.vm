@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+	$page.setTitle("QBI Blood Sample")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+
+<div class="container">
+    <div class="row">
+        <h3>QBI Blood Sample</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div class="col-sm-4" align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Date Collected</th>
+                    <td>$!item.getDateProperty("irc5:bloodData/date")</td>
+                </tr>
+                <tr>
+                    <th>Consultant</th>
+                    <td>$!item.getStringProperty("irc5:npsData/consultant")</td>
+                </tr>
+                <tr>
+                    <th>Sex</th>
+                    <td>$!item.getStringProperty("irc5:npsData/sex")</td>
+                </tr>
+                <tr>
+                    <th>ACC</th>
+                    <td>$!item.getBooleanProperty("irc5:npsData/acc")</td>
+                </tr>
+                <tr>
+                    <th>RAPM</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/rapm")</td>
+                </tr>
+                <tr>
+                    <th>FSIQ</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/fsiq")</td>
+                </tr>
+                <tr>
+                    <th>DST</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/dst")</td>
+                </tr>
+                <tr>
+                    <th>RMTF</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/rmtf")</td>
+                </tr>
+                <tr>
+                    <th>Cname</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/cname")</td>
+                </tr>
+                <tr>
+                    <th>Cerror</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/cerror")</td>
+                </tr>
+                <tr>
+                    <th>HSCTErr</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/hscterr")</td>
+                </tr>
+                <tr>
+                    <th>HSCTRTdiff</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/HSCTRTdiff")</td>
+                </tr>
+                <tr>
+                    <th>HSCTGlEr</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/hsctgler")</td>
+                </tr>
+                <tr>
+                    <th>StratRatio</th>
+                    <td>$!item.getDoubleProperty("irc5:npsData/stratratio")</td>
+                </tr>
+                <tr>
+                    <th>FASTot</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/fastot")</td>
+                </tr>
+                <tr>
+                    <th>ANTot</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/antot")</td>
+                </tr>
+                <tr>
+                    <th>Free</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/free")</td>
+                </tr>
+                <tr>
+                    <th>Fixed</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/fixed")</td>
+                </tr>
+                <tr>
+                    <th>mfgest</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/mfgest")</td>
+                </tr>
+                <tr>
+                    <th>Mfgest</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/mlgest")</td>
+                </tr>
+                <tr>
+                    <th>ECD</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/ecd")</td>
+                </tr>
+                <tr>
+                    <th>TelDT</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/teldt")</td>
+                </tr>
+                <tr>
+                    <th>TASITA</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/tasita")</td>
+                </tr>
+                <tr>
+                    <th>RMIT</th>
+                    <td>$!item.getIntegerProperty("irc5:npsData/rmit")</td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2" valign="top">
+						#parse("/screens/ReportProjectSpecificFields.vm")
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">&nbsp;</div>
+    </div>
+</div>

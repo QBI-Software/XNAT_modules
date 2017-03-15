@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- XNAT datatype for QBI IRC5 Blood test-->
+<!-- XNAT datatype for QBI Brain test-->
 <xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5"
            xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat"
            xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
-    <xs:element name="BLOOD" type="irc5:bloodData"/>
-    <xs:complexType name="bloodData">
+    <xs:element name="BRAIN" type="irc5:brainData"></xs:element>
+    <xs:complexType name="brainData">
         <xs:annotation>
-            <xs:documentation>QBI IRC5 Blood sample</xs:documentation>
+            <xs:documentation>QBI IRC5 Brain sample</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="xnat:subjectAssessorData">

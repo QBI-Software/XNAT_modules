@@ -13,7 +13,7 @@ $page.setVlinkColor($ui.vlink)
 			#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div class="col-sm-4" align="right">
-                #elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
         </div>
 	</div>
 	<br/>
@@ -46,14 +46,13 @@ $page.setVlinkColor($ui.vlink)
             				</tr>
 
 				<tr>
-                    <td></td>
-					<td valign="top">
+                    <td colspan="2" valign="top">
 						#parse("/screens/ReportProjectSpecificFields.vm")
 					</td>
 				</tr>
                 </tbody>
 			</table>
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-4">&nbsp;</div>
     </div>
 </div>

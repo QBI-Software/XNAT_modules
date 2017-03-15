@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-    $page.setTitle("QBI Blood Sample Creation Form")
-    $page.setLinkColor($ui.alink)
-    $page.setVlinkColor($ui.vlink)
-    #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-        "November", "December"])
-    #set($days = [ 1..31 ])
-    #set($years = [ $!turbineUtils.getYear()..1900])
+$page.setTitle("IRC5 QBI Medical Opinion")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
 ##----------------------------------------
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
 <script type="text/javascript">
     window.currentID = "$!om.getId()";
-        #if($om.getProject())
-            #if($om.getProject().equals(""))
+		#if($om.getProject())
+			#if($om.getProject().equals(""))
             window.currentProject = "$!project";
-            #else
+			#else
             window.currentProject = "$!om.getProject()";
-            #end
-        #else
+			#end
+		#else
         window.currentProject = "$!project";
-        #end
+		#end
 
     window.currentSubject = "$!om.getSubjectId()";
     window.currentLabel = "$!om.getLabel()";
@@ -39,34 +38,34 @@
         <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
         <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
         <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
-        #if($vr)
+		#if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
-        #end
-        <h2 class="edit-title">IRC5 QBI Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+		#end
+        <h2 class="edit-title">IRC5 QBI Medical Opinion #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="form-group">
-            #parse("/screens/xnat_edit_subjectAssessorData.vm")
+			#parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
         <div class="form-group">
-            #parse("/screens/EditProjectSpecificFields.vm")
+			#parse("/screens/EditProjectSpecificFields.vm")
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/date">Date Collected</label>
-            #xdatDateBox("irc5:bloodData/date" $item  $vr $years)
+            <label for="irc5:opinionData/date">Date Added</label>
+			#xdatDateBox("irc5:opinionData/date" $item  $vr $years)
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/date_analysed">Date Analysed</label>
-            #xdatDateBox("irc5:bloodData/date_analysed" $item  $vr $years)
+            <label for="irc5:opinionData/date_opinion">Date of Opinion</label>
+			#xdatDateBox("irc5:opinionData/date_opinion" $item $vr $years)
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/summary">Summary</label>
-            #xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")
+            <label for="irc5:opinionData/provider">Provider</label>
+			#xdatStringBox("irc5:opinionData/provider" $item "" $vr)
         </div>
         <div class="form-group">
-            <label for="irc5:bloodData/comments">Comments</label>
-            #xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")
+            <label for="irc5:opinionData/comments">Comments</label>
+			#xdatStringBox("irc5:opinionData/comments" $item "" $vr)
         </div>
         <div class="form-group">
-            #xdatEditProps($item $edit_screen)
+			#xdatEditProps($item $edit_screen)
 
             <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
                    value="Submit"/>

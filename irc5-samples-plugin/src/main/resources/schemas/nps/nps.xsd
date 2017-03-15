@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XNAT datatype for QBI Neuropsych test-->
+<xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="/xnat/xnat.xsd"/>
+	<xs:element name="NPS" type="irc5:npsData">	</xs:element>
+	<xs:complexType name="npsData">
+		<xs:annotation>
+			<xs:documentation>QBI IRC5 Neuropsychology scores</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="consultant" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+        			Consultant
+        		</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="200"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="sex" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Sex
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="acc" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								ACC
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:boolean"/>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="rapm" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								RAPM
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="fsiq" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								FSIQ
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="dst" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								DIST
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="rmtf" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								RMFT
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="cname" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Cname
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="cerror" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Cerror
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="hscterr" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								HSCTErr
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="hsctrtdiff" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								HSCTRTdiff
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="hsctgler" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								HSCTGlEr 
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="stratratio" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								StratRatio 
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:maxInclusive value="1.0"/>
+								<xs:minInclusive value="0.0"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="fastot" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								FASTot  
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="antot" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								ANTot   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="free" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Free   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="fixed" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Fixed   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="mfgest" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Mfgest   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="mlgest" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Mlgest   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="ecd" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								ECD   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="teldt" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								 TelDT  
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="0"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="tasita" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								TASITA   
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="rmit" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								RMIT    
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:maxInclusive value="10000"/>
+								<xs:minInclusive value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

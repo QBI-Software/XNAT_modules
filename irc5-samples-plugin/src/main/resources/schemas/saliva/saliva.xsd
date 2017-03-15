@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XNAT datatype for QBI saliva test-->
+<xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+<xs:element name="SALIVA" type="irc5:salivaData"></xs:element>
+<xs:complexType name="salivaData">
+	<xs:annotation>
+		<xs:documentation>QBI IRC5 Saliva sample</xs:documentation>
+	</xs:annotation>
+  <xs:complexContent>
+    <xs:extension base="xnat:subjectAssessorData">
+      <xs:sequence>
+      <xs:element name="comments" minOccurs="0" maxOccurs="1">
+        	<xs:annotation>
+        		<xs:documentation>
+        			Comments
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:simpleType> 
+        		<xs:restriction base="xs:string"> 
+        			<xs:maxLength value="10000"/> 
+        	    </xs:restriction> 
+           </xs:simpleType> 
+        </xs:element>
+      	<xs:element name="tubes" minOccurs="0" maxOccurs="1">
+      		<xs:annotation>
+        		<xs:documentation>
+        			Tubes analysed
+        		</xs:documentation>
+        	</xs:annotation>
+        	<xs:element name="tube" type="salivaTubeData" minOccurs="0" maxOccurs="20"/>
+        </xs:element>
+        <xs:element name="remaining" minOccurs="0" maxOccurs="1" type="xs:integer">
+        	<xs:annotation>
+        		<xs:documentation>
+        			Number tubes remaining
+        		</xs:documentation>
+        	</xs:annotation>
+        	
+        </xs:element>
+        <xs:element name="total" minOccurs="0" maxOccurs="1" type="xs:integer">
+        	<xs:annotation>
+        		<xs:documentation>
+        			Total tubes analysed
+        		</xs:documentation>
+        	</xs:annotation>
+        	
+        </xs:element>
+        
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+<xs:complexType name="salivaTubeData">
+	<xs:complexContent>
+	<xs:sequence>               
+			<xs:element name="tube_number" minOccurs="0" maxOccurs="1" >
+			<xs:annotation>
+				<xs:documentation>     
+					Tube No.			
+				</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"></xs:minInclusive>
+						<xs:maxInclusive value="10"></xs:maxInclusive>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Analysis date
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ratio" minOccurs="0" maxOccurs="1" type="xs:float">
+				<xs:annotation>
+					<xs:documentation>     
+						 Ratio			
+					</xs:documentation>
+				</xs:annotation>
+				
+			</xs:element>
+			<xs:element name="concentration" minOccurs="0" maxOccurs="1" type="xs:float">
+				<xs:annotation>
+					<xs:documentation>     
+						Concentration			
+					</xs:documentation>
+				</xs:annotation>
+				
+			</xs:element>
+			<xs:element name="recheck" minOccurs="0" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>     
+						To Be Rechecked			
+					</xs:documentation>
+				</xs:annotation>
+				
+			</xs:element>
+		</xs:sequence>
+		</xs:complexContent>
+</xs:complexType>
+</xs:schema>

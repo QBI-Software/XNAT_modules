@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd"
-          schema-element="irc5:bloodData" full-description="BLOOD" brief-description="BLOOD">
+          schema-element="irc5:salivaData" full-description="SALIVA" brief-description="SALIVA">
     <Arc name="PARTICIPANT_EXPERIMENT">
         <CommonField id="PART_ID" local-field="SUBJECT_ID"/>
         <CommonField id="DATE" local-field="DATE"/>
         <CommonField id="EXPT_ID" local-field="EXPT_ID"/>
     </Arc>
     <DisplayField id="SUBJECT_ID" header="Subject" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.subject_ID"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.subject_ID"/>
         <HTML-Link>
             <Property name="HREF" value="none"/>
             <Property name="ONCLICK" value="return rpt('@Field1','xnat:subjectData','xnat:subjectData.ID');">
@@ -16,10 +16,10 @@
         </HTML-Link>
     </DisplayField>
     <DisplayField id="EXPT_ID" header="ID" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.ID"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.ID"/>
         <HTML-Link>
             <Property name="HREF" value="none"/>
-            <Property name="ONCLICK" value="return rpt('@Field1','irc5:bloodData','irc5:bloodData.ID');">
+            <Property name="ONCLICK" value="return rpt('@Field1','irc5:salivaData','irc5:salivaData.ID');">
                 <InsertValue id="Field1" field="EXPT_ID"/>
             </Property>
         </HTML-Link>
@@ -28,31 +28,32 @@
         <Content type="sql">'/@WEBAPP/images/r.gif'::text</Content>
         <HTML-Link>
             <Property name="HREF" value="none"/>
-            <Property name="ONCLICK" value="return rpt('@Field1','irc5:bloodData','irc5:bloodData.ID');">
+            <Property name="ONCLICK" value="return rpt('@Field1','irc5:salivaData','irc5:salivaData.ID');">
                 <InsertValue id="Field1" field="EXPT_ID"/>
             </Property>
         </HTML-Link>
     </DisplayField>
     <DisplayField id="DATE" header="Date" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.date"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.date"/>
     </DisplayField>
     <DisplayField header="Projects" id="PROJECTS" data-type="string">
-        <DisplayFieldElement name="Field1" viewName="IRC5_BLOODDATA_PROJECTS" viewColumn="PROJECTS"/>
+        <DisplayFieldElement name="Field1" viewName="IRC5_SALIVADATA_PROJECTS" viewColumn="PROJECTS"/>
     </DisplayField>
     <DisplayField header="Label" id="LABEL" data-type="string">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.ID"/>
-        <DisplayFieldElement name="Field2" schema-element="irc5:bloodData.label"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.ID"/>
+        <DisplayFieldElement name="Field2" schema-element="irc5:salivaData.label"/>
         <Content type="sql">COALESCE(@Field2, @Field1)</Content>
         <HTML-Link>
-            <SecureLink elementName="irc5:bloodData">
-                <securityMappingValue displayFieldId="PROJECTS" schemaElementMap="irc5:bloodData/sharing/share/project"/>
-                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="irc5:bloodData/project"/>
+            <SecureLink elementName="irc5:salivaData">
+                <securityMappingValue displayFieldId="PROJECTS"
+                                      schemaElementMap="irc5:salivaData/sharing/share/project"/>
+                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="irc5:salivaData/project"/>
             </SecureLink>
             <Property name="HREF"
-                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/irc5:bloodData/search_field/irc5:bloodData.ID">
+                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/irc5:salivaData/search_field/irc5:salivaData.ID">
                 <InsertValue id="Field1" field="EXPT_ID"/>
             </Property>
-            <Property name="ONCLICK" value="return rpt('@Field1','irc5:bloodData','irc5:bloodData.ID');">
+            <Property name="ONCLICK" value="return rpt('@Field1','irc5:salivaData','irc5:salivaData.ID');">
                 <InsertValue id="Field1" field="EXPT_ID"/>
             </Property>
             <Property name="TITLE" value="Inserted: @Field1 (@Field2)">
@@ -62,108 +63,107 @@
         </HTML-Link>
     </DisplayField>
     <DisplayField id="PROJECT" header="Project" visible="true" searchable="true" data-type="string">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.project"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.project"/>
     </DisplayField>
-    <DisplayField id="IRC5_BLOODDATA_PROJECT_IDENTIFIER" header="Sample ID" visible="true" searchable="false"
+    <DisplayField id="IRC5_SALIVADATA_PROJECT_IDENTIFIER" header="IRC5_SALIVADATA ID" visible="true" searchable="false"
                   data-type="string" xsi:type="SubQueryField">
-        <Content type="sql">irc5_blooddata_project_id</Content>
+        <Content type="sql">irc5_salivadata_project_id</Content>
         <HTML-Link>
-            <SecureLink elementName="irc5:bloodData">
-                <securityMappingValue displayFieldId="PROJECTS" schemaElementMap="irc5:bloodData/sharing/share/project"/>
-                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="irc5:bloodData/project"/>
+            <SecureLink elementName="irc5:salivaData">
+                <securityMappingValue displayFieldId="PROJECTS"
+                                      schemaElementMap="irc5:salivaData/sharing/share/project"/>
+                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="irc5:salivaData/project"/>
             </SecureLink>
             <Property name="HREF"
-                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/irc5:bloodData/search_field/irc5:bloodData.ID/project/@Field2">
+                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/irc5:salivaData/search_field/irc5:salivaData.ID/project/@Field2">
                 <InsertValue id="Field1" field="EXPT_ID"/>
                 <InsertValue id="Field2" field="@WHERE"/>
             </Property>
         </HTML-Link>
         <SubQuery>SELECT DISTINCT COALESCE(label,sharing_share_xnat_experimentda_id) AS
-            irc5_blooddata_project_id,sharing_share_xnat_experimentda_id FROM ( SELECT
+            irc5_salivadata_project_id,sharing_share_xnat_experimentda_id FROM ( SELECT
             sharing_share_xnat_experimentda_id,label FROM xnat_experimentdata_share WHERE project='@WHERE' UNION SELECT
             id,label FROM xnat_experimentData WHERE project='@WHERE' )SEARCH
         </SubQuery>
         <MappingColumns>
-            <MappingColumn schemaField="irc5:bloodData.ID" queryField="sharing_share_xnat_experimentda_id"/>
+            <MappingColumn schemaField="irc5:salivaData.ID" queryField="sharing_share_xnat_experimentda_id"/>
         </MappingColumns>
     </DisplayField>
     <DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.meta.insert_date"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.meta.insert_date"/>
     </DisplayField>
     <DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.meta.insert_user.login"/>
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData.meta.insert_user.login"/>
     </DisplayField>
-    <DisplayField id="IRC5_BLOODDATA_FIELD_MAP" header="Field" visible="true" searchable="false" data-type="string"
+    <DisplayField id="IRC5_SALIVADATA_FIELD_MAP" header="Field" visible="true" searchable="false" data-type="string"
                   xsi:type="SubQueryField">
         <Content type="sql">field</Content>
         <SubQuery>SELECT DISTINCT ON ( e.ID) e.ID AS expt_id,field FROM xnat_experimentData_field ef JOIN (SELECT
             ID,extension,element_name FROM xnat_experimentData e JOIN xdat_meta_element xme ON
-            e.extension=xme.xdat_meta_element_id WHERE xme.element_name='irc5:bloodData') e on
+            e.extension=xme.xdat_meta_element_id WHERE xme.element_name='irc5:salivaData') e on
             ef.fields_field_xnat_experimentdat_id=e.id WHERE name='@WHERE'
         </SubQuery>
         <MappingColumns>
-            <MappingColumn schemaField="irc5:bloodData.ID" queryField="expt_id"/>
+            <MappingColumn schemaField="irc5:salivaData.ID" queryField="expt_id"/>
         </MappingColumns>
     </DisplayField>
-    <DisplayField id="DATE_ANALYSED" header="Date analysed" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData/date_analysed"/>
+    <DisplayField id="COMMENTS" header="comments" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData/comments"/>
     </DisplayField>
-    <DisplayField id="SUMMARY" header="Summary" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData/summary"/>
+    <DisplayField id="REMAINING" header="remaining" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData/remaining"/>
     </DisplayField>
-    <DisplayField id="COMMENTS" header="Comments" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:bloodData/comments"/>
+    <DisplayField id="TOTAL" header="total" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:salivaData/total"/>
     </DisplayField>
-    <DisplayVersion versionName="listing" default-order-by="DATE" default-sort-order="DESC" brief-description="BLOOD"
+    <DisplayVersion versionName="listing" default-order-by="DATE" default-sort-order="DESC" brief-description="SALIVA"
                     dark-color="9999CC" light-color="CCCCFF">
         <DisplayFieldRef id="RPT"/>
         <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="DATE_ANALYSED"/>
-        <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
+        <DisplayFieldRef id="REMAINING"/>
+        <DisplayFieldRef id="TOTAL"/>
     </DisplayVersion>
     <DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC"
-                    brief-description="BLOOD" dark-color="9999CC" light-color="CCCCFF">
-        <DisplayFieldRef id="EXPT_ID"/>
+                    brief-description="SALIVA" dark-color="9999CC" light-color="CCCCFF">
         <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="DATE_ANALYSED"/>
-        <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
+        <DisplayFieldRef id="REMAINING"/>
+        <DisplayFieldRef id="TOTAL"/>
     </DisplayVersion>
-    <DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="BLOOD"
+    <DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="SALIVA"
                     dark-color="9999CC" light-color="CCCCFF">
         <DisplayFieldRef id="EXPT_ID"/>
-        <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="DATE_ANALYSED"/>
-        <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
+        <DisplayFieldRef id="REMAINING"/>
+        <DisplayFieldRef id="TOTAL"/>
     </DisplayVersion>
-    <DisplayVersion versionName="detailed" default-order-by="DATE" default-sort-order="DESC" brief-description="BLOOD"
+    <DisplayVersion versionName="detailed" default-order-by="DATE" default-sort-order="DESC" brief-description="SALIVA"
                     dark-color="9999CC" light-color="CCCCFF">
-        <DisplayFieldRef id="DATE_ANALYSED"/>
-        <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
+        <DisplayFieldRef id="REMAINING"/>
+        <DisplayFieldRef id="TOTAL"/>
     </DisplayVersion>
     <DisplayVersion versionName="project_bundle" default-order-by="DATE" default-sort-order="DESC"
-                    brief-description="BLOOD" dark-color="9999CC" light-color="CCCCFF">
-        <DisplayFieldRef id="IRC5_BLOODDATA_PROJECT_IDENTIFIER"/>
+                    brief-description="SALIVA" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="IRC5_SALIVADATA_PROJECT_IDENTIFIER"/>
         <DisplayFieldRef id="SUB_PROJECT_IDENTIFIER" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="DATE_ANALYSED"/>
-        <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
+        <DisplayFieldRef id="REMAINING"/>
+        <DisplayFieldRef id="TOTAL"/>
     </DisplayVersion>
-    <ViewLink alias="IRC5_BLOODDATA_PROJECTS">
-        <Mapping TableName="IRC5_BLOODDATA_PROJECTS">
-            <MappingColumn rootElement="irc5:bloodData" fieldElement="irc5:bloodData.ID" mapsTo="id"/>
+    <ViewLink alias="IRC5_SALIVADATA_PROJECTS">
+        <Mapping TableName="IRC5_SALIVADATA_PROJECTS">
+            <MappingColumn rootElement="irc5:salivaData" fieldElement="irc5:salivaData.ID" mapsTo="id"/>
         </Mapping>
     </ViewLink>
-    <SQLView name="IRC5_BLOODDATA_PROJECTS"
-             sql="SELECT id, '&lt;' || expt.project || '&gt;' || xs_a_concat(',&lt;' || shared.project || '&gt;') AS projects FROM xnat_experimentData expt LEFT JOIN xnat_experimentData_share shared ON expt.id=shared.sharing_share_xnat_experimentda_id LEFT JOIN xdat_meta_element xme ON expt.extension = xme.xdat_meta_element_id WHERE element_name='irc5:bloodData' GROUP BY expt.id,expt.project"/>
+    <SQLView name="IRC5_SALIVADATA_PROJECTS"
+             sql="SELECT id, '&lt;' || expt.project || '&gt;' || xs_a_concat(',&lt;' || shared.project || '&gt;') AS projects FROM xnat_experimentData expt LEFT JOIN xnat_experimentData_share shared ON expt.id=shared.sharing_share_xnat_experimentda_id LEFT JOIN xdat_meta_element xme ON expt.extension = xme.xdat_meta_element_id WHERE element_name='irc5:salivaData' GROUP BY expt.id,expt.project"/>
 </Displays>
