@@ -36,14 +36,6 @@
     <DisplayField id="DATE" header="Date" visible="true" searchable="true">
         <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.date"/>
     </DisplayField>
-    <DisplayField id="AGE" header="Age" visible="true" searchable="true" data-type="integer">
-        <DisplayFieldElement name="Field1" schema-element="xnat:demographicData.age"/>
-        <DisplayFieldElement name="Field2" schema-element="xnat:demographicData.dob"/>
-        <DisplayFieldElement name="Field3" schema-element="xnat:demographicData.yob"/>
-        <Content type="sql">CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS
-            numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)
-        </Content>
-    </DisplayField>
     <DisplayField header="Projects" id="PROJECTS" data-type="string">
         <DisplayFieldElement name="Field1" viewName="IRC5_BLOODDATA_PROJECTS" viewColumn="PROJECTS"/>
     </DisplayField>
@@ -128,18 +120,16 @@
         <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="GENDER" element_name="xnat:subjectData"/>
-        <DisplayFieldRef id="AGE"/>
         <DisplayFieldRef id="DATE_ANALYSED"/>
         <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
     </DisplayVersion>
     <DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC"
                     brief-description="BLOOD" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="EXPT_ID"/>
         <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="AGE"/>
         <DisplayFieldRef id="DATE_ANALYSED"/>
         <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
@@ -147,9 +137,9 @@
     <DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="BLOOD"
                     dark-color="9999CC" light-color="CCCCFF">
         <DisplayFieldRef id="EXPT_ID"/>
+        <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="AGE"/>
         <DisplayFieldRef id="DATE_ANALYSED"/>
         <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
@@ -165,7 +155,6 @@
         <DisplayFieldRef id="IRC5_BLOODDATA_PROJECT_IDENTIFIER"/>
         <DisplayFieldRef id="SUB_PROJECT_IDENTIFIER" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
-        <DisplayFieldRef id="AGE"/>
         <DisplayFieldRef id="DATE_ANALYSED"/>
         <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
