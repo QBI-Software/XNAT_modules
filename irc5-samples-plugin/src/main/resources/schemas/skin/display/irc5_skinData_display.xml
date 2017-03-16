@@ -126,6 +126,7 @@
     </DisplayVersion>
     <DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC" brief-description="SKIN"
                     dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="EXPT_ID"/>
         <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
@@ -136,6 +137,7 @@
     <DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="SKIN"
                     dark-color="9999CC" light-color="CCCCFF">
         <DisplayFieldRef id="EXPT_ID"/>
+        <DisplayFieldRef id="LABEL"/>
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
         <DisplayFieldRef id="DATE_ANALYSED"/>
