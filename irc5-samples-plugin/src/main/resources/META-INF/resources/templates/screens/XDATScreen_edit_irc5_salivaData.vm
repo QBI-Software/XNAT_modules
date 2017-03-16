@@ -26,7 +26,7 @@ $page.setVlinkColor($ui.vlink)
     window.currentLabel = "$!om.getLabel()";
 </script>
 #if ($data.message)
-<div class="alert alert-danger error">$data.message</div>
+<div class="alert alert-danger error"><span>$data.message</span></div>
 #end
 <div id="EditForm" class="container">
     <form id="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
@@ -55,19 +55,19 @@ $page.setVlinkColor($ui.vlink)
         </div>
         <div class="form-group">
             <label for="irc5:salivaData/tubes">Tubes analysed</label>
-			#xdatTextBox("irc5:salivaData/tubes" $item "" $vr)
+			#xdatNumberBox("irc5:salivaData/tubes" $item "" $vr)
         </div>
         <div class="form-group">
             <label for="irc5:salivaData/remaining">Number tubes remaining</label>
-            #xdatTextBox("irc5:salivaData/remaining" $item "" $vr)
+            #xdatNumberBox("irc5:salivaData/remaining" $item "" $vr)
         </div>
         <div class="form-group">
             <label for="irc5:salivaData/total">Total tubes analysed</label>
-            #xdatTextBox("irc5:salivaData/total" $item "" $vr)
+            #xdatNumberBox("irc5:salivaData/total" $item "" $vr)
         </div>
         <div class="form-group">
             <label for="irc5:salivaData/comments">Comments</label>
-            #xdatStringBox("irc5:salivaData/comments" $item "" $vr)
+            #xdatTextArea("irc5:salivaData/comments" $item "" $vr "3" "20")
         </div>
         <div class="form-group">
 			#xdatEditProps($item $edit_screen)

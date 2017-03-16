@@ -30,7 +30,7 @@
                 <tbody>
                 <tr>
                     <th>Date Collected</th>
-                    <td>$!item.getDateProperty("irc5:bloodData/date")</td>
+                    <td>$!item.getDateProperty("irc5:npsData/date")</td>
                 </tr>
                 <tr>
                     <th>Consultant</th>
@@ -114,7 +114,7 @@
                 </tr>
                 <tr>
                     <th>TelDT</th>
-                    <td>$!item.getIntegerProperty("irc5:npsData/teldt")</td>
+                    <td>$!item.getDoubleProperty("irc5:npsData/teldt")</td>
                 </tr>
                 <tr>
                     <th>TASITA</th>
@@ -126,11 +126,6 @@
                 </tr>
 
 
-                <tr>
-                    <td colspan="2" valign="top">
-						#parse("/screens/ReportProjectSpecificFields.vm")
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>

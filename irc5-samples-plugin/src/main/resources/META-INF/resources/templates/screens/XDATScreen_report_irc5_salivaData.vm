@@ -34,22 +34,17 @@
                 </tr>
                 <tr>
                     <th>Tubes Analysed</th>
-                    <td>$!item.getProperty("irc5:salivaData/tubes")</td>
+                    <td>$!item.getIntegerProperty("irc5:salivaData/tubes")</td>
                 </tr>
                 <tr>
                     <th>Number tubes remaining</th>
-                    <td>$!item.getProperty("irc5:salivaData/remaining")</td>
+                    <td>$!item.getIntegerProperty("irc5:salivaData/remaining")</td>
                 </tr>
                 <tr>
                     <th>Total tubes analysed</th>
-                    <td>$!item.getProperty("irc5:salivaData/total")</td>
+                    <td>$!item.getIntegerProperty("irc5:salivaData/total")</td>
                 </tr>
 
-                <tr>
-                    <td colspan="2" valign="top">
-						#parse("/screens/ReportProjectSpecificFields.vm")
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>

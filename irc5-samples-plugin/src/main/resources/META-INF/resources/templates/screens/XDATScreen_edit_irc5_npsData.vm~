@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+$page.setTitle("IRC5 QBI Neuropsychology Scores")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+ ##---------------------------------------- 
+ ## DO NOT MODIFY THIS FILE HERE
+ ##
+ ## TO MODIFY, COPY THIS FILE to src/main/resources/templates/screens/ and modify it there 
+ ##----------------------------------------
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#set($genders = ["Male","Female","Unknown"])
+##---------------------------------------- 
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+<script type="text/javascript">
+    window.currentID = "$!om.getId()";
+		#if($om.getProject())
+			#if($om.getProject().equals(""))
+            window.currentProject = "$!project";
+			#else
+            window.currentProject = "$!om.getProject()";
+			#end
+		#else
+        window.currentProject = "$!project";
+		#end
+
+    window.currentSubject = "$!om.getSubjectId()";
+    window.currentLabel = "$!om.getLabel()";
+</script>
+#if ($data.message)
+<div class="alert alert-danger error">$data.message</div>
+#end
+<div id="EditForm" class="container">
+    <form id="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
+        <input type="hidden" name="project" value="$!{project}">
+        <input type="hidden" name="part_id" value="$!{part_id}">
+        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
+        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
+        <input type='hidden' name='$om.getXSIType()/subject_ID'
+               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
+        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
+        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
+        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
+		#if($vr)
+            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
+		#end
+        <h2 class="edit-title">IRC5 QBI Neuropsychology Scores #if($om.getId()) : Edit #else  : Create #end</h2>
+        <div class="form-group">
+			#parse("/screens/xnat_edit_subjectAssessorData.vm")
+        </div>
+        <div class="form-group">
+			#parse("/screens/EditProjectSpecificFields.vm")
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/date">Date Collected</label>
+			#xdatDateBox("irc5:npsData/date" $item  $vr $years)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/consultant">Consultant</label>
+			#xdatStringBox("irc5:npsData/consultant" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/sex">Sex</label>
+			#xdatRadioButtonGroup("irc5:npsData/sex" $item $genders $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/acc">ACC</label>
+			#xdatBooleanRadioYesNoWithoutDefault("irc5:npsData/acc" $item $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/rapm">RAPM</label>
+			#xdatNumberBox("irc5:npsData/rapm" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/fsiq">FSIQ</label>
+			#xdatNumberBox("irc5:npsData/fsiq" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/dst">DST</label>
+			#xdatNumberBox("irc5:npsData/dst" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/rmtf">RMTF</label>
+			#xdatNumberBox("irc5:npsData/rmtf" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/cname">Cname</label>
+			#xdatNumberBox("irc5:npsData/cname" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/cerror">Cerror</label>
+			#xdatNumberBox("irc5:npsData/cerror" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/hscterr">HSCTErr</label>
+			#xdatNumberBox("irc5:npsData/hscterr" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/hsctrtdiff">HSCTRTdiff</label>
+			#xdatNumberBox("irc5:npsData/hsctrtdiff" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/hsctgler">HSCTGlEr</label>
+			#xdatNumberBox("irc5:npsData/hsctgler" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/stratratio">StratRatio</label>
+			#xdatNumberBox("irc5:npsData/stratratio" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/fastot">FASTot</label>
+			#xdatNumberBox("irc5:npsData/fastot" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/antot">ANTot</label>
+			#xdatNumberBox("irc5:npsData/antot" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/free">Free</label>
+			#xdatNumberBox("irc5:npsData/free" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/fixed">Fixed</label>
+			#xdatNumberBox("irc5:npsData/fixed" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/mfgest">Mfgest</label>
+			#xdatNumberBox("irc5:npsData/mfgest" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/mlgest">Mlgest</label>
+			#xdatNumberBox("irc5:npsData/mlgest" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/ecd">ECD</label>
+			#xdatNumberBox("irc5:npsData/ecd" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/teldt">TelDT</label>
+			#xdatNumberBox("irc5:npsData/teldt" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/tasita">TASITA</label>
+			#xdatNumberBox("irc5:npsData/tasita" $item "" $vr)
+        </div>
+        <div class="form-group">
+            <label for="irc5:npsData/rmit">RMIT</label>
+			#xdatNumberBox("irc5:npsData/rmit" $item "" $vr)
+        </div>
+        <div class="form-group">
+			#xdatEditProps($item $edit_screen)
+
+            <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
+                   value="Submit"/>
+            <input class="btn btn-default" type="button" value="Cancel" onclick="goBack();"/>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    function validateForm() {
+        document.getElementById("form1").submit();
+        return true;
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

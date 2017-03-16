@@ -25,7 +25,7 @@ $page.setVlinkColor($ui.vlink)
     window.currentLabel = "$!om.getLabel()";
 </script>
 #if ($data.message)
-<div class="alert alert-danger error">$data.message</div>
+<div class="alert alert-danger error"><span>$data.message</span></div>
 #end
 <div id="EditForm" class="container">
     <form id="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">

@@ -45,11 +45,6 @@
                     <td>$!item.getStringProperty("irc5:opinionData/comments")</td>
                 </tr>
 
-                <tr>
-                    <td colspan="2" valign="top">
-						#parse("/screens/ReportProjectSpecificFields.vm")
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>

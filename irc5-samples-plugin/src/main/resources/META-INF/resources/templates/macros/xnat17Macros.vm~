@@ -1,0 +1,330 @@
+##Copyright 2005 Harvard University / Howard Hughes Medical Institute (HHMI) All Rights Reserved
+##
+## Default Macro file for QBI
+##
+## Put your Application macros in this file.
+##
+## patch test
+#* @vtlvariable name="tipText" type="java.util.List" *#
+
+#macro (xdatTextBox $name $item $defaultValue $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #if ($item.getProperty($name))
+    #if($item.isPKField($name) && (!$vr.getField($name)))
+    <input id="$name" type="hidden" name="$name" value="$item.getProperty($name)"/>
+    $item.getProperty($name)
+    #else
+    <input id="$name"  class="form-control" type="text" name="$name" value="$item.getProperty($name)"/>
+    #end
+  #else
+  <input id="$name"  class="form-control" type="text" name="$name" value="$defaultValue"/>
+  #end
+#end
+
+
+#macro (xdatStringBox $name $item $defaultValue $vr)
+	#xdatStringBoxParams($name $item $defaultValue $vr "form-control"  "" "")
+#end
+
+#macro (xdatStringBoxParams $name $item $defaultValue $vr $classes $onChange $size)
+	#if ($vr)
+		#if($vr.getField($name))
+			<div class="alert alert-danger error">&#8658</div>
+		#end
+	#end
+	#if ($item.getProperty($name))
+		<input id="$name" type="text" name="$name" value="$item.getStringProperty($name)" 
+		#if($!onChange != "") onchange="$!{onChange}(this)" #end
+		#if($!size != "") size="$!size" #end
+		#if($!classes != "") class="$!classes" #end
+		/>
+	#else
+		<input id="$name" type="text" name="$name" value="$defaultValue" 
+		#if($!onChange != "") onchange="$!{onChange}(this)" #end
+		#if($!size != "") size="$!size" #end
+		#if($!classes != "") class="$!classes" #end
+		/>
+	#end
+#end
+
+#macro (xdatNumberBox $name $item $defaultValue $vr)
+	#xdatNumberBoxParams($name $item $defaultValue $vr "form-control"  "" "")
+#end
+	
+#macro (xdatNumberBoxParams $name $item $defaultValue $vr $classes $onChange $size)
+	#if ($vr)
+		#if($vr.getField($name))
+			<div class="alert alert-danger error">&#8658</div>
+		#end
+	#end
+	#if ($item.getProperty($name))
+		<input id="$name" type="number" name="$name" value="$item.getStringProperty($name)" 
+		#if($!onChange != "") onchange="$!{onChange}(this)" #end
+		#if($!size != "") size="$!size" #end
+		#if($!classes != "") class="$!classes" #end
+		/>
+	#else
+		<input id="$name" type="number" name="$name" value="$defaultValue" 
+		#if($!onChange != "") onchange="$!{onChange}(this)" #end
+		#if($!size != "") size="$!size" #end
+		#if($!classes != "") class="$!classes" #end
+		/>
+	#end
+#end
+
+#macro (xdatTextArea $name $item $defaultValue $vr $rows $cols)
+#if ($vr)
+    #if($vr.getField($name))
+        <div class="alert alert-danger error">&#8658</div>
+    #end
+#end
+    #if ($item.getProperty($name))
+        <textarea class="form-control" rows="$rows" cols="$cols" id="$name" name="$name">$item.getStringProperty($name)</textarea>
+    #else
+        <textarea class="form-control" rows="$rows" cols="$cols" id="$name" name="$name">$defaultValue</textarea>
+    #end
+#end
+
+
+#macro (xdatBooleanCheckbox $name $item $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #set($value = $!item.getBooleanProperty($name))
+
+  ## The hidden box is necessary to submit a "false" value if the checkbox is unchecked
+  ## If the checkbox is checked, its true value will override the hidden's "false" value
+  <input class="form-control" id="$name" type="checkbox" name="$name" value="1" #if($value) checked #end />
+  <input class="form-control" type="hidden" name="$name" value="0" />
+#end
+
+#macro (xdatBooleanRadio $name $item $defaultValue $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #if ($item.getBooleanProperty($name,$defaultValue))
+  <input class="form-control" type="radio" name="$name" value="1" CHECKED/>&nbsp;true
+  <input class="form-control" type="radio" name="$name" value="0"/>&nbsp;false
+  #else
+  <input class="form-control" type="radio" name="$name" value="1"/>&nbsp;true
+  <input class="form-control" type="radio" name="$name" value="0" CHECKED/>&nbsp;false
+  #end
+#end
+
+#macro (xdatBooleanRadioYesNo $name $item $defaultValue $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #if ($item.getBooleanProperty($name,$defaultValue))
+  <input class="form-control" type="radio" name="$name" value="1" CHECKED/>&nbsp;yes
+  <input class="form-control" type="radio" name="$name" value="0"/>&nbsp;no
+  #else
+  <input class="form-control" type="radio" name="$name" value="1"/>&nbsp;yes
+  <input class="form-control" type="radio" name="$name" value="0" CHECKED/>&nbsp;no
+  #end
+#end
+
+#macro (xdatBooleanRadioYesNoWithoutDefault $name $item $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #set($value = "$!item.getBooleanProperty($name)")
+
+  #if ($value == "true")
+  <input class="form-control" type="radio" name="$name" value="1" CHECKED/>&nbsp;yes
+  <input class="form-control" type="radio" name="$name" value="0"/>&nbsp;no
+  #elseif ($value == "false")
+  <input class="form-control" type="radio" name="$name" value="1"/>&nbsp;yes
+  <input class="form-control" type="radio" name="$name" value="0" CHECKED/>&nbsp;no
+  #else
+  <input class="form-control" type="radio" name="$name" value="1"/>&nbsp;yes
+  <input class="form-control" type="radio" name="$name" value="0"/>&nbsp;no
+  #end
+#end
+
+
+#macro (xdatBooleanRadioYesNoWithoutDefaultWONClick $name $item $vr $onchange)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #set($value = "$!item.getBooleanProperty($name)")
+
+  #if ($value == "true")
+  <input class="form-control" type="radio" id="${name}_1" name="$name" value="1" onclick="return $!{onchange}(true);" CHECKED/>&nbsp;yes
+  <input class="form-control" type="radio" id="${name}_0" name="$name" value="0" onclick="return $!{onchange}(false);"/>&nbsp;no
+  #elseif ($value == "false")
+  <input class="form-control" type="radio" id="${name}_1" name="$name" value="1" onclick="return $!{onchange}(true);"/>&nbsp;yes
+  <input class="form-control" type="radio" id="${name}_0" name="$name" value="0" onclick="return $!{onchange}(false);" CHECKED/>&nbsp;no
+  #else
+  <input class="form-control" type="radio" id="${name}_1" name="$name" value="1" onclick="return $!{onchange}(true);"/>&nbsp;yes
+  <input class="form-control" type="radio" id="${name}_0" name="$name" value="0" onclick="return $!{onchange}(false);"/>&nbsp;no
+  #end
+#end
+
+#macro (xdatRadioButtonGroup $name $item $possibleValues $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #if($item.isPKField($name) && (!$vr.getField($name)))
+    <input class="form-control" id="$name" type="hidden" name="$name" value="$item.getProperty($name)"/>
+    $item.getProperty($name)
+  #else
+    #if ($possibleValues.size()==0)
+      <input class="form-control" id="$name" type="text" name="$name" value="$item.getProperty($name)"/>
+    #else
+      #foreach ($pValue in $possibleValues)
+      <input class="form-control" type="radio" name="$name" value="$pValue" #if($pValue.equals($item.getProperty($name))) checked #end />&nbsp;$pValue
+      #end
+    #end
+  #end
+#end
+
+
+#macro ([ $name $item $possibleValues $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #if($item.isPKField($name) && (!$vr.getField($name)))
+    <input id="$name" type="hidden" name="$name" value="$item.getProperty($name)"/>
+    $item.getProperty($name)
+  #else
+  #if($possibleValues)
+    #if ($possibleValues.size()==0)
+      <input class="form-control" id="$name" type="text" name="$name" value="$item.getProperty($name)"/>
+    #else
+      <select class="form-control" id="SEL_$name" name="SEL_$name" onchange="setSelectValue(this);">
+        <option value="">(SELECT)</option>
+        #foreach ($pValue in $possibleValues)
+        <option value="$pValue.get(0)" #if($pValue.get(0).equals($item.getProperty($name))) SELECTED #end>$pValue.get(1)</option>
+        #end
+        <option value="">CUSTOM</option>
+      </select>			
+      <div id="IND_$name"><a id="A_$name" onclick="showText(this);">Other</a></div>
+      <div id="TEXT_$name" style="display:none"> Enter: <input class="form-control" id="$name" type="text" name="$name" value="$!item.getProperty($name)"/></div>
+  <script type="text/javascript">
+  function setSelectValue(SELECTbox){
+    if(SELECTbox.selectedIndex!=0)
+    {
+      var name = SELECTbox.name;
+      name = name.substring(4);
+      var NEWvalue=SELECTbox.options[SELECTbox.selectedIndex].value;
+      if (NEWvalue=="")
+      {
+        document.getElementById("TEXT_" + name).style.display="block";
+        document.getElementById("IND_" + name).style.display="none";
+        //SELECTbox.disabled=true;
+      }else{
+        document.getElementById(name).value=NEWvalue;
+      }
+    }
+  }
+  function showText(ATag){
+      var name = ATag.id;
+      name = name.substring(2);
+        document.getElementById("TEXT_" + name).style.display="block";
+        document.getElementById("IND_" + name).style.display="none";
+  }
+  </script>
+    #end
+    #else
+      <input class="form-control" id="$name" type="text" name="$name" value="$item.getProperty($name)"/>
+    #end
+  #end
+#end
+
+
+#macro (xdatSelectBoxWDefault $name $item $possibleValues $vr)
+#if ($vr)
+  #if($vr.getField($name))
+    <div class="alert alert-danger error">&#8658</div>
+  #end
+#end
+  #if($item.isPKField($name) && (!$vr.getField($name)))
+    <input id="$name" type="hidden" name="$name" value="$item.getProperty($name)"/>
+    $item.getProperty($name)
+  #else
+    #if ($possibleValues.size()==0)
+      <input id="$name" type="text" name="$name" value="$item.getProperty($name)"/>
+    #else
+      <select id="$name" name="$name">
+        #foreach ($pValue in $possibleValues)
+        <option value="$pValue" #if($pValue.equals($item.getProperty($name))) SELECTED #end>$pValue</option>
+        #end
+      </select>
+    #end
+  #end
+#end
+
+#macro (xdatDateBox $name $item $vr $years)
+ #if ($vr)
+    #if($vr.getField($name))
+       <div class="alert alert-danger error">&#8658</div>
+    #end
+ #end
+   #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+   #set($days = [ 1..31 ])
+         #if($item.getDateProperty($name))
+              #set ($expt_date = $!item.getDateProperty($name))
+            
+        <select name="${name}.date" onchange="validateDate(this);">
+           <option value="bad">(SELECT)</option>
+           #foreach ($day in $days)
+           	   <option value="$day" #if ( $day == $!expt_date.getDate() ) SELECTED="true" #end>$day</option>
+           #end
+        </select>
+        <select name="${name}.month" onchange="validateDate(this);">
+            	<option value="bad">(SELECT)</option>
+                   #foreach ($month in $months)
+              #set ($monthCount = $velocityCount - 1)
+              <option value="$monthCount" #if ( $monthCount == $!expt_date.getMonth()) SELECTED="true" #end>						$month					</option>
+           #end
+        </select>
+##			  #set ($currentYear = $date.Year + 1900)
+        <select name="${name}.year" onchange="validateDate(this);">
+           <option value="bad">(SELECT)</option>
+           #foreach ($year in $years)
+            <option value="$year" #if ( $year == $!expt_date.getYear() + 1900 ) SELECTED="true" #end>$year</option>
+           #end
+        </select>
+     #else
+        <select name="${name}.date" onchange="validateDate(this);">
+           <option value="bad">(SELECT)</option>
+           #foreach ($day in $days)
+          <option value="$day">$day</option>
+           #end
+        </select>
+     	 <select name="${name}.month" onchange="validateDate(this);">
+           <option value="bad">(SELECT)</option>
+           #foreach ($month in $months)
+              #set ($monthCount = $velocityCount - 1)
+          <option value="$monthCount">				$month					</option>
+           #end
+        </select>
+##			  #set ($currentYear = $date.Year + 1900)
+        <select name="${name}.year" onchange="validateDate(this);">
+           <option value="bad">(SELECT)</option>
+           #foreach ($year in $years)
+        <option value="$year">$year</option>
+           #end
+        </select>
+     #end
+      
+#end

@@ -1,0 +1,178 @@
+##Copyright 2005 Harvard University / Howard Hughes Medical Institute (HHMI) All Rights Reserved
+##
+## Default Macro file for QBI
+##
+## Put your Application macros in this file.
+##
+## patch test
+#* @vtlvariable name="tipText" type="java.util.List" *#
+
+#macro(xdatStringBox $name $item $defaultValue $vr)
+    #xdatStringBoxParams($name $item $defaultValue $vr "form-control"  "" "")
+#end
+
+#macro(xdatStringBoxParams $name $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($name))
+        <div class="alert alert-danger error">&#8658</div>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+    <input id="$name" type="text" name="$name" value="$value"
+        #if($!onChange != "") onchange="$!{onChange}(this)" #end
+        #if($!size != "") size="$!size" #end
+        #if($!classes != "") class="$!classes" #end
+    />
+
+#end
+
+#macro(xdatNumberBox $name $item $defaultValue $vr)
+    #xdatNumberBoxParams($name $item $defaultValue $vr "form-control"  "" "")
+#end
+
+#macro(xdatNumberBoxParams $name $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($name))
+        <div class="alert alert-danger error">&#8658</div>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+    <input id="$name" type="number" name="$name" value="$value"
+        #if($!onChange != "") onchange="$!{onChange}(this)" #end
+        #if($!size != "") size="$!size" #end
+        #if($!classes != "") class="$!classes" #end
+    />
+
+#end
+
+#macro(xdatTextArea $name $item $defaultValue $vr $rows $cols)
+    #if ($vr)
+        #if($vr.getField($name))
+        <div class="alert alert-danger error">&#8658</div>
+        #end
+    #end
+    #if ($item.getProperty($name))
+    <textarea class="form-control" rows="$rows" cols="$cols" id="$name"
+              name="$name">$item.getStringProperty($name)</textarea>
+    #else
+    <textarea class="form-control" rows="$rows" cols="$cols" id="$name" name="$name">$defaultValue</textarea>
+    #end
+#end
+
+
+#macro(xdatCheckboxGroup $name $item $possibleValues $vr)
+    #if ($vr)
+        #if($vr.getField($name))
+        <div class="alert alert-danger error">&#8658</div>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+<div class="form-check form-check-inline">
+    #foreach ($key in $possibleValues.keySet())
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="$name" value="$key"
+                #if($key.equals($value)) checked #end
+            />
+            &nbsp;$possibleValues.get($key)
+        </label>
+    #end
+</div>
+#end
+
+
+#macro (xdatRadioButtonGroup $name $item $possibleValues $vr)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = "")
+    #end
+<div class="form-check form-check-inline">
+    #foreach ($key in $possibleValues.keySet())
+
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="$name" value="$key"
+                #if($key.equals($value)) checked #end
+            />
+            &nbsp;$possibleValues.get($key)
+        </label>
+    #end
+</div>
+#end
+
+
+#macro(xdatDateBox $name $item $vr $years)
+    #if ($vr)
+        #if($vr.getField($name))
+        <div class="alert alert-danger error">&#8658</div>
+        #end
+    #end
+    #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+        "November", "December"])
+    #set($days = [ 1..31 ])
+    #if($item.getDateProperty($name))
+        #set ($expt_date = $!item.getDateProperty($name))
+
+    <select name="${name}.date" onchange="validateDate(this);">
+        <option value="bad">(SELECT)</option>
+        #foreach ($day in $days)
+            <option value="$day" #if ( $day == $!expt_date.getDate() ) SELECTED="true" #end>$day</option>
+        #end
+    </select>
+    <select name="${name}.month" onchange="validateDate(this);">
+        <option value="bad">(SELECT)</option>
+        #foreach ($month in $months)
+            #set ($monthCount = $velocityCount - 1)
+            <option value="$monthCount" #if ( $monthCount == $!expt_date.getMonth())
+                    SELECTED="true" #end>                        $month</option>
+        #end
+    </select>
+    ##			  #set ($currentYear = $date.Year + 1900)
+    <select name="${name}.year" onchange="validateDate(this);">
+        <option value="bad">(SELECT)</option>
+        #foreach ($year in $years)
+            <option value="$year" #if ( $year == $!expt_date.getYear() + 1900 ) SELECTED="true" #end>$year</option>
+        #end
+    </select>
+    #else
+    <select name="${name}.date" onchange="validateDate(this);">
+        <option value="bad">(SELECT)</option>
+        #foreach ($day in $days)
+            <option value="$day">$day</option>
+        #end
+    </select>
+    <select name="${name}.month" onchange="validateDate(this);">
+        <option value="bad">(SELECT)</option>
+        #foreach ($month in $months)
+            #set ($monthCount = $velocityCount - 1)
+            <option value="$monthCount">                $month</option>
+        #end
+    </select>
+    ##			  #set ($currentYear = $date.Year + 1900)
+    <select name="${name}.year" onchange="validateDate(this);">
+        <option value="bad">(SELECT)</option>
+        #foreach ($year in $years)
+            <option value="$year">$year</option>
+        #end
+    </select>
+    #end
+
+#end

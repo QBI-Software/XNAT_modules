@@ -2,6 +2,17 @@
 #* @vtlvariable name="project" type="java.lang.String" *#
 #* @vtlvariable name="om" type="org.nrg.xdat.om.XnatSubjectdata" *#
 <!-- Sequence: 6 -->
-<li class="yuimenuitem">
+<li class="yuimenuitem" group="IRC5 samples">
     <A href="$link.setPage("XDATScreen_edit_irc5_bloodData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Blood Sample</A>
+</li><li class="yuimenuitem" group="IRC5 samples">
+    <A href="$link.setPage("XDATScreen_edit_irc5_brainData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Brain Sample</A>
+</li><li class="yuimenuitem" group="IRC5 samples">
+    <A href="$link.setPage("XDATScreen_edit_irc5_skinData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Skin Sample</A>
+</li><li class="yuimenuitem" group="IRC5 samples">
+    <A href="$link.setPage("XDATScreen_edit_irc5_salivaData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Saliva Sample</A>
+</li><li class="yuimenuitem" group="IRC5 samples">
+    <A href="$link.setPage("XDATScreen_edit_irc5_npsData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Neuropsych Scores</A>
+</li><li class="yuimenuitem" group="IRC5 samples">
+    <A href="$link.setPage("XDATScreen_edit_irc5_opinionData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add IRC5 Opinion</A>
 </li>
+
