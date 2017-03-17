@@ -318,7 +318,7 @@
         <DisplayFieldRef id="RMIT"/>
     </DisplayVersion>
     <ViewLink alias="IRC5_NPSDATA_PROJECTS">
-        <Mapping TableName="IRC5_NPSDATA_PROJECTS">
+        <Mapping TableName="irc5_npsdata_projects">
             <MappingColumn rootElement="irc5:npsData" fieldElement="irc5:npsData.ID" mapsTo="id"/>
         </Mapping>
     </ViewLink>

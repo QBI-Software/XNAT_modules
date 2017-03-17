@@ -160,7 +160,7 @@
         <DisplayFieldRef id="COMMENTS"/>
     </DisplayVersion>
     <ViewLink alias="IRC5_SKINDATA_PROJECTS">
-        <Mapping TableName="IRC5_SKINDATA_PROJECTS">
+        <Mapping TableName="irc5_skindata_projects">
             <MappingColumn rootElement="irc5:skinData" fieldElement="irc5:skinData.ID" mapsTo="id"/>
         </Mapping>
     </ViewLink>

@@ -37,7 +37,7 @@
         <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.date"/>
     </DisplayField>
     <DisplayField header="Projects" id="PROJECTS" data-type="string">
-        <DisplayFieldElement name="Field1" viewName="IRC5_BLOODDATA_PROJECTS" viewColumn="PROJECTS"/>
+        <DisplayFieldElement name="Field1" viewName="irc5_blooddata_projects" viewColumn="PROJECTS"/>
     </DisplayField>
     <DisplayField header="Label" id="LABEL" data-type="string">
         <DisplayFieldElement name="Field1" schema-element="irc5:bloodData.ID"/>
@@ -159,11 +159,11 @@
         <DisplayFieldRef id="SUMMARY"/>
         <DisplayFieldRef id="COMMENTS"/>
     </DisplayVersion>
-    <ViewLink alias="IRC5_BLOODDATA_PROJECTS">
-        <Mapping TableName="IRC5_BLOODDATA_PROJECTS">
+    <ViewLink alias="irc5_blooddata_projects">
+        <Mapping TableName="irc5_blooddata_projects">
             <MappingColumn rootElement="irc5:bloodData" fieldElement="irc5:bloodData.ID" mapsTo="id"/>
         </Mapping>
     </ViewLink>
-    <SQLView name="IRC5_BLOODDATA_PROJECTS"
+    <SQLView name="irc5_blooddata_projects"
              sql="SELECT id, '&lt;' || expt.project || '&gt;' || xs_a_concat(',&lt;' || shared.project || '&gt;') AS projects FROM xnat_experimentData expt LEFT JOIN xnat_experimentData_share shared ON expt.id=shared.sharing_share_xnat_experimentda_id LEFT JOIN xdat_meta_element xme ON expt.extension = xme.xdat_meta_element_id WHERE element_name='irc5:bloodData' GROUP BY expt.id,expt.project"/>
 </Displays>

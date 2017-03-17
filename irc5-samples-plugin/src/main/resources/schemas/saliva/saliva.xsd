@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XNAT datatype for QBI saliva test-->
 <xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
-<xs:element name="SALIVA" type="irc5:salivaData"></xs:element>
-<xs:complexType name="salivaData">
+<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:\Projects\XNAT\schemas\xnat\xnat.xsd"/>
+<xs:element name="SALIVA" type="irc5:salivaData">
 	<xs:annotation>
 		<xs:documentation>QBI IRC5 Saliva sample</xs:documentation>
 	</xs:annotation>
+</xs:element>
+<xs:complexType name="salivaData">
   <xs:complexContent>
     <xs:extension base="xnat:subjectAssessorData">
       <xs:sequence>
@@ -28,7 +29,11 @@
         			Tubes analysed
         		</xs:documentation>
         	</xs:annotation>
-        	<xs:element name="tube" type="salivaTubeData" minOccurs="0" maxOccurs="20"/>
+        	<xs:complexType >
+        	<xs:sequence>
+				<xs:element name="tube" type="irc5:salivaTubeData" minOccurs="0" maxOccurs="20"/>
+				</xs:sequence>
+        	</xs:complexType>
         </xs:element>
         <xs:element name="remaining" minOccurs="0" maxOccurs="1" type="xs:integer">
         	<xs:annotation>
@@ -52,7 +57,7 @@
   </xs:complexContent>
 </xs:complexType>
 <xs:complexType name="salivaTubeData">
-	<xs:complexContent>
+
 	<xs:sequence>               
 			<xs:element name="tube_number" minOccurs="0" maxOccurs="1" >
 			<xs:annotation>
@@ -99,6 +104,6 @@
 				
 			</xs:element>
 		</xs:sequence>
-		</xs:complexContent>
+
 </xs:complexType>
 </xs:schema>

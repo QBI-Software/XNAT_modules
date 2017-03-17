@@ -161,7 +161,7 @@
         <DisplayFieldRef id="COMMENTS"/>
     </DisplayVersion>
     <ViewLink alias="IRC5_BRAINDATA_PROJECTS">
-        <Mapping TableName="IRC5_BRAINDATA_PROJECTS">
+        <Mapping TableName="irc5_braindata_projects">
             <MappingColumn rootElement="irc5:brainData" fieldElement="irc5:brainData.ID" mapsTo="id"/>
         </Mapping>
     </ViewLink>
