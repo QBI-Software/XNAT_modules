@@ -46,26 +46,12 @@
                 </tr>
                 <tr>
 
-                    #set($numTubes = $!item.getTubes_tube().size())
-                    <span>numTubes = $!numTubes</span><br/>
-                    <span>Item.tube= $!item.getTubes_tube()</span>
-                    #foreach ($scan in $item.Scans_scan)
-                        $scan.Id   $!scan.Type   $!scan.Quality
-                    #end
-                    #foreach($tube in $item.Tubes_tube)
-                    <tr>
-                        <td>$tube.getProperty("irc5:salivaData/tubes/tube/tube_number")</td>
-                        <td>$tube.getDateAnalysed()</td>
-                        <td>$tube.getRatio()</td>
-                        <td>$tube.getConcentration()</td>
-                        <td>$tube.getRecheck()</td>
+                    #set($numTubes = $om.getTubes_tube().size())
+                    <span>TOTAL = $numTubes</span>
 
-                    </tr>
-
-                    #end
                     #if ($numTubes > 0)
                         <th>Tubes Analysed</th>
-                        #set ($TOTAL_TUBES = $numTubes - 1)
+
                         <td>
                         <table class="table table-striped">
                             <thead>
@@ -77,18 +63,18 @@
 
                             </thead>
                             <tbody id="tubes">
-                                #foreach($tube in [0..$TOTAL_TUBES])
+                                #foreach($tube in $om.getTubes_tube())
                                 <tr>
-                                    <td>$!item.getProperty("irc5:salivaData/tubes/tube[$tube]/tube_number")</td>
-                                    <td>$!item.getProperty("irc5:salivaData/tubes/tube[$tube]/date_analysed")</td>
-                                    <td>$!item.getProperty("irc5:salivaData/tubes/tube[$tube]/ratio")</td>
-                                    <td>$!item.getProperty("irc5:salivaData/tubes/tube[$tube]/concentration")</td>
-                                    <td>$!item.getProperty("irc5:salivaData/tubes/tube[$tube]/recheck")</td>
+                                    <td>$tube.getProperty("tube_number")</td>
+                                    <td>$tube.getDateAnalysed()</td>
+                                    <td>$tube.getRatio()</td>
+                                    <td>$tube.getConcentration()</td>
+                                    <td>$tube.getRecheck()</td>
 
                                 </tr>
 
                                 #end
-                            <input type="hidden" name="TUBE_COUNTER" id="TUBE_COUNTER" value="5"/>
+
                             </tbody>
 
                         </table>
