@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XNAT datatype for QBI saliva test-->
 <xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:\Projects\XNAT\schemas\xnat\xnat.xsd"/>
+<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
 <xs:element name="SALIVA" type="irc5:salivaData">
 	<xs:annotation>
 		<xs:documentation>QBI IRC5 Saliva sample</xs:documentation>
@@ -35,18 +35,10 @@
 				</xs:sequence>
         	</xs:complexType>
         </xs:element>
-        <xs:element name="remaining" minOccurs="0" maxOccurs="1" type="xs:integer">
-        	<xs:annotation>
-        		<xs:documentation>
-        			Number tubes remaining
-        		</xs:documentation>
-        	</xs:annotation>
-        	
-        </xs:element>
         <xs:element name="total" minOccurs="0" maxOccurs="1" type="xs:integer">
         	<xs:annotation>
         		<xs:documentation>
-        			Total tubes analysed
+        			Total tubes collected
         		</xs:documentation>
         	</xs:annotation>
         	
@@ -68,7 +60,7 @@
 			<xs:simpleType>
 					<xs:restriction base="xs:integer">
 						<xs:minInclusive value="0"></xs:minInclusive>
-						<xs:maxInclusive value="10"></xs:maxInclusive>
+						<xs:maxInclusive value="10000"></xs:maxInclusive>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

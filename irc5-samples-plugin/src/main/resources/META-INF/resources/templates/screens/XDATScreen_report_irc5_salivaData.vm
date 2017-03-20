@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-	$page.setTitle("IRC5 QBI Saliva Sample")
-	$page.setLinkColor($ui.alink)
-	$page.setVlinkColor($ui.vlink)
-	#if ($turbineUtils.GetPassedParameter("popup", $data))
-		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
-		#set ($popup = "false")
-	#end
+    $page.setTitle("IRC5 QBI Saliva Sample")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
 
 <div class="container">
     <div class="row">
         <h3>IRC5 QBI Saliva Sample</h3>
-		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
-        <div class="col-sm-4" align="right">
-			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        <div class="" align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
         </div>
     </div>
     <br/>
+    #set($numTubes = $om.getTubes_tube().size())
     <div class="row">
         <div class="col-sm-8">
             <table class="table resultstable">
@@ -37,50 +38,67 @@
                     <td>$!item.getStringProperty("irc5:salivaData/comments")</td>
                 </tr>
                 <tr>
-                    <th>Number tubes remaining</th>
-                    <td>$!item.getIntegerProperty("irc5:salivaData/remaining")</td>
-                </tr>
-                <tr>
-                    <th>Total tubes analysed</th>
+                    <th>Total tubes collected</th>
                     <td>$!item.getIntegerProperty("irc5:salivaData/total")</td>
                 </tr>
                 <tr>
+                    <th>Total tubes analysed</th>
+                    <td>$numTubes</td>
+                </tr>
+                <tr>
+                    <th>Number tubes remaining</th>
+                    #set($remaining = $!item.getIntegerProperty("irc5:salivaData/total") - $numTubes)
+                    <td>$remaining</td>
+                </tr>
 
-                    #set($numTubes = $om.getTubes_tube().size())
-                    <span>TOTAL = $numTubes</span>
+                <tr>
 
                     #if ($numTubes > 0)
                         <th>Tubes Analysed</th>
 
                         <td>
-                        <table class="table table-striped">
-                            <thead>
-                            <th>Tube number</th>
-                            <th>Date analysed</th>
-                            <th>Ratio</th>
-                            <th>Concentration</th>
-                            <th>Recheck</th>
+                            <table class="table table-striped">
+                                <thead>
+                                <th>Tube number</th>
+                                <th>Date analysed</th>
+                                <th>Ratio</th>
+                                <th>Concentration</th>
+                                <th>Recheck</th>
 
-                            </thead>
-                            <tbody id="tubes">
-                                #foreach($tube in $om.getTubes_tube())
-                                <tr>
-                                    <td>$tube.getProperty("tube_number")</td>
-                                    <td>$tube.getDateAnalysed()</td>
-                                    <td>$tube.getRatio()</td>
-                                    <td>$tube.getConcentration()</td>
-                                    <td>$tube.getRecheck()</td>
+                                </thead>
+                                <tbody id="tubes">
+                                    #foreach($tube in $om.getTubes_tube())
+                                    <tr>
+                                        <td>#if ($tube.getTubeNumber())
+                                            $tube.getTubeNumber()
+                                        #else &nbsp;
+                                        #end
+                                        </td>
+                                        <td>#if ($tube.getDateAnalysed())
+                                            $tube.getDateAnalysed()
+                                        #else &nbsp;
+                                        #end</td>
+                                        <td>#if($tube.getRatio())
+                                            $tube.getRatio()
+                                        #else &nbsp;
+                                        #end</td>
+                                        <td>#if($tube.getConcentration())
+                                            $tube.getConcentration()
+                                        #else &nbsp;
+                                        #end</td>
+                                        <td>#if($tube.getRecheck()) Yes #else No  #end
+                                        </td>
 
-                                </tr>
+                                    </tr>
 
-                                #end
+                                    #end
 
-                            </tbody>
+                                </tbody>
 
-                        </table>
+                            </table>
 
                         </td>
-                        #end
+                    #end
                 </tr>
                 </tbody>
             </table>
