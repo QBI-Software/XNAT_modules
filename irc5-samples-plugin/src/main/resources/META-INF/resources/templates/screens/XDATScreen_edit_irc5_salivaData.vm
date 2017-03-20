@@ -116,7 +116,7 @@ $page.setVlinkColor($ui.vlink)
                 </tbody>
 
             </table>
-            <div class="form-group" align="right">
+            <div class="form-group col-sm-4" align="right">
                 <input type="hidden" name="TUBE_COUNTER" id="TUBE_COUNTER" value="$maxtubes"/>
                 <a href="javascript:void(0)" id="add_tube" class="btn btn-info">Add another tube</a>
 
