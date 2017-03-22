@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 sp1 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<xs:schema xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/irc5" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<!-- D:/Projects/XNAT/schemas/xnat/xnat.xsd -->
+	<xs:element name="medical" type="irc5:medicalData"/>
+	<xs:element name="birth" type="irc5:birthData"/>
+	<xs:complexType name="medicalData">
+		<xs:annotation>
+			<xs:documentation>Medical History</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:abstractDemographicData">
+				<xs:sequence>
+					<!-- Begin: IRC5 Medical History data-->
+					<xs:element name="history_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="VisionProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Vision Problems
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AuditoryProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Auditory Problems
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="NeuromuscularProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Neuromuscular Problems
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CardiacRespiratoryGI" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Cardiac Respiratory or GI Problems
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="GenitoUrinaryEndocrineSkinOrtho" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Genito Urinary Endocrine Skin or Ortho Problems
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="BehaviouralSleepPyschiatric" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Behavioural Sleep or Pyschiatric Problems
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SurgicalProcedures" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has had Surgical Procedures
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OtherProblems" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Has Other Medical Problems
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="1000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<!-- End: IRC5 Medical History data -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="birthData">
+		<xs:annotation>
+			<xs:documentation>Birth History</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:abstractDemographicData">
+				<xs:sequence>
+					<!-- Begin: IRC5 Birth History -->
+					<xs:element name="birth_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="NormalBirth" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Normal Birth
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Premature" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Premature
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FertilityTreatment" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Fertility Treatment
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PaternalAge" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Paternal Age
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="10"/>
+								<xs:maxExclusive value="120"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<!-- End: IRC5 Birth History -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
