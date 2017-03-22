@@ -95,7 +95,7 @@ $page.setVlinkColor($ui.vlink)
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio" "ratio" $tube "" $vr "form-control" "" "10")</td>
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/concentration" "concentration" $tube "" $vr "form-control" "" "10")</td>
                         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "recheck" $tube $vr "form-control")</td>
-                        <td><button exptid = $!item.getProperty("ID") tubeid="$tube.getIrc5SalivatubedataId()" class="delete_tube" title="Delete tube"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        <td><button id="$tubeidx" exptid = $!item.getProperty("ID") tubeid="$tube.getIrc5SalivatubedataId()" class="delete_tube" title="Delete tube"><span class="glyphicon glyphicon-trash"></span></button></td>
                     </tr>
 
                     #end
@@ -170,15 +170,17 @@ $page.setVlinkColor($ui.vlink)
 
     $('.delete_tube').click(function(event){
         event.preventDefault();
-        var tubeid = $(this).attr("tubeid");
+        var tubeidx = $(this).attr("id");
         var tube_counter = $('#TUBE_COUNTER').val();
         var new_tube = parseInt(tube_counter) - 1;
         var exptid = $(this).attr("exptid");
-        if (tubeid != ""){
+        if (tubeidx != ""){
+            var i = parseInt(tubeidx);
             //TODO: FIND WAY TO DELETE TUBE
-            // YAHOO.util.Connect.asyncRequest('DELETE',serverRoot +'/REST/experiments/' + exptid +'/tubes/' + tubeid +'?format=json',this.initCallback,null,this);
-            // $(this).parents("tr").remove();
-            // $('#TUBE_COUNTER').val(new_tube);
+            //om.removeTubes_tube(i);
+            YAHOO.util.Connect.asyncRequest('DELETE',serverRoot +'/REST/experiments/' + exptid +'/tubes/tube/' + i +'?format=json',this.initCallback,null,this);
+            $(this).parents("tr").remove();
+            $('#TUBE_COUNTER').val(new_tube);
         }
 
     });

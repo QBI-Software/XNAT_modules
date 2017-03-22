@@ -2,12 +2,11 @@
 <!-- XNAT datatype for QBI saliva test-->
 <xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 <xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-<xs:element name="SALIVA" type="irc5:salivaData">
+<xs:element name="SALIVA" type="irc5:salivaData"></xs:element>
+<xs:complexType name="salivaData">
 	<xs:annotation>
 		<xs:documentation>QBI IRC5 Saliva sample</xs:documentation>
 	</xs:annotation>
-</xs:element>
-<xs:complexType name="salivaData">
   <xs:complexContent>
     <xs:extension base="xnat:subjectAssessorData">
       <xs:sequence>
@@ -31,7 +30,7 @@
         	</xs:annotation>
         	<xs:complexType >
         	<xs:sequence>
-				<xs:element name="tube" type="irc5:salivaTubeData" minOccurs="0" maxOccurs="20"/>
+				<xs:element name="tube" type="irc5:salivaTubeData" minOccurs="0" maxOccurs="50"/>
 				</xs:sequence>
         	</xs:complexType>
         </xs:element>
