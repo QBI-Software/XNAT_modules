@@ -6,3 +6,10 @@ irc5-demographics-plugin/build/
 irc5-demographics-plugin/.gradle/
 *.jar
 *.bin
+*.lock
+*.bin
+irc5-samples-plugin/.gradle/3.1/taskArtifacts/cache.properties.lock
+*.bin
+irc5-samples-plugin/.gradle/3.1/taskArtifacts/fileSnapshots.bin
+*.bin
+irc5-samples-plugin/.idea/workspace.xml
