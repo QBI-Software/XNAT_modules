@@ -69,7 +69,10 @@
     <!-- EditProjectSpecificFields -->
     #parse("/screens/EditProjectSpecificFields.vm")
 </div>
-
+<div>
+    <!-- IRC5 demographics -->
+    #parse("/screens/XDATScreen_edit_irc5_qbicc.vm")
+</div>
 #if($subject.getId())
     <table>
         #auditBoxes("2" "" "" "Modified Subject")
@@ -80,8 +83,7 @@
     </table>
     #hideFormJustification()
 #end
-#xdatHiddenBox("xnat:subjectData/metadata/xnat_abstractsubjectmetadata_id" $item "")
-#xdatHiddenBox("xnat:subjectData/demographics/xnat_abstractdemographicdata_id" $item "")
+
 <input type="hidden" name="source" value="$!source">
 <input type="hidden" name="destination" value="$!{destination}">
 <input type="hidden" name="tag" value="$!{tag}">

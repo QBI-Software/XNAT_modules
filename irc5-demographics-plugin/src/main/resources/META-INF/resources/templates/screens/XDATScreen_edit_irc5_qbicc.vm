@@ -1,5 +1,5 @@
 <!-- START screens/XDATScreen_edit_irc5_qbicc.vm -->
-#set($yesno = {0:"No", 1:"Yes"})
+#set($yesno = {0:"No", 1:"Yes",3:"Not known"})
 
 <div class="container">
     <h3>QBI CC Demographics for IRC5</h3>
@@ -21,8 +21,11 @@
                     <!-- xnat:subjectData/demographics[@xsi:type='irc5:medicalData']/VisionProblems -->
                     <td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type='irc5:medicalData']/VisionProblems" $item $yesno $vr)</td>
                 </tr>
-                <tr><td>Item type</td><td class="debug">$!item.getXSIType()</td></tr>
-                <tr><td>om type</td><td class="debug">$!om.getXSIType()</td></tr>
+                <tr>
+                    <td>Auditory Problems</td>
+                    <!-- xnat:subjectData/demographics[@xsi:type='irc5:medicalData']/VisionProblems -->
+                    <td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type='irc5:medicalData']/AuditoryProblems" $item $yesno $vr)</td>
+                </tr>
                 </tbody>
             </table>
 
