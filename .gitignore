@@ -1,5 +1,8 @@
+irc5-samples-plugin/.idea/
+irc5-samples-plugin/build/
+irc5-samples-plugin/.gradle/
+irc5-demographics-plugin/.idea/
+irc5-demographics-plugin/build/
+irc5-demographics-plugin/.gradle/
 *.jar
 *.bin
-irc5-samples-plugin/.gradle
-irc5-samples-plugin/.idea
-irc5-samples-plugin/build

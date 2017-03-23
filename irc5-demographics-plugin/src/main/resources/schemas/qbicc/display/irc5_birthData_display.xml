@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd"
+          schema-element="irc5:birthData" full-description="birth" brief-description="birth">
+    <DisplayField header="Projects" id="PROJECTS" data-type="string">
+        <DisplayFieldElement name="Field1" viewName="IRC5_MEDICALDATA_PROJECTS" viewColumn="PROJECTS"/>
+    </DisplayField>
+    <DisplayField id="SUBJECT_ID" header="Subject" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:medicalData.subject_ID"/>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','xnat:subjectData','xnat:subjectData.ID');">
+                <InsertValue id="Field1" field="SUBJECT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="RPT" header="ID" visible="true" image="true">
+        <Content type="sql">'/@WEBAPP/images/r.gif'::text</Content>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','irc5:medicalData','irc5:medicalData.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData.meta.insert_date"/>
+    </DisplayField>
+    <DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData.meta.insert_user.login"/>
+    </DisplayField>
+    <DisplayField id="BIRTH_ID" header="birth_id" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData/birth_id"/>
+    </DisplayField>
+    <DisplayField id="NORMALBIRTH" header="NormalBirth" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData/NormalBirth"/>
+    </DisplayField>
+    <DisplayField id="PREMATURE" header="Premature" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData/Premature"/>
+    </DisplayField>
+    <DisplayField id="FERTILITYTREATMENT" header="FertilityTreatment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData/FertilityTreatment"/>
+    </DisplayField>
+    <DisplayField id="PATERNALAGE" header="PaternalAge" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:birthData/PaternalAge"/>
+    </DisplayField>
+    <DisplayVersion versionName="listing" default-order-by="BIRTH_ID" default-sort-order="DESC"
+                    brief-description="birth" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="BIRTH_ID"/>
+        <DisplayFieldRef id="NORMALBIRTH"/>
+        <DisplayFieldRef id="PREMATURE"/>
+        <DisplayFieldRef id="FERTILITYTREATMENT"/>
+        <DisplayFieldRef id="PATERNALAGE"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="full" default-order-by="BIRTH_ID" default-sort-order="DESC" brief-description="birth"
+                    dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="BIRTH_ID"/>
+        <DisplayFieldRef id="NORMALBIRTH"/>
+        <DisplayFieldRef id="PREMATURE"/>
+        <DisplayFieldRef id="FERTILITYTREATMENT"/>
+        <DisplayFieldRef id="PATERNALAGE"/>
+    </DisplayVersion>
+</Displays>

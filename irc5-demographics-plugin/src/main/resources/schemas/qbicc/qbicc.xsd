@@ -3,8 +3,12 @@
 <xs:schema xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/irc5" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
 	<!-- D:/Projects/XNAT/schemas/xnat/xnat.xsd -->
+	<xs:annotation>
+		<xs:documentation>QBI CC Demographics for IRC5</xs:documentation>
+	</xs:annotation>
 	<xs:element name="medical" type="irc5:medicalData"/>
 	<xs:element name="birth" type="irc5:birthData"/>
+
 	<xs:complexType name="medicalData">
 		<xs:annotation>
 			<xs:documentation>Medical History</xs:documentation>
@@ -13,7 +17,6 @@
 			<xs:extension base="xnat:abstractDemographicData">
 				<xs:sequence>
 					<!-- Begin: IRC5 Medical History data-->
-					<xs:element name="history_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="VisionProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>

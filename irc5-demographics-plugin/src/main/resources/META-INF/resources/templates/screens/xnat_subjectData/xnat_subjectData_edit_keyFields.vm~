@@ -1,0 +1,6 @@
+<!-- BEGIN /screens/xnat_subjectData/xnat_subjectData_edit_keyFields.vm -->
+<h3>Demographics with IRC5</h3>
+
+#parse("/screens/XDATScreen_edit_irc5_qbicc.vm")
+#xdatHiddenBox("xnat:subjectData/demographics/xnat_abstractdemographicdata_id" $item "")
+<!-- END /screens/xnat_subjectData/xnat_subjectData_edit_keyFields.vm -->
