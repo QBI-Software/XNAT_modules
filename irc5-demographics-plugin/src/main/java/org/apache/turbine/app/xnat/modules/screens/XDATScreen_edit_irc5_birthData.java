@@ -94,11 +94,7 @@ public class XDATScreen_edit_irc5_birthData extends org.nrg.xdat.turbine.modules
                 }
 
             }
-        } catch (ElementNotFoundException e) {
-            e.printStackTrace();
-        } catch (XFTInitException e) {
-            e.printStackTrace();
-        } catch (FieldNotFoundException e) {
+        } catch (ElementNotFoundException | XFTInitException | FieldNotFoundException e) {
             e.printStackTrace();
         }
     }

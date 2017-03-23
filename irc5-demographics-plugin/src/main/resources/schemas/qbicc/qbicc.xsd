@@ -6,15 +6,23 @@
 	<xs:annotation>
 		<xs:documentation>QBI CC Demographics for IRC5</xs:documentation>
 	</xs:annotation>
-	<xs:element name="medical" type="irc5:medicalData"/>
-	<xs:element name="birth" type="irc5:birthData"/>
-
+	<xs:element name="qbicc" type="irc5:qbiccDemographics"/>
+	<xs:complexType name="qbiccDemographics">
+		<xs:complexContent>
+			<xs:extension base="xnat:abstractDemographicData">
+				<xs:sequence>
+					<xs:element name="medical" type="irc5:medicalData"/>
+					<xs:element name="birth" type="irc5:birthData"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="medicalData">
 		<xs:annotation>
 			<xs:documentation>Medical History</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="xnat:abstractDemographicData">
+		
 				<xs:sequence>
 					<!-- Begin: IRC5 Medical History data-->
 					<xs:element name="VisionProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
@@ -80,15 +88,14 @@
 					</xs:element>
 					<!-- End: IRC5 Medical History data -->
 				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+			
+		
 	</xs:complexType>
 	<xs:complexType name="birthData">
 		<xs:annotation>
 			<xs:documentation>Birth History</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="xnat:abstractDemographicData">
+		
 				<xs:sequence>
 					<!-- Begin: IRC5 Birth History -->
 					<xs:element name="birth_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -128,7 +135,6 @@
 					</xs:element>
 					<!-- End: IRC5 Birth History -->
 				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+			
 	</xs:complexType>
 </xs:schema>
