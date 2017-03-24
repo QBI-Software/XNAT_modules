@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!DOCTYPE html>
 $page.setTitle("qbicc Details")
 $page.setLinkColor($ui.alink)
 $page.setVlinkColor($ui.vlink)
@@ -17,13 +17,10 @@ $page.setVlinkColor($ui.vlink)
 			<table width="100%">
 				<TR>
 					<TD align="left" valign="middle">
-						<font face="$ui.sansSerifFonts" size="3"><b>qbicc Details</b></font>
+						<font face="$ui.sansSerifFonts" size="3"><b>QBI CC Demographics</b></font>
 					</TD>
 				</TR>
-                <TR><TD>Item [subjectdata]</TD><TD>$!item</TD></TR>
-                <TR><TD>Item.getProperty(Gender) [subjectdata]</TD><TD>$!item.getStringProperty("gender")</TD></TR>
-                <TR><TD>Item.getGender [subjectdata]</TD><TD>$!item.getGender()</TD></TR>
-                <TR><TD>Gender [subjectdata]</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']']/gender")</TD></TR>
+                <TR><TD>DEBUG Item [subjectdata]</TD><TD>$!item</TD></TR>
 			</TABLE>
 		</TD>
 	</TR>
@@ -33,29 +30,29 @@ $page.setVlinkColor($ui.vlink)
 				<TR>
 					<TD valign="top">
 						<TABLE>
-							<TR><TD>dob</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/dob")</TD></TR>
-							<TR><TD>yob</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/yob")</TD></TR>
-							<TR><TD>age</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/age")</TD></TR>
-							<TR><TD>gender</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/gender")</TD></TR>
-							<TR><TD>handedness</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/handedness")</TD></TR>
-							<TR><TD>ses</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/ses")</TD></TR>
-							<TR><TD>employment</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/employment")</TD></TR>
-							<TR><TD>education</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/education")</TD></TR>
-							<TR><TD>educationDesc</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/educationDesc")</TD></TR>
-							<TR><TD>race</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/race")</TD></TR>
-							<TR><TD>race2</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/race2")</TD></TR>
-							<TR><TD>race3</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/race3")</TD></TR>
-							<TR><TD>race4</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/race4")</TD></TR>
-							<TR><TD>race5</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/race5")</TD></TR>
-							<TR><TD>race6</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/race6")</TD></TR>
-							<TR><TD>ethnicity</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/ethnicity")</TD></TR>
-							<TR><TD>weight</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/weight")</TD></TR>
-							<TR><TD>weight/units</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/weight/units")</TD></TR>
-							<TR><TD>height</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/height")</TD></TR>
-							<TR><TD>height/units</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/height/units")</TD></TR>
-							<TR><TD>gestational_age</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/gestational_age")</TD></TR>
-							<TR><TD>post_menstrual_age</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/post_menstrual_age")</TD></TR>
-							<TR><TD>birth_weight</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth_weight")</TD></TR>
+							<TR><TD>dob</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/dob")</TD></TR>
+							<TR><TD>yob</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/yob")</TD></TR>
+							<TR><TD>age</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/age")</TD></TR>
+							<TR><TD>gender</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gender")</TD></TR>
+							<TR><TD>handedness</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/handedness")</TD></TR>
+							<TR><TD>ses</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/ses")</TD></TR>
+							<TR><TD>employment</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/employment")</TD></TR>
+							<TR><TD>education</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/education")</TD></TR>
+							<TR><TD>educationDesc</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/educationDesc")</TD></TR>
+							<TR><TD>race</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race")</TD></TR>
+							<TR><TD>race2</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race2")</TD></TR>
+							<TR><TD>race3</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race3")</TD></TR>
+							<TR><TD>race4</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race4")</TD></TR>
+							<TR><TD>race5</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race5")</TD></TR>
+							<TR><TD>race6</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race6")</TD></TR>
+							<TR><TD>ethnicity</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/ethnicity")</TD></TR>
+							<TR><TD>weight</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight")</TD></TR>
+							<TR><TD>weight/units</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight/units")</TD></TR>
+							<TR><TD>height</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height")</TD></TR>
+							<TR><TD>height/units</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height/units")</TD></TR>
+							<TR><TD>gestational_age</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gestational_age")</TD></TR>
+							<TR><TD>post_menstrual_age</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/post_menstrual_age")</TD></TR>
+							<TR><TD>birth_weight</TD><TD>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth_weight")</TD></TR>
 						</TABLE>
 					</TD>
 					<TD valign="top" align="right">
@@ -67,7 +64,7 @@ $page.setVlinkColor($ui.vlink)
 	</TR>
 	<TR>
 		<TD>
-<!-- BEGIN xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics'] -->
+<!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
 			<TABLE>
 				<TR><TH align="left"><font face="$ui.sansSerifFonts" size="2">Related Items</font></TH></TR>
 				<TR>
@@ -78,48 +75,48 @@ $page.setVlinkColor($ui.vlink)
 				</TR>
 				<TR>
 					<TD align="left" valign="top">
-<!-- BEGIN xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical -->
+<!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
 						<TABLE>
-							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical</font></TH></TR>
+							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical</font></TH></TR>
 							<TR>
 								<TD align="left" valign="top">
 									<TABLE>
-										<TR><TD>VisionProblems</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/VisionProblems")</TD></TR>
-										<TR><TD>AuditoryProblems</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/AuditoryProblems")</TD></TR>
-										<TR><TD>NeuromuscularProblems</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/NeuromuscularProblems")</TD></TR>
-										<TR><TD>CardiacRespiratoryGI</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/CardiacRespiratoryGI")</TD></TR>
-										<TR><TD>GenitoUrinaryEndocrineSkinOrtho</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/GenitoUrinaryEndocrineSkinOrtho")</TD></TR>
-										<TR><TD>BehaviouralSleepPyschiatric</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/BehaviouralSleepPyschiatric")</TD></TR>
-										<TR><TD>SurgicalProcedures</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/SurgicalProcedures")</TD></TR>
-										<TR><TD>OtherProblems</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical/OtherProblems")</TD></TR>
+										<TR><TD>VisionProblems</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/VisionProblems")</TD></TR>
+										<TR><TD>AuditoryProblems</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/AuditoryProblems")</TD></TR>
+										<TR><TD>NeuromuscularProblems</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/NeuromuscularProblems")</TD></TR>
+										<TR><TD>CardiacRespiratoryGI</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/CardiacRespiratoryGI")</TD></TR>
+										<TR><TD>GenitoUrinaryEndocrineSkinOrtho</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/GenitoUrinaryEndocrineSkinOrtho")</TD></TR>
+										<TR><TD>BehaviouralSleepPyschiatric</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/BehaviouralSleepPyschiatric")</TD></TR>
+										<TR><TD>SurgicalProcedures</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/SurgicalProcedures")</TD></TR>
+										<TR><TD>OtherProblems</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/OtherProblems")</TD></TR>
 									</TABLE>
 								</TD>
 							</TR>
 						</TABLE>
-<!-- END xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/medical -->
+<!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
 					</TD>
 				</TR>
 				<TR>
 					<TD align="left" valign="top">
-<!-- BEGIN xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth -->
+<!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
 						<TABLE>
-							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth</font></TH></TR>
+							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth</font></TH></TR>
 							<TR>
 								<TD align="left" valign="top">
 									<TABLE>
-										<TR><TD>NormalBirth</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth/NormalBirth")</TD></TR>
-										<TR><TD>Premature</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth/Premature")</TD></TR>
-										<TR><TD>FertilityTreatment</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth/FertilityTreatment")</TD></TR>
-										<TR><TD>PaternalAge</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth/PaternalAge")</TD></TR>
+										<TR><TD>NormalBirth</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/NormalBirth")</TD></TR>
+										<TR><TD>Premature</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/Premature")</TD></TR>
+										<TR><TD>FertilityTreatment</TD><TD>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/FertilityTreatment")</TD></TR>
+										<TR><TD>PaternalAge</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/PaternalAge")</TD></TR>
 									</TABLE>
 								</TD>
 							</TR>
 						</TABLE>
-<!-- END xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics']/birth -->
+<!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
 					</TD>
 				</TR>
 			</TABLE>
-<!-- END xnat:subjectData/demographics[@xsi:type='irc5:qbiccDemographics'] -->
+<!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
 		</TD>
 	</TR>
 </TABLE>

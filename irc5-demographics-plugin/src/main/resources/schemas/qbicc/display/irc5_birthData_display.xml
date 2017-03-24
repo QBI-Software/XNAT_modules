@@ -8,9 +8,6 @@
     <DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
         <DisplayFieldElement name="Field1" schema-element="irc5:birthData.meta.insert_user.login"/>
     </DisplayField>
-    <DisplayField id="BIRTH_ID" header="birth_id" visible="true" searchable="true">
-        <DisplayFieldElement name="Field1" schema-element="irc5:birthData/birth_id"/>
-    </DisplayField>
     <DisplayField id="NORMALBIRTH" header="NormalBirth" visible="true" searchable="true">
         <DisplayFieldElement name="Field1" schema-element="irc5:birthData/NormalBirth"/>
     </DisplayField>
