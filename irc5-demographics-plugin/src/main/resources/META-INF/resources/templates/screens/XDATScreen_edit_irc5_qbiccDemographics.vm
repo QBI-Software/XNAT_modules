@@ -3,125 +3,93 @@ $page.setTitle("XDAT")
 $page.setLinkColor($ui.alink)
 $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## DO NOT MODIFY THIS FILE HERE
-##
-## TO MODIFY, COPY THIS FILE to src/main/resources/templates/screens/ and modify it there
-##----------------------------------------
 #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
 #set($days = [ 1..31 ])
 #set($years = [ $!turbineUtils.getYear()..1900])
+#set($yesno = {0:"No", 1:"Yes",3:"Not known"})
+#set($formclass = "form-control")
+#set($genders = {"M":"Male", "F":"Female","U":"Not known"})
+#set($handedness = {"L":"Left","R":"Right","A":"Ambidextrous","U":"Not known"})
+#set($ses = {"H":"High","M":"Medium","L":"Low","U":"Not known"})
+#set($employment = {0:"Employed",1:"Unemployed",2:"Student",4:"Retired",3:"Not known"})
 #if ($data.message)
 <font color="red" size="3">$data.message</font>
 #end
-<p>
+<input type="hidden" name="project" value="$!{project}" />
 
-    <input type="hidden" name="project" value="$!{project}" >
-
-<TABLE width="100%">
-	<TR>
-		<TD>
-			<table width="100%">
-				<TR>
-					<TD align="left" valign="middle">
-						<DIV class="edit_title">qbicc Details</DIV>
-					</TD>
-				</TR>
-			</TABLE>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<TABLE width="100%">
-				<TR>
-					<TD valign="top">
-						<TABLE>
-							<TR><TD>dob</TD><TD>#xdatDateBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/dob" $item $vr $years)</TD></TR>
-							<TR><TD>yob</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/yob" $item "" $vr)</TD></TR>
-							<TR><TD>age</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/age" $item "" $vr)</TD></TR>
-							<TR><TD>gender</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gender" $item "" $vr)</TD></TR>
-							<TR><TD>handedness</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/handedness" $item "" $vr)</TD></TR>
-							<TR><TD>ses</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/ses" $item "" $vr)</TD></TR>
-							<TR><TD>employment</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/employment" $item "" $vr)</TD></TR>
-							<TR><TD>education</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/education" $item "" $vr)</TD></TR>
-							<TR><TD>educationDesc</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/educationDesc" $item "" $vr)</TD></TR>
-							<TR><TD>race</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race" $item "" $vr)</TD></TR>
-							<TR><TD>race2</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race2" $item "" $vr)</TD></TR>
-							<TR><TD>race3</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race3" $item "" $vr)</TD></TR>
-							<TR><TD>race4</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race4" $item "" $vr)</TD></TR>
-							<TR><TD>race5</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race5" $item "" $vr)</TD></TR>
-							<TR><TD>race6</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race6" $item "" $vr)</TD></TR>
-							<TR><TD>ethnicity</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/ethnicity" $item "" $vr)</TD></TR>
-							<TR><TD>weight</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight" $item "" $vr)</TD></TR>
-							<TR><TD>weight/units</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight/units" $item "" $vr)</TD></TR>
-							<TR><TD>height</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height" $item "" $vr)</TD></TR>
-							<TR><TD>height/units</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height/units" $item "" $vr)</TD></TR>
-							<TR><TD>gestational_age</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gestational_age" $item "" $vr)</TD></TR>
-							<TR><TD>post_menstrual_age</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/post_menstrual_age" $item "" $vr)</TD></TR>
-							<TR><TD>birth_weight</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth_weight" $item "" $vr)</TD></TR>
-													#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/xnat_abstractDemographicData_id" $item "")
-						</TABLE>
-					</TD>
-				</TR>
-			</TABLE>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
-			<TABLE>
-				<TR><TH align="left"><font face="$ui.sansSerifFonts" size="2">Related Items</font></TH></TR>
-				<TR>
-					<TD align="left" valign="top">
-<!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
-						<TABLE>
-							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical</font></TH></TR>
-							<TR>
-								<TD align="left" valign="top">
-									<TABLE>
-										<TR><TD>VisionProblems</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/VisionProblems" $item false $vr)</TD></TR>
-										<TR><TD>AuditoryProblems</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/AuditoryProblems" $item false $vr)</TD></TR>
-										<TR><TD>NeuromuscularProblems</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/NeuromuscularProblems" $item false $vr)</TD></TR>
-										<TR><TD>CardiacRespiratoryGI</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/CardiacRespiratoryGI" $item false $vr)</TD></TR>
-										<TR><TD>GenitoUrinaryEndocrineSkinOrtho</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/GenitoUrinaryEndocrineSkinOrtho" $item false $vr)</TD></TR>
-										<TR><TD>BehaviouralSleepPyschiatric</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/BehaviouralSleepPyschiatric" $item false $vr)</TD></TR>
-										<TR><TD>SurgicalProcedures</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/SurgicalProcedures" $item false $vr)</TD></TR>
-										<TR><TD>OtherProblems</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/OtherProblems" $item "" $vr)</TD></TR>
-																#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/irc5_medicalData_id" $item "")
-									</TABLE>
-								</TD>
-							</TR>
-						</TABLE>
+<div class="col-sm-10">
+    <h3>QBI CC Demographics for IRC5</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3><a href="#demo" data-toggle="collapse">Demographics</a></h3></div>
+        <div id="demo" class="panel-body collapse">
+            <table class="table table-striped">
+                <tbody>
+                <tr><th>DOB</th><td><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/dob" "" $item $vr $years $formclass)</div></td></tr>
+                <tr><th>YOB</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/yob" $item "" $vr)</td></tr>
+                <tr><th>Age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/age" $item "" $vr)</td></tr>
+                <tr><th>Gender</th><td>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gender" "" $item $genders $vr)</td></tr>
+                <tr><th>Handedness</th><td>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/handedness" "" $item $handedness $vr)</td></tr>
+                <tr><th>SES</th><td>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/ses" "" $item $ses $vr)</td></tr>
+                <tr><th>Employment</th><td>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/employment" "" $item $employment $vr)</td></tr>
+                <tr><th>Education Years</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/education" $item "" $vr)</td></tr>
+                <tr><th>Education Other</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/educationDesc" $item "" $vr)</td></tr>
+                <tr><th>Race(s)</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/race" $item "" $vr)</td></tr>
+                <tr><th>Ethnicity</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/ethnicity" $item "" $vr)</td></tr>
+                <tr><th>Birth weight</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth_weight" $item "" $vr)</td></tr>
+				<tr><th>Weight</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight" $item "" $vr)</td></tr>
+                <tr><th>Weight/units</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight/units" $item "" $vr)</td></tr>
+                <tr><th>Height</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height" $item "" $vr)</td></tr>
+                <tr><th>Height/units</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height/units" $item "" $vr)</td></tr>
+                <tr><th>Gestational age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gestational_age" $item "" $vr)</td></tr>
+                <tr><th>Post-menstrual age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/post_menstrual_age" $item "" $vr)</td></tr>
+				#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/xnat_abstractDemographicData_id" $item "")
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+    <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3><a href="#med" data-toggle="collapse">Medical History</a></h3></div>
+        <div id="med" class="panel-body collapse">
+            <table class="table table-striped">
+                <tbody>
+					<tr><th>Vision Problems</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/VisionProblems" $item $yesno $vr)</td></tr>
+					<tr><th>Auditory Problems</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/AuditoryProblems" $item $yesno $vr)</td></tr>
+					<tr><th>Neuromuscular Problems</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/NeuromuscularProblems" $item $yesno $vr)</td></tr>
+					<tr><th>Cardiac Respiratory GI</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/CardiacRespiratoryGI" $item $yesno $vr)</td></tr>
+					<tr><th>Genito Urinary Endocrine Skin Ortho</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/GenitoUrinaryEndocrineSkinOrtho" $item $yesno $vr)</td></tr>
+					<tr><th>Behavioural Sleep Pyschiatric</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/BehaviouralSleepPyschiatric" $item $yesno $vr)</td></tr>
+					<tr><th>Surgical Procedures</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/SurgicalProcedures" $item $yesno $vr)</td></tr>
+					<tr><th>Other Problems</th><td>#xdatStringBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/OtherProblems" $item "" $vr)</td></tr>
+					#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/irc5_medicalData_id" $item "")
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
-					</TD>
-				</TR>
-				<TR>
-					<TD align="left" valign="top">
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
-						<TABLE>
-							<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth</font></TH></TR>
-							<TR>
-								<TD align="left" valign="top">
-									<TABLE>
-										<TR><TD>NormalBirth</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/NormalBirth" $item false $vr)</TD></TR>
-										<TR><TD>Premature</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/Premature" $item false $vr)</TD></TR>
-										<TR><TD>FertilityTreatment</TD><TD>#xdatBooleanRadio("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/FertilityTreatment" $item false $vr)</TD></TR>
-										<TR><TD>PaternalAge</TD><TD>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/PaternalAge" $item "" $vr)</TD></TR>
-																#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/irc5_birthData_id" $item "")
-									</TABLE>
-								</TD>
-							</TR>
-						</TABLE>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3><a href="#birth" data-toggle="collapse">Birth History</a></h3></div>
+        <div id="birth" class="panel-body collapse">
+            <table class="table table-striped">
+                <tbody>
+
+					<tr><th>Normal Birth</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/NormalBirth" $item $yesno $vr)</td></tr>
+					<tr><th>Premature</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/Premature" $item $yesno $vr)</td></tr>
+					<tr><th>Fertility Treatment</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/FertilityTreatment" $item $yesno $vr)</td></tr>
+					<tr><th>Paternal Age</th><td>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/PaternalAge" $item "" $vr)</td></tr>
+					#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/irc5_birthData_id" $item "")
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
-					</TD>
-				</TR>
-			</TABLE>
+</div>
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
-		</TD>
-	</TR>
-
-
-</TABLE>
-
 
 <script type="text/javascript">
     function validateForm()

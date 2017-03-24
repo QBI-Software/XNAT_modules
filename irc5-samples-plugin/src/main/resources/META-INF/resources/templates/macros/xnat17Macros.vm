@@ -113,7 +113,6 @@
 </div>
 #end
 
-
 #macro (xdatRadioButtonGroup $name $item $possibleValues $vr)
     #if ($vr)
         #if($vr.getField($name))
@@ -136,6 +135,34 @@
         </label>
     #end
 </div>
+#end
+	
+#macro (xdatSelectGroup $id $name $item $possibleValues $vr)
+    #if ($name=="")
+        #set($name = $id)
+    #end
+	#if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #elseif($!item.getProperty($id))
+        #set($value = $!item.getProperty($id))
+    #else
+        #set($value = "")
+    #end
+    	<div class="form-group">
+		  <select class="form-control" id="$id">
+		  	<option value="">----</option>
+		  #foreach ($key in $possibleValues.keySet())
+			<option value="$key"
+			#if($key.equals($value)||$possibleValues.get($key).equals($value)) SELECTED #end
+			>$possibleValues.get($key)</option>
+			#end
+		  </select>
+		</div>
 #end
 
 

@@ -25,49 +25,49 @@
 		
 				<xs:sequence>
 					<!-- Begin: IRC5 Medical History data-->
-					<xs:element name="VisionProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="VisionProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has Vision Problems
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="AuditoryProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="AuditoryProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has Auditory Problems
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="NeuromuscularProblems" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="NeuromuscularProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has Neuromuscular Problems
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="CardiacRespiratoryGI" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="CardiacRespiratoryGI" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has Cardiac Respiratory or GI Problems
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="GenitoUrinaryEndocrineSkinOrtho" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="GenitoUrinaryEndocrineSkinOrtho" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has Genito Urinary Endocrine Skin or Ortho Problems
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="BehaviouralSleepPyschiatric" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="BehaviouralSleepPyschiatric" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has Behavioural Sleep or Pyschiatric Problems
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="SurgicalProcedures" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="SurgicalProcedures" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Has had Surgical Procedures
@@ -88,31 +88,31 @@
 					</xs:element>
 					<!-- End: IRC5 Medical History data -->
 				</xs:sequence>
-			
-		
+
+
 	</xs:complexType>
 	<xs:complexType name="birthData">
 		<xs:annotation>
 			<xs:documentation>Birth History</xs:documentation>
 		</xs:annotation>
-		
+
 				<xs:sequence>
 					<!-- Begin: IRC5 Birth History -->
-					<xs:element name="NormalBirth" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="NormalBirth" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Normal Birth
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Premature" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="Premature" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Premature
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="FertilityTreatment" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element name="FertilityTreatment" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Fertility Treatment
