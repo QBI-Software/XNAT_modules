@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd"
+          schema-element="irc5:qbiccDemographics" full-description="qbicc" brief-description="qbicc">
+    <DisplayField id="DOB" header="dob" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/dob"/>
+    </DisplayField>
+    <DisplayField id="YOB" header="yob" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/yob"/>
+    </DisplayField>
+    <DisplayField id="AGE" header="age" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/age"/>
+    </DisplayField>
+    <DisplayField id="GENDER" header="gender" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/gender"/>
+    </DisplayField>
+    <DisplayField id="HANDEDNESS" header="handedness" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/handedness"/>
+    </DisplayField>
+    <DisplayField id="SES" header="ses" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/ses"/>
+    </DisplayField>
+    <DisplayField id="EMPLOYMENT" header="employment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/employment"/>
+    </DisplayField>
+    <DisplayField id="EDUCATION" header="education" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/education"/>
+    </DisplayField>
+    <DisplayField id="EDUCATIONDESC" header="educationDesc" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/educationDesc"/>
+    </DisplayField>
+    <DisplayField id="RACE" header="race" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race"/>
+    </DisplayField>
+    <DisplayField id="RACE2" header="race2" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race2"/>
+    </DisplayField>
+    <DisplayField id="RACE3" header="race3" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race3"/>
+    </DisplayField>
+    <DisplayField id="RACE4" header="race4" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race4"/>
+    </DisplayField>
+    <DisplayField id="RACE5" header="race5" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race5"/>
+    </DisplayField>
+    <DisplayField id="RACE6" header="race6" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race6"/>
+    </DisplayField>
+    <DisplayField id="ETHNICITY" header="ethnicity" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/ethnicity"/>
+    </DisplayField>
+    <DisplayField id="WEIGHT" header="weight" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/weight"/>
+    </DisplayField>
+    <DisplayField id="WEIGHT_UNITS" header="units" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/weight/units"/>
+    </DisplayField>
+    <DisplayField id="HEIGHT" header="height" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/height"/>
+    </DisplayField>
+    <DisplayField id="HEIGHT_UNITS" header="units" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/height/units"/>
+    </DisplayField>
+    <DisplayField id="GESTATIONAL_AGE" header="gestational_age" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/gestational_age"/>
+    </DisplayField>
+    <DisplayField id="POST_MENSTRUAL_AGE" header="post_menstrual_age" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/post_menstrual_age"/>
+    </DisplayField>
+    <DisplayField id="BIRTH_WEIGHT" header="birth_weight" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/birth_weight"/>
+    </DisplayField>
+    <DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics.meta.insert_date"/>
+    </DisplayField>
+    <DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics.meta.insert_user.login"/>
+    </DisplayField>
+    <DisplayVersion versionName="listing" default-order-by="DOB" default-sort-order="DESC" brief-description="qbicc"
+                    dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="DOB"/>
+        <DisplayFieldRef id="YOB"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="GENDER"/>
+        <DisplayFieldRef id="HANDEDNESS"/>
+        <DisplayFieldRef id="SES"/>
+        <DisplayFieldRef id="EMPLOYMENT"/>
+        <DisplayFieldRef id="EDUCATION"/>
+        <DisplayFieldRef id="EDUCATIONDESC"/>
+        <DisplayFieldRef id="RACE"/>
+        <DisplayFieldRef id="RACE2"/>
+        <DisplayFieldRef id="RACE3"/>
+        <DisplayFieldRef id="RACE4"/>
+        <DisplayFieldRef id="RACE5"/>
+        <DisplayFieldRef id="RACE6"/>
+        <DisplayFieldRef id="ETHNICITY"/>
+        <DisplayFieldRef id="WEIGHT"/>
+        <DisplayFieldRef id="WEIGHT_UNITS"/>
+        <DisplayFieldRef id="HEIGHT"/>
+        <DisplayFieldRef id="HEIGHT_UNITS"/>
+        <DisplayFieldRef id="GESTATIONAL_AGE"/>
+        <DisplayFieldRef id="POST_MENSTRUAL_AGE"/>
+        <DisplayFieldRef id="BIRTH_WEIGHT"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="full" default-order-by="DOB" default-sort-order="DESC" brief-description="qbicc"
+                    dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="DOB"/>
+        <DisplayFieldRef id="YOB"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="GENDER"/>
+        <DisplayFieldRef id="HANDEDNESS"/>
+        <DisplayFieldRef id="SES"/>
+        <DisplayFieldRef id="EMPLOYMENT"/>
+        <DisplayFieldRef id="EDUCATION"/>
+        <DisplayFieldRef id="EDUCATIONDESC"/>
+        <DisplayFieldRef id="RACE"/>
+        <DisplayFieldRef id="RACE2"/>
+        <DisplayFieldRef id="RACE3"/>
+        <DisplayFieldRef id="RACE4"/>
+        <DisplayFieldRef id="RACE5"/>
+        <DisplayFieldRef id="RACE6"/>
+        <DisplayFieldRef id="ETHNICITY"/>
+        <DisplayFieldRef id="WEIGHT"/>
+        <DisplayFieldRef id="WEIGHT_UNITS"/>
+        <DisplayFieldRef id="HEIGHT"/>
+        <DisplayFieldRef id="HEIGHT_UNITS"/>
+        <DisplayFieldRef id="GESTATIONAL_AGE"/>
+        <DisplayFieldRef id="POST_MENSTRUAL_AGE"/>
+        <DisplayFieldRef id="BIRTH_WEIGHT"/>
+    </DisplayVersion>
+</Displays>

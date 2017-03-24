@@ -88,7 +88,7 @@ function summaryTabManagerInit(){
 	
 	<tr>
 		<td>
-			#parse("/screens/XDATScreen_report_irc5_qbicc.vm")
+			#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
 		</td>
 	</tr>
 	

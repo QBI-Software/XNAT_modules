@@ -9,7 +9,7 @@
 	<xs:element name="qbicc" type="irc5:qbiccDemographics"/>
 	<xs:complexType name="qbiccDemographics">
 		<xs:complexContent>
-			<xs:extension base="xnat:abstractDemographicData">
+			<xs:extension base="xnat:demographicData">
 				<xs:sequence>
 					<xs:element name="medical" type="irc5:medicalData"/>
 					<xs:element name="birth" type="irc5:birthData"/>
@@ -98,7 +98,6 @@
 		
 				<xs:sequence>
 					<!-- Begin: IRC5 Birth History -->
-					<xs:element name="birth_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="NormalBirth" type="xs:boolean" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
