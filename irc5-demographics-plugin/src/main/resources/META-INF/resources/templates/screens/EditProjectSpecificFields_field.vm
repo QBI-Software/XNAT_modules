@@ -50,7 +50,7 @@
 
         #elseif ($f.getPossiblevalues_possiblevalue().size()>0)
                 ##xdatSelectBox($!f.getXmlpath() $!om $f.getPossiblevalues_possiblevalue() $vr) ##$id $name $item $possibleValues $vr
-            <select #if($isDisabled)disabled#end id="$!f.getXmlpath()" name="$!f.getXmlpath()" #if($f.getRequired()==1 || $f.getRequired()) class="required" #end>
+            <select class="$formclass" #if($isDisabled)disabled#end id="$!f.getXmlpath()" name="$!f.getXmlpath()" #if($f.getRequired()==1 || $f.getRequired()) class="required" #end>
                 <option value="NULL">---</option>
                 #foreach($pv in $f.getPossiblevalues_possiblevalue())
                     #if($pv.getDisplay())
