@@ -60,9 +60,8 @@
 <hr size=1 style="color:#ccc; margin: 1em 0">
 <div>
     <!-- IRC5 demographics -->
+    #set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
     #parse("/screens/XDATScreen_edit_irc5_qbiccDemographics.vm")
-</div>
-<div>
     <!-- EditProjectSpecificFields -->
     #parse("/screens/EditProjectSpecificFields.vm")
 </div>

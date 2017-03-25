@@ -1,57 +1,29 @@
 #set ( $exptHeadings = ["Date", "Type", "ID", "Investigator" ] )
-		<style>
-DIV.container{
-	border: 1px solid #AAAAAA;
-    width:250px;  
-}
-DIV.containerTitle{
-			    border: 1px solid #AAAAAA;
-    padding:3px;
-    font-weight:500;
-	font-family:verdana,geneva,helvetica;
-}
-DIV.containerBody{
-    width:99%;
-    overflow:auto;
-    font-size:13px;
-    line-height:15px;
-    padding:3px;
-    
-		</style>
+
 <script type="text/javascript">  
 if(XNAT.app.subject==undefined)XNAT.app.subject=new Object(); 
 </script>
 <DIV class="edit_title">$displayManager.getSingularDisplayNameForSubject() Details: #if($!om.getIdentifier($project,true))$!om.getIdentifier($project,true)#elseif($om.getLabel())$!om.getLabel()#else$!om.getId()#end</DIV>
 
-<TABLE width="100%">
-	<TR>
-		<TD>
-			<TABLE width="100%">
-				<TR>
-					<TD valign="top">
-						<!--BEGIN SUBJECT SUMMARY TABS -->
-						<STYLE>
-span.spacer{
-height:12px;
-width:1px;
-}
-						</STYLE>
-						<div ID="subject_summary_module" style="display:none">
- 							<DIV id="subjectSummary" class="yui-navset">
-  								<ul class="yui-nav" style="">
-      								<li class="selected"><a href="#tab1"><em>Details<span class="spacer"></span></em></a></li>
-      								<li><a href="#tab2"><em>$displayManager.getPluralDisplayNameForProject()<span class="spacer"></span></em></a></li>
-								</ul>
- 								<div class="yui-content">   
-  								<div id="tab1">
-									<p><table>#parse($turbineUtils.getTemplateName("_keyFields","xnat:subjectData",$!project))</table></p>
-								</div>  
- 
-  								<div id="tab2">
-  									<p>#parse($turbineUtils.getTemplateName("sharing","xnat:subjectData",$!project))</p>
-  								</div> 
-							</DIV>
-						</div>
+
+<!--BEGIN SUBJECT SUMMARY TABS -->
+<div class="row">
+<div ID="subject_summary_module" class="col-md-8" style="display:none">
+	<DIV id="subjectSummary" class="yui-navset">
+		<ul class="yui-nav" style="">
+			<li class="selected"><a href="#tab1"><em>Details<span class="spacer"></span></em></a></li>
+			<li><a href="#tab2"><em>$displayManager.getPluralDisplayNameForProject()<span class="spacer"></span></em></a></li>
+		</ul>
+		<div class="yui-content">
+		<div id="tab1">
+			<p><table>#parse($turbineUtils.getTemplateName("_keyFields","xnat:subjectData",$!project))</table></p>
+		</div>
+
+		<div id="tab2">
+			<p>#parse($turbineUtils.getTemplateName("sharing","xnat:subjectData",$!project))</p>
+		</div>
+	</DIV>
+	</div></div>
 <script type="text/javascript">  
 function summaryIndexChanged(){
    var activeIndex=this.get("activeIndex");
@@ -76,22 +48,17 @@ function summaryTabManagerInit(){
 					summaryTabManagerInit();
 </script>
 <!--END SUBJECT SUMMARY TABS -->
-					</TD>
-					<TD valign="top" align="right" rowspan="2">
-#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
-					</TD>
-				</TR>
-				
-			</TABLE>
-		</TD>
-	</TR>
-	
-	<tr>
-		<td>
-			#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
-		</td>
-	</tr>
-	
+<div class="col-md-4">#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))</div>
+</div>
+<div class="row">
+<div class="col-md-10">
+	#set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
+	#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
+	#parse("/screens/ReportProjectSpecificFields.vm")
+</div>
+</div>
+<div class="row">
+<table>
 <tr>
 	<td>
 		#addCustomScreens($om.getXSIType() "report/preAssessors")
@@ -114,3 +81,5 @@ function summaryTabManagerInit(){
 </tr>
 		#parse($turbineUtils.getTemplateName("_resources","xnat:subjectData",$project))
 </TABLE>
+
+</div>

@@ -154,7 +154,7 @@
         #set($value = "")
     #end
     	<div class="form-group">
-		  <select class="form-control" id="$id">
+		  <select class="form-control" id="$id" name="$name">
 		  	<option value="">----</option>
 		  #foreach ($key in $possibleValues.keySet())
 			<option value="$key"

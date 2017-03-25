@@ -1,0 +1,71 @@
+<tr>
+    <th><label for="$!f.getXmlpath()" #if($f.getRequired()==1 || $f.getRequired())
+                                   class="formLabelRequired" #end>$!f.getName()</label>#if($f.getRequired()==1 || $f.getRequired())
+        <span class="noteRequired">*</span> #end</th>
+    <td nowrap>
+        #if ($f.getGroup())
+            #if($!om.getProperty($!f.getXmlpath()))
+                #set($isDisabled=false)
+            #else
+                #set($isDisabled=true)
+            #end
+            <input type="radio"#if($isDisabled==false)defaultChecked checked#end name="field_group_$f.getGroup()"
+                   onclick="_${f.getGroup()}_click('$!f.getXmlpath()');"/>
+            <script type="text/javascript">
+                if (window._${f.getGroup()} == undefined) {
+                    window._${f.getGroup()} = new Array();
+
+                    function _${f.getGroup()}_click(v) {
+                        for (var _groupCounter = 0; _groupCounter < window._${f.getGroup()}.length; _groupCounter++) {
+                            if (window._${f.getGroup()}[_groupCounter] == v) {
+                                var fInput = document.getElementById(window._${f.getGroup()}[_groupCounter]);
+                                fInput.disabled = false;
+                            } else {
+                                var fInput = document.getElementById(window._${f.getGroup()}[_groupCounter]);
+                                fInput.disabled = true;
+                                //if(fInput.type !=undefined && fInput.type =="text"){
+                                //  fInput.value="";
+                                //}
+                            }
+                        }
+                    }
+                }
+
+                window._${f.getGroup()}.push("$!f.getXmlpath()");
+            </script>
+        #else
+            #set($isDisabled=false)
+        #end
+        #if ($vr)
+            #if($vr.getField($f.getCleanedXMLPath()))
+                <span style="color:red;">&#8658</span>
+            #end
+        #end
+
+        #if($f.getDatatype()=="boolean")
+            #xdatRadioButtonGroup($!f.getXmlpath() $!om $yesno $vr) ##$name $item $possibleValues $vr
+
+        #elseif($f.getDatatype()=="date")
+            #xdatDateBoxParams($!f.getXmlpath() "" $!om $vr $years $formclass) ##$id $name $item $vr $years $class
+
+        #elseif ($f.getPossiblevalues_possiblevalue().size()>0)
+                <span>Possible=$f.getPossiblevalues_possiblevalue()</span>
+                ##xdatSelectBox($!f.getXmlpath() $!om $f.getPossiblevalues_possiblevalue() $vr) ##$id $name $item $possibleValues $vr
+            <select #if($isDisabled)disabled#end id="$!f.getXmlpath()" name="$!f.getXmlpath()" #if($f.getRequired()==1 || $f.getRequired()) class="required" #end>
+                <option value="NULL">---</option>
+                #foreach($pv in $f.getPossiblevalues_possiblevalue())
+                    #if($pv.getDisplay())
+                        <option value="$pv.getPossiblevalue()" #if($om.getProperty($!f.getXmlpath())==$pv.getPossiblevalue()) SELECTED #end>$pv.getDisplay()</option>
+                    #else
+                        <option value="$pv.getPossiblevalue()" #if($om.getProperty($!f.getXmlpath())==$pv.getPossiblevalue()) SELECTED #end>$pv.getPossiblevalue()</option>
+                    #end
+                #end
+            </select>
+        #elseif($f.getDatatype() !="string")
+            #xdatNumberBox($!f.getXmlpath() $!om "" $vr) ##  $name $item $defaultValue $vr
+        #else
+                #xdatStringBox($!f.getXmlpath() $!om "" $vr) ##$name $item $defaultValue $vr
+
+        #end
+    </td>
+</tr>

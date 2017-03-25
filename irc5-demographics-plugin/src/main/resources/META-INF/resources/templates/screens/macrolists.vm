@@ -1,0 +1,6 @@
+#set($yesno = {0:"No", 1:"Yes",3:"Not known"})
+#set($formclass = "form-control")
+#set($genders = {"male":"Male", "female":"Female","other":"Other","unknown":"Not known","M":"M","F":"F"})
+#set($handedness = {"left":"Left","right":"Right","ambidextrous":"Ambidextrous","unknown":"Not known"})
+#set($ses = {0:"High",1:"Medium",2:"Low",3:"Not known"})
+#set($employment = {0:"Employed",1:"Unemployed",2:"Student/Retired",3:"Not known"})
