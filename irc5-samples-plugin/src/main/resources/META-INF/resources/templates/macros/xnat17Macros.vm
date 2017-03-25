@@ -6,7 +6,26 @@
 ##
 ## patch test
 #* @vtlvariable name="tipText" type="java.util.List" *#
+#macro(renderYesNoIcons $bool)
+    #if($bool == "true")
+        <span class="glyphicon glyphicon-ok" style="color:green"></span>
+    #elseif($bool == "false")
+        <span class="glyphicon glyphicon-remove" style="color:darkred"></span>
+    #else
+        <span>&nbsp;</span>
+    #end
+#end
 
+#macro(renderYesNo $bool)
+    #if($bool == "true")
+    <span style="color:green">Yes</span>
+    #elseif($bool == "false")
+    <span style="color:red">No</span>
+    #else
+    <span>&nbsp;</span>
+    #end
+#end
+	
 #macro(xdatStringBox $name $item $defaultValue $vr)
     #xdatStringBoxParams($name $item $defaultValue $vr "form-control"  "" "")
 #end

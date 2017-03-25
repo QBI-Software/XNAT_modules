@@ -8,6 +8,7 @@ $page.setVlinkColor($ui.vlink)
 	#set ($popup = "false")
 #end
 #parse("screens/macrolists.vm")
+
 ##--end previous table
 
 <h3 class="reportheader">QBI CC Demographics for IRC5</h3>
@@ -64,13 +65,13 @@ $page.setVlinkColor($ui.vlink)
         <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
-					<tr><td>Vision Problems</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/VisionProblems")</td></tr>
-					<tr><td>Auditory Problems</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/AuditoryProblems")</td></tr>
-					<tr><td>Neuromuscular Problems</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/NeuromuscularProblems")</td></tr>
-					<tr><td>Cardiac Respiratory GI</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/CardiacRespiratoryGI")</td></tr>
-					<tr><td>Genito Urinary Endocrine Skin Ortho</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/GenitoUrinaryEndocrineSkinOrtho")</td></tr>
-					<tr><td>Behavioural Sleep Pyschiatric</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/BehaviouralSleepPyschiatric")</td></tr>
-					<tr><td>Surgical Procedures</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/SurgicalProcedures")</td></tr>
+					<tr><td>Vision Problems</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/VisionProblems"))</td></tr>
+					<tr><td>Auditory Problems</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/AuditoryProblems"))</td></tr>
+					<tr><td>Neuromuscular Problems</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/NeuromuscularProblems"))</td></tr>
+					<tr><td>Cardiac Respiratory GI</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/CardiacRespiratoryGI"))</td></tr>
+					<tr><td>Genito Urinary Endocrine Skin Ortho</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/GenitoUrinaryEndocrineSkinOrtho"))</td></tr>
+					<tr><td>Behavioural Sleep Pyschiatric</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/BehaviouralSleepPyschiatric"))</td></tr>
+					<tr><td>Surgical Procedures</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/SurgicalProcedures"))</td></tr>
 					<tr><td>Other Problems</td><td>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/OtherProblems")</td></tr>
 				</tbody>
 			</table>
@@ -83,9 +84,9 @@ $page.setVlinkColor($ui.vlink)
         <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
-					<tr><td>Normal Birth</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/NormalBirth")</td></tr>
-					<tr><td>Premature</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/Premature")</td></tr>
-					<tr><td>Fertility Treatment</td><td>$!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/FertilityTreatment")</td></tr>
+					<tr><td>Normal Birth</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/NormalBirth"))</td></tr>
+					<tr><td>Premature</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/Premature"))</td></tr>
+					<tr><td>Fertility Treatment</td><td>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/FertilityTreatment"))</td></tr>
 					<tr><td>Paternal Age</td><td>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/PaternalAge")</td></tr>
 				</tbody>
 			</table>
