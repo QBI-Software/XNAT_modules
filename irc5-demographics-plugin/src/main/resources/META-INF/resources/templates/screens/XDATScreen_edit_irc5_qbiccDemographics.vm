@@ -33,7 +33,7 @@ $page.setVlinkColor($ui.vlink)
         <!-- end subject variables -->
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content col-md-8">
 
         <div id="dem" class="tab-pane fade in active">
             <h4>Demographics</h4>

@@ -7,9 +7,9 @@
 ## patch test
 #* @vtlvariable name="tipText" type="java.util.List" *#
 #macro(renderYesNoIcons $bool)
-    #if($bool == "true")
+    #if($bool == "true" || $bool == 1)
         <span class="glyphicon glyphicon-ok" style="color:green"></span>
-    #elseif($bool == "false")
+    #elseif($bool == "false" || $bool == 0)
         <span class="glyphicon glyphicon-remove" style="color:darkred"></span>
     #else
         <span>&nbsp;</span>
@@ -17,9 +17,9 @@
 #end
 
 #macro(renderYesNo $bool)
-    #if($bool == "true")
+    #if($bool == "true" || $bool == 1)
     <span style="color:green">Yes</span>
-    #elseif($bool == "false")
+    #elseif($bool == "false" || $bool == 0)
     <span style="color:red">No</span>
     #else
     <span>&nbsp;</span>

@@ -51,7 +51,7 @@ function summaryTabManagerInit(){
 <div class="col-md-4">#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))</div>
 </div>
 <div class="row">
-<div class="col-md-10">
+<div class="col-md-8">
 	#set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
 	#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
 	#parse("/screens/ReportProjectSpecificFields.vm")
