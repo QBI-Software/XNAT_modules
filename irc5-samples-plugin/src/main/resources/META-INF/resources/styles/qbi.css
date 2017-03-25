@@ -13,3 +13,31 @@
 #EditForm label{
 	width:20%;
 }
+h3.reportheader{
+	margin-bottom:10px;
+}
+/*From embedded style in xnat_subjectData
+DIV.container{
+	border: 1px solid #AAAAAA;
+    width:250px;  
+}
+DIV.containerTitle{
+			    border: 1px solid #AAAAAA;
+    padding:3px;
+    font-weight:500;
+	font-family:verdana,geneva,helvetica;
+}
+DIV.containerBody{
+    width:99%;
+    overflow:auto;
+    font-size:13px;
+    line-height:15px;
+    padding:3px;
+    }
+
+span.spacer{
+height:12px;
+width:1px;
+}
+
+*/

@@ -7,21 +7,26 @@ $page.setVlinkColor($ui.vlink)
 	#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
 	#set ($popup = "false")
 #end
-##--duplicate from Edit screen
-#set($yesno = {0:"No", 1:"Yes",3:"Not known"})
-#set($formclass = "form-control")
-#set($genders = {"male":"Male", "female":"Female","other":"Other","unknown":"Not known","M":"M","F":"F"})
-#set($handedness = {"left":"Left","right":"Right","ambidextrous":"Ambidextrous","unknown":"Not known"})
-#set($ses = {0:"High",1:"Medium",2:"Low",3:"Not known"})
-#set($employment = {0:"Employed",1:"Unemployed",2:"Student/Retired",3:"Not known"})
+#parse("screens/macrolists.vm")
 ##--end previous table
-</td></tr></tbody></table>
-<h3>QBI CC Demographics for IRC5</h3>
-<div class="col-sm-12">
+
+<h3 class="reportheader">QBI CC Demographics for IRC5</h3>
+
     <ul class="nav nav-pills">
         <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
         <li><a data-toggle="pill" href="#med">Medical History</a></li>
         <li><a data-toggle="pill" href="#birth">Birth History</a></li>
+        <!-- include subject variables -->
+        #if($groups && $groups.size()>0)
+            #foreach($group in $groups)
+                #if($group.getId() != "default" && $group.getFields_field().size()>0)
+                #set($gid=$group.getId().replace(" ",""))
+                <li><a data-toggle="pill" href="#$gid"
+                    title="#if($group.getDescription()) $group.getDescription()#end">$group.getId()</a></li>
+            #end
+            #end
+        #end
+        <!-- end subject variables -->
     </ul>
 
 <div class="tab-content">
@@ -89,7 +94,7 @@ $page.setVlinkColor($ui.vlink)
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
 
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
-</div>
+
 
 <!--end old td -->
 <td>

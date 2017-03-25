@@ -6,23 +6,38 @@ $page.setVlinkColor($ui.vlink)
 #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
 #set($days = [ 1..31 ])
 #set($years = [ $!turbineUtils.getYear()..1900])
-#set($yesno = {0:"No", 1:"Yes",3:"Not known"})
-#set($formclass = "form-control")
-#set($genders = {"male":"Male", "female":"Female","other":"Other","unknown":"Not known","M":"M","F":"F"})
-#set($handedness = {"left":"Left","right":"Right","ambidextrous":"Ambidextrous","unknown":"Not known"})
-#set($ses = {0:"High",1:"Medium",2:"Low",3:"Not known"})
-#set($employment = {0:"Employed",1:"Unemployed",2:"Student/Retired",3:"Not known"})
+#parse("screens/macrolists.vm")
 #if ($data.message)
 <font color="red" size="3">$data.message</font>
 #end
 <input type="hidden" name="project" value="$!{project}" />
 
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
-<div class="col-sm-10">
-    <h3>QBI CC Demographics for IRC5</h3>
-    <div class="panel panel-default">
-        <div class="panel-heading"><h3><a href="#demo" data-toggle="collapse">Demographics</a></h3></div>
-        <div id="demo" class="panel-body collapse">
+<h3 class="reportheader">QBI CC Demographics for IRC5</h3>
+
+
+    <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
+        <li><a data-toggle="pill" href="#med">Medical History</a></li>
+        <li><a data-toggle="pill" href="#birth">Birth History</a></li>
+        <!-- include subject variables -->
+    #if($groups.size()>0)
+        #foreach($group in $groups)
+            #if($group.getId() != "default" && $group.getFields_field().size()>0)
+            #set($gid=$group.getId().replace(" ",""))
+            <li><a data-toggle="pill" href="#$gid"
+                   title="#if($group.getDescription()) $group.getDescription()#end">$group.getId()</a></li>
+        #end
+        #end
+    #end
+        <!-- end subject variables -->
+    </ul>
+
+    <div class="tab-content">
+
+        <div id="dem" class="tab-pane fade in active">
+            <h4>Demographics</h4>
+            <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
                 <tr><th>DOB</th><td><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/dob" "" $item $vr $years $formclass)</div></td></tr>
@@ -41,8 +56,8 @@ $page.setVlinkColor($ui.vlink)
                 <tr><th>Weight/units</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/weight/units" $item "" $vr)</td></tr>
                 <tr><th>Height</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height" $item "" $vr)</td></tr>
                 <tr><th>Height/units</th><td>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/height/units" $item "" $vr)</td></tr>
-                <tr><th>Gestational age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gestational_age" $item "" $vr)</td></tr>
-                <tr><th>Post-menstrual age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/post_menstrual_age" $item "" $vr)</td></tr>
+                <tr><th>Gestational age (wks)</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gestational_age" $item "" $vr)</td></tr>
+                <tr><th>Post-menstrual age (yrs)</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/post_menstrual_age" $item "" $vr)</td></tr>
 				#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/xnat_abstractDemographicData_id" $item "")
 				</tbody>
 			</table>
@@ -50,9 +65,9 @@ $page.setVlinkColor($ui.vlink)
 	</div>
 
     <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
-    <div class="panel panel-default">
-        <div class="panel-heading"><h3><a href="#med" data-toggle="collapse">Medical History</a></h3></div>
-        <div id="med" class="panel-body collapse">
+        <div id="med" class="tab-pane fade">
+            <h4>Medical History</h4>
+            <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
 					<tr><th>Vision Problems</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical/VisionProblems" $item $yesno $vr)</td></tr>
@@ -71,9 +86,9 @@ $page.setVlinkColor($ui.vlink)
 
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
-    <div class="panel panel-default">
-        <div class="panel-heading"><h3><a href="#birth" data-toggle="collapse">Birth History</a></h3></div>
-        <div id="birth" class="panel-body collapse">
+        <div id="birth" class="tab-pane fade">
+            <h4>Birth History</h4>
+            <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
 
@@ -88,8 +103,10 @@ $page.setVlinkColor($ui.vlink)
 	</div>
 
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
-</div>
-<!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
+        <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
+
+
+
 
 <script type="text/javascript">
     function validateForm()

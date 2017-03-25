@@ -49,7 +49,6 @@
             #xdatDateBoxParams($!f.getXmlpath() "" $!om $vr $years $formclass) ##$id $name $item $vr $years $class
 
         #elseif ($f.getPossiblevalues_possiblevalue().size()>0)
-                <span>Possible=$f.getPossiblevalues_possiblevalue()</span>
                 ##xdatSelectBox($!f.getXmlpath() $!om $f.getPossiblevalues_possiblevalue() $vr) ##$id $name $item $possibleValues $vr
             <select #if($isDisabled)disabled#end id="$!f.getXmlpath()" name="$!f.getXmlpath()" #if($f.getRequired()==1 || $f.getRequired()) class="required" #end>
                 <option value="NULL">---</option>
