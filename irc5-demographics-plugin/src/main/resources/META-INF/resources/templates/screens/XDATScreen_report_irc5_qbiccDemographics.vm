@@ -12,11 +12,17 @@ $page.setVlinkColor($ui.vlink)
 ##--end previous table
 
 <h3 class="reportheader">QBI CC Demographics for IRC5</h3>
-
-    <ul class="nav nav-pills">
+<div class="tab-content col-md-2">
+    <ul class="nav nav-pills nav-stacked">
         <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
+        <li><a data-toggle="pill" href="#participant">Participation</a></li>
+        <li><a data-toggle="pill" href="#consent">Consent</a></li>
+        <li><a data-toggle="pill" href="#diagnoses">Diagnoses</a></li>
+        <li><a data-toggle="pill" href="#family">Family History</a></li>
         <li><a data-toggle="pill" href="#med">Medical History</a></li>
         <li><a data-toggle="pill" href="#birth">Birth History</a></li>
+        <li><a data-toggle="pill" href="#development">Development</a></li>
+        <li><a data-toggle="pill" href="#seizure">Seizure</a></li>
         <!-- include subject variables -->
         #if($groups && $groups.size()>0)
             #foreach($group in $groups)
@@ -29,8 +35,8 @@ $page.setVlinkColor($ui.vlink)
         #end
         <!-- end subject variables -->
     </ul>
-
-<div class="tab-content">
+</div>
+<div class="tab-content col-md-8">
 
     <div id="dem" class="tab-pane fade in active">
         <h4>Demographics</h4>
@@ -58,8 +64,86 @@ $page.setVlinkColor($ui.vlink)
 		</div>
 	</div>
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
+    <div id="participant" class="tab-pane fade">
+        <h4>QBICC Participant Information</h4>
+        <div class="panel-body">
+            <table class="table table-striped"><tbody>
+                <TR><TD>Date Participant Entered</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/DateOfEntry")</TD></TR>
+                <TR><TD>Research Code</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ResearchCode")</TD></TR>
+                <TR><TD>Participant ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantID")</TD></TR>
+                <TR><TD>Participant Status</TD><TD>$!participant.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantStatus"))</TD></TR>
+                <TR><TD>Contact Status</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ContactStatus"))</TD></TR>
+                <TR><TD>Initial Contact Made</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InitialContactMade"))</TD></TR>
+                <TR><TD>Invited To Appt</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InvitedToAppt"))</TD></TR>
+                <TR><TD>Invited To Appt on date</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InvitedToAppt_date")</TD></TR>
+                <TR><TD>Came To Appt</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/CameToAppt"))</TD></TR>
+                <TR><TD>Scheduled For Procedures</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ScheduledForProcedures"))</TD></TR>
+                <TR><TD>MRI scans requested</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_requested"))</TD></TR>
+                <TR><TD>MRI scans requested on date</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_requested_date")</TD></TR>
+                <TR><TD>MRI scans received</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_received"))</TD></TR>
+                <TR><TD>MRI scans received on date</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_received_date")</TD></TR>
+                <TR><TD>MRI scans notes</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_notes")</TD></TR>
+                <TR><TD>DNA collected</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/DNA_collected")</TD></TR>
+                </tbody> </table>
+        </div>
+    </div>
+    <div id="consent" class="tab-pane fade">
+        <h4>Consent Forms</h4>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tbody>
+                <TR><TD>Medical Records</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MedicalRecords"))</TD></TR>
+                <TR><TD>Medical Records Notes</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MedicalRecords_Notes")</TD></TR>
+                <TR><TD>Collect Data</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/CollectData"))</TD></TR>
+                <TR><TD>Collect Data Notes</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/CollectData_Notes")</TD></TR>
+                <TR><TD>Recontact For Studies</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/RecontactForStudies"))</TD></TR>
+                <TR><TD>Questionnaire</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/Questionnaire"))</TD></TR>
+                <TR><TD>Murdoch Institute</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MurdochInstitute"))</TD></TR>
+                <TR><TD>QML Blood Sample</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/QMLBloodSample"))</TD></TR>
+                <TR><TD>Informed Consent Signed</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/InformedConsentSigned"))</TD></TR>
+                <TR><TD>MRI scans</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MRIscans"))</TD></TR>
+                <TR><TD>Skin Biopsy</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/SkinBiopsy"))</TD></TR>
 
-<!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="diagnoses" class="tab-pane fade">
+        <h4>Diagnoses</h4>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tbody>
+                <TR><TD>HC present</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/HCpresent"))</TD></TR>
+                <TR><TD>AC present</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/ACpresent"))</TD></TR>
+                <TR><TD>Imaging Features</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/ImagingFeatures")</TD></TR>
+                <TR><TD>Diagnosis</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/Diagnosis")</TD></TR>
+                <TR><TD>Diagnosis Date</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/DiagnosisDate")</TD></TR>
+                <TR><TD>Diagnosis Notes</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/DiagnosisNotes")</TD></TR>
+                <TR><TD>Diagnosis Additional</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/DiagnosisAdditional")</TD></TR>
+                <TR><TD>Medical Practitioner Name</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/MedicalPractitioner_Name")</TD></TR>
+                <TR><TD>Medical Practitioner Details</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/MedicalPractitioner_Details")</TD></TR>
+                <TR><TD>MCRI database</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/MCRI_database")</TD></TR>
+                <TR><TD>Other Diagnoses</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/OtherDiagnoses")</TD></TR>
+                <TR><TD>Research Report Sent</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/ResearchReportSent")</TD></TR>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="family" class="tab-pane fade">
+        <h4>Family History</h4>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tbody>
+                <TR><TD>Parents Related</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/ParentsRelated"))</TD></TR>
+                <TR><TD>Consanguinity</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/Consanguinity")</TD></TR>
+                <TR><TD>Other Family Affected</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/OtherFamilyAffected")</TD></TR>
+                <TR><TD>Family Notes</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/FamilyNotes")</TD></TR>
+                <TR><TD>Siblings</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/Siblings")</TD></TR>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
     <div id="med" class="tab-pane fade">
         <h4>Medical History</h4>
         <div class="panel-body">
@@ -93,7 +177,37 @@ $page.setVlinkColor($ui.vlink)
 		</div>
 	</div>
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
-
+    <div id="development" class="tab-pane fade">
+        <h4>Developmental History</h4>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tbody>
+                <TR><TD>Delayed</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Delayed"))</TD></TR>
+                <TR><TD>Stages Delayed</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/StagesDelayed")</TD></TR>
+                <TR><TD>Milestones Delayed</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/MilestonesDelayed")</TD></TR>
+                <TR><TD>Growth</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Growth")</TD></TR>
+                <TR><TD>Education</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Education")</TD></TR>
+                <TR><TD>General Trajectory</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/GeneralTrajectory")</TD></TR>
+                <TR><TD>Therapies</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Therapies")</TD></TR>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="seizure" class="tab-pane fade">
+        <h4>Seizure History</h4>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tbody>
+                <TR><TD>First Seizure Date</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/FirstSeizureDate")</TD></TR>
+                <TR><TD>First Seizure Age</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/FirstSeizureAge")</TD></TR>
+                <TR><TD>Seizure Type</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/SeizureType")</TD></TR>
+                <TR><TD>Seizure Therapy</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/SeizureTherapy")</TD></TR>
+                <TR><TD>Hospital Visits</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/HospitalVisits")</TD></TR>
+                <TR><TD>Comments</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/Comments")</TD></TR>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
 
 

@@ -13,3 +13,5 @@ irc5-samples-plugin/.gradle/3.1/taskArtifacts/cache.properties.lock
 irc5-samples-plugin/.gradle/3.1/taskArtifacts/fileSnapshots.bin
 *.bin
 irc5-samples-plugin/.idea/workspace.xml
+*.css~
+*.vm~

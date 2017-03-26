@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2017 sp1 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- edited with XMLSpy v2017 sp2 (http://www.altova.com) by Liz Cooper-Williams (The University of Queensland) -->
 <xs:schema xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/irc5" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
 	<!-- D:/Projects/XNAT/schemas/xnat/xnat.xsd -->
@@ -8,132 +8,691 @@
 	</xs:annotation>
 	<xs:element name="qbicc" type="irc5:qbiccDemographics"/>
 	<xs:complexType name="qbiccDemographics">
+		<xs:annotation>
+			<xs:documentation>Demographics for QBI CC</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xnat:demographicData">
 				<xs:sequence>
+					<xs:element name="participant" type="irc5:participantData"/>
+					<xs:element name="consent" type="irc5:consentData"/>
+					<xs:element name="diagnosis" type="irc5:diagnosticData"/>
+					<xs:element name="family" type="irc5:familyData"/>
 					<xs:element name="medical" type="irc5:medicalData"/>
 					<xs:element name="birth" type="irc5:birthData"/>
+					<xs:element name="developmental" type="irc5:developmentalData"/>
+					<xs:element name="seizure" type="irc5:seizureData"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+	<xs:complexType name="participantData">
+		<xs:annotation>
+			<xs:documentation>QBICC Participant Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DateOfEntry" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Date Participant Added</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ResearchCode" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Research Code</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParticipantID" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Participant ID</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParticipantStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Participant Status</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Active"/>
+						<xs:enumeration value="Inactive"/>
+						<xs:enumeration value="Withdrawn"/>
+						<xs:enumeration value="Deceased"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContactStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact Status</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InitialContactMade" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Initial Contact Made</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InvitedToAppt" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Invited to an Appointment</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InvitedToAppt_date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Invited to an appt on date</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:dateTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CameToAppt" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Came to Appt</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ScheduledForProcedures" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Scheduled for Procedures</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MRIscans_requested" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>MRI scans have been requested</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MRIscans_requested_date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Date on which MRI scans were requested</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MRIscans_received" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>MRI scans received</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MRIscans_received_date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>MRI scans received date</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MRIscans_notes" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>MRIscans_notes</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DNA_collected" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Date DNA sample collected</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="medicalData">
 		<xs:annotation>
 			<xs:documentation>Medical History</xs:documentation>
 		</xs:annotation>
-		
-				<xs:sequence>
-					<!-- Begin: IRC5 Medical History data-->
-					<xs:element name="VisionProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+		<xs:sequence>
+			<!-- Begin: IRC5 Medical History data-->
+			<xs:element name="VisionProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Vision Problems
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="AuditoryProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AuditoryProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Auditory Problems
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="NeuromuscularProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeuromuscularProblems" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Neuromuscular Problems
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="CardiacRespiratoryGI" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CardiacRespiratoryGI" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Cardiac Respiratory or GI Problems
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="GenitoUrinaryEndocrineSkinOrtho" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GenitoUrinaryEndocrineSkinOrtho" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Genito Urinary Endocrine Skin or Ortho Problems
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="BehaviouralSleepPyschiatric" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BehaviouralSleepPyschiatric" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Behavioural Sleep or Pyschiatric Problems
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="SurgicalProcedures" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SurgicalProcedures" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has had Surgical Procedures
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="OtherProblems" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherProblems" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Has Other Medical Problems
 							</xs:documentation>
-						</xs:annotation>
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="1000"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<!-- End: IRC5 Medical History data -->
-				</xs:sequence>
-
-
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- End: IRC5 Medical History data -->
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="birthData">
 		<xs:annotation>
 			<xs:documentation>Birth History</xs:documentation>
 		</xs:annotation>
-
-				<xs:sequence>
-					<!-- Begin: IRC5 Birth History -->
-					<xs:element name="NormalBirth" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+		<xs:sequence>
+			<!-- Begin: IRC5 Birth History -->
+			<xs:element name="NormalBirth" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Normal Birth
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Premature" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Premature" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Premature
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="FertilityTreatment" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FertilityTreatment" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Fertility Treatment
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="PaternalAge" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PaternalAge" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 								Paternal Age
 							</xs:documentation>
-						</xs:annotation>
-						<xs:simpleType>
-							<xs:restriction base="xs:integer">
-								<xs:minInclusive value="10"/>
-								<xs:maxExclusive value="120"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<!-- End: IRC5 Birth History -->
-				</xs:sequence>
-			
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="10"/>
+						<xs:maxExclusive value="120"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- End: IRC5 Birth History -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="diagnosticData">
+		<xs:annotation>
+			<xs:documentation>Diagnoses</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="HCpresent" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>HCpresent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ACpresent" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>ACpresent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ImagingFeatures" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Additional Imaging Diagnostic Features</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Diagnosis" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Diagnosis</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DiagnosisDate" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Diagnosis Date</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DiagnosisNotes" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Diagnosis Notes</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DiagnosisAdditional" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Additional symptoms noted in diagnosis</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MedicalPractitioner_Name" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>MedicalPractitioner_Name</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MedicalPractitioner_Details" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Medical Practitioner contact and other details
+							</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MCRI_database" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Entered in MCRI database</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OtherDiagnoses" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Diagnoses from other sources</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ResearchReportSent" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Research Report Sent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="consentData">
+		<xs:annotation>
+			<xs:documentation>Consent Forms</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MedicalRecords" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Medical Records Consent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MedicalRecords_Notes" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Medical Records Notes</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CollectData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Collect Data Consent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CollectData_Notes" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Collect Data Notes</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RecontactForStudies" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Recontact For Studies</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Questionnaire" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Questionnaire Consent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MurdochInstitute" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Murdoch Institute Consent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QMLBloodSample" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>QML Blood Sample Consent</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InformedConsentSigned" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Informed Consent Signed</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MRIscans" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Consent for MRI scans</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SkinBiopsy" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Consent for Skin Biopsy</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="familyData">
+		<xs:annotation>
+			<xs:documentation>Biological Family History</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ParentsRelated" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Parents are Related</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Consanguinity" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Consanguinity</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OtherFamilyAffected" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Other Family Affected</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FamilyNotes" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Family History Notes</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Siblings" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Siblings</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="developmentalData">
+		<xs:annotation>
+			<xs:documentation>Developmental History</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Delayed" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Delayed</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StagesDelayed" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Developmental Stages Delayed</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MilestonesDelayed" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Developmental Milestones Delayed</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Growth" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Growth</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Education" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Education</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="GeneralTrajectory" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>General Trajectory</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Therapies" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Therapies</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="seizureData">
+		<xs:annotation>
+			<xs:documentation>Seizure History</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstSeizureDate" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>First Seizure Date</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FirstSeizureAge" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>First Seizure Age</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SeizureType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Seizure Type</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SeizureTherapy" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Seizure Therapy</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HospitalVisits" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Hospital Visits</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Comments" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Comments</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

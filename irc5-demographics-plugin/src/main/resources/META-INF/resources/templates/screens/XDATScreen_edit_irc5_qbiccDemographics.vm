@@ -15,11 +15,18 @@ $page.setVlinkColor($ui.vlink)
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
 <h3 class="reportheader">QBI CC Demographics for IRC5</h3>
 
-
-    <ul class="nav nav-pills">
+<div class="tab-content col-md-2">
+    <ul class="nav nav-pills nav-stacked">
         <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
+        <li><a data-toggle="pill" href="#participant">Participation</a></li>
+        <li><a data-toggle="pill" href="#consent">Consent</a></li>
+        <li><a data-toggle="pill" href="#diagnoses">Diagnoses</a></li>
+        <li><a data-toggle="pill" href="#family">Family History</a></li>
         <li><a data-toggle="pill" href="#med">Medical History</a></li>
         <li><a data-toggle="pill" href="#birth">Birth History</a></li>
+        <li><a data-toggle="pill" href="#development">Development</a></li>
+        <li><a data-toggle="pill" href="#seizure">Seizure</a></li>
+
         <!-- include subject variables -->
     #if($groups.size()>0)
         #foreach($group in $groups)
@@ -32,7 +39,7 @@ $page.setVlinkColor($ui.vlink)
     #end
         <!-- end subject variables -->
     </ul>
-
+</div>
     <div class="tab-content col-md-8">
 
         <div id="dem" class="tab-pane fade in active">
@@ -40,7 +47,7 @@ $page.setVlinkColor($ui.vlink)
             <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
-                <tr><th>DOB</th><td><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/dob" "" $item $vr $years $formclass)</div></td></tr>
+                <tr><th>DOB</th><td><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]]/dob" "" $item $vr $years $formclass)</div></td></tr>
                 <tr><th>YOB</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/yob" $item "" $vr)</td></tr>
                 <tr><th>Age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/age" $item "" $vr)</td></tr>
                 <tr><th>Gender</th><td>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gender" "" $item $genders $vr)</td></tr>
@@ -63,6 +70,105 @@ $page.setVlinkColor($ui.vlink)
 			</table>
 		</div>
 	</div>
+<!-- Sample panel
+        <div id="med" class="tab-pane fade">
+            <h4></h4>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+-->
+        <div id="participant" class="tab-pane fade">
+            <h4>QBICC Participant Information</h4>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tbody>
+                    <TR><TD>Date Participant Entered</TD><TD><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/DateOfEntry" "" $item $vr $years $formclass)</div></TD></TR>
+                    <TR><TD>Research Code</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ResearchCode" $item "" $vr)</TD></TR>
+                    <TR><TD>Participant ID</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantID" $item "" $vr)</TD></TR>
+                    <TR><TD>Participant Status</TD><TD>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantStatus" "" $item $participant $vr)</TD></TR>
+                    <TR><TD>Contact Status</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ContactStatus" $item $yesno $vr)</TD></TR>
+                    <TR><TD>Initial Contact Made</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InitialContactMade" $item $yesno $vr)</TD></TR>
+                    <TR><TD>Invited To Appt</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InvitedToAppt" $item $yesno $vr)</TD></TR>
+                    <TR><TD>Invited To Appt on date</TD><TD><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InvitedToAppt_date" "" $item $vr $years $formclass)</div></TD></TR>
+                    <TR><TD>Came To Appt</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/CameToAppt" $item $yesno $vr)</TD></TR>
+                    <TR><TD>Scheduled For Procedures</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ScheduledForProcedures" $item $yesno $vr)</TD></TR>
+                    <TR><TD>MRI scans requested</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_requested" $item $yesno $vr)</TD></TR>
+                    <TR><TD>MRI scans requested on date</TD><TD>#xdatDateBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_requested_date" "" $item $vr $years $formclass)</div></TD></TR>
+                    <TR><TD>MRI scans received</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_received" $item $yesno $vr)</TD></TR>
+                    <TR><TD>MRI scans received on date</TD><TD><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_received_date" "" $item $vr $years $formclass)</div></TD></TR>
+                    <TR><TD>MRI scans notes</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/MRIscans_notes" $item "" $vr $rows $cols)</TD></TR>
+                    <TR><TD>DNA collected</TD><TD><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/DNA_collected" "" $item $vr $years $formclass)</div></TD></TR>
+                        #xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/irc5_participantData_id" $item "")
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+<div id="consent" class="tab-pane fade">
+    <h4>Consent Forms</h4>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+            <TR><TD>Medical Records</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MedicalRecords" $item $yesno $vr)</TD></TR>
+            <TR><TD>Medical Records Notes</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MedicalRecords_Notes" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Collect Data</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/CollectData" $item $yesno $vr)</TD></TR>
+            <TR><TD>Collect Data Notes</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/CollectData_Notes" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Recontact For Studies</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/RecontactForStudies" $item $yesno $vr)</TD></TR>
+            <TR><TD>Questionnaire</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/Questionnaire" $item $yesno $vr)</TD></TR>
+            <TR><TD>Murdoch Institute</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MurdochInstitute" $item $yesno $vr)</TD></TR>
+            <TR><TD>QML Blood Sample</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/QMLBloodSample" $item $yesno $vr)</TD></TR>
+            <TR><TD>Informed Consent Signed</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/InformedConsentSigned" $item $yesno $vr)</TD></TR>
+            <TR><TD>MRI scans</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/MRIscans" $item $yesno $vr)</TD></TR>
+            <TR><TD>Skin Biopsy</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/SkinBiopsy" $item $yesno $vr)</TD></TR>
+                #xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/consent/irc5_consentData_id" $item "")
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="diagnoses" class="tab-pane fade">
+    <h4>Diagnoses</h4>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+            <TR><TD>HC present</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/HCpresent" $item $yesno $vr)</TD></TR>
+            <TR><TD>AC present</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/ACpresent" $item $yesno $vr)</TD></TR>
+            <TR><TD>Imaging Features</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/ImagingFeatures" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Diagnosis</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/Diagnosis" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Diagnosis Date</TD><TD><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/DiagnosisDate" "" $item $vr $years $formclass)</div></TD></TR>
+            <TR><TD>Diagnosis Notes</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/DiagnosisNotes" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Diagnosis Additional</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/DiagnosisAdditional" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Medical Practitioner Name</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/MedicalPractitioner_Name" $item "" $vr)</TD></TR>
+            <TR><TD>Medical Practitioner Details</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/MedicalPractitioner_Details" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>MCRI database</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/MCRI_database" $item "" $vr)</TD></TR>
+            <TR><TD>Other Diagnoses</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/OtherDiagnoses" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Research Report Sent</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/ResearchReportSent" $item "" $vr)</TD></TR>
+                #xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/diagnosis/irc5_diagnosticData_id" $item "")
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="family" class="tab-pane fade">
+    <h4>Family History</h4>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+            <TR><TD>Parents Related</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/ParentsRelated" $item $yesno $vr)</TD></TR>
+            <TR><TD>Consanguinity</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/Consanguinity" $item "" $vr)</TD></TR>
+            <TR><TD>Other Family Affected</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/OtherFamilyAffected" $item "" $vr)</TD></TR>
+            <TR><TD>Family Notes</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/FamilyNotes" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Siblings</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/Siblings" $item "" $vr)</TD></TR>
+                #xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/family/irc5_familyData_id" $item "")
+
+            </tbody>
+        </table>
+    </div>
+</div>
 
     <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/medical -->
         <div id="med" class="tab-pane fade">
@@ -91,11 +197,10 @@ $page.setVlinkColor($ui.vlink)
             <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
-
 					<tr><th>Normal Birth</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/NormalBirth" $item $yesno $vr)</td></tr>
 					<tr><th>Premature</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/Premature" $item $yesno $vr)</td></tr>
 					<tr><th>Fertility Treatment</th><td>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/FertilityTreatment" $item $yesno $vr)</td></tr>
-					<tr><th>Paternal Age</th><td>#xdatTextBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/PaternalAge" $item "" $vr)</td></tr>
+					<tr><th>Paternal Age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/PaternalAge" $item "" $vr)</td></tr>
 					#xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth/irc5_birthData_id" $item "")
 				</tbody>
 			</table>
@@ -103,6 +208,41 @@ $page.setVlinkColor($ui.vlink)
 	</div>
 
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/birth -->
+
+<div id="development" class="tab-pane fade">
+    <h4>Developmental History</h4>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+            <TR><TD>Delayed</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Delayed" $item $yesno $vr)</TD></TR>
+            <TR><TD>Stages Delayed</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/StagesDelayed" $item $yesno $vr)</TD></TR>
+            <TR><TD>Milestones Delayed</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/MilestonesDelayed" $item $yesno $vr)</TD></TR>
+            <TR><TD>Growth</TD><TD>#xdatRadioButtonGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Growth" $item $yesno $vr)</TD></TR>
+            <TR><TD>Education</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Education" $item "" $vr)</TD></TR>
+            <TR><TD>General Trajectory</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/GeneralTrajectory" $item "" $vr)</TD></TR>
+            <TR><TD>Therapies</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/Therapies" $item "" $vr)</TD></TR>
+                #xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/developmental/irc5_developmentalData_id" $item "")
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="seizure" class="tab-pane fade">
+    <h4>Seizure History</h4>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+            <TR><TD>First Seizure Date</TD><TD><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/FirstSeizureDate" "" $item $vr $years $formclass)</div></TD></TR>
+            <TR><TD>First Seizure Age</TD><TD>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/FirstSeizureAge" $item "" $vr)</TD></TR>
+            <TR><TD>Seizure Type</TD><TD>#xdatStringBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/SeizureType" $item "" $vr)</TD></TR>
+            <TR><TD>Seizure Therapy</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/SeizureTherapy" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Hospital Visits</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/HospitalVisits" $item "" $vr $rows $cols)</TD></TR>
+            <TR><TD>Comments</TD><TD>#xdatTextArea("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/Comments" $item "" $vr $rows $cols)</TD></TR>
+                #xdatHiddenBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/seizure/irc5_seizureData_id" $item "")
+            </tbody>
+        </table>
+    </div>
+</div>
         <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
 
 
