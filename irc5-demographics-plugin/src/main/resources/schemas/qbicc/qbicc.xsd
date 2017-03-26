@@ -14,14 +14,14 @@
 		<xs:complexContent>
 			<xs:extension base="xnat:demographicData">
 				<xs:sequence>
-					<xs:element name="participant" type="irc5:participantData"/>
-					<xs:element name="consent" type="irc5:consentData"/>
-					<xs:element name="diagnosis" type="irc5:diagnosticData"/>
-					<xs:element name="family" type="irc5:familyData"/>
-					<xs:element name="medical" type="irc5:medicalData"/>
-					<xs:element name="birth" type="irc5:birthData"/>
-					<xs:element name="developmental" type="irc5:developmentalData"/>
-					<xs:element name="seizure" type="irc5:seizureData"/>
+					<xs:element name="participant" type="irc5:participantData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="consent" type="irc5:consentData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="diagnosis" type="irc5:diagnosticData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="family" type="irc5:familyData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="medical" type="irc5:medicalData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="birth" type="irc5:birthData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="developmental" type="irc5:developmentalData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="seizure" type="irc5:seizureData" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

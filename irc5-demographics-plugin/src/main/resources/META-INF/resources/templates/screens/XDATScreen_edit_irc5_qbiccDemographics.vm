@@ -47,7 +47,7 @@ $page.setVlinkColor($ui.vlink)
             <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
-                <tr><th>DOB</th><td><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]]/dob" "" $item $vr $years $formclass)</div></td></tr>
+                <tr><th>DOB</th><td><div class="form-inline">#xdatDateBoxParams("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/dob" "" $item $vr $years $formclass)</div></td></tr>
                 <tr><th>YOB</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/yob" $item "" $vr)</td></tr>
                 <tr><th>Age</th><td>#xdatNumberBox("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/age" $item "" $vr)</td></tr>
                 <tr><th>Gender</th><td>#xdatSelectGroup("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/gender" "" $item $genders $vr)</td></tr>
