@@ -8,17 +8,17 @@ $page.setVlinkColor($ui.vlink)
 #end
 
 <div class="container">
-    <div class="row">
+    <div>
         <h3>QBI Blood Sample</h3>
 			#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
-        <div class="col-sm-4" align="right">
+        <div align="right">
 			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
         </div>
 	</div>
 	<br/>
     <div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-8 table-responsive">
             <table class="table table-striped resultstable">
                 <thead>
 							<tr class="resultsheader">
