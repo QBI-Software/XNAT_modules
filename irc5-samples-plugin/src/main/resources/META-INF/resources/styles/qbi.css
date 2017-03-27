@@ -15,6 +15,10 @@
 }
 h3.reportheader{
 	margin-bottom:10px;
+	margin-top:10px;
+}
+#actionsMenu{
+	float:right;
 }
 /*From embedded style in xnat_subjectData
 DIV.container{
