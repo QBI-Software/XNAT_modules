@@ -72,6 +72,7 @@ $page.setVlinkColor($ui.vlink)
                 <TR><TD>Research Code</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ResearchCode")</TD></TR>
                 <TR><TD>Participant ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantID")</TD></TR>
                 <TR><TD>Participant Status</TD><TD>$!participant.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantStatus"))</TD></TR>
+                <TR><TD>Participant Comments</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ParticipantComments")</TD></TR>
                 <TR><TD>Contact Status</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/ContactStatus"))</TD></TR>
                 <TR><TD>Initial Contact Made</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InitialContactMade"))</TD></TR>
                 <TR><TD>Invited To Appt</TD><TD>#renderYesNoIcons($!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/InvitedToAppt"))</TD></TR>

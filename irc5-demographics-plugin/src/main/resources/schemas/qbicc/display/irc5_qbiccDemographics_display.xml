@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 sp1 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd" schema-element="irc5:qbiccDemographics" full-description="irc5_qbiccDemographics" brief-description="qbicc">
+	<DisplayField id="DOB" header="dob" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/dob"/>
+	</DisplayField>
+	<DisplayField id="YOB" header="yob" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/yob"/>
+	</DisplayField>
+	<DisplayField id="AGE" header="age" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/age"/>
+	</DisplayField>
+	<DisplayField id="GENDER" header="gender" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/gender"/>
+	</DisplayField>
+	<DisplayField id="HANDEDNESS" header="handedness" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/handedness"/>
+	</DisplayField>
+	<DisplayField id="SES" header="ses" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/ses"/>
+	</DisplayField>
+	<DisplayField id="EMPLOYMENT" header="employment" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/employment"/>
+	</DisplayField>
+	<DisplayField id="EDUCATION" header="education" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/education"/>
+	</DisplayField>
+	<DisplayField id="EDUCATIONDESC" header="educationDesc" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/educationDesc"/>
+	</DisplayField>
+	<DisplayField id="RACE" header="race" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race"/>
+	</DisplayField>
+	<DisplayField id="RACE2" header="race2" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race2"/>
+	</DisplayField>
+	<DisplayField id="RACE3" header="race3" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race3"/>
+	</DisplayField>
+	<DisplayField id="RACE4" header="race4" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race4"/>
+	</DisplayField>
+	<DisplayField id="RACE5" header="race5" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race5"/>
+	</DisplayField>
+	<DisplayField id="RACE6" header="race6" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/race6"/>
+	</DisplayField>
+	<DisplayField id="ETHNICITY" header="ethnicity" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/ethnicity"/>
+	</DisplayField>
+	<DisplayField id="WEIGHT" header="weight" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/weight"/>
+	</DisplayField>
+	<DisplayField id="WEIGHT_UNITS" header="units" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/weight/units"/>
+	</DisplayField>
+	<DisplayField id="HEIGHT" header="height" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/height"/>
+	</DisplayField>
+	<DisplayField id="HEIGHT_UNITS" header="units" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/height/units"/>
+	</DisplayField>
+	<DisplayField id="GESTATIONAL_AGE" header="gestational_age" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/gestational_age"/>
+	</DisplayField>
+	<DisplayField id="POST_MENSTRUAL_AGE" header="post_menstrual_age" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/post_menstrual_age"/>
+	</DisplayField>
+	<DisplayField id="BIRTH_WEIGHT" header="birth_weight" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/birth_weight"/>
+	</DisplayField>
+	<DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics.meta.insert_date"/>
+	</DisplayField>
+	<DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics.meta.insert_user.login"/>
+	</DisplayField>
+	<!--Additional IRC5 demographic data fields -->
+	<!-- START participantData irc5:qbiccDemographics/participant/ -->
+	<DisplayField id="DATEOFENTRY" header="DateOfEntry" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/DateOfEntry"/>
+	</DisplayField>
+	<DisplayField id="RESEARCHCODE" header="ResearchCode" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/ResearchCode"/>
+	</DisplayField>
+	<DisplayField id="PARTICIPANTID" header="ParticipantID" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/ParticipantID"/>
+	</DisplayField>
+	<DisplayField id="PARTICIPANTSTATUS" header="ParticipantStatus" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/ParticipantStatus"/>
+	</DisplayField>
+	<DisplayField id="PARTICIPANTCOMMENTS" header="ParticipantComments" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/ParticipantComments"/>
+	</DisplayField>
+	<DisplayField id="CONTACTSTATUS" header="ContactStatus" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/ContactStatus"/>
+	</DisplayField>
+	<DisplayField id="INITIALCONTACTMADE" header="InitialContactMade" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/InitialContactMade"/>
+	</DisplayField>
+	<DisplayField id="INVITEDTOAPPT" header="InvitedToAppt" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/InvitedToAppt"/>
+	</DisplayField>
+	<DisplayField id="INVITEDTOAPPT_DATE" header="InvitedToAppt_date" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/InvitedToAppt_date"/>
+	</DisplayField>
+	<DisplayField id="CAMETOAPPT" header="CameToAppt" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/CameToAppt"/>
+	</DisplayField>
+	<DisplayField id="SCHEDULEDFORPROCEDURES" header="ScheduledForProcedures" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/ScheduledForProcedures"/>
+	</DisplayField>
+	<DisplayField id="MRISCANS_REQUESTED" header="MRIscans_requested" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/MRIscans_requested"/>
+	</DisplayField>
+	<DisplayField id="MRISCANS_REQUESTED_DATE" header="MRIscans_requested_date" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/MRIscans_requested_date"/>
+	</DisplayField>
+	<DisplayField id="MRISCANS_RECEIVED" header="MRIscans_received" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/MRIscans_received"/>
+	</DisplayField>
+	<DisplayField id="MRISCANS_RECEIVED_DATE" header="MRIscans_received_date" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/MRIscans_received_date"/>
+	</DisplayField>
+	<DisplayField id="MRISCANS_NOTES" header="MRIscans_notes" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/MRIscans_notes"/>
+	</DisplayField>
+	<DisplayField id="DNACOLLECTED" header="DNA_collected" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/participant/DNA_collected"/>
+	</DisplayField>
+	<!-- END participantData irc5:qbiccDemographics/participant/ -->
+	<!-- START consentData irc5:qbiccDemographics/consent/ -->
+	<DisplayField id="CONSENT_MEDICALRECORDS" header="MedicalRecords" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/MedicalRecords"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_MEDICALRECORDS_NOTES" header="MedicalRecords_Notes" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/MedicalRecords_Notes"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_COLLECTDATA" header="CollectData" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/CollectData"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_COLLECTDATA_NOTES" header="CollectData_Notes" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/CollectData_Notes"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_RECONTACTFORSTUDIES" header="RecontactForStudies" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/RecontactForStudies"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_QUESTIONNAIRE" header="Questionnaire" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/Questionnaire"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_MURDOCHINSTITUTE" header="MurdochInstitute" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/MurdochInstitute"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_QMLBLOODSAMPLE" header="QMLBloodSample" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/QMLBloodSample"/>
+	</DisplayField>
+	<DisplayField id="INFORMEDCONSENTSIGNED" header="InformedConsentSigned" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/InformedConsentSigned"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_MRISCANS" header="MRIscans" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/MRIscans"/>
+	</DisplayField>
+	<DisplayField id="CONSENT_SKINBIOPSY" header="SkinBiopsy" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/consent/SkinBiopsy"/>
+	</DisplayField>
+	<!-- END consentData irc5:qbiccDemographics/consent/ -->
+	<!-- START diagnosticData irc5:qbiccDemographics/diagnosis/ -->
+	<DisplayField id="HCPRESENT" header="HCpresent" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/HCpresent"/>
+	</DisplayField>
+	<DisplayField id="ACPRESENT" header="ACpresent" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/ACpresent"/>
+	</DisplayField>
+	<DisplayField id="IMAGINGFEATURES" header="AdditionalFeatures" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/ImagingFeatures"/>
+	</DisplayField>
+	<DisplayField id="DIAGNOSIS" header="Diagnosis" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/Diagnosis"/>
+	</DisplayField>
+	<DisplayField id="DIAGNOSISDATE" header="DiagnosisDate" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/DiagnosisDate"/>
+	</DisplayField>
+	<DisplayField id="DIAGNOSISNOTES" header="DiagnosisNotes" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/DiagnosisNotes"/>
+	</DisplayField>
+	<DisplayField id="DIAGNOSISADDITIONAL" header="DiagnosisAdditional" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/DiagnosisAdditional"/>
+	</DisplayField>
+	<DisplayField id="MEDICALPRACTITIONER_NAME" header="MedicalPractitioner_Name" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/MedicalPractitioner_Name"/>
+	</DisplayField>
+	<DisplayField id="MEDICALPRACTITIONER_DETAILS" header="MedicalPractitioner_Details" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/MedicalPractitioner_Details"/>
+	</DisplayField>
+	<DisplayField id="MCRI_DATABASE" header="MCRI_database" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/MCRI_database"/>
+	</DisplayField>
+	<DisplayField id="RESEARCHREPORTSENT" header="ResearchReportSent" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/diagnosis/ResearchReportSent"/>
+	</DisplayField>
+	<!-- END diagnosticData irc5:qbiccDemographics/diagnosis/ -->
+	<!-- START familyData irc5:qbiccDemographics/family/ -->
+	<DisplayField id="PARENTSRELATED" header="ParentsRelated" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/family/ParentsRelated"/>
+	</DisplayField>
+	<DisplayField id="CONSANGUINITY" header="Consanguinity" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/family/Consanguinity"/>
+	</DisplayField>
+	<DisplayField id="OTHERFAMILYAFFECTED" header="OtherFamilyAffected" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/family/OtherFamilyAffected"/>
+	</DisplayField>
+	<DisplayField id="FAMILYNOTES" header="FamilyNotes" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/family/FamilyNotes"/>
+	</DisplayField>
+	<DisplayField id="SIBLINGS" header="Siblings" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/family/Siblings"/>
+	</DisplayField>
+	<!-- END familyData irc5:qbiccDemographics/family/ -->
+	<!-- START birthData irc5:qbiccDemographics/birth/ -->
+	<DisplayField id="NORMALBIRTH" header="NormalBirth" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/birth/NormalBirth"/>
+	</DisplayField>
+	<DisplayField id="PREMATURE" header="Premature" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/birth/Premature"/>
+	</DisplayField>
+	<DisplayField id="FERTILITYTREATMENT" header="FertilityTreatment" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/birth/FertilityTreatment"/>
+	</DisplayField>
+	<DisplayField id="PATERNALAGE" header="PaternalAge" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/birth/PaternalAge"/>
+	</DisplayField>
+	<!-- END birthData irc5:qbiccDemographics/birth/ -->
+	<!-- START developmentalData irc5:qbiccDemographics/developmental/ -->
+	<DisplayField id="DELAYED" header="Delayed" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/Delayed"/>
+	</DisplayField>
+	<DisplayField id="STAGESDELAYED" header="StagesDelayed" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/StagesDelayed"/>
+	</DisplayField>
+	<DisplayField id="MILESTONESDELAYED" header="MilestonesDelayed" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/MilestonesDelayed"/>
+	</DisplayField>
+	<DisplayField id="GROWTH" header="Growth" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/Growth"/>
+	</DisplayField>
+	<DisplayField id="EDUCATION" header="Education" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/Education"/>
+	</DisplayField>
+	<DisplayField id="GENERALTRAJECTORY" header="GeneralTrajectory" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/GeneralTrajectory"/>
+	</DisplayField>
+	<DisplayField id="THERAPIES" header="Therapies" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/developmental/Therapies"/>
+	</DisplayField>
+	<!-- END developmentalData irc5:qbiccDemographics/developmental/ -->
+	<!-- START seizureData irc5:qbiccDemographics/seizure/ -->
+	<DisplayField id="FIRSTSEIZUREDATE" header="FirstSeizureDate" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/seizure/FirstSeizureDate"/>
+	</DisplayField>
+	<DisplayField id="FIRSTSEIZUREAGE" header="FirstSeizureAge" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/seizure/FirstSeizureAge"/>
+	</DisplayField>
+	<DisplayField id="SEIZURETYPE" header="SeizureType" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/seizure/SeizureType"/>
+	</DisplayField>
+	<DisplayField id="SEIZURETHERAPY" header="SeizureTherapy" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/seizure/SeizureTherapy"/>
+	</DisplayField>
+	<DisplayField id="HOSPITALVISITS" header="HospitalVisits" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/seizure/HospitalVisits"/>
+	</DisplayField>
+	<DisplayField id="SEIZURECOMMENTS" header="SeizureComments" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/seizure/Comments"/>
+	</DisplayField>
+	<!-- END seizureData irc5:qbiccDemographics/seizure/ -->
+	<!-- START medicalData irc5:qbiccDemographics/medical/ -->
+	<DisplayField id="VISIONPROBLEMS" header="VisionProblems" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/VisionProblems"/>
+	</DisplayField>
+	<DisplayField id="AUDITORYPROBLEMS" header="AuditoryProblems" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/AuditoryProblems"/>
+	</DisplayField>
+	<DisplayField id="NEUROMUSCULARPROBLEMS" header="NeuromuscularProblems" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/NeuromuscularProblems"/>
+	</DisplayField>
+	<DisplayField id="CARDIACRESPIRATORYGI" header="CardiacRespiratoryGI" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/CardiacRespiratoryGI"/>
+	</DisplayField>
+	<DisplayField id="GENITOURINARYENDOCRINESKINORTHO" header="GenitoUrinaryEndocrineSkinOrtho" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/GenitoUrinaryEndocrineSkinOrtho"/>
+	</DisplayField>
+	<DisplayField id="BEHAVIOURALSLEEPPYSCHIATRIC" header="BehaviouralSleepPyschiatric" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/BehaviouralSleepPyschiatric"/>
+	</DisplayField>
+	<DisplayField id="SURGICALPROCEDURES" header="SurgicalProcedures" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/SurgicalProcedures"/>
+	</DisplayField>
+	<DisplayField id="OTHERPROBLEMS" header="OtherProblems" visible="true" searchable="true">
+		<DisplayFieldElement name="Field1" schema-element="irc5:qbiccDemographics/medical/OtherProblems"/>
+	</DisplayField>
+	<!-- END medicalData irc5:qbiccDemographics/medical/ -->
+	<DisplayVersion versionName="listing" default-order-by="DOB" default-sort-order="DESC" brief-description="irc5_qbiccDemographics" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DOB"/>
+		<DisplayFieldRef id="YOB"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="GENDER"/>
+		<DisplayFieldRef id="HANDEDNESS"/>
+		<DisplayFieldRef id="SES"/>
+		<DisplayFieldRef id="EMPLOYMENT"/>
+		<DisplayFieldRef id="EDUCATION"/>
+		<DisplayFieldRef id="EDUCATIONDESC"/>
+		<DisplayFieldRef id="RACE"/>
+		<DisplayFieldRef id="ETHNICITY"/>
+		<DisplayFieldRef id="WEIGHT"/>
+		<DisplayFieldRef id="WEIGHT_UNITS"/>
+		<DisplayFieldRef id="HEIGHT"/>
+		<DisplayFieldRef id="HEIGHT_UNITS"/>
+		<DisplayFieldRef id="GESTATIONAL_AGE"/>
+		<DisplayFieldRef id="POST_MENSTRUAL_AGE"/>
+		<DisplayFieldRef id="BIRTH_WEIGHT"/>
+		<DisplayFieldRef id="DATEOFENTRY"/>
+		<DisplayFieldRef id="RESEARCHCODE"/>
+		<DisplayFieldRef id="PARTICIPANTID"/>
+		<DisplayFieldRef id="PARTICIPANTSTATUS"/>
+		<DisplayFieldRef id="PARTICIPANTCOMMENTS"/>
+		<DisplayFieldRef id="CONTACTSTATUS"/>
+		<DisplayFieldRef id="INITIALCONTACTMADE"/>
+		<DisplayFieldRef id="INVITEDTOAPPT"/>
+		<DisplayFieldRef id="INVITEDTOAPPT_DATE"/>
+		<DisplayFieldRef id="CAMETOAPPT"/>
+		<DisplayFieldRef id="CAMETOAPPT_DATE"/>
+		<DisplayFieldRef id="SCHEDULEDFORPROCEDURES"/>
+		<DisplayFieldRef id="MRISCANS_REQUESTED"/>
+		<DisplayFieldRef id="MRISCANS_REQUESTED_DATE"/>
+		<DisplayFieldRef id="MRISCANS_RECEIVED"/>
+		<DisplayFieldRef id="MRISCANS_RECEIVED_DATE"/>
+		<DisplayFieldRef id="MRISCANS_NOTES"/>
+		<DisplayFieldRef id="DNACOLLECTED"/>
+		<DisplayFieldRef id="HCPRESENT"/>
+		<DisplayFieldRef id="ACPRESENT"/>
+		<DisplayFieldRef id="IMAGINGFEATURES"/>
+		<DisplayFieldRef id="DIAGNOSIS"/>
+		<DisplayFieldRef id="DIAGNOSISDATE"/>
+		<DisplayFieldRef id="DIAGNOSISNOTES"/>
+		<DisplayFieldRef id="DIAGNOSISADDITIONAL"/>
+		<DisplayFieldRef id="MEDICALPRACTITIONER_NAME"/>
+		<DisplayFieldRef id="MEDICALPRACTITIONER_DETAILS"/>
+		<DisplayFieldRef id="OTHERDIAGNOSES"/>
+		<DisplayFieldRef id="MCRI_DATABASE"/>
+		<DisplayFieldRef id="RESEARCHREPORTSENT"/>
+		<DisplayFieldRef id="CONSENT_MEDICALRECORDS"/>
+		<DisplayFieldRef id="CONSENT_MEDICALRECORDS_NOTES"/>
+		<DisplayFieldRef id="CONSENT_COLLECTDATA"/>
+		<DisplayFieldRef id="CONSENT_COLLECTDATA_NOTES"/>
+		<DisplayFieldRef id="CONSENT_RECONTACTFORSTUDIES"/>
+		<DisplayFieldRef id="CONSENT_QUESTIONNAIRE"/>
+		<DisplayFieldRef id="CONSENT_MURDOCHINSTITUTE"/>
+		<DisplayFieldRef id="CONSENT_QMLBLOODSAMPLE"/>
+		<DisplayFieldRef id="INFORMEDCONSENTSIGNED"/>
+		<DisplayFieldRef id="CONSENT_MRISCANS"/>
+		<DisplayFieldRef id="CONSENT_SKINBIOPSY"/>
+		<DisplayFieldRef id="PARENTSRELATED"/>
+		<DisplayFieldRef id="CONSANGUINITY"/>
+		<DisplayFieldRef id="OTHERFAMILYAFFECTED"/>
+		<DisplayFieldRef id="FAMILYNOTES"/>
+		<DisplayFieldRef id="SIBLINGS"/>
+		<DisplayFieldRef id="NORMALBIRTH"/>
+		<DisplayFieldRef id="PREMATURE"/>
+		<DisplayFieldRef id="FERTILITYTREATMENT"/>
+		<DisplayFieldRef id="PATERNALAGE"/>
+		<DisplayFieldRef id="DELAYED"/>
+		<DisplayFieldRef id="STAGESDELAYED"/>
+		<DisplayFieldRef id="MILESTONESDELAYED"/>
+		<DisplayFieldRef id="GROWTH"/>
+		<DisplayFieldRef id="EDUCATION"/>
+		<DisplayFieldRef id="GENERALTRAJECTORY"/>
+		<DisplayFieldRef id="THERAPIES"/>
+		<DisplayFieldRef id="FIRSTSEIZUREDATE"/>
+		<DisplayFieldRef id="FIRSTSEIZUREAGE"/>
+		<DisplayFieldRef id="SEIZURETYPE"/>
+		<DisplayFieldRef id="SEIZURETHERAPY"/>
+		<DisplayFieldRef id="HOSPITALVISITS"/>
+		<DisplayFieldRef id="SEIZURECOMMENTS"/>
+		<DisplayFieldRef id="VISIONPROBLEMS"/>
+		<DisplayFieldRef id="AUDITORYPROBLEMS"/>
+		<DisplayFieldRef id="NEUROMUSCULARPROBLEMS"/>
+		<DisplayFieldRef id="CARDIACRESPIRATORYGI"/>
+		<DisplayFieldRef id="GENITOURINARYENDOCRINESKINORTHO"/>
+		<DisplayFieldRef id="BEHAVIOURALSLEEPPYSCHIATRIC"/>
+		<DisplayFieldRef id="SURGICALPROCEDURES"/>
+		<DisplayFieldRef id="OTHERPROBLEMS"/>
+	</DisplayVersion>
+	<DisplayVersion versionName="full" default-order-by="DOB" default-sort-order="DESC" brief-description="irc5_qbiccDemographics" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DOB"/>
+		<DisplayFieldRef id="YOB"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="GENDER"/>
+		<DisplayFieldRef id="HANDEDNESS"/>
+		<DisplayFieldRef id="SES"/>
+		<DisplayFieldRef id="EMPLOYMENT"/>
+		<DisplayFieldRef id="EDUCATION"/>
+		<DisplayFieldRef id="EDUCATIONDESC"/>
+		<DisplayFieldRef id="RACE"/>
+		<DisplayFieldRef id="ETHNICITY"/>
+		<DisplayFieldRef id="WEIGHT"/>
+		<DisplayFieldRef id="WEIGHT_UNITS"/>
+		<DisplayFieldRef id="HEIGHT"/>
+		<DisplayFieldRef id="HEIGHT_UNITS"/>
+		<DisplayFieldRef id="GESTATIONAL_AGE"/>
+		<DisplayFieldRef id="POST_MENSTRUAL_AGE"/>
+		<DisplayFieldRef id="BIRTH_WEIGHT"/>
+		<DisplayFieldRef id="DATEOFENTRY"/>
+		<DisplayFieldRef id="RESEARCHCODE"/>
+		<DisplayFieldRef id="PARTICIPANTID"/>
+		<DisplayFieldRef id="PARTICIPANTSTATUS"/>
+		<DisplayFieldRef id="PARTICIPANTCOMMENTS"/>
+		<DisplayFieldRef id="CONTACTSTATUS"/>
+		<DisplayFieldRef id="INITIALCONTACTMADE"/>
+		<DisplayFieldRef id="INVITEDTOAPPT"/>
+		<DisplayFieldRef id="INVITEDTOAPPT_DATE"/>
+		<DisplayFieldRef id="CAMETOAPPT"/>
+		<DisplayFieldRef id="CAMETOAPPT_DATE"/>
+		<DisplayFieldRef id="SCHEDULEDFORPROCEDURES"/>
+		<DisplayFieldRef id="MRISCANS_REQUESTED"/>
+		<DisplayFieldRef id="MRISCANS_REQUESTED_DATE"/>
+		<DisplayFieldRef id="MRISCANS_RECEIVED"/>
+		<DisplayFieldRef id="MRISCANS_RECEIVED_DATE"/>
+		<DisplayFieldRef id="MRISCANS_NOTES"/>
+		<DisplayFieldRef id="DNACOLLECTED"/>
+		<DisplayFieldRef id="HCPRESENT"/>
+		<DisplayFieldRef id="ACPRESENT"/>
+		<DisplayFieldRef id="IMAGINGFEATURES"/>
+		<DisplayFieldRef id="DIAGNOSIS"/>
+		<DisplayFieldRef id="DIAGNOSISDATE"/>
+		<DisplayFieldRef id="DIAGNOSISNOTES"/>
+		<DisplayFieldRef id="DIAGNOSISADDITIONAL"/>
+		<DisplayFieldRef id="MEDICALPRACTITIONER_NAME"/>
+		<DisplayFieldRef id="MEDICALPRACTITIONER_DETAILS"/>
+		<DisplayFieldRef id="OTHERDIAGNOSES"/>
+		<DisplayFieldRef id="MCRI_DATABASE"/>
+		<DisplayFieldRef id="RESEARCHREPORTSENT"/>
+		<DisplayFieldRef id="CONSENT_MEDICALRECORDS"/>
+		<DisplayFieldRef id="CONSENT_MEDICALRECORDS_NOTES"/>
+		<DisplayFieldRef id="CONSENT_COLLECTDATA"/>
+		<DisplayFieldRef id="CONSENT_COLLECTDATA_NOTES"/>
+		<DisplayFieldRef id="CONSENT_RECONTACTFORSTUDIES"/>
+		<DisplayFieldRef id="CONSENT_QUESTIONNAIRE"/>
+		<DisplayFieldRef id="CONSENT_MURDOCHINSTITUTE"/>
+		<DisplayFieldRef id="CONSENT_QMLBLOODSAMPLE"/>
+		<DisplayFieldRef id="INFORMEDCONSENTSIGNED"/>
+		<DisplayFieldRef id="CONSENT_MRISCANS"/>
+		<DisplayFieldRef id="CONSENT_SKINBIOPSY"/>
+		<DisplayFieldRef id="PARENTSRELATED"/>
+		<DisplayFieldRef id="CONSANGUINITY"/>
+		<DisplayFieldRef id="OTHERFAMILYAFFECTED"/>
+		<DisplayFieldRef id="FAMILYNOTES"/>
+		<DisplayFieldRef id="SIBLINGS"/>
+		<DisplayFieldRef id="NORMALBIRTH"/>
+		<DisplayFieldRef id="PREMATURE"/>
+		<DisplayFieldRef id="FERTILITYTREATMENT"/>
+		<DisplayFieldRef id="PATERNALAGE"/>
+		<DisplayFieldRef id="DELAYED"/>
+		<DisplayFieldRef id="STAGESDELAYED"/>
+		<DisplayFieldRef id="MILESTONESDELAYED"/>
+		<DisplayFieldRef id="GROWTH"/>
+		<DisplayFieldRef id="EDUCATION"/>
+		<DisplayFieldRef id="GENERALTRAJECTORY"/>
+		<DisplayFieldRef id="THERAPIES"/>
+		<DisplayFieldRef id="FIRSTSEIZUREDATE"/>
+		<DisplayFieldRef id="FIRSTSEIZUREAGE"/>
+		<DisplayFieldRef id="SEIZURETYPE"/>
+		<DisplayFieldRef id="SEIZURETHERAPY"/>
+		<DisplayFieldRef id="HOSPITALVISITS"/>
+		<DisplayFieldRef id="SEIZURECOMMENTS"/>
+		<DisplayFieldRef id="VISIONPROBLEMS"/>
+		<DisplayFieldRef id="AUDITORYPROBLEMS"/>
+		<DisplayFieldRef id="NEUROMUSCULARPROBLEMS"/>
+		<DisplayFieldRef id="CARDIACRESPIRATORYGI"/>
+		<DisplayFieldRef id="GENITOURINARYENDOCRINESKINORTHO"/>
+		<DisplayFieldRef id="BEHAVIOURALSLEEPPYSCHIATRIC"/>
+		<DisplayFieldRef id="SURGICALPROCEDURES"/>
+		<DisplayFieldRef id="OTHERPROBLEMS"/>
+	</DisplayVersion>
+	<DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC" brief-description="irc5_qbiccDemographics" dark-color="9999CC" light-color="CCCCFF">
+		<DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+		<DisplayFieldRef id="DOB"/>
+		<DisplayFieldRef id="YOB"/>
+		<DisplayFieldRef id="AGE"/>
+		<DisplayFieldRef id="GENDER"/>
+		<DisplayFieldRef id="HANDEDNESS"/>
+		<DisplayFieldRef id="SES"/>
+		<DisplayFieldRef id="EMPLOYMENT"/>
+		<DisplayFieldRef id="EDUCATION"/>
+		<DisplayFieldRef id="EDUCATIONDESC"/>
+		<DisplayFieldRef id="RACE"/>
+		<DisplayFieldRef id="ETHNICITY"/>
+		<DisplayFieldRef id="WEIGHT"/>
+		<DisplayFieldRef id="WEIGHT_UNITS"/>
+		<DisplayFieldRef id="HEIGHT"/>
+		<DisplayFieldRef id="HEIGHT_UNITS"/>
+		<DisplayFieldRef id="GESTATIONAL_AGE"/>
+		<DisplayFieldRef id="POST_MENSTRUAL_AGE"/>
+		<DisplayFieldRef id="BIRTH_WEIGHT"/>
+		<DisplayFieldRef id="DATEOFENTRY"/>
+		<DisplayFieldRef id="RESEARCHCODE"/>
+		<DisplayFieldRef id="PARTICIPANTID"/>
+		<DisplayFieldRef id="PARTICIPANTSTATUS"/>
+		<DisplayFieldRef id="PARTICIPANTCOMMENTS"/>
+		<DisplayFieldRef id="CONTACTSTATUS"/>
+		<DisplayFieldRef id="INITIALCONTACTMADE"/>
+		<DisplayFieldRef id="INVITEDTOAPPT"/>
+		<DisplayFieldRef id="INVITEDTOAPPT_DATE"/>
+		<DisplayFieldRef id="CAMETOAPPT"/>
+		<DisplayFieldRef id="CAMETOAPPT_DATE"/>
+		<DisplayFieldRef id="SCHEDULEDFORPROCEDURES"/>
+		<DisplayFieldRef id="MRISCANS_REQUESTED"/>
+		<DisplayFieldRef id="MRISCANS_REQUESTED_DATE"/>
+		<DisplayFieldRef id="MRISCANS_RECEIVED"/>
+		<DisplayFieldRef id="MRISCANS_RECEIVED_DATE"/>
+		<DisplayFieldRef id="MRISCANS_NOTES"/>
+		<DisplayFieldRef id="DNACOLLECTED"/>
+		<DisplayFieldRef id="HCPRESENT"/>
+		<DisplayFieldRef id="ACPRESENT"/>
+		<DisplayFieldRef id="IMAGINGFEATURES"/>
+		<DisplayFieldRef id="DIAGNOSIS"/>
+		<DisplayFieldRef id="DIAGNOSISDATE"/>
+		<DisplayFieldRef id="DIAGNOSISNOTES"/>
+		<DisplayFieldRef id="DIAGNOSISADDITIONAL"/>
+		<DisplayFieldRef id="MEDICALPRACTITIONER_NAME"/>
+		<DisplayFieldRef id="MEDICALPRACTITIONER_DETAILS"/>
+		<DisplayFieldRef id="OTHERDIAGNOSES"/>
+		<DisplayFieldRef id="MCRI_DATABASE"/>
+		<DisplayFieldRef id="RESEARCHREPORTSENT"/>
+		<DisplayFieldRef id="CONSENT_MEDICALRECORDS"/>
+		<DisplayFieldRef id="CONSENT_MEDICALRECORDS_NOTES"/>
+		<DisplayFieldRef id="CONSENT_COLLECTDATA"/>
+		<DisplayFieldRef id="CONSENT_COLLECTDATA_NOTES"/>
+		<DisplayFieldRef id="CONSENT_RECONTACTFORSTUDIES"/>
+		<DisplayFieldRef id="CONSENT_QUESTIONNAIRE"/>
+		<DisplayFieldRef id="CONSENT_MURDOCHINSTITUTE"/>
+		<DisplayFieldRef id="CONSENT_QMLBLOODSAMPLE"/>
+		<DisplayFieldRef id="INFORMEDCONSENTSIGNED"/>
+		<DisplayFieldRef id="CONSENT_MRISCANS"/>
+		<DisplayFieldRef id="CONSENT_SKINBIOPSY"/>
+		<DisplayFieldRef id="PARENTSRELATED"/>
+		<DisplayFieldRef id="CONSANGUINITY"/>
+		<DisplayFieldRef id="OTHERFAMILYAFFECTED"/>
+		<DisplayFieldRef id="FAMILYNOTES"/>
+		<DisplayFieldRef id="SIBLINGS"/>
+		<DisplayFieldRef id="NORMALBIRTH"/>
+		<DisplayFieldRef id="PREMATURE"/>
+		<DisplayFieldRef id="FERTILITYTREATMENT"/>
+		<DisplayFieldRef id="PATERNALAGE"/>
+		<DisplayFieldRef id="DELAYED"/>
+		<DisplayFieldRef id="STAGESDELAYED"/>
+		<DisplayFieldRef id="MILESTONESDELAYED"/>
+		<DisplayFieldRef id="GROWTH"/>
+		<DisplayFieldRef id="EDUCATION"/>
+		<DisplayFieldRef id="GENERALTRAJECTORY"/>
+		<DisplayFieldRef id="THERAPIES"/>
+		<DisplayFieldRef id="FIRSTSEIZUREDATE"/>
+		<DisplayFieldRef id="FIRSTSEIZUREAGE"/>
+		<DisplayFieldRef id="SEIZURETYPE"/>
+		<DisplayFieldRef id="SEIZURETHERAPY"/>
+		<DisplayFieldRef id="HOSPITALVISITS"/>
+		<DisplayFieldRef id="SEIZURECOMMENTS"/>
+		<DisplayFieldRef id="VISIONPROBLEMS"/>
+		<DisplayFieldRef id="AUDITORYPROBLEMS"/>
+		<DisplayFieldRef id="NEUROMUSCULARPROBLEMS"/>
+		<DisplayFieldRef id="CARDIACRESPIRATORYGI"/>
+		<DisplayFieldRef id="GENITOURINARYENDOCRINESKINORTHO"/>
+		<DisplayFieldRef id="BEHAVIOURALSLEEPPYSCHIATRIC"/>
+		<DisplayFieldRef id="SURGICALPROCEDURES"/>
+		<DisplayFieldRef id="OTHERPROBLEMS"/>
+	</DisplayVersion>
+</Displays>
