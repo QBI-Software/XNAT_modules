@@ -51,9 +51,6 @@
     <!-- LoadProjectsJS -->
     #parse("/screens/LoadProjectsJS.vm")
     #set($displayGroup=true)
-</div>
-
-<div>
     <!-- xnat_subjectData_ProjectSelector -->
     #parse("screens/xnat_subjectData/xnat_subjectData_ProjectSelector.vm")
 </div>

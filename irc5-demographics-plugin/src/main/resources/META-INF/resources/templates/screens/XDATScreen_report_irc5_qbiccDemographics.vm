@@ -12,7 +12,7 @@ $page.setVlinkColor($ui.vlink)
 ##--end previous table
 
 <h3 class="reportheader">QBI CC Demographics for IRC5</h3>
-<div class="tab-content col-md-2">
+<div class="tab-content col-md-4">
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
         <li><a data-toggle="pill" href="#participant">Participation</a></li>
@@ -210,7 +210,3 @@ $page.setVlinkColor($ui.vlink)
         </div>
     </div>
 <!-- END xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
-
-
-<!--end old td -->
-<td>

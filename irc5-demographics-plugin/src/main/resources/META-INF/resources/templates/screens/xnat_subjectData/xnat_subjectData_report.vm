@@ -7,8 +7,7 @@ if(XNAT.app.subject==undefined)XNAT.app.subject=new Object();
 
 
 <!--BEGIN SUBJECT SUMMARY TABS -->
-<div class="row">
-<div ID="subject_summary_module" class="col-md-8" style="display:none">
+<div ID="subject_summary_module" style="display:none">
 	<DIV id="subjectSummary" class="yui-navset">
 		<ul class="yui-nav" style="">
 			<li class="selected"><a href="#tab1"><em>Details<span class="spacer"></span></em></a></li>
@@ -23,7 +22,8 @@ if(XNAT.app.subject==undefined)XNAT.app.subject=new Object();
 			<p>#parse($turbineUtils.getTemplateName("sharing","xnat:subjectData",$!project))</p>
 		</div>
 	</DIV>
-	</div></div>
+	</div>
+</div>
 <script type="text/javascript">  
 function summaryIndexChanged(){
    var activeIndex=this.get("activeIndex");
@@ -48,16 +48,17 @@ function summaryTabManagerInit(){
 					summaryTabManagerInit();
 </script>
 <!--END SUBJECT SUMMARY TABS -->
-<div class="col-md-4">#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))</div>
+
+<div class="col-md-2">#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))</div>
+<div class="col-md-10">
+
+		#set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
+		#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
+		#parse("/screens/ReportProjectSpecificFields.vm")
+
 </div>
-<div class="row">
-<div class="col-md-8">
-	#set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
-	#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
-	#parse("/screens/ReportProjectSpecificFields.vm")
-</div>
-</div>
-<div class="row">
+
+<div>
 <table>
 <tr>
 	<td>

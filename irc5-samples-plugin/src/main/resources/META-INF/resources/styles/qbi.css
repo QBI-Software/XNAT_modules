@@ -11,14 +11,15 @@
 }
 
 #EditForm label{
-	width:20%;
+	min-width:20%;
 }
 h3.reportheader{
 	margin-bottom:10px;
 	margin-top:10px;
 }
 #actionsMenu{
-	float:right;
+	margin-left:-10px !important;
+	margin-top:10px !important;
 }
 /*From embedded style in xnat_subjectData
 DIV.container{
