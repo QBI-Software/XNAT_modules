@@ -48,7 +48,7 @@ function summaryTabManagerInit(){
 					summaryTabManagerInit();
 </script>
 <!--END SUBJECT SUMMARY TABS -->
-
+<!-- Demographics -->
 <div class="col-md-2">#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))</div>
 <div class="col-md-10">
 
@@ -57,8 +57,8 @@ function summaryTabManagerInit(){
 		#parse("/screens/ReportProjectSpecificFields.vm")
 
 </div>
-
-<div>
+<!-- Experiments -->
+<div class="expt_row">
 <table>
 <tr>
 	<td>

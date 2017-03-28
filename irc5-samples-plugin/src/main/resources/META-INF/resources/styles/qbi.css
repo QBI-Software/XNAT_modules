@@ -21,6 +21,10 @@ h3.reportheader{
 	margin-left:-10px !important;
 	margin-top:10px !important;
 }
+.expt_row{
+	width: 100%;
+    float: left;
+}
 /*From embedded style in xnat_subjectData
 DIV.container{
 	border: 1px solid #AAAAAA;
