@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 sp2 (http://www.altova.com) by Liz Cooper-Williams (The University of Queensland) -->
+<!-- OPEX datatype for Blood test-->
+<xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:/schemas/schemas/xnat/xnat.xsd"/>
+	<xs:element name="opex" type="opex:exerciseData"/>
+	<xs:complexType name="exerciseData">
+		<xs:annotation>
+			<xs:documentation>OPEX Exercise Data</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+			<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+                                Date of analysis
+                            </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interval" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>
+                                Monthly interval stage
+                            </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="prepost">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Pre"/>
+						<xs:enumeration value="Post"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="sample_id" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+                                Sample ID from analyser 
+                            </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sample_num" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+                                Sample Number (1,2 or avg)
+                            </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence></xs:extension></xs:complexContent>
+	</xs:complexType>
+	<xs:element name="BLOODMULTIPLEX" type="opex:bloodMultiplexData"/>
+	<xs:complexType name="bloodMultiplexData">
+		<xs:annotation>
+			<xs:documentation>OPEX Blood Multiplex</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="GH" type="xs:float"/>
+					<xs:element name="Leptin" type="xs:float"/>
+					<xs:element name="BDNF" type="xs:float"/>
+					<xs:element name="IGFBP7" type="xs:float"/>
+					<xs:element name="IL1" type="xs:float"/>
+					<xs:element name="IL4" type="xs:float"/>
+					<xs:element name="IL6" type="xs:float"/>
+					<xs:element name="IL10" type="xs:float"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="BLOODCOBAS" type="opex:bloodCobasData"/>
+	<xs:complexType name="bloodCobasData">
+		<xs:annotation>
+			<xs:documentation>OPEX Blood Cobas</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="GH" type="xs:float"/>
+					<xs:element name="Prolactin" type="xs:float"/>
+					<xs:element name="Cortisol" type="xs:float"/>
+					<xs:element name="Insulin" type="xs:float"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:element name="ELISASCOBAS" type="opex:bloodElisasData"/>
+	<xs:complexType name="bloodElisasData">
+		<xs:annotation>
+			<xs:documentation>OPEX Blood ELISAs</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="Ghrelin" type="xs:float"/>
+					<xs:element name="CathepsinB" type="xs:float"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
