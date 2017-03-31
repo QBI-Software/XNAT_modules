@@ -6,8 +6,11 @@ irc5-demographics-plugin/build/
 irc5-demographics-plugin/.gradle/
 opex-plugin/.idea/
 opex-plugin/build/
+opex-plugin/out/
 opex-plugin/.gradle/
 *.jar
 *.bin
 *.lock
 *~
+opex-plugin/out/production/opex-plugin/META-INF/resources/base-templates/screens/opex_exerciseData_search.vm
+*.vm~
