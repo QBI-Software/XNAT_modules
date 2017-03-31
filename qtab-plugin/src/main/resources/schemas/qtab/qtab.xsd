@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 sp1 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<xs:schema xmlns:qtab="http://qbi.uq.edu.au/qtab" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/qtab" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:/schemas/schemas/xnat/xnat.xsd"/>
+	<!-- D:/Projects/XNAT/schemas/xnat/xnat.xsd -->
+	<xs:annotation>
+		<xs:documentation>QTAB Demographics</xs:documentation>
+	</xs:annotation>
+	<xs:element name="qtabdem" type="qtab:qtabDemographics"/>
+	
+	<xs:complexType name="qtabDemographics">
+		<xs:annotation>
+			<xs:documentation>QTAB Demographics</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:demographicData">
+				<xs:sequence>
+					<xs:element name="participant" type="qtab:participantData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="naplan" type="qtab:naplanData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="perinatal" type="qtab:perinatalData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="bloodspot" type="qtab:bloodspotData" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="participantData">
+		<xs:annotation>
+			<xs:documentation>QTAB Participant Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DateOfEntry" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Date Participant Added</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FamilyCode" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Family code to group twins and parents</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="URID" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>HIRF UR Number</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParticipantStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Participant Status</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Active"/>
+						<xs:enumeration value="Inactive"/>
+						<xs:enumeration value="Withdrawn"/>
+						<xs:enumeration value="NoContact"/>
+						<xs:enumeration value="Ineligible"/>
+						<xs:enumeration value="Deceased"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParticipantComments" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Participant Comments</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContactStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact Status</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:boolean"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Zygosity" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact Status</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="MZ"/>
+						<xs:enumeration value="DZ"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="naplanData">
+		<xs:annotation>
+			<xs:documentation>NAPLAN Data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- Begin: QTAB NAPLAN Data-->
+			<xs:element name="naplan_id" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>NAPLAN</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="naplan_endstat" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Endstat</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Not collected"/>
+						<xs:enumeration value="Complete data"/>
+						<xs:enumeration value="Partial complete data"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="naplan_comment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Comment</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- End: QTAB NAPLAN data -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="perinatalData">
+		<xs:annotation>
+			<xs:documentation>Perinatal</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- Begin: QTAB Perinatal-->
+			<xs:element name="peri_id" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Perinatal</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="peri_endstat" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Endstat</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Not collected"/>
+						<xs:enumeration value="Complete data"/>
+						<xs:enumeration value="Partial complete data"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- End: QTAB Perinatal-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="bloodspotData">
+		<xs:annotation>
+			<xs:documentation>Bloodspot</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="guthrie" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Guthrie/QLD Health ID</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="collection" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Bio ID once processed by IMB lab</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="guthrie_endstat" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Guthrie Endstat</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Not collected"/>
+						<xs:enumeration value="Complete data"/>
+						<xs:enumeration value="Partial complete data"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

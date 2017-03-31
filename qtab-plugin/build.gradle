@@ -1,0 +1,190 @@
+/*
+ * This build file was copied from XNAT plugins
+ */
+
+def pluginVersion = '1.0.0'
+
+group 'qbi.xnat.qtab'
+version pluginVersion
+
+def vXnatDev = '1.7.3-SNAPSHOT'
+def vXnat = '1.7.2'
+def vJunit = '4.12'
+def vSpring = '4.2.9.RELEASE'
+def vSlf4j = '1.7.21'
+def vLog4j = '1.2.17'
+def vSpringSecurity = '4.0.4.RELEASE'
+def vSwagger = '2.4.0'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'xnat-data-builder'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven {
+            url 'https://nrgxnat.jfrog.io/nrgxnat/libs-release'
+            name 'XNAT Release Repository'
+        }
+        maven {
+            url 'https://nrgxnat.jfrog.io/nrgxnat/libs-snapshot'
+            name 'XNAT Snapshot Repository'
+        }
+    }
+    dependencies {
+        classpath "org.nrg.xnat.build:xnat-data-builder:1.7.3-SNAPSHOT"
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven {
+        url 'https://nrgxnat.jfrog.io/nrgxnat/libs-release'
+        name 'XNAT Release Repository'
+    }
+    maven {
+        url 'https://nrgxnat.jfrog.io/nrgxnat/libs-snapshot'
+        name 'XNAT Snapshot Repository'
+    }
+    maven {
+        url 'https://nrgxnat.jfrog.io/nrgxnat/ext-release'
+        name 'XNAT External Release Repository'
+    }
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+if (hasProperty("rt.17.jar")) {
+    // Solution for bootstrap classpath warning and possible issues with compatibility with 1.7 libraries
+    // was taken from this post on discuss.gradle.org: http://bit.ly/24xD9j0
+    def rt17jar = getProperty("rt.17.jar")
+    logger.info "Using ${rt17jar} as the bootstrap class path jar."
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.fork = true
+            options.compilerArgs << "-XDignore.symbol.file"
+            options.bootClasspath = rt17jar
+        }
+    }
+} else {
+    logger.warn "No value was set for the rt.17.jar build property, using the default bootstrap class path. You should consider setting rt.17.jar to indicate a jar file containing the Java 1.7 run-time library:\n"
+    logger.warn "  ./gradlew -Prt.17.jar=rt-1.7.0_45.jar war\n"
+}
+
+compileJava {
+    options.fork = false
+}
+
+jacoco {
+    toolVersion = "0.7.8"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir 'build/xnat-generated/src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+            srcDir 'build/xnat-generated/src/main/resources'
+        }
+    }
+}
+
+dependencies {
+    compile("org.nrg.xnat:web:${vXnatDev}") {
+        exclude group: '*'
+    }
+    compile("org.nrg.xnat:xnat-data-models:${vXnatDev}") {
+        exclude group: '*'
+    }
+    compile("org.nrg.xdat:core:${vXnatDev}") {
+        exclude group: '*'
+    }
+    compile "org.nrg:prefs:${vXnatDev}"
+    compile "org.nrg:framework:${vXnatDev}"
+
+    compile "org.reflections:reflections:0.9.10"
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+
+    compile(group: 'turbine', name: 'turbine', version: '2.3.3') {
+        exclude group: '*'
+    }
+    compile(group: 'org.apache.velocity', name: 'velocity', version: '1.7') {
+        exclude group: '*'
+    }
+
+    compile "org.slf4j:slf4j-api:${vSlf4j}"
+    compile "org.slf4j:slf4j-log4j12:${vSlf4j}"
+    compile "org.slf4j:jul-to-slf4j:${vSlf4j}"
+    compile "log4j:log4j:${vLog4j}"
+
+    compile "org.springframework:spring-aop:${vSpring}"
+    compile "org.springframework:spring-beans:${vSpring}"
+    compile "org.springframework:spring-context-support:${vSpring}"
+    compile "org.springframework:spring-context:${vSpring}"
+    compile "org.springframework:spring-core:${vSpring}"
+    compile "org.springframework:spring-jdbc:${vSpring}"
+    compile "org.springframework:spring-jms:${vSpring}"
+    compile "org.springframework:spring-messaging:${vSpring}"
+    compile "org.springframework:spring-orm:${vSpring}"
+    compile "org.springframework:spring-oxm:${vSpring}"
+    compile "org.springframework:spring-tx:${vSpring}"
+    compile "org.springframework:spring-web:${vSpring}"
+    compile "org.springframework:spring-webmvc:${vSpring}"
+
+    compile "io.springfox:springfox-swagger2:${vSwagger}"
+    compile "io.springfox:springfox-swagger-ui:${vSwagger}"
+
+    compile "org.springframework.security:spring-security-acl:${vSpringSecurity}"
+    compile "org.springframework.security:spring-security-aspects:${vSpringSecurity}"
+    compile "org.springframework.security:spring-security-config:${vSpringSecurity}"
+    compile "org.springframework.security:spring-security-ldap:${vSpringSecurity}"
+    compile "org.springframework.security:spring-security-taglibs:${vSpringSecurity}"
+    compile "org.springframework.ldap:spring-ldap-core:2.0.4.RELEASE"
+
+    compile "ecs:ecs:1.4.2"
+    compile("stratum:stratum:1.0") {
+        transitive = false
+    }
+
+    testCompile "junit:junit:${vJunit}"
+    testCompile "org.springframework:spring-test:${vSpring}"
+}
+
+publishing.publications {
+    mavenJava(MavenPublication) {
+        from components.java
+
+        pom.withXml {
+            def root = asNode()
+            root.appendNode('name', 'QTAB Plugin')
+
+            def developers = root.appendNode('developers')
+            def tolsen = developers.appendNode('developer')
+            tolsen.appendNode('id', 'lizcw')
+            tolsen.appendNode('name', 'Liz Cooper-Williams')
+            tolsen.appendNode('email', 'e.cooperwilliams@uq.edu.au')
+        }
+    }
+}
