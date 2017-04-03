@@ -8,9 +8,13 @@ opex-plugin/.idea/
 opex-plugin/build/
 opex-plugin/out/
 opex-plugin/.gradle/
+qtab-plugin/.idea/
+qtab-plugin/build/
+qtab-plugin/out/
+qtab-plugin/.gradle/
 *.jar
 *.bin
 *.lock
 *~
-opex-plugin/out/production/opex-plugin/META-INF/resources/base-templates/screens/opex_exerciseData_search.vm
 *.vm~
+*.xml
