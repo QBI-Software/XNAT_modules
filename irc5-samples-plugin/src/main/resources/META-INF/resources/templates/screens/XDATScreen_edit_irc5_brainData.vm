@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!DOCTYPE html>
     $page.setTitle("IRC5 QBI Brain Sample")
     $page.setLinkColor($ui.alink)
 $page.setVlinkColor($ui.vlink)

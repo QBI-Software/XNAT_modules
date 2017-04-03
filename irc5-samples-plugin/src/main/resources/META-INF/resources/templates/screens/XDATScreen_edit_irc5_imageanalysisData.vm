@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+$page.setTitle("IRC5 QBI Image Analysis")
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)/*
+ ##---------------------------------------- 
+ ## DO NOT MODIFY THIS FILE HERE
+ ##
+ ## TO MODIFY, COPY THIS FILE to src/main/resources/templates/screens/ and modify it there 
+ ##----------------------------------------
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
+#set($rows = 3)
+#set($cols = 20)
+#set($formclass = "form-control")
+#set($yesno = {0:"No", 1:"Yes"})
+<script type="text/javascript">
+    window.currentID = "$!om.getId()";
+		#if($om.getProject())
+			#if($om.getProject().equals(""))
+            window.currentProject = "$!project";
+			#else
+            window.currentProject = "$!om.getProject()";
+			#end
+		#else
+        window.currentProject = "$!project";
+		#end
+
+    window.currentSubject = "$!om.getSubjectId()";
+    window.currentLabel = "$!om.getLabel()";
+</script>
+#if ($data.message)
+<div class="alert alert-danger error"><span>$data.message</span></div>
+#end
+<div id="EditForm" class="container">
+    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
+        <input type="hidden" name="project" value="$!{project}">
+        <input type="hidden" name="part_id" value="$!{part_id}">
+        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
+        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
+        <input type='hidden' name='$om.getXSIType()/subject_ID'
+               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
+        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
+        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
+        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
+		#if($vr)
+            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
+		#end
+        <h2 class="edit-title">IRC5 QBI Brain Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+        <div class="row">
+			#parse("/screens/xnat_edit_subjectAssessorData.vm")
+        </div>
+        <div class="row">
+			#parse("/screens/EditProjectSpecificFields.vm")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:brainData/date">Date Collected</label>
+			#xdatDateBox("irc5:brainData/date" $item $vr $years)
+        </div>
+		<table class="table table-striped">
+			<tbody>
+            <tr><th>Date Scan Requested</th><td>#xdatDateBoxParams("irc5:imageanalysisData/date_requested" "" $item $vr $years $formclass)</td></tr>
+            <tr><th>Protocol Number</th><td>#xdatNumberBox("irc5:imageanalysisData/protocol_number" $item "" $vr)</td></tr>
+            <tr><th>Patient Photo Available</th><td>#xdatCheckboxGroup("irc5:imageanalysisData/patient_photo" $item $yesno $vr)</td></tr>
+            <tr><th>Analysis Date</th><td>#xdatDateBoxParams("irc5:imageanalysisData/analysis_date" "" $item $vr $years $formclass)</td></tr>
+            <tr><th>Cerebellum</th><td>#xdatStringBox("irc5:imageanalysisData/cerebellum" $item "" $vr)</td></tr>
+            <tr><th>Brainstem</th><td>#xdatStringBox("irc5:imageanalysisData/brainstem" $item "" $vr)</td></tr>
+            <tr><th>Ventricles</th><td>#xdatStringBox("irc5:imageanalysisData/ventricles" $item "" $vr)</td></tr>
+            <tr><th>HC</th><td>#xdatStringBox("irc5:imageanalysisData/HC" $item "" $vr)</td></tr>
+            <tr><th>White Matter</th><td>#xdatStringBox("irc5:imageanalysisData/whitematter" $item "" $vr)</td></tr>
+            <tr><th>Anterior Commissure</th><td>#xdatStringBox("irc5:imageanalysisData/antcommissure" $item "" $vr)</td></tr>
+            <tr><th>HC Commissure</th><td>#xdatStringBox("irc5:imageanalysisData/hccommissure" $item "" $vr)</td></tr>
+            <tr><th>CC</th><td>#xdatStringBox("irc5:imageanalysisData/cc" $item "" $vr)</td></tr>
+            <tr><th>Pit</th><td>#xdatStringBox("irc5:imageanalysisData/pit" $item "" $vr)</td></tr>
+            <tr><th>Sulcation</th><td>#xdatStringBox("irc5:imageanalysisData/sulcation" $item "" $vr)</td></tr>
+            <tr><th>Other MCD</th><td>#xdatStringBox("irc5:imageanalysisData/othermcd" $item "" $vr)</td></tr>
+            <tr><th>MR analysis comment</th><td>#xdatTextArea("irc5:imageanalysisData/mranalysiscomment" $item "" $vr $rows $cols)</td></tr>
+            <tr><th>MR analysis letter sent</th><td>#xdatDateBoxParams("irc5:imageanalysisData/mrlettersent" "" $item $vr $years $formclass)</td></tr>
+			</tbody>
+		</table>
+
+        <div class="form-inline">
+			#xdatEditProps($item $edit_screen)
+
+            <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
+                   value="Submit"/>
+            <input class="btn btn-default" type="button" value="Cancel" onclick="goBack();"/>
+        </div>
+    </form>
+</div>
+
+
+<script type="text/javascript">
+    function validateForm() {
+        document.getElementById("form1").submit();
+        return true;
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

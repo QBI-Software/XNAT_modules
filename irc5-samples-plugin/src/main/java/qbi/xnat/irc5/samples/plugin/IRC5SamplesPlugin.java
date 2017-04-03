@@ -8,6 +8,7 @@ import org.nrg.xdat.bean.Irc5NpsdataBean;
 import org.nrg.xdat.bean.Irc5OpiniondataBean;
 import org.nrg.xdat.bean.Irc5SalivadataBean;
 import org.nrg.xdat.bean.Irc5SkindataBean;
+import org.nrg.xdat.bean.Irc5ImageanalysisdataBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -30,6 +31,9 @@ dataModels = {@XnatDataModel(value = Irc5BlooddataBean.SCHEMA_ELEMENT_NAME,
 		@XnatDataModel(value = Irc5SkindataBean.SCHEMA_ELEMENT_NAME,
 				singular = "Skin sample",
 				plural = "Skin samples"),
+		@XnatDataModel(value = Irc5ImageanalysisdataBean.SCHEMA_ELEMENT_NAME,
+				singular = "Image analysis",
+				plural = "Image analysis"),
 }
                              )
 

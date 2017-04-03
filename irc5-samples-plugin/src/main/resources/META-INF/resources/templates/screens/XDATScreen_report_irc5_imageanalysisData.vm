@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	$page.setTitle("IRC5 QBI Image Analysis Report")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+
+<div class="container">
+    <div>
+        <h3>IRC5 QBI Image Analysis Report</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr><th>Date Scan Requested</th><td>$!item.getProperty("irc5:imageanalysisData/date_requested")</td></tr>
+                <tr><th>Protocol Number</th><td>$!item.getIntegerProperty("irc5:imageanalysisData/protocol_number")</td></tr>
+                <tr><th>Patient Photo Available</th><td>$!item.getBooleanProperty("irc5:imageanalysisData/patient_photo")</td></tr>
+                <tr><th>Analysis Date</th><td>$!item.getProperty("irc5:imageanalysisData/analysis_date")</td></tr>
+                <tr><th>Cerebellum</th><td>$!item.getStringProperty("irc5:imageanalysisData/cerebellum")</td></tr>
+                <tr><th>Brainstem</th><td>$!item.getStringProperty("irc5:imageanalysisData/brainstem")</td></tr>
+                <tr><th>Ventricles</th><td>$!item.getStringProperty("irc5:imageanalysisData/ventricles")</td></tr>
+                <tr><th>HC</th><td>$!item.getStringProperty("irc5:imageanalysisData/HC")</td></tr>
+                <tr><th>White Matter</th><td>$!item.getStringProperty("irc5:imageanalysisData/whitematter")</td></tr>
+                <tr><th>Anterior Commissure</th><td>$!item.getStringProperty("irc5:imageanalysisData/antcommissure")</td></tr>
+                <tr><th>HC Commissure</th><td>$!item.getStringProperty("irc5:imageanalysisData/hccommissure")</td></tr>
+                <tr><th>CC</th><td>$!item.getStringProperty("irc5:imageanalysisData/cc")</td></tr>
+                <tr><th>Pit</th><td>$!item.getStringProperty("irc5:imageanalysisData/pit")</td></tr>
+                <tr><th>Sulcation</th><td>$!item.getStringProperty("irc5:imageanalysisData/sulcation")</td></tr>
+                <tr><th>Other MCD</th><td>$!item.getStringProperty("irc5:imageanalysisData/othermcd")</td></tr>
+                <tr><th>MR analysis comment</th><td>$!item.getStringProperty("irc5:imageanalysisData/mranalysiscomment")</td></tr>
+                <tr><th>MR analysis letter sent</th><td>$!item.getProperty("irc5:imageanalysisData/mrlettersent")</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">&nbsp;</div>
+    </div>
+</div>

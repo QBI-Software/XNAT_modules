@@ -2,11 +2,6 @@
     $page.setTitle("IRC5 QBI Neuropsychology Scores")
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
-##----------------------------------------
-## DO NOT MODIFY THIS FILE HERE
-##
-## TO MODIFY, COPY THIS FILE to src/main/resources/templates/screens/ and modify it there
-##----------------------------------------
     #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
         "November", "December"])
     #set($days = [ 1..31 ])
@@ -16,7 +11,7 @@
     #set($numboxsize = 10)
     #set($txtboxsize = 50)
 ##---------------------------------------- 
-## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
 <script type="text/javascript">
@@ -37,7 +32,7 @@
 #if ($data.message)
 <div class="alert alert-danger error"><span>$data.message</span></div>
 #end
-<div id="EditForm" class="container-fluid">
+<div id="EditForm" class="container">
     <div class="col-sm-8 table-responsive">
     <form id="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
         <input type="hidden" name="project" value="$!{project}">
