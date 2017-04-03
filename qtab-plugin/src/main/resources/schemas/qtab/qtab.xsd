@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp1 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
 <xs:schema xmlns:qtab="http://qbi.uq.edu.au/qtab" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/qtab" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:/schemas/schemas/xnat/xnat.xsd"/>
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:/Projects/XNAT/schemas/xnat/xnat.xsd"/>
 	<!-- D:/Projects/XNAT/schemas/xnat/xnat.xsd -->
 	<xs:annotation>
 		<xs:documentation>QTAB Demographics</xs:documentation>
@@ -39,6 +39,16 @@
 			<xs:element name="FamilyCode" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Family code to group twins and parents</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QIMRID" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>QIMR Number</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -97,7 +107,7 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="MZ"/>
 						<xs:enumeration value="DZ"/>
-						<xs:enumeration value="Unknown"/>
+						<xs:enumeration value="Not_twin"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -119,7 +129,7 @@
 					<xs:documentation>Endstat</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:string">
+					<xs:restriction base="xs:positiveInteger">
 						<xs:enumeration value="Not collected"/>
 						<xs:enumeration value="Complete data"/>
 						<xs:enumeration value="Partial complete data"/>
@@ -152,10 +162,10 @@
 			</xs:element>
 			<xs:element name="peri_endstat" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Endstat</xs:documentation>
+					<xs:documentation>Perinatal Endstat</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:string">
+					<xs:restriction base="xs:positiveInteger">
 						<xs:enumeration value="Not collected"/>
 						<xs:enumeration value="Complete data"/>
 						<xs:enumeration value="Partial complete data"/>
@@ -191,7 +201,7 @@
 					<xs:documentation>Guthrie Endstat</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:string">
+					<xs:restriction base="xs:positiveInteger">
 						<xs:enumeration value="Not collected"/>
 						<xs:enumeration value="Complete data"/>
 						<xs:enumeration value="Partial complete data"/>

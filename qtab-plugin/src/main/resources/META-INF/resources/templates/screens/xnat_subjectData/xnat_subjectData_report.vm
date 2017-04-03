@@ -53,7 +53,7 @@ function summaryTabManagerInit(){
 <div class="col-md-10">
 
 		#set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
-		#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
+		#parse("/screens/XDATScreen_report_qtab_qtabDemographics.vm")
 		#parse("/screens/ReportProjectSpecificFields.vm")
 
 </div>

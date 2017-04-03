@@ -1,0 +1,26 @@
+<!--BEGIN ReportProjectSpecificFields.vm -->
+##set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
+#if($groups.size()>0)
+	#foreach($group in $groups)
+		#if($group.getId() != "default" && $group.getFields_field().size()>0)
+        #set($gid=$group.getId().replace(" ",""))
+        <div id="$gid" class="tab-pane fade">
+            <h4>$group.getId()</h4>
+            #if($group.getDescription())<p>$group.getDescription()</p>#end
+        <div class="panel-body">
+            <table class="table table-striped">
+			#foreach($f in $group.getFields_field())
+				#if($!om.getProperty($f.getXmlpath()))
+                    <tr>
+                        <th align="left" nowrap>$!f.getName()</th>
+                        <td>$!om.getProperty($f.getXmlpath())</td>
+                    </tr>
+				#end
+			#end
+        </table>
+		</div></div>
+		#end
+	#end
+
+#end
+<!--END ReportProjectSpecificFields.vm -->

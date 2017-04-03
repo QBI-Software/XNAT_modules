@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+	$page.setTitle("QBICC Demographics Report")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+##----------------------------------------
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+	#parse("screens/macrolists.vm")
+
+##--end previous table
+
+<h3 class="reportheader">QTAB Demographics</h3>
+<div class="tab-content col-md-4">
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
+        <li><a data-toggle="pill" href="#participant">Participation</a></li>
+        <li><a data-toggle="pill" href="#naplan">NAPLAN</a></li>
+        <li><a data-toggle="pill" href="#perinatal">Perinatal</a></li>
+        <li><a data-toggle="pill" href="#bloodspot">Bloodspot</a></li>
+        <!-- include subject variables -->
+		#if($groups && $groups.size()>0)
+			#foreach($group in $groups)
+				#if($group.getId() != "default" && $group.getFields_field().size()>0)
+					#set($gid=$group.getId().replace(" ",""))
+                    <li><a data-toggle="pill" href="#$gid"
+                           title="#if($group.getDescription()) $group.getDescription()#end">$group.getId()</a></li>
+				#end
+			#end
+		#end
+        <!-- end subject variables -->
+    </ul>
+</div>
+<div class="tab-content col-md-8">
+
+    <div id="dem" class="tab-pane fade in active">
+        <h4>Demographics</h4>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tbody>
+                <tr><td>DOB</td><td>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/dob")</td></tr>
+                <tr><td>YOB</td><td>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/yob")</td></tr>
+                <tr><td>Age</td><td>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/age")</td></tr>
+                <tr><td>Gender</td><td>$!genders.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/gender"))</td></tr>
+                <tr><td>Handedness</td><td>$!handedness.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/handedness"))</td></tr>
+                <tr><td>Weight</td><td>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/weight")&nbsp;$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/weight/units")</td></tr>
+                <tr><td>Height</td><td>$!item.getDoubleProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/height")&nbsp;$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/height/units")</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- BEGIN xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics] -->
+    <div id="participant" class="tab-pane fade">
+        <h4>Participant Information</h4>
+        <div class="panel-body">
+            <table class="table table-striped"><tbody>
+            <TR><TD>Date Of Entry</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/DateOfEntry")</TD></TR>
+			<TR><TD>Family Code</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/FamilyCode")</TD></TR>
+            <TR><TD>QIMR ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/QIMRID")</TD></TR>
+			<TR><TD>UR ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/URID")</TD></TR>
+			<TR><TD>Participant Status</TD><TD>$!participant.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/ParticipantStatus"))</TD></TR>
+			<TR><TD>Participant Comments</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/ParticipantComments")</TD></TR>
+			<TR><TD>Contact Status</TD><TD>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/ContactStatus"))</TD></TR>
+			<TR><TD>Zygosity</TD><TD>$!zyg.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/Zygosity"))</TD></TR>
+            </tbody>
+            </table>
+        </div>
+    </div>
+<!-- END qtab:qtabDemographics/participant -->
+
+<!-- BEGIN qtab:qtabDemographics/naplan -->
+    <div id="naplan" class="tab-pane fade">
+        <h4>NAPLAN Information</h4>
+        <div class="panel-body">
+            <table class="table table-striped"><tbody>
+				<TR><TD>NAPLAN ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_id")</TD></TR>
+				<TR><TD>NAPLAN endstat</TD><TD>$!endstat.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_endstat"))</TD></TR>
+				<TR><TD>NAPLAN comment</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_comment")</TD></TR>
+            </tbody>
+            </table>
+        </div>
+    </div>
+<!-- END qtab:qtabDemographics/naplan -->
+
+<!-- BEGIN qtab:qtabDemographics/perinatal -->
+    <div id="perinatal" class="tab-pane fade">
+        <h4>Perinatal Information</h4>
+        <div class="panel-body">
+            <table class="table table-striped"><tbody>
+				<TR><TD>Perinatal ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/perinatal/peri_id")</TD></TR>
+				<TR><TD>Perinatal endstat</TD><TD>$!endstat.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/perinatal/peri_endstat"))</TD></TR>
+            </tbody>
+            </table>
+        </div>
+    </div>
+<!-- END qtab:qtabDemographics/perinatal -->
+
+<!-- BEGIN qtab:qtabDemographics/bloodspot -->
+    <div id="bloodspot" class="tab-pane fade">
+        <h4>Bloodspot Information</h4>
+        <div class="panel-body">
+            <table class="table table-striped"><tbody>
+				<TR><TD>Guthrie ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/guthrie")</TD></TR>
+				<TR><TD>Collection ID</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/collection")</TD></TR>
+				<TR><TD>Guthrie endstat</TD><TD>$!endstat.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/guthrie_endstat"))</TD></TR>
+            </tbody>
+            </table>
+        </div>
+    </div>
+<!-- END qtab:qtabDemographics/bloodspot -->
+
+<!-- END qtab:qtabDemographics -->
+
