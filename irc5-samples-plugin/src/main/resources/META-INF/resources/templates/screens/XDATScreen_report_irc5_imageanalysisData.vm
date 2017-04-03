@@ -9,7 +9,7 @@
 
 <div class="container">
     <div>
-        <h3>IRC5 QBI Image Analysis Report</h3>
+        <h3>IRC5 QBI Image Abnormality Analysis Report</h3>
 		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">
