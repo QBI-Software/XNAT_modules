@@ -53,16 +53,14 @@ $page.setVlinkColor($ui.vlink)/*
         <div class="row">
 			#parse("/screens/EditProjectSpecificFields.vm")
         </div>
-        <div class="form-inline">
-            <label for="irc5:brainData/date">Date Collected</label>
-			#xdatDateBox("irc5:brainData/date" $item $vr $years)
-        </div>
+
 		<table class="table table-striped">
 			<tbody>
-            <tr><th>Date Scan Requested</th><td>#xdatDateBoxParams("irc5:imageanalysisData/date_requested" "" $item $vr $years $formclass)</td></tr>
+            <tr><th>Date</th><td><div class="form-inline">#xdatDateBoxParams("irc5:imageanalysisData/date" "" $item $vr $years $formclass)</div></td></tr>
+            <tr><th>Date Scan Requested</th><td><div class="form-inline">#xdatDateBoxParams("irc5:imageanalysisData/date_requested" "" $item $vr $years $formclass)</div></td></tr>
             <tr><th>Protocol Number</th><td>#xdatNumberBox("irc5:imageanalysisData/protocol_number" $item "" $vr)</td></tr>
-            <tr><th>Patient Photo Available</th><td>#xdatCheckboxGroup("irc5:imageanalysisData/patient_photo" $item $yesno $vr)</td></tr>
-            <tr><th>Analysis Date</th><td>#xdatDateBoxParams("irc5:imageanalysisData/analysis_date" "" $item $vr $years $formclass)</td></tr>
+            <tr><th>Patient Photo Available</th><td>#xdatRadioButtonGroup("irc5:imageanalysisData/patient_photo" $item $yesno $vr)</td></tr>
+            <tr><th>Analysis Date</th><td><div class="form-inline">#xdatDateBoxParams("irc5:imageanalysisData/analysis_date" "" $item $vr $years $formclass)</div></td></tr>
             <tr><th>Cerebellum</th><td>#xdatStringBox("irc5:imageanalysisData/cerebellum" $item "" $vr)</td></tr>
             <tr><th>Brainstem</th><td>#xdatStringBox("irc5:imageanalysisData/brainstem" $item "" $vr)</td></tr>
             <tr><th>Ventricles</th><td>#xdatStringBox("irc5:imageanalysisData/ventricles" $item "" $vr)</td></tr>
@@ -75,7 +73,7 @@ $page.setVlinkColor($ui.vlink)/*
             <tr><th>Sulcation</th><td>#xdatStringBox("irc5:imageanalysisData/sulcation" $item "" $vr)</td></tr>
             <tr><th>Other MCD</th><td>#xdatStringBox("irc5:imageanalysisData/othermcd" $item "" $vr)</td></tr>
             <tr><th>MR analysis comment</th><td>#xdatTextArea("irc5:imageanalysisData/mranalysiscomment" $item "" $vr $rows $cols)</td></tr>
-            <tr><th>MR analysis letter sent</th><td>#xdatDateBoxParams("irc5:imageanalysisData/mrlettersent" "" $item $vr $years $formclass)</td></tr>
+            <tr><th>MR analysis letter sent</th><td><div class="form-inline">#xdatDateBoxParams("irc5:imageanalysisData/mrlettersent" "" $item $vr $years $formclass)</div></td></tr>
 			</tbody>
 		</table>
 
