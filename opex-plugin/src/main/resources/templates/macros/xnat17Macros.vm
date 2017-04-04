@@ -1,0 +1,278 @@
+##Copyright 2005 Harvard University / Howard Hughes Medical Institute (HHMI) All Rights Reserved
+##
+## Default Macro file for QBI
+##
+## Put your Application macros in this file.
+##
+## patch test
+#* @vtlvariable name="tipText" type="java.util.List" *#
+#macro(renderYesNoIcons $bool)
+    #if($bool == "true" || $bool == 1)
+        <span class="glyphicon glyphicon-ok" style="color:green"></span>
+    #elseif($bool == "false" || $bool == 0)
+        <span class="glyphicon glyphicon-remove" style="color:darkred"></span>
+    #else
+        <span>&nbsp;</span>
+    #end
+#end
+
+#macro(renderYesNo $bool)
+    #if($bool == "true" || $bool == 1)
+    <span style="color:green">Yes</span>
+    #elseif($bool == "false" || $bool == 0)
+    <span style="color:red">No</span>
+    #else
+    <span>&nbsp;</span>
+    #end
+#end
+	
+#macro(xdatStringBox $name $item $defaultValue $vr)
+    #xdatStringBoxParams($name $item $defaultValue $vr "form-control"  "" "")
+#end
+
+#macro(xdatStringBoxParams $name $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+    <input id="$name" type="text" name="$name" value="$value"
+        #if($!onChange != "") onchange="$!{onChange}(this)" #end
+        #if($!size != "") size="$!size" #end
+        #if($!classes != "") class="$!classes" #end
+    />
+
+#end
+
+#macro(xdatNumberBox $name $item $defaultValue $vr)
+    #xdatNumberBoxParams($name $item $defaultValue $vr "form-control"  "" "")
+#end
+
+#macro(xdatNumberBoxParams $name $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$name" type="number" name="$name" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+/>
+
+#end
+
+#macro(xdatNumberBoxParamsID $id $field $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($field))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($field))
+        #set($value = $!item.getProperty($field))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$id" type="number" name="$id" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+/>
+
+#end
+
+#macro(xdatTextArea $name $item $defaultValue $vr $rows $cols)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if ($item.getProperty($name))
+    <textarea class="form-control" rows="$rows" cols="$cols" id="$name"
+              name="$name">$item.getStringProperty($name)</textarea>
+    #else
+    <textarea class="form-control" rows="$rows" cols="$cols" id="$name" name="$name">$defaultValue</textarea>
+    #end
+#end
+
+
+#macro(xdatCheckboxGroup $name $item $possibleValues $vr)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+<div class="form-check form-check-inline">
+    #foreach ($key in $possibleValues.keySet())
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="$name" value="$key"
+                #if($key.equals($value)) checked #end
+            />
+            &nbsp;$possibleValues.get($key)
+        </label>
+    #end
+</div>
+#end
+
+#macro (xdatRadioButtonGroup $name $item $possibleValues $vr)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = "")
+    #end
+<div class="form-check form-check-inline">
+    #foreach ($key in $possibleValues.keySet())
+
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="$name" value="$key"
+                #if($key.equals($value)) checked #end
+            />
+            &nbsp;$possibleValues.get($key)
+        </label>
+    #end
+</div>
+#end
+	
+#macro (xdatSelectGroup $id $name $item $possibleValues $vr)
+    #if ($name=="")
+        #set($name = $id)
+    #end
+	#if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #elseif($!item.getProperty($id))
+        #set($value = $!item.getProperty($id))
+    #else
+        #set($value = "")
+    #end
+    	<div class="form-group">
+		  <select class="form-control" id="$id" name="$name">
+		  	<option value="">----</option>
+		  #foreach ($key in $possibleValues.keySet())
+			<option value="$key"
+			#if($key.equals($value)||$possibleValues.get($key).equals($value)) SELECTED #end
+			>$possibleValues.get($key)</option>
+			#end
+		  </select>
+		</div>
+#end
+
+
+#macro(xdatDateBoxParams $id $name $item $vr $years $class )
+    #if ($name=="")
+        #set($name = $id)
+    #end
+
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+        "November", "December"])
+    #set($days = [ 1..31 ])
+    #if($item.getDateProperty($name))
+        #set ($expt_date = $!item.getDateProperty($name))
+
+    <select id="${id}.date" name="${id}.date" onchange="validateDate(this);" class="$class">
+        <option value="bad">(SELECT)</option>
+        #foreach ($day in $days)
+            <option value="$day" #if ( $day == $!expt_date.getDate() ) SELECTED="true" #end>$day</option>
+        #end
+    </select>
+    <select id="${id}.month" name="${id}.month" onchange="validateDate(this);" class="$class">
+        <option value="bad">(SELECT)</option>
+        #foreach ($month in $months)
+            #set ($monthCount = $velocityCount - 1)
+            <option value="$monthCount"
+                #if ( $monthCount == $!expt_date.getMonth()) SELECTED="true" #end>
+                $month</option>
+        #end
+    </select>
+    ##			  #set ($currentYear = $date.Year + 1900)
+    <select id="${id}.year" name="${id}.year" onchange="validateDate(this);" class="$class">
+        <option value="bad">(SELECT)</option>
+        #foreach ($year in $years)
+            <option value="$year" #if ( $year == $!expt_date.getYear() + 1900 ) SELECTED="true" #end>$year</option>
+        #end
+    </select>
+    #else
+        <select id="${id}.date" name="${id}.date" onchange="validateDate(this);" class="$class">
+            <option value="bad">(SELECT)</option>
+            #foreach ($day in $days)
+                <option value="$day">$day</option>
+            #end
+        </select>
+        <select id="${id}.month" name="${id}.month" onchange="validateDate(this);" class="$class">
+            <option value="bad">(SELECT)</option>
+            #foreach ($month in $months)
+                #set ($monthCount = $velocityCount - 1)
+                <option value="$monthCount">                $month</option>
+            #end
+        </select>
+        ##			  #set ($currentYear = $date.Year + 1900)
+        <select id="${id}.year" name="${id}.year" onchange="validateDate(this);" class="$class">
+            <option value="bad">(SELECT)</option>
+            #foreach ($year in $years)
+                <option value="$year">$year</option>
+            #end
+        </select>
+    #end
+
+#end
+
+#macro (xdatBooleanCheckboxParams $id $name $item $vr $class)
+    #if ($name=="")
+        #set($name = $id)
+    #end
+
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #set($value = $!item.getBooleanProperty($name))
+
+## The hidden box is necessary to submit a "false" value if the checkbox is unchecked
+## If the checkbox is checked, its true value will override the hidden's "false" value
+<input id="$id" type="checkbox" name="$id" value="1" #if($value) checked #end class="$class"/>
+<input type="hidden" name="$id" value="0" />
+#end
+
+#macro (xdatHiddenBoxID $id $name $item $defaultValue)
+    #if ($name=="")
+        #set($name = $id)
+    #end
+    #if ($item.getProperty($name))
+    <input id="$id" type="hidden" name="$id" value="$item.getProperty($name)"/>
+    #else
+    <input id="$id" type="hidden" name="$id" value="$defaultValue"/>
+    #end
+#end

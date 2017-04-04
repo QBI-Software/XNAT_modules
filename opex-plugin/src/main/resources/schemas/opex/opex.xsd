@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 sp2 (http://www.altova.com) by Liz Cooper-Williams (The University of Queensland) -->
-<!-- OPEX datatype for Blood test-->
+<!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:/schemas/schemas/xnat/xnat.xsd"/>
 	<xs:element name="opex" type="opex:exerciseData"/>
@@ -86,7 +86,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	
-	<xs:element name="ELISASCOBAS" type="opex:bloodElisasData"/>
+	<xs:element name="BLOODELISAS" type="opex:bloodElisasData"/>
 	<xs:complexType name="bloodElisasData">
 		<xs:annotation>
 			<xs:documentation>OPEX Blood ELISAs</xs:documentation>

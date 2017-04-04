@@ -28,7 +28,7 @@ dataModels = {@XnatDataModel(value = QtabBloodspotdataBean.SCHEMA_ELEMENT_NAME,
 } )
 public class QTABPlugin {
 	 @Bean
-	 public String OPEXPluginMessage() {
+	 public String QTABPluginMessage() {
 	        return "Hello there from the QTABPlugin!";
 	    }
 }
