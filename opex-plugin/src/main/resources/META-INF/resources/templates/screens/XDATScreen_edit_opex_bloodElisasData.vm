@@ -6,10 +6,6 @@
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-    #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-        "November", "December"])
-    #set($days = [ 1..31 ])
-    #set($years = [ $!turbineUtils.getYear()..1900])
     #parse("/screens/macrolists.vm")
 <script type="text/javascript">
     window.currentID = "$!om.getId()";
@@ -29,7 +25,7 @@
 #if ($data.message)
 <div class="alert alert-danger error"><span>$data.message</span></div>
 #end
-<div id="EditForm" class="container">
+<div id="EditForm" class="container col-md-8">
     <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
         <input type="hidden" name="project" value="$!{project}">
         <input type="hidden" name="part_id" value="$!{part_id}">

@@ -1,11 +1,11 @@
 <!-- START Edit opex:exerciseData -->
 <tr>
     <td>Collection date</td>
-    <td>#xdatDateBoxParams("$om.getXSIType()/date" "" $item $vr $years $formclass)</td>
+    <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date" "" $item $vr $years $formclass)</div></td>
 </tr>
 <tr>
     <td>Date analysed</td>
-    <td>#xdatDateBoxParams("$om.getXSIType()/date_analysed" "" $item $vr $years $formclass)</td>
+    <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date_analysed" "" $item $vr $years $formclass)</div></td>
 </tr>
 <tr>
     <td>Sample ID</td>

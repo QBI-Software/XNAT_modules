@@ -1,3 +1,7 @@
+#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+    "November", "December"])
+#set($days = [ 1..31 ])
+#set($years = [ $!turbineUtils.getYear()..1900])
 #set($yesno = {0:"No", 1:"Yes",3:"Not known"})
 #set($formclass = "form-control")
 #set($genders = {"male":"Male", "female":"Female","other":"Other","unknown":"Not known","M":"M","F":"F"})
