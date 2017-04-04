@@ -62,7 +62,7 @@
 			<TR><TD>Participant Status</TD><TD>$!participant.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/ParticipantStatus"))</TD></TR>
 			<TR><TD>Participant Comments</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/ParticipantComments")</TD></TR>
 			<TR><TD>Contact Status</TD><TD>#renderYesNoIcons($!item.getBooleanProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/ContactStatus"))</TD></TR>
-			<TR><TD>Zygosity</TD><TD>$!zyg.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/Zygosity"))</TD></TR>
+			<TR><TD>Zygosity</TD><TD>$!zyg.get($!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/participant/Zygosity"))</TD></TR>
             </tbody>
             </table>
         </div>
@@ -75,7 +75,7 @@
         <div class="panel-body">
             <table class="table table-striped"><tbody>
 				<TR><TD>NAPLAN ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_id")</TD></TR>
-				<TR><TD>NAPLAN endstat</TD><TD>$!endstat.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_endstat"))</TD></TR>
+				<TR><TD>NAPLAN endstat</TD><TD>$!endstat.get($!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_endstat"))</TD></TR>
 				<TR><TD>NAPLAN comment</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/naplan/naplan_comment")</TD></TR>
             </tbody>
             </table>
@@ -89,7 +89,7 @@
         <div class="panel-body">
             <table class="table table-striped"><tbody>
 				<TR><TD>Perinatal ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/perinatal/peri_id")</TD></TR>
-				<TR><TD>Perinatal endstat</TD><TD>$!endstat.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/perinatal/peri_endstat"))</TD></TR>
+				<TR><TD>Perinatal endstat</TD><TD>$!endstat.get($!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/perinatal/peri_endstat"))</TD></TR>
             </tbody>
             </table>
         </div>
@@ -103,7 +103,7 @@
             <table class="table table-striped"><tbody>
 				<TR><TD>Guthrie ID</TD><TD>$!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/guthrie")</TD></TR>
 				<TR><TD>Collection ID</TD><TD>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/collection")</TD></TR>
-				<TR><TD>Guthrie endstat</TD><TD>$!endstat.get($!item.getStringProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/guthrie_endstat"))</TD></TR>
+				<TR><TD>Guthrie endstat</TD><TD>$!endstat.get($!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/bloodspot/guthrie_endstat"))</TD></TR>
             </tbody>
             </table>
         </div>
