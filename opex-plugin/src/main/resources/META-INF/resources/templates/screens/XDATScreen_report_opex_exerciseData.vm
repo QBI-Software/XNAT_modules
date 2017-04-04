@@ -1,0 +1,33 @@
+<!-- START Report opex:exerciseData -->
+<tr>
+	<TD>Date collected</TD>
+	<TD>$!item.getProperty("$om.getXSIType()/date")</TD>
+</TR>
+<tr>
+
+	<TD>Date analysed</TD>
+	<TD>$!item.getProperty("$om.getXSIType()/date_analysed")</TD>
+</TR>
+<TR>
+	<TD>Interval</TD>
+	<TD>$interval.get($!item.getIntegerProperty("$om.getXSIType()/interval"))</TD>
+</TR>
+<TR>
+	<TD>Prepost</TD>
+	<TD>$prepost.get($!item.getStringProperty("$om.getXSIType()/prepost"))</TD>
+</TR>
+<TR>
+	<TD>Sample ID</TD>
+	<TD>$!item.getStringProperty("$om.getXSIType()/sample_id")</TD>
+</TR>
+<TR>
+	<TD>Sample</TD>
+	<TD>$!item.getStringProperty("$om.getXSIType()/sample_num")</TD>
+</TR>
+#if($om.getXSIType() == "opex:bloodMultiplexData" || $om.getXSIType() == "opex:bloodElisasData" || $om.getXSIType() == "opex:bloodCobasData")
+<TR>
+    <TD>Prepost</TD>
+    <TD>$prepost.get($!item.getStringProperty("$om.getXSIType()/prepost"))</TD>
+</TR>
+#end
+<!-- END Report opex:exerciseData -->

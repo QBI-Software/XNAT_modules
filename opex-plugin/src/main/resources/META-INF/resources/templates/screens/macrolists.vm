@@ -9,4 +9,5 @@
 #set($cols = 20)
 #set($zyg = {"MZ":"Monozygous","DZ":"Dizygous","NA":"Not Twin"})
 #set($endstat = {0:"Not collected",1:"Complete data",2:"Partial complete data"})
-#set($prepost ={"pre":"Pre","post":"Post"})
+#set($prepost ={"pre":"Pre-Exercise","post":"Post-Exercise"})
+#set($interval ={0:"Baseline",1:"1m",2:"2m",3:"3m",4:"4m",5:"5m",6:"6m"})

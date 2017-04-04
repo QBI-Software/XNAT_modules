@@ -1,0 +1,29 @@
+<!-- START Edit opex:exerciseData -->
+<tr>
+    <td>Collection date</td>
+    <td>#xdatDateBoxParams("$om.getXSIType()/date" "" $item $vr $years $formclass)</td>
+</tr>
+<tr>
+    <td>Date analysed</td>
+    <td>#xdatDateBoxParams("$om.getXSIType()/date_analysed" "" $item $vr $years $formclass)</td>
+</tr>
+<tr>
+    <td>Sample ID</td>
+    <td>#xdatStringBox("$om.getXSIType()/sample_id" $item "" $vr)</td>
+</tr>
+<tr>
+    <td>Sample</td>
+    <td>#xdatStringBox("$om.getXSIType()/sample_num" $item "" $vr)</td>
+</tr>
+<tr>
+    <td>Interval</td>
+    <td>#xdatSelectGroup("$om.getXSIType()/interval" "" $item $interval $vr)</td>
+</tr>
+
+#if($om.getXSIType() == "opex:bloodMultiplexData" || $om.getXSIType() == "opex:bloodElisasData" || $om.getXSIType() == "opex:bloodCobasData")
+<tr>
+    <td>Pre or post</td>
+    <td>#xdatSelectGroup("$om.getXSIType()/prepost" "" $item $prepost $vr)</td>
+</tr>
+#end
+<!-- END Edit opex:exerciseData -->

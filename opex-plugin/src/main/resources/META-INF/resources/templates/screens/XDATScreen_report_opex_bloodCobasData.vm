@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX Multiplex Blood Sample")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Multiplex Blood Sample</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <!-- START opex:bloodCobasData -->
+                <tr>
+                    <td>GH</td>
+                    <td>$!item.getDoubleProperty("opex:bloodCobasData/GH")</td>
+                </tr>
+                <tr>
+                    <td>Prolactin</td>
+                    <td>$!item.getDoubleProperty("opex:bloodCobasData/Prolactin")</td>
+                </tr>
+                <tr>
+                    <td>Cortisol</td>
+                    <td>$!item.getDoubleProperty("opex:bloodCobasData/Cortisol")</td>
+                </tr>
+                <tr>
+                    <td>Insulin</td>
+                    <td>$!item.getDoubleProperty("opex:bloodCobasData/Insulin")</td>
+                </tr>
+                <!-- END opex:bloodCobasData -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2017 sp2 (http://www.altova.com) by Liz Cooper-Williams (The University of Queensland) -->
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="D:/schemas/schemas/xnat/xnat.xsd"/>
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
 	<xs:element name="opex" type="opex:exerciseData"/>
 	<xs:complexType name="exerciseData">
 		<xs:annotation>
@@ -18,14 +18,14 @@
                             </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="interval" type="xs:integer">
+			<xs:element name="interval" type="xs:integer" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
                                 Monthly interval stage
                             </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="prepost">
+			<xs:element name="prepost" minOccurs="0" maxOccurs="1">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Pre"/>
@@ -33,20 +33,35 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="sample_id" type="xs:string">
+			<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
                                 Sample ID from analyser 
                             </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="sample_num" type="xs:string">
+			<xs:element name="sample_num" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
                                 Sample Number (1,2 or avg)
                             </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+					<xs:element name="sample_type" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Sample Type
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="blood"/>
+								<xs:enumeration value="cognition"/>
+								<xs:enumeration value="fitbit"/>
+								<xs:enumeration value="health"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
 		</xs:sequence></xs:extension></xs:complexContent>
 	</xs:complexType>
 	<xs:element name="BLOODMULTIPLEX" type="opex:bloodMultiplexData"/>
@@ -57,14 +72,14 @@
 		<xs:complexContent>
 			<xs:extension base="opex:exerciseData">
 				<xs:sequence>
-					<xs:element name="GH" type="xs:float"/>
-					<xs:element name="Leptin" type="xs:float"/>
-					<xs:element name="BDNF" type="xs:float"/>
-					<xs:element name="IGFBP7" type="xs:float"/>
-					<xs:element name="IL1" type="xs:float"/>
-					<xs:element name="IL4" type="xs:float"/>
-					<xs:element name="IL6" type="xs:float"/>
-					<xs:element name="IL10" type="xs:float"/>
+					<xs:element name="GH" type="xs:float"  minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Leptin" type="xs:float"  minOccurs="0" maxOccurs="1"/>
+					<xs:element name="BDNF" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IGFBP7" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IL1" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IL4" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IL6" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IL10" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -77,10 +92,10 @@
 		<xs:complexContent>
 			<xs:extension base="opex:exerciseData">
 				<xs:sequence>
-					<xs:element name="GH" type="xs:float"/>
-					<xs:element name="Prolactin" type="xs:float"/>
-					<xs:element name="Cortisol" type="xs:float"/>
-					<xs:element name="Insulin" type="xs:float"/>
+					<xs:element name="GH" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Prolactin" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Cortisol" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Insulin" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -94,8 +109,8 @@
 		<xs:complexContent>
 			<xs:extension base="opex:exerciseData">
 				<xs:sequence>
-					<xs:element name="Ghrelin" type="xs:float"/>
-					<xs:element name="CathepsinB" type="xs:float"/>
+					<xs:element name="Ghrelin" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="CathepsinB" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
