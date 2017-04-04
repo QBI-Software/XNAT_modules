@@ -1,0 +1,13 @@
+#* @vtlvariable name="link" type="org.apache.turbine.services.pull.tools.TemplateLink" *#
+#* @vtlvariable name="project" type="java.lang.String" *#
+#* @vtlvariable name="om" type="org.nrg.xdat.om.XnatSubjectdata" *#
+<!-- Sequence: 6 -->
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_bloodMultiplexData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add OPEX Multiplex Blood Sample</A>
+</li>
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_bloodCobasData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add OPEX Cobas Blood Sample</A>
+</li>
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_bloodElisasData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add OPEX ELISAS Blood Sample</A>
+</li>
