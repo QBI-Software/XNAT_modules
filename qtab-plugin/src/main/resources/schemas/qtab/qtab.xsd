@@ -7,7 +7,13 @@
 		<xs:documentation>QTAB Demographics</xs:documentation>
 	</xs:annotation>
 	<xs:element name="qtabdem" type="qtab:qtabDemographics"/>
-	
+	<xs:simpleType name="endstatType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Not collected"/>
+			<xs:enumeration value="Complete data"/>
+			<xs:enumeration value="Partial complete data"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="qtabDemographics">
 		<xs:annotation>
 			<xs:documentation>QTAB Demographics</xs:documentation>
@@ -28,43 +34,25 @@
 			<xs:documentation>QTAB Participant Information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="DateOfEntry" minOccurs="0" maxOccurs="1">
+			<xs:element name="DateOfEntry" minOccurs="0" maxOccurs="1" type="xs:date">
 				<xs:annotation>
 					<xs:documentation>Date Participant Added</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:date"/>
-				</xs:simpleType>
 			</xs:element>
-			<xs:element name="FamilyCode" minOccurs="0" maxOccurs="1">
+			<xs:element name="FamilyCode" minOccurs="0" maxOccurs="1" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>Family code to group twins and parents</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
-			<xs:element name="QIMRID" minOccurs="0" maxOccurs="1">
+			<xs:element name="QIMRID" minOccurs="0" maxOccurs="1" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>QIMR Number</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
-			<xs:element name="URID" minOccurs="0" maxOccurs="1">
+			<xs:element name="URID" minOccurs="0" maxOccurs="1" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>HIRF UR Number</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="ParticipantStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -91,13 +79,10 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="ContactStatus" minOccurs="0" maxOccurs="1">
+			<xs:element name="ContactStatus" minOccurs="0" maxOccurs="1" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Contact Status</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:boolean"/>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Zygosity" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -124,25 +109,18 @@
 					<xs:documentation>NAPLAN</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="naplan_endstat" minOccurs="0" maxOccurs="1">
+			<xs:element name="naplan_endstat" minOccurs="0" maxOccurs="1" type="qtab:endstatType">
 				<xs:annotation>
-					<xs:documentation>Endstat</xs:documentation>
+					<xs:documentation>NAPLAN Endstat</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:positiveInteger">
-						<xs:enumeration value="Not collected"/>
-						<xs:enumeration value="Complete data"/>
-						<xs:enumeration value="Partial complete data"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="naplan_comment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Comment</xs:documentation>
+					<xs:documentation>NAPLAN Comment</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:maxLength value="1000"/>
+						<xs:maxLength value="10000"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -160,17 +138,10 @@
 					<xs:documentation>Perinatal</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="peri_endstat" minOccurs="0" maxOccurs="1">
+			<xs:element name="peri_endstat" minOccurs="0" maxOccurs="1" type="qtab:endstatType">
 				<xs:annotation>
 					<xs:documentation>Perinatal Endstat</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:positiveInteger">
-						<xs:enumeration value="Not collected"/>
-						<xs:enumeration value="Complete data"/>
-						<xs:enumeration value="Partial complete data"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<!-- End: QTAB Perinatal-->
 		</xs:sequence>
@@ -180,34 +151,204 @@
 			<xs:documentation>Bloodspot</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="guthrie" minOccurs="0" maxOccurs="1">
+			<xs:element name="guthrie" minOccurs="0" maxOccurs="1" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>Guthrie/QLD Health ID</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string"/>
-				</xs:simpleType>
 			</xs:element>
-			<xs:element name="collection" minOccurs="0" maxOccurs="1">
+			<xs:element name="collection" minOccurs="0" maxOccurs="1" type="xs:integer">
 				<xs:annotation>
 					<xs:documentation>Bio ID once processed by IMB lab</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:integer"/>
-				</xs:simpleType>
 			</xs:element>
-			<xs:element name="guthrie_endstat" minOccurs="0" maxOccurs="1">
+			<xs:element name="guthrie_endstat" minOccurs="0" maxOccurs="1" type="qtab:endstatType">
 				<xs:annotation>
 					<xs:documentation>Guthrie Endstat</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:positiveInteger">
-						<xs:enumeration value="Not collected"/>
-						<xs:enumeration value="Complete data"/>
-						<xs:enumeration value="Partial complete data"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+	<!-- Biosamples -->
+	<xs:element name="qtabexpt" type="qtab:qtabExperiment"/>
+	<xs:complexType name="qtabExperiment">
+		<xs:annotation>
+			<xs:documentation>QTAB Experiment Data</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="wave" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Wave category (Visit)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="collected" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="comment" minOccurs="0" maxOccurs="1">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="bio_id" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Bio ID for IMB Lab
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="collection_id" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                ID for Bios once processed (IMB lab)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Date of analysis
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="protocol" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Protocol
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="protocol_comment" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Protocol Comment
+                            </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="endstat" minOccurs="0" maxOccurs="1" type="qtab:endstatType">
+						<xs:annotation>
+							<xs:documentation>Endstat</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="endstat_comment" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Endstat Comment
+                            </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="sample_type" minOccurs="1" maxOccurs="1">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="AES"/>
+								<xs:enumeration value="Blood"/>
+								<xs:enumeration value="Hair"/>
+								<xs:enumeration value="Urine"/>
+								<xs:enumeration value="Saliva"/>
+								<xs:enumeration value="Stool"/>
+								<xs:enumeration value="Tooth"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="QTABBLOOD" type="qtab:bloodData"/>
+	<xs:complexType name="bloodData">
+		<xs:annotation>
+			<xs:documentation>Blood Sample</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="qtab:qtabExperiment">
+				<xs:sequence>
+					<xs:element name="parent_collected" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="parent_id" minOccurs="0" maxOccurs="1">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Mother"/>
+								<xs:enumeration value="Father"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="parent_comment" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Parent Blood donation Comment
+                            </xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="QTABHAIR" type="qtab:hairData"/>
+	<xs:complexType name="hairData">
+		<xs:annotation>
+			<xs:documentation>Hair Sample</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="qtab:qtabExperiment">
+				<xs:sequence>
+					<xs:element name="natural_colour" minOccurs="0" maxOccurs="1">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Fair/Blonde"/>
+								<xs:enumeration value="Light Brown"/>
+								<xs:enumeration value="Red/Auburn"/>
+								<xs:enumeration value="Dark Brown"/>
+								<xs:enumeration value="Black"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="dyed" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="length" minOccurs="0" maxOccurs="1">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Short"/>
+								<xs:enumeration value="Shoulder"/>
+								<xs:enumeration value="Long"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Home collected samples -->
+	<xs:element name="QTABHOME" type="qtab:homeData"/>
+	<xs:complexType name="homeData">
+		<xs:annotation>
+			<xs:documentation>Home collected Sample</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="qtab:qtabExperiment">
+				<xs:sequence>
+					<xs:element name="sent" type="xs:date" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="collection_datetime" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="courier" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="consignment" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="returned" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="returned_date" type="xs:date" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>

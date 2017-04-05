@@ -1,6 +1,6 @@
 <!-- START Edit opex:exerciseData -->
 <tr>
-    <td>Collection date</td>
+    <td>Date collected</td>
     <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date" "" $item $vr $years $formclass)</div></td>
 </tr>
 <tr>

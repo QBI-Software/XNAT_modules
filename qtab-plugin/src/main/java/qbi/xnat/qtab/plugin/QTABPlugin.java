@@ -8,7 +8,7 @@ import org.nrg.xdat.om.QtabQtabdemographics;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@XnatPlugin(name="QBI OPEX Bio samples", value="QTABPlugin", description="QBI OPEX Bio samples",
+@XnatPlugin(name="QTAB data", value="QTABPlugin", description="QTAB Demographic and Bio samples",
 dataModels = {@XnatDataModel(value = QtabBloodspotdataBean.SCHEMA_ELEMENT_NAME,
                              singular = "QTAB Bloodspot sample",
                              plural = "QTAB Bloodspot samples"),
@@ -24,6 +24,18 @@ dataModels = {@XnatDataModel(value = QtabBloodspotdataBean.SCHEMA_ELEMENT_NAME,
 		@XnatDataModel(value = QtabQtabdemographicsBean.SCHEMA_ELEMENT_NAME,
 				singular = "QTAB Demographics",
 				plural = "QTAB Demographics"),
+		@XnatDataModel(value = QtabQtabexperimentBean.SCHEMA_ELEMENT_NAME,
+				singular = "QTAB Experiment",
+				plural = "QTAB Experiment"),
+		@XnatDataModel(value = QtabHomedataBean.SCHEMA_ELEMENT_NAME,
+				singular = "QTAB Home Experiment",
+				plural = "QTAB Home Experiment"),
+		@XnatDataModel(value = QtabHairdataBean.SCHEMA_ELEMENT_NAME,
+				singular = "QTAB Hair Experiment",
+				plural = "QTAB Hair Experiment"),
+		@XnatDataModel(value = QtabBlooddataBean.SCHEMA_ELEMENT_NAME,
+				singular = "QTAB Blood Experiment",
+				plural = "QTAB Blood Experiment"),
 
 } )
 public class QTABPlugin {
