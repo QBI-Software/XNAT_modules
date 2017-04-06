@@ -14,7 +14,11 @@
 </TR>
 <TR>
     <TD>Guthrie endstat</TD>
-    <TD>$endstats.get($!item.getIntegerProperty("qtab:bloodspotData/guthrie_endstat"))</TD>
+    <TD>
+        #if($!item.getIntegerProperty("qtab:bloodspotData/guthrie_endstat"))
+            $endstats.get($!item.getIntegerProperty("qtab:bloodspotData/guthrie_endstat"))
+        #end
+    </TD>
 </TR>
 
 

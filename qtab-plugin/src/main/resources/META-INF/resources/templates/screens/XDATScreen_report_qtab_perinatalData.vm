@@ -13,7 +13,11 @@
 </TR>
 <TR>
     <TD>Perinatal endstat</TD>
-    <TD>$endstats.get($!item.getIntegerProperty("qtab:perinatalData/peri_endstat"))</TD>
+    <TD>
+        #if($!item.getIntegerProperty("qtab:perinatalData/peri_endstat"))
+            $endstats.get($!item.getIntegerProperty("qtab:perinatalData/peri_endstat"))
+        #end
+    </TD>
 </TR>
 
 

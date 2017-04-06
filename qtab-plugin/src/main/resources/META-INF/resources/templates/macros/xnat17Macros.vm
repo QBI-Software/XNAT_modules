@@ -183,7 +183,32 @@
 		  </select>
 		</div>
 #end
+#macro(xdatDateTimeBootstrap $id $name $item $vr)
+    #if ($name=="")
+        #set($name = $id)
+    #end
 
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($item.getDateProperty($name))
+        #set ($expt_date = $!item.getDateProperty($name))
+    #else
+    	#set ($expt_date = "")
+    #end
+    	
+    	<div class="form-group">
+                <div class='input-group date' id='$id'>
+                    <input type='text' class="form-control" 
+                    value="$expt_date" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+#end
 
 #macro(xdatDateBoxParams $id $name $item $vr $years $class )
     #if ($name=="")

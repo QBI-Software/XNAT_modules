@@ -12,7 +12,11 @@
 <TR><TD>Date analysed</TD><TD>$!item.getProperty("qtab:biosample/date_analysed")</TD></TR>
 <TR><TD>Protocol</TD><TD>$!item.getStringProperty("qtab:biosample/protocol_id")</TD></TR>
 <TR><TD>Protocol comment</TD><TD>$!item.getStringProperty("qtab:biosample/protocol_comment")</TD></TR>
-<TR><TD>Endstat</TD><TD>$endstats.get($!item.getProperty("qtab:biosample/endstat"))</TD></TR>
+<TR><TD>Endstat</TD><TD>
+	#if($!item.getIntegerProperty("qtab:biosample/endstat"))
+		$endstats.get($!item.getIntegerProperty("qtab:biosample/endstat"))
+	#end
+</TD></TR>
 <TR><TD>Endstat comment</TD><TD>$!item.getStringProperty("qtab:biosample/endstat_comment")</TD></TR>
 
 #if($sampletype == "Blood")
@@ -26,12 +30,12 @@
 #end
 <!--Specific to Home samples -->
 #if($item.getProperty("qtab:biosample/location") && $!item.getProperty("qtab:biosample/location") == "Home")
-<TR><TD>Sent</TD><TD>$!item.getProperty("qtab:homeBiosample/sent")</TD></TR>
-<TR><TD>Collection (datetime)</TD><TD>$!item.getProperty("qtab:homeBiosample/collection_datetime")</TD></TR>
-<TR><TD>Courier</TD><TD>$!item.getStringProperty("qtab:homeBiosample/courier")</TD></TR>
-<TR><TD>Consignment</TD><TD>$!item.getStringProperty("qtab:homeBiosample/consignment")</TD></TR>
-<TR><TD>Returned</TD><TD>#renderYesNo($!item.getBooleanProperty("qtab:homeBiosample/returned"))</TD></TR>
-<TR><TD>Returned date</TD><TD>$!item.getProperty("qtab:homeBiosample/returned_date")</TD></TR>
+<TR><TD>Sent</TD><TD>$!item.getProperty("qtab:biosample/sent")</TD></TR>
+<TR><TD>Collection (datetime)</TD><TD>$!item.getProperty("qtab:biosample/collection_datetime")</TD></TR>
+<TR><TD>Courier</TD><TD>$!item.getStringProperty("qtab:biosample/courier")</TD></TR>
+<TR><TD>Consignment</TD><TD>$!item.getStringProperty("qtab:biosample/consignment")</TD></TR>
+<TR><TD>Returned</TD><TD>#renderYesNo($!item.getBooleanProperty("qtab:biosample/returned"))</TD></TR>
+<TR><TD>Returned date</TD><TD>$!item.getProperty("qtab:biosample/returned_date")</TD></TR>
 #end
 </tbody>
 </table>

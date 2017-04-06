@@ -25,7 +25,7 @@
 <TR class="hairsample"><TD>Length</TD><TD>#xdatSelectGroup("qtab:biosample/length" "" $item $hairlengths $vr)</TD></TR>
 <!-- Home only -->
 <TR class="homesample"><TD>Sent</TD><TD><div class="form-inline">#xdatDateBoxParams("qtab:biosample/sent" "" $item $vr $years $formclass)</div></TD></TR>
-<TR class="homesample"><TD>Collection</TD><TD>#xdatDateTimeBox("qtab:biosample/collection_datetime" $item $vr $years)</TD></TR>
+<TR class="homesample"><TD>Collection</TD><TD>#xdatDateTimeBootstrap("qtab:biosample/collection_datetime" "" $item $vr)</TD></TR>
 <TR class="homesample"><TD>Courier</TD><TD>#xdatStringBox("qtab:biosample/courier" $item "" $vr)</TD></TR>
 <TR class="homesample"><TD>Consignment</TD><TD>#xdatStringBox("qtab:biosample/consignment" $item "" $vr)</TD></TR>
 <TR class="homesample"><TD>Returned</TD><TD>#xdatBooleanRadio("qtab:biosample/returned" $item false $vr)</TD></TR>
@@ -54,34 +54,36 @@
     function goBack() {
         window.history.back();
     }
+    $(document).ready(function() {
+        $('.bloodsample').hide();
+        $('.hairsample').hide();
+        $('.homesample').hide();
 
-    $('.bloodsample').hide();
-    $('.hairsample').hide();
-    $('.homesample').hide();
+        $('#sampletypeselect select').change(function () {
+            var str = $( this).val();
+            alert(str);
+            if (str =="Blood"){
+                $('.bloodsample').show();
+                $('.hairsample').hide();
+            }else if(str=="Hair") {
+                $('.bloodsample').hide();
+                $('.hairsample').show();
+            }else{
+                $('.bloodsample').hide();
+                $('.hairsample').hide();
+            }
 
-    $('#sampletypeselect select').change(function () {
-        var str = $( this).val();
-        alert(str);
-        if (str =="Blood"){
-            $('.bloodsample').show();
-            $('.hairsample').hide();
-        }else if(str=="Hair") {
-            $('.bloodsample').hide();
-            $('.hairsample').show();
-        }else{
-            $('.bloodsample').hide();
-            $('.hairsample').hide();
-        }
-
+        });
+        $('#samplelocation select').change(function () {
+            var str = $( this).val();
+            alert(str);
+            if (str =="Home"){
+                $('.homesample').show();
+            } else{
+                $('.homesample').hide();
+            }
+        });
+        $('#qtab:biosample/collection_datetime').datetimepicker();
     });
-    $('#samplelocation select').change(function () {
-        var str = $( this).val();
-        alert(str);
-        if (str =="Home"){
-            $('.homesample').show();
-        } else{
-            $('.homesample').hide();
-        }
-    };
 
 </script>
