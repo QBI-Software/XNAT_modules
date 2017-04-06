@@ -234,8 +234,9 @@ $navigation.setTemplate("/BaseJS.vm")
 <script src="${SITE_ROOT}/scripts/ezCalendar.js"></script>
 
 <!-- QBI customization - Bootstrap  -->
-<link rel="stylesheet" href="${SITE_ROOT}/scripts/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="${SITE_ROOT}/style/qbi.css">
+<link rel="stylesheet" type="text/css" href="${SITE_ROOT}/scripts/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${SITE_ROOT}/scripts/lib/bootstrap/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="${SITE_ROOT}/style/qbi.css">
 
 ## pull in the XNAT app JavaScript files
 $navigation.setTemplate("/AppJS.vm")
@@ -243,6 +244,7 @@ $navigation.setTemplate("/AppJS.vm")
 
 <link rel="stylesheet" type="text/css" href="${SITE_ROOT}/scripts/tabWrangler/tabWrangler.css?${versionString}">
 <script src="${SITE_ROOT}/scripts/tabWrangler/tabWrangler.js"></script>
+
 
 
 #addGlobalCustomScreens("header")

@@ -47,6 +47,8 @@
     <script src="${SITE_ROOT}/scripts/lib/yamljs/dist/yaml.js"></script>
     <script src="${SITE_ROOT}/scripts/lib/form2js/src/form2js.js"></script>
     <script src="${SITE_ROOT}/scripts/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${SITE_ROOT}/scripts/lib/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="${SITE_ROOT}/scripts/lib/bootstrap/js/moment.min.js"></script>
 
     <!-- XNAT utility functions -->
     <script src="${SITE_ROOT}/scripts/utils.js"></script>
