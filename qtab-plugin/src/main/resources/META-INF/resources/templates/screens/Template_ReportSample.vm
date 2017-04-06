@@ -1,0 +1,29 @@
+<!-- QBI Software: USE THIS TEMPLATE FOR REPORTS --INCLUDE IN XDATScreen_report.... -->
+$page.setLinkColor($ui.alink)
+$page.setVlinkColor($ui.vlink)
+#if ($turbineUtils.GetPassedParameter("popup", $data))
+    #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+    #set ($popup = "false")
+#end
+#parse("screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>$pagetitle</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+
+                </thead>
+                <tbody>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    #set($pagetitle="QTAB External Data: NAPLAN")
+    $page.setTitle($pagetitle)
+    #parse("screens/Template_EditSample.vm")
+
+<tr><th>Date</th><td><div class="form-inline">#xdatDateBoxParams("qtab:naplanData/date" "" $item $vr $years $formclass)</div></td></tr>
+<tr>
+    <th>NAPLAN ID</th>
+    <td>#xdatStringBox("qtab:naplanData/naplan_id" $item "" $vr)</td>
+</tr>
+<tr>
+    <th>NAPLAN Year</th>
+    <td>#xdatNumberBox("qtab:naplanData/naplan_year" $item "" $vr)</td>
+</tr>
+<tr>
+    <th>NAPLAN endstat</th>
+    <td>#xdatSelectGroup("qtab:naplanData/naplan_endstat" "" $item $endstats $vr)</td>
+</tr>
+<tr>
+    <th>NAPLAN comment</th>
+    <td>#xdatTextArea("qtab:naplanData/naplan_comment" $item "" $vr $rows $cols)</td>
+</tr>
+#xdatHiddenBox("qtab:naplanData/qtab_naplanData_id" $item "")
+<tr>
+    <td>#xdatEditProps($item $edit_screen)</td>
+    <td>
+        <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
+               value="Submit"/>
+        <input class="btn btn-default" type="button" value="Cancel" onclick="goBack();"/>
+    </td>
+</tr>
+</tbody>
+</table>
+</form>
+</div></div>
+
+<script type="text/javascript">
+    function validateForm() {
+        document.getElementById("form1").submit();
+        return true;
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

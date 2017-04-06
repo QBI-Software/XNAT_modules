@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+	#set($sampletype=$!item.getStringProperty("qtab:biosample/sample_type"))
+	#set($pagetitle="QTAB Biosample Report: " + $sampletype)
+	$page.setTitle($pagetitle)
+	#parse("screens/Template_ReportSample.vm")
+<TR><TD>Wave</TD><TD>Wave&nbsp;$!item.getIntegerProperty("qtab:biosample/wave")</TD></TR>
+<TR><TD>Collected</TD><TD>#renderYesNoIcons($!item.getBooleanProperty("qtab:biosample/collected"))</TD></TR>
+<TR><TD>Location</TD><TD>$!item.getStringProperty("qtab:biosample/location")</TD></TR>
+<TR><TD>Comment</TD><TD>$!item.getStringProperty("qtab:biosample/comment")</TD></TR>
+<TR><TD>Bio ID</TD><TD>$!item.getStringProperty("qtab:biosample/bio_id")</TD></TR>
+<TR><TD>CollectionID</TD><TD>$!item.getStringProperty("qtab:biosample/collection_id")</TD></TR>
+<TR><TD>Date analysed</TD><TD>$!item.getProperty("qtab:biosample/date_analysed")</TD></TR>
+<TR><TD>Protocol</TD><TD>$!item.getStringProperty("qtab:biosample/protocol_id")</TD></TR>
+<TR><TD>Protocol comment</TD><TD>$!item.getStringProperty("qtab:biosample/protocol_comment")</TD></TR>
+<TR><TD>Endstat</TD><TD>$endstats.get($!item.getProperty("qtab:biosample/endstat"))</TD></TR>
+<TR><TD>Endstat comment</TD><TD>$!item.getStringProperty("qtab:biosample/endstat_comment")</TD></TR>
+
+#if($sampletype == "Blood")
+<TR><TD>Parent collected</TD><TD>#renderYesNoIcons($!item.getBooleanProperty("qtab:biosample/parent_collected"))</TD></TR>
+<TR><TD>Parent ID</TD><TD>$!item.getStringProperty("qtab:biosample/parent_id")</TD></TR>
+<TR><TD>Parent Comment</TD><TD>$!item.getStringProperty("qtab:biosample/parent_comment")</TD></TR>
+#elseif($sampletype == "Hair")
+<TR><TD>Natural colour</TD><TD>$haircolors.get($!item.getStringProperty("qtab:biosample/natural_colour"))</TD></TR>
+<TR><TD>Dyed</TD><TD>#renderYesNo($!item.getBooleanProperty("qtab:biosample/dyed"))</TD></TR>
+<TR><TD>Length</TD><TD>$hairlengths.get($!item.getStringProperty("qtab:biosample/length"))</TD></TR>
+#end
+<!--Specific to Home samples -->
+#if($item.getProperty("qtab:biosample/location") && $!item.getProperty("qtab:biosample/location") == "Home")
+<TR><TD>Sent</TD><TD>$!item.getProperty("qtab:homeBiosample/sent")</TD></TR>
+<TR><TD>Collection (datetime)</TD><TD>$!item.getProperty("qtab:homeBiosample/collection_datetime")</TD></TR>
+<TR><TD>Courier</TD><TD>$!item.getStringProperty("qtab:homeBiosample/courier")</TD></TR>
+<TR><TD>Consignment</TD><TD>$!item.getStringProperty("qtab:homeBiosample/consignment")</TD></TR>
+<TR><TD>Returned</TD><TD>#renderYesNo($!item.getBooleanProperty("qtab:homeBiosample/returned"))</TD></TR>
+<TR><TD>Returned date</TD><TD>$!item.getProperty("qtab:homeBiosample/returned_date")</TD></TR>
+#end
+</tbody>
+</table>
+</div>
+<div class="col-sm-4">#parse("/screens/ReportProjectSpecificFields.vm")</div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+    #set($pagetitle="QTAB External Report: Bloodspot")
+    $page.setTitle($pagetitle)
+    #parse("screens/Template_ReportSample.vm")
+<TR><TD>Date</TD><TD>$!item.getProperty("qtab:bloodspotData/date")</TD></TR>
+<TR>
+    <TD>Guthrie ID</TD>
+    <TD>$!item.getStringProperty("qtab:bloodspotData/guthrie")</TD>
+</TR>
+<TR>
+    <TD>Collection ID</TD>
+    <TD>$!item.getIntegerProperty("qtab:bloodspotData/collection")</TD>
+</TR>
+<TR>
+    <TD>Guthrie endstat</TD>
+    <TD>$endstats.get($!item.getIntegerProperty("qtab:bloodspotData/guthrie_endstat"))</TD>
+</TR>
+
+
+</tbody>
+</table>
+</div>
+<div class="col-sm-4">#parse("/screens/ReportProjectSpecificFields.vm")</div>
+</div>
+</div>

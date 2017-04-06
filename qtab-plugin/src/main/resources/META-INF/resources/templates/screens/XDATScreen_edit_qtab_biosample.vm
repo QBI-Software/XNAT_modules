@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+	#set($pagetitle="QTAB Home Biosample")
+	$page.setTitle($pagetitle)
+
+	#parse("screens/Template_EditSample.vm")
+<TR><TD>Sample type</TD><TD id="sampletypeselect">#xdatSelectGroup("qtab:biosample/sample_type" "" $item $sampletypes $vr)</TD></TR>
+<TR><TD>Wave</TD><TD>#xdatNumberBox("qtab:biosample/wave" $item "" $vr)</TD></TR>
+<TR><TD>Collected</TD><TD>#xdatBooleanRadio("qtab:biosample/collected" $item false $vr)</TD></TR>
+<TR><TD>Location</TD><TD id="samplelocation">#xdatSelectGroup("qtab:biosample/location" "" $item $locations $vr)</TD></TR>
+<TR><TD>Comment</TD><TD>#xdatTextArea("qtab:biosample/comment" $item "" $vr $rows $cols)</TD></TR>
+<TR><TD>Bio ID</TD><TD>#xdatStringBox("qtab:biosample/bio_id" $item "" $vr)</TD></TR>
+<TR><TD>Collection ID</TD><TD>#xdatStringBox("qtab:biosample/collection_id" $item "" $vr)</TD></TR>
+<TR><TD>Date analysed</TD><TD><div class="form-inline">#xdatDateBoxParams("qtab:biosample/date_analysed" "" $item $vr $years $formclass)</div></TD></TR>
+<TR><TD>Protocol</TD><TD>#xdatStringBox("qtab:biosample/protocol_id" $item "" $vr)</TD></TR>
+<TR><TD>Protocol comment</TD><TD>#xdatTextArea("qtab:biosample/protocol_comment" $item "" $vr $rows $cols)</TD></TR>
+<TR><TD>Endstat</TD><TD>#xdatSelectGroup("qtab:biosample/endstat" "" $item $endstats $vr)</TD></TR>
+<TR><TD>Endstat comment</TD><TD>#xdatTextArea("qtab:biosample/endstat_comment" $item "" $vr $rows $cols)</TD></TR>
+<!-- Blood only -->
+<TR class="bloodsample"><TD>Parent sample collected</TD><TD>#xdatBooleanRadio("qtab:biosample/parent_collected" $item false $vr)</TD></TR>
+<TR class="bloodsample"><TD>Parent</TD><TD>#xdatSelectGroup("qtab:biosample/parent_id" "" $item $parents $vr)</TD></TR>
+<TR class="bloodsample"><TD>Parent comment</TD><TD>#xdatTextArea("qtab:biosample/parent_comment" $item "" $vr $rows $cols)</TD></TR>
+<!-- Hair only -->
+<TR class="hairsample"><TD>Natural colour</TD><TD>#xdatSelectGroup("qtab:biosample/natural_colour" "" $item $haircolors $vr)</TD></TR>
+<TR class="hairsample"><TD>Dyed</TD><TD>#xdatBooleanRadio("qtab:biosample/dyed" $item false $vr)</TD></TR>
+<TR class="hairsample"><TD>Length</TD><TD>#xdatSelectGroup("qtab:biosample/length" "" $item $hairlengths $vr)</TD></TR>
+<!-- Home only -->
+<TR class="homesample"><TD>Sent</TD><TD><div class="form-inline">#xdatDateBoxParams("qtab:biosample/sent" "" $item $vr $years $formclass)</div></TD></TR>
+<TR class="homesample"><TD>Collection</TD><TD>#xdatDateTimeBox("qtab:biosample/collection_datetime" $item $vr $years)</TD></TR>
+<TR class="homesample"><TD>Courier</TD><TD>#xdatStringBox("qtab:biosample/courier" $item "" $vr)</TD></TR>
+<TR class="homesample"><TD>Consignment</TD><TD>#xdatStringBox("qtab:biosample/consignment" $item "" $vr)</TD></TR>
+<TR class="homesample"><TD>Returned</TD><TD>#xdatBooleanRadio("qtab:biosample/returned" $item false $vr)</TD></TR>
+<TR class="homesample"><TD>Returned date</TD><TD><div class="form-inline">#xdatDateBoxParams("qtab:biosample/returned_date" "" $item $vr $years $formclass)</div></TD></TR>
+
+<tr>
+    <td>#xdatEditProps($item $edit_screen)</td>
+    <td>
+        <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
+               value="Submit"/>
+        <input class="btn btn-default" type="button" value="Cancel" onclick="goBack();"/>
+    </td>
+</tr>
+</tbody>
+</table>
+</form>
+</div></div>
+
+<script type="text/javascript">
+
+    function validateForm() {
+        document.getElementById("form1").submit();
+        return true;
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+
+    $('.bloodsample').hide();
+    $('.hairsample').hide();
+    $('.homesample').hide();
+
+    $('#sampletypeselect select').change(function () {
+        var str = $( this).val();
+        alert(str);
+        if (str =="Blood"){
+            $('.bloodsample').show();
+            $('.hairsample').hide();
+        }else if(str=="Hair") {
+            $('.bloodsample').hide();
+            $('.hairsample').show();
+        }else{
+            $('.bloodsample').hide();
+            $('.hairsample').hide();
+        }
+
+    });
+    $('#samplelocation select').change(function () {
+        var str = $( this).val();
+        alert(str);
+        if (str =="Home"){
+            $('.homesample').show();
+        } else{
+            $('.homesample').hide();
+        }
+    };
+
+</script>

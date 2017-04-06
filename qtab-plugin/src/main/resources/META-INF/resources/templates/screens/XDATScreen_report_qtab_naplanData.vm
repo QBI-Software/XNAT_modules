@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+    #set($pagetitle="QTAB External Report: NAPLAN")
+    $page.setTitle($pagetitle)
+    #parse("screens/Template_ReportSample.vm")
+<TR>
+    <TD>Date</TD>
+    <TD>$!item.getProperty("qtab:bloodspotData/date")</TD>
+</TR>
+<TR>
+    <TD>NAPLAN ID</TD>
+    <TD>$!item.getStringProperty("qtab:naplanData/naplan_id")</TD>
+</TR>
+<TR>
+    <TD>NAPLAN Year</TD>
+    <TD>$!item.getProperty("qtab:naplanData/naplan_year")</TD>
+</TR>
+<TR>
+    <TD>Comment</TD>
+    <TD>$!item.getIntegerProperty("qtab:naplanData/naplan_comment")</TD>
+</TR>
+<TR>
+    <TD>NAPLAN endstat</TD>
+    <TD>$endstats.get($!item.getIntegerProperty("qtab:naplanData/naplan_endstat"))</TD>
+</TR>
+
+
+</tbody>
+</table>
+</div>
+<div class="col-sm-4">#parse("/screens/ReportProjectSpecificFields.vm")</div>
+</div>
+</div>

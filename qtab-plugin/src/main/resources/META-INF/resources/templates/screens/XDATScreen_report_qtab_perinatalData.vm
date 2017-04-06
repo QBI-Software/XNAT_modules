@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+    #set($pagetitle="QTAB External Report: Perinatal")
+    $page.setTitle($pagetitle)
+    #parse("screens/Template_ReportSample.vm")
+<TR>
+    <TD>Date</TD>
+    <TD>$!item.getProperty("qtab:perinatalData/date")</TD>
+</TR>
+<TR>
+    <TD>ID</TD>
+    <TD>$!item.getStringProperty("qtab:perinatalData/peri_id")</TD>
+</TR>
+<TR>
+    <TD>Perinatal endstat</TD>
+    <TD>$endstats.get($!item.getIntegerProperty("qtab:perinatalData/peri_endstat"))</TD>
+</TR>
+
+
+</tbody>
+</table>
+</div>
+<div class="col-sm-4">#parse("/screens/ReportProjectSpecificFields.vm")</div>
+</div>
+</div>
