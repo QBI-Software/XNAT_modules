@@ -28,6 +28,9 @@ h3.reportheader{
 	width: 100%;
     float: left;
 }
+#search_selector{
+	color:black !important;
+}
 /*From embedded style in xnat_subjectData
 DIV.container{
 	border: 1px solid #AAAAAA;

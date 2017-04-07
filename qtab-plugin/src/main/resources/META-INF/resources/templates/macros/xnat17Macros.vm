@@ -201,7 +201,7 @@
     	
     	<div class="form-group">
                 <div class='input-group date' id='$name'>
-                    <input id='$id' type='text' class="form-control" 
+                    <input id='$id' name='$id' type='text' class="form-control form-datetime" 
                     value="$expt_date" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>

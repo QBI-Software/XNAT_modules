@@ -37,7 +37,6 @@
         <div class="panel-body">
             <table class="table table-striped">
                 <tbody>
-                <tr><th colspan="2">DOB,YOB or age</th></tr>
                 <tr><td>DOB</td><td>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/dob")</td></tr>
                 <tr><td>YOB</td><td>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/yob")</td></tr>
                 <tr><td>Age</td><td>$!item.getIntegerProperty("xnat:subjectData/demographics[@xsi:type=qtab:qtabDemographics]/age")</td></tr>

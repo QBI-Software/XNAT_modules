@@ -26,12 +26,16 @@
 #elseif($sampletype == "Hair")
 <TR><TD>Natural colour</TD><TD>$haircolors.get($!item.getStringProperty("qtab:biosample/natural_colour"))</TD></TR>
 <TR><TD>Dyed</TD><TD>#renderYesNo($!item.getBooleanProperty("qtab:biosample/dyed"))</TD></TR>
-<TR><TD>Length</TD><TD>$hairlengths.get($!item.getStringProperty("qtab:biosample/length"))</TD></TR>
+<TR><TD>Length</TD><TD>
+	#if($!item.getIntegerProperty("qtab:biosample/length"))
+		$hairlengths.get($!item.getIntegerProperty("qtab:biosample/length"))
+	#end
+</TD></TR>
 #end
 <!--Specific to Home samples -->
 #if($item.getProperty("qtab:biosample/location") && $!item.getProperty("qtab:biosample/location") == "Home")
 <TR><TD>Sent</TD><TD>$!item.getProperty("qtab:biosample/sent")</TD></TR>
-<TR><TD>Collection (datetime)</TD><TD>$!item.getProperty("qtab:biosample/collection_datetime")</TD></TR>
+<TR><TD>Courier collected</TD><TD>$!item.getProperty("qtab:biosample/collection_datetime")</TD></TR>
 <TR><TD>Courier</TD><TD>$!item.getStringProperty("qtab:biosample/courier")</TD></TR>
 <TR><TD>Consignment</TD><TD>$!item.getStringProperty("qtab:biosample/consignment")</TD></TR>
 <TR><TD>Returned</TD><TD>#renderYesNo($!item.getBooleanProperty("qtab:biosample/returned"))</TD></TR>

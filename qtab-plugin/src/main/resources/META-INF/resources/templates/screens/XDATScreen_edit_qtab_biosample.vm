@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	#set($pagetitle="QTAB Home Biosample")
+	#set($pagetitle="QTAB Biological sample")
 	$page.setTitle($pagetitle)
 
 	#parse("screens/Template_EditSample.vm")
@@ -25,7 +25,7 @@
 <TR class="hairsample"><TD>Length</TD><TD>#xdatSelectGroup("qtab:biosample/length" "" $item $hairlengths $vr)</TD></TR>
 <!-- Home only -->
 <TR class="homesample"><TD>Sent</TD><TD><div class="form-inline">#xdatDateBoxParams("qtab:biosample/sent" "" $item $vr $years $formclass)</div></TD></TR>
-<TR class="homesample"><TD>Collection</TD><TD>#xdatDateTimeBootstrap("qtab:biosample/collection_datetime" "collection_datetime" $item $vr)</TD></TR>
+<TR class="homesample"><TD>Courier collected (yyyy-mm-dd hh:mm:00.0)</TD><TD>#xdatDateTimeBootstrap("qtab:biosample/collection_datetime" "collection_datetime" $item $vr)</TD></TR>
 <TR class="homesample"><TD>Courier</TD><TD>#xdatStringBox("qtab:biosample/courier" $item "" $vr)</TD></TR>
 <TR class="homesample"><TD>Consignment</TD><TD>#xdatStringBox("qtab:biosample/consignment" $item "" $vr)</TD></TR>
 <TR class="homesample"><TD>Returned</TD><TD>#xdatBooleanRadio("qtab:biosample/returned" $item false $vr)</TD></TR>
@@ -55,13 +55,29 @@
         window.history.back();
     }
     $(document).ready(function() {
-        $('.bloodsample').hide();
-        $('.hairsample').hide();
-        $('.homesample').hide();
+        /*Initial load - detect if create or edit */
+        var sampletype = $('#sampletypeselect select').val();
+        var locationtype = $('#samplelocation select').val();
+        if (sampletype == "Blood"){
+            $('.bloodsample').show();
+        }else{
+            $('.bloodsample').hide();
+        }
+        if (sampletype == "Hair"){
+            $('.hairsample').show();
+        }else{
+            $('.hairsample').hide();
+        }
+        if (locationtype == "Home"){
+            $('.homesample').show();
+        }else{
+            $('.homesample').hide();
+        }
+
 
         $('#sampletypeselect select').change(function () {
             var str = $( this).val();
-            alert(str);
+            //alert(str);
             if (str =="Blood"){
                 $('.bloodsample').show();
                 $('.hairsample').hide();
@@ -72,11 +88,11 @@
                 $('.bloodsample').hide();
                 $('.hairsample').hide();
             }
-
+            $('#subtitle').text(str);
         });
         $('#samplelocation select').change(function () {
             var str = $( this).val();
-            alert(str);
+            //alert(str);
             if (str =="Home"){
                 $('.homesample').show();
             } else{
