@@ -47,8 +47,12 @@
                 </tr>
                 <tr>
                     <th>Number tubes remaining</th>
+
+                    <td>#if ($numTubes > 0)
                     #set($remaining = $!item.getIntegerProperty("irc5:salivaData/total") - $numTubes)
-                    <td>$remaining</td>
+                        $remaining
+                    #end
+                    </td>
                 </tr>
 
                 <tr>

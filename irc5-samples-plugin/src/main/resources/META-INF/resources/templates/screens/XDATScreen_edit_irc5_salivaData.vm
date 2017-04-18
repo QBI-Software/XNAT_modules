@@ -95,7 +95,8 @@ $page.setVlinkColor($ui.vlink)
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio" "ratio" $tube "" $vr "form-control" "" "10")</td>
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/concentration" "concentration" $tube "" $vr "form-control" "" "10")</td>
                         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "recheck" $tube $vr "form-control")</td>
-                        <td><button id="$tubeidx" exptid = $!item.getProperty("ID") tubeid="$tube.getIrc5SalivatubedataId()" class="delete_tube" title="Delete tube"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        <td><!--<button id="$tubeidx" exptid = $!item.getProperty("ID") tubeid="$tube.getIrc5SalivatubedataId()" class="delete_tube" title="Delete tube"><span class="glyphicon glyphicon-trash"></span></button>-->
+                        </td>
                     </tr>
 
                     #end
