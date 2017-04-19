@@ -1,5 +1,5 @@
 <BR>
-
+#parse("/screens/macrolists.vm")
 <div id="expts_container">
 
     <div id="expts_link_legend">
@@ -34,8 +34,45 @@
 
         </div><!-- /proj_expts -->
     #end
-    <div id="all_expts" style="display:none">
+    #if ($subject.getExperiments_experiment("opex:exerciseData").size() > 0)
+        <div id="opex_expts" >
+        <h4>OPEX experiments</h4>
 
+            <table width="100%" class="highlight sortable">
+                <tr>
+                    <th align="left" class="underscore sort">Date</th>
+                    <th align="left" class="underscore sort">Experiment</th>
+
+                    <th align="left" class="underscore sort">Interval</th>
+                    <th align="left" class="underscore sort">Prepost</th>
+                    <th align="left" class="underscore sort">Sample</th>
+                </tr>
+                #foreach ($assessor in $subject.getExperiments_experiment("opex:exerciseData"))
+                    #set ( $assessorID = $!assessor.getProperty("ID"))
+                    #set ( $assessorField = "${assessor.getXSIType()}.ID")
+                    #set ( $url = "$link.setAction('DisplayItemAction').addPathInfo('search_element',$!assessor.getXSIType()).addPathInfo('search_field',$assessorField).addPathInfo('search_value',$assessorID).addPathInfo('popup',$popup)" )
+
+                    #if($assessor.hasProject($project))
+                        #set ( $url= "$url/project/$project")
+                    #end
+
+                    <tr>
+                        <td>$!assessor.getProperty("date")</td>
+                        <td><a href="$url" title="$assessor.getIdentifier($!project)">$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</a></td>
+
+                        <td>$interval.get($!assessor.getInterval())</td>
+                        <td>$!assessor.getPrepost()</td>
+                        <td>$!assessor.getSampleNum()</td>
+                    </tr>
+
+                #end
+            </table>
+
+        </div>
+        <br/>
+        #end
+    <div id="all_expts" style="display:none">
+        <h4>Other experiments</h4>
         <table width="100%" class="highlight sortable">
             <tr>
                 <th align="left" class="underscore sort">Date</th>
@@ -44,7 +81,10 @@
                 <th align="left" class="underscore sort">Label</th>
             </tr>
             #foreach ($assessor in $subject.getMinimalLoadAssessors())
-                #parse($turbineUtils.getTemplateName("_assessor","xnat:subjectData",$project))
+                #if(!$assessor.getItem().instanceOf("opex:exerciseData"))
+                    #parse($turbineUtils.getTemplateName("_assessor","xnat:subjectData",$project))
+                #end
+
             #end
         </table>
 

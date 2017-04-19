@@ -1,4 +1,5 @@
 #* @vtlvariable name="siteConfig" type="org.nrg.xdat.preferences.SiteConfigPreferences" *#
+
 #if($assessor.canRead($user)==false)
 ##handles data that is not viewable by this user.  On some servers, users can see that these exist (but not view the actual data)
 ##on other servers, they shouldn't see that it exists at all.
@@ -47,10 +48,6 @@
             #end
         #else
             <a href="$url" title="$assessor.getIdentifier($!project)">$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</a>
-            <!-- TODO: ADD INTERVAL, PRE-POST AND SAMPLE TO HEADER FOR OPEX -->
-            #if($assessor.getItem().instanceOf("opex:exerciseData"))
-                <span>-$!assessor.getProperty("$assessor.getXSIType()/interval")</span>
-            #end
 
         #end
 
