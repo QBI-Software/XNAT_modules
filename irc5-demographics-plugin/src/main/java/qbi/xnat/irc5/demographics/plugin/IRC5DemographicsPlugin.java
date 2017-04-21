@@ -5,11 +5,11 @@ import org.nrg.framework.annotations.XnatPlugin;
 import org.nrg.xdat.bean.*;
 import org.springframework.context.annotation.Bean;
 
-@XnatPlugin(name="QBI CC IRC5 Demographics", value="IRC5DemographicsPlugin", description="QBI CC IRC5 Demographics",
+@XnatPlugin(name="IRC5 Demographics", value="IRC5DemographicsPlugin", description="IRC5 Demographics",
 dataModels = {
 		@XnatDataModel(value = Irc5QbiccdemographicsBean.SCHEMA_ELEMENT_NAME,
-				singular = "QBI CC IRC5 Demographics",
-				plural = "QBI CC IRC5 Demographics"),
+				singular = "IRC5 Demographics",
+				plural = "IRC5 Demographics"),
 		@XnatDataModel(value = Irc5BirthdataBean.SCHEMA_ELEMENT_NAME,
                              singular = "Birth History",
                              plural = "Birth History"),
@@ -39,6 +39,6 @@ dataModels = {
 public class IRC5DemographicsPlugin {
 	 @Bean
 	 public String IRC5DemographicsPluginMessage() {
-	        return "Hello there from the QBI CC IRC5 DemographicsPlugin!";
+	        return "Hello there from the IRC5 DemographicsPlugin!";
 	    }
 }

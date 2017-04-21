@@ -8,7 +8,7 @@
     <xs:element name="BLOOD" type="irc5:bloodData"/>
     <xs:complexType name="bloodData">
         <xs:annotation>
-            <xs:documentation>QBI IRC5 Blood sample</xs:documentation>
+            <xs:documentation>IRC5 Blood sample</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="xnat:subjectAssessorData">

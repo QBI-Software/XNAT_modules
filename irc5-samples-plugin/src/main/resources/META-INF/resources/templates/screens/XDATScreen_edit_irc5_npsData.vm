@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    $page.setTitle("IRC5 QBI Neuropsychology Scores")
+    $page.setTitle("IRC5 Neuropsychology Scores")
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
     #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
@@ -47,7 +47,7 @@
         #if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
         #end
-        <h2 class="edit-title">IRC5 QBI Neuropsychology Scores #if($om.getId()) : Edit #else  : Create #end</h2>
+        <h2 class="edit-title">IRC5 Neuropsychology Scores #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="row">#parse("/screens/xnat_edit_subjectAssessorData.vm")</div>
         <div class="row">#parse("/screens/EditProjectSpecificFields.vm")</div>
         <table class="table table-striped">

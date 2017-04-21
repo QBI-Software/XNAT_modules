@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	$page.setTitle("IRC5 QBI Skin Sample")
+	$page.setTitle("IRC5 Skin Sample")
 	$page.setLinkColor($ui.alink)
 	$page.setVlinkColor($ui.vlink)
 	#set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
@@ -42,7 +42,7 @@
 		#if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
 		#end
-        <h2 class="edit-title">IRC5 QBI Skin Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+        <h2 class="edit-title">IRC5 Skin Sample #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="form-group">
 			#parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>

@@ -45,7 +45,7 @@ $page.setVlinkColor($ui.vlink)
 		#if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
 		#end
-        <h2 class="edit-title">IRC5 QBI Saliva Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+        <h2 class="edit-title">IRC5 Saliva Sample #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="row">
 			#parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>

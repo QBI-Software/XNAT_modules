@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-$page.setTitle("QBICC Demographics Report")
+$page.setTitle("IRC5 Demographics Report")
 $page.setLinkColor($ui.alink)
 $page.setVlinkColor($ui.vlink)
  ##----------------------------------------
@@ -11,7 +11,7 @@ $page.setVlinkColor($ui.vlink)
 
 ##--end previous table
 
-<h3 class="reportheader">QBI CC Demographics for IRC5</h3>
+<h3 class="reportheader">IRC5 Demographics</h3>
 <div class="tab-content col-md-4">
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a data-toggle="pill" href="#dem">Demographics</a></li>
@@ -65,7 +65,7 @@ $page.setVlinkColor($ui.vlink)
 	</div>
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
     <div id="participant" class="tab-pane fade">
-        <h4>QBICC Participant Information</h4>
+        <h4>Participant Information</h4>
         <div class="panel-body">
             <table class="table table-striped"><tbody>
                 <TR><TD>Date Participant Entered</TD><TD>$!item.getProperty("xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics]/participant/DateOfEntry")</TD></TR>

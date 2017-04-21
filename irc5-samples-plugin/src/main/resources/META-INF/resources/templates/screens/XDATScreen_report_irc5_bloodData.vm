@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-$page.setTitle("QBI Blood Sample")
+$page.setTitle("Blood Sample")
 $page.setLinkColor($ui.alink)
 $page.setVlinkColor($ui.vlink)
 #if ($turbineUtils.GetPassedParameter("popup", $data))
@@ -9,7 +9,7 @@ $page.setVlinkColor($ui.vlink)
 
 <div class="container">
     <div>
-        <h3>QBI Blood Sample</h3>
+        <h3>Blood Sample</h3>
 			#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">

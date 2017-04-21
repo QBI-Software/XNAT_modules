@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	$page.setTitle("IRC5 QBI Image Analysis Report")
+	$page.setTitle("IRC5 MRI Image Analysis Report")
 	$page.setLinkColor($ui.alink)
 	$page.setVlinkColor($ui.vlink)
 	#if ($turbineUtils.GetPassedParameter("popup", $data))
@@ -9,7 +9,7 @@
 
 <div class="container">
     <div>
-        <h3>IRC5 QBI Image Abnormality Analysis Report</h3>
+        <h3>IRC5 MRI Image Abnormality Analysis Report</h3>
 		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">

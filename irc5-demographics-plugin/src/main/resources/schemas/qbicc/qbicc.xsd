@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2017 sp1 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
 <xs:schema xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/irc5" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
 	<!-- D:/Projects/XNAT/schemas/xnat/xnat.xsd -->
 	<xs:annotation>
-		<xs:documentation>QBI CC Demographics for IRC5</xs:documentation>
+		<xs:documentation>IRC5 Demographics</xs:documentation>
 	</xs:annotation>
 	<xs:element name="qbicc" type="irc5:qbiccDemographics"/>
 	<xs:complexType name="qbiccDemographics">
 		<xs:annotation>
-			<xs:documentation>Demographics for QBI CC</xs:documentation>
+			<xs:documentation>IRC5 Demographics</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xnat:demographicData">
@@ -28,7 +28,7 @@
 	</xs:complexType>
 	<xs:complexType name="participantData">
 		<xs:annotation>
-			<xs:documentation>QBICC Participant Information</xs:documentation>
+			<xs:documentation>Participant Information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DateOfEntry" minOccurs="0" maxOccurs="1">

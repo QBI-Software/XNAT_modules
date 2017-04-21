@@ -13,7 +13,7 @@ $page.setVlinkColor($ui.vlink)
 <input type="hidden" name="project" value="$!{project}" />
 
 <!-- BEGIN xnat:subjectData/demographics[@xsi:type=irc5:qbiccDemographics] -->
-<h3 class="reportheader">IRC5 Demographics for QBI CC</h3>
+<h3 class="reportheader">IRC5 Demographics</h3>
 
 <div class="tab-content col-md-2">
     <ul class="nav nav-pills nav-stacked">
@@ -82,7 +82,7 @@ $page.setVlinkColor($ui.vlink)
         </div>
 -->
         <div id="participant" class="tab-pane fade">
-            <h4>QBICC Participant Information</h4>
+            <h4>Participant Information</h4>
             <div class="panel-body">
                 <table class="table table-striped">
                     <tbody>

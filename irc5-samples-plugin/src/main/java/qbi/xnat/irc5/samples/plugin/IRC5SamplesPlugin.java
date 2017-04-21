@@ -12,7 +12,7 @@ import org.nrg.xdat.bean.Irc5ImageanalysisdataBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@XnatPlugin(name="QBI IRC5 Bio samples", value="IRC5SamplesPlugin", description="QBI IRC5 Bio samples",
+@XnatPlugin(name="IRC5 Bio samples", value="IRC5SamplesPlugin", description="IRC5 Bio samples",
 dataModels = {@XnatDataModel(value = Irc5BlooddataBean.SCHEMA_ELEMENT_NAME,
                              singular = "Blood sample",
                              plural = "Blood samples"),

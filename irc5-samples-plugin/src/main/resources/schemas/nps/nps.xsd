@@ -5,7 +5,7 @@
 	<xs:element name="NPS" type="irc5:npsData">	</xs:element>
 	<xs:complexType name="npsData">
 		<xs:annotation>
-			<xs:documentation>QBI IRC5 Neuropsychology scores</xs:documentation>
+			<xs:documentation>IRC5 Neuropsychology scores</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">

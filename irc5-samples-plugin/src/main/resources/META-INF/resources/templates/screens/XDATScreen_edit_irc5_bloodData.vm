@@ -42,7 +42,7 @@
         #if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
         #end
-        <h2 class="edit-title">IRC5 QBI Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+        <h2 class="edit-title">IRC5 Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="form-inline">
             #parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>

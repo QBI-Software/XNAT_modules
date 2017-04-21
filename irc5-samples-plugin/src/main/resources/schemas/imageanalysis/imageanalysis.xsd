@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- XNAT datatype for QBI Brain test-->
+<!-- XNAT datatype for MRI Image Analysis -->
 <xs:schema xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/irc5" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
 	<xs:element name="IMAGEANALYSIS" type="irc5:imageanalysisData"/>
 	<xs:complexType name="imageanalysisData">
 		<xs:annotation>
-			<xs:documentation>QBI IRC5 Image Abnormality Analysis</xs:documentation>
+			<xs:documentation>IRC5 MRI Image Abnormality Analysis</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">

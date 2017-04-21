@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-$page.setTitle("IRC5 QBI Medical Opinion")
+$page.setTitle("IRC5 Medical Opinion")
 $page.setLinkColor($ui.alink)
 $page.setVlinkColor($ui.vlink)
 #set($months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
@@ -41,7 +41,7 @@ $page.setVlinkColor($ui.vlink)
 		#if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
 		#end
-        <h2 class="edit-title">IRC5 QBI Medical Opinion #if($om.getId()) : Edit #else  : Create #end</h2>
+        <h2 class="edit-title">IRC5 Medical Opinion #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="form-group">
 			#parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
