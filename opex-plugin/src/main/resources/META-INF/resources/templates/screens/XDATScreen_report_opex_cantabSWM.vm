@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    $page.setTitle("CANTAB SWM Data")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>CANTAB SWM Data</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <!-- START opex:cantabSWM -->
+                <TR>
+                    <TD>SWMBE</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMBE")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMBE6</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMBE6")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMBE8</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMBE8")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMDE8</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMDE8")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMTE</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMTE")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMTE6</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMTE6")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMTE8</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMTE8")</TD>
+                </TR>
+                <TR>
+                    <TD>SWMWE</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMWE")</TD>
+                </TR>
+                <!-- END opex:cantabSWM -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

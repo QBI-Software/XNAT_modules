@@ -12,7 +12,10 @@
 	<TD>Interval</TD>
 	<TD>$interval.get($!item.getIntegerProperty("$om.getXSIType()/interval"))</TD>
 </TR>
-
+<TR>
+    <TD>Type</TD>
+    <TD>$!item.getStringProperty("$om.getXSIType()/sample_type")</TD>
+</TR>
 <TR>
 	<TD>Sample ID</TD>
 	<TD>$!item.getStringProperty("$om.getXSIType()/sample_id")</TD>

@@ -3,17 +3,17 @@
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-    $page.setTitle("OPEX ELISAs Blood Sample")
+    $page.setTitle("CANTAB MOT Data")
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
     #if ($turbineUtils.GetPassedParameter("popup", $data))
-        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
         #set ($popup = "false")
     #end
     #parse("/screens/macrolists.vm")
 <div class="container">
     <div>
-        <h3>OPEX ELISAs Blood Sample</h3>
+        <h3>CANTAB MOT Data</h3>
         #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">
@@ -32,16 +32,17 @@
                 </thead>
                 <tbody>
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
-                <!-- START opex:bloodElisasData -->
-                <tr>
-                    <td>Ghrelin</td>
-                    <td>$!item.getDoubleProperty("opex:bloodElisasData/Ghrelin")</td>
-                </tr>
-                <tr>
-                    <td>CathepsinB</td>
-                    <td>$!item.getDoubleProperty("opex:bloodElisasData/CathepsinB")</td>
-                </tr>
-                <!-- END opex:bloodElisasData -->
+                <!-- START opex:cantabMOT -->
+                <TR>
+                    <TD>MOTML</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabMOT/MOTML")</TD>
+                </TR>
+                <TR>
+                    <TD>MOTSDL</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabMOT/MOTSDL")</TD>
+                </TR>
+
+                <!-- END opex:cantabMOT -->
                 </tbody>
             </table>
         </div>

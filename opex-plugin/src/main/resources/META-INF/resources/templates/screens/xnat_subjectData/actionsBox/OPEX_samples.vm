@@ -11,3 +11,15 @@
 <li class="yuimenuitem" group="OPEX samples">
     <A href="$link.setPage("XDATScreen_edit_opex_bloodElisasData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add Blood ELISAS</A>
 </li>
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_cantabDMS.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add CANTAB DMS</A>
+</li>
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_cantabMOT.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add CANTAB MOT</A>
+</li>
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_cantabPAL.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add CANTAB PAL</A>
+</li>
+<li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_cantabSWM.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add CANTAB SWM</A>
+</li>

@@ -19,6 +19,18 @@ dataModels = {@XnatDataModel(value = OpexBloodmultiplexdataBean.SCHEMA_ELEMENT_N
 		@XnatDataModel(value = OpexExercisedataBean.SCHEMA_ELEMENT_NAME,
 				singular = "Exercise sample",
 				plural = "Exercise sample"),
+		@XnatDataModel(value = OpexCantabdmsBean.SCHEMA_ELEMENT_NAME,
+				singular = "CANTAB DMS",
+				plural = "CANTAB DMS"),
+		@XnatDataModel(value = OpexCantabmotBean.SCHEMA_ELEMENT_NAME,
+				singular = "CANTAB MOT",
+				plural = "CANTAB MOT"),
+		@XnatDataModel(value = OpexCantabpalBean.SCHEMA_ELEMENT_NAME,
+				singular = "CANTAB PAL",
+				plural = "CANTAB PAL"),
+		@XnatDataModel(value = OpexCantabswmBean.SCHEMA_ELEMENT_NAME,
+				singular = "CANTAB SWM",
+				plural = "CANTAB SWM"),
 
 } )
 public class OPEXPlugin {

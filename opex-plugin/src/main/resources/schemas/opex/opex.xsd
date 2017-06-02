@@ -11,42 +11,42 @@
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
 				<xs:sequence>
-			<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+					<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
                                 Date of analysis
                             </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="interval" type="xs:integer" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="interval" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
                                 Monthly interval stage
                             </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="prepost" minOccurs="0" maxOccurs="1">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Pre"/>
-						<xs:enumeration value="Post"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="prepost" minOccurs="0" maxOccurs="1">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Pre"/>
+								<xs:enumeration value="Post"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
                                 Sample ID from analyser 
                             </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_num" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_num" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
                                 Sample Number (1,2 or avg)
                             </xs:documentation>
-				</xs:annotation>
-			</xs:element>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="sample_type" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -62,7 +62,9 @@
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-		</xs:sequence></xs:extension></xs:complexContent>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="BLOODMULTIPLEX" type="opex:bloodMultiplexData"/>
 	<xs:complexType name="bloodMultiplexData">
@@ -72,8 +74,8 @@
 		<xs:complexContent>
 			<xs:extension base="opex:exerciseData">
 				<xs:sequence>
-					<xs:element name="GH" type="xs:float"  minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Leptin" type="xs:float"  minOccurs="0" maxOccurs="1"/>
+					<xs:element name="GH" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Leptin" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="BDNF" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="IGFBP7" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="IL1" type="xs:float" minOccurs="0" maxOccurs="1"/>
@@ -100,7 +102,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
 	<xs:element name="BLOODELISAS" type="opex:bloodElisasData"/>
 	<xs:complexType name="bloodElisasData">
 		<xs:annotation>
@@ -111,6 +112,86 @@
 				<xs:sequence>
 					<xs:element name="Ghrelin" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="CathepsinB" type="xs:float" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CANTABMOT" type="opex:cantabMOT"/>
+	<xs:complexType name="cantabMOT">
+		<xs:annotation>
+			<xs:documentation>CANTAB Motor Control Task</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="MOTML" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="MOTSDL" type="xs:float" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CANTABPAL" type="opex:cantabPAL"/>
+	<xs:complexType name="cantabPAL">
+		<xs:annotation>
+			<xs:documentation>CANTAB Paired Associate Learning</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="PALFAMS" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALMETS" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTA" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTEA" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTEA6" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTEA8" type="xs:float" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CANTABDMS" type="opex:cantabDMS"/>
+	<xs:complexType name="cantabDMS">
+		<xs:annotation>
+			<xs:documentation>CANTAB Delayed Match to Sample</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="DMSCC" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSML" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSML0" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSML12" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSMLAD" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSPC" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSPC0" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSPC12" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSPCAD" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSTC0" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSTC12" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSTCAD" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSTCS" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSTEAD" type="xs:float" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CANTABSWM" type="opex:cantabSWM"/>
+	<xs:complexType name="cantabSWM">
+		<xs:annotation>
+			<xs:documentation>CANTAB Spatial Working Memory</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opex:exerciseData">
+				<xs:sequence>
+					<xs:element name="SWMBE" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMBE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMBE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMDE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMTE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMTE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SWMWE" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

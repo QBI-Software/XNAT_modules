@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    $page.setTitle("CANTAB PAL")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #parse("/screens/macrolists.vm")
+<script type="text/javascript">
+    window.currentID = "$!om.getId()";
+        #if($om.getProject())
+            #if($om.getProject().equals(""))
+            window.currentProject = "$!project";
+            #else
+            window.currentProject = "$!om.getProject()";
+            #end
+        #else
+        window.currentProject = "$!project";
+        #end
+
+    window.currentSubject = "$!om.getSubjectId()";
+    window.currentLabel = "$!om.getLabel()";
+</script>
+#if ($data.message)
+<div class="alert alert-danger error"><span>$data.message</span></div>
+#end
+<div id="EditForm" class="container col-md-8">
+    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
+        <input type="hidden" name="project" value="$!{project}">
+        <input type="hidden" name="part_id" value="$!{part_id}">
+        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
+        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
+        <input type='hidden' name='$om.getXSIType()/subject_ID'
+               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
+        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
+        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
+        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
+        #if($vr)
+            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
+        #end
+        <h2 class="edit-title">CANTAB Paired Associate Learning (PAL))#if($om.getId()) : Edit #else  : Create #end</h2>
+        <div class="row">
+            #parse("/screens/xnat_edit_subjectAssessorData.vm")
+        </div>
+        <div class="row">
+            #parse("/screens/EditProjectSpecificFields.vm")
+        </div>
+        <table class="table table-striped">
+            <!-- BEGIN opex:cantabPAL -->
+            <input type="hidden" name="$om.getXSIType()/sample_type" value='cognition'/>
+            <tbody>
+                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+            <TR>
+                <TD>PALFAMS</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALFAMS" $item "" $vr)</TD>
+            </TR>
+            <TR>
+                <TD>PALMETS</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALMETS" $item "" $vr)</TD>
+            </TR>
+            <TR>
+                <TD>PALTA</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALTA" $item "" $vr)</TD>
+            </TR>
+            <TR>
+                <TD>PALTE</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALTE" $item "" $vr)</TD>
+            </TR>
+            <TR>
+                <TD>PALTEA</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALTEA" $item "" $vr)</TD>
+            </TR>
+            <TR>
+                <TD>PALTEA6</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALTEA6" $item "" $vr)</TD>
+            </TR>
+            <TR>
+                <TD>PALTEA8</TD>
+                <TD>#xdatNumberBox("opex:cantabPAL/PALTEA8" $item "" $vr)</TD>
+            </TR>
+            </tbody>
+        </table>
+
+        <!-- END opex:cantabPAL -->
+        <div>
+            #xdatEditProps($item $edit_screen)
+            <input type="button" ONCLICK="validateForm();" name="eventSubmit_doInsert" value="Submit"/>
+        </div>
+
+    </form>
+
+
+    <script type="text/javascript">
+        function validateForm() {
+            //INSERT CUSTOM CONTENT HERE
+
+            validateSubjectAssessorForm();
+            return false;
+        }
+    </script>

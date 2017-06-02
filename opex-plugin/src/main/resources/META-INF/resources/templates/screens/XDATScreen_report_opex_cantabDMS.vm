@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    $page.setTitle("CANTAB DMS Data")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>CANTAB DMS Data</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <!-- START opex:cantabDMS -->
+                <TR>
+                    <TD>DMSCC</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSCC")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSML</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSML")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSML0</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSML0")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSML12</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSML12")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSMLAD</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSMLAD")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSPC</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSPC")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSPC0</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSPC0")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSPC12</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSPC12")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSPCAD</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSPCAD")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSTC0</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSTC0")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSTC12</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSTC12")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSTCAD</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSTCAD")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSTCS</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSTCS")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSTE</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSTE")</TD>
+                </TR>
+                <TR>
+                    <TD>DMSTEAD</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabDMS/DMSTEAD")</TD>
+                </TR>
+                <!-- END opex:cantabDMS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

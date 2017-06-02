@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    $page.setTitle("CANTAB PAL Data")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>CANTAB PAL Data</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <!-- START opex:cantabPAL -->
+                <TR>
+                    <TD>PALFAMS</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALFAMS")</TD>
+                </TR>
+                <TR>
+                    <TD>PALMETS</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALMETS")</TD>
+                </TR>
+                <TR>
+                    <TD>PALTA</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALTA")</TD>
+                </TR>
+                <TR>
+                    <TD>PALTE</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALTE")</TD>
+                </TR>
+                <TR>
+                    <TD>PALTEA</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALTEA")</TD>
+                </TR>
+                <TR>
+                    <TD>PALTEA6</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALTEA6")</TD>
+                </TR>
+                <TR>
+                    <TD>PALTEA8</TD>
+                    <TD>$!item.getDoubleProperty("opex:cantabPAL/PALTEA8")</TD>
+                </TR>
+                <!-- END opex:cantabPAL -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>
