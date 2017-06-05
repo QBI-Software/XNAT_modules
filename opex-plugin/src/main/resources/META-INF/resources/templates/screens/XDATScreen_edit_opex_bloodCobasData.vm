@@ -71,19 +71,5 @@
         </table>
 
         <!-- END opex:bloodMultiplexData -->
-        <div>
-            #xdatEditProps($item $edit_screen)
-            <input type="button" ONCLICK="validateForm();" name="eventSubmit_doInsert" value="Submit"/>
-        </div>
+        #parse("screens/validateform.vm")
 
-    </form>
-
-
-    <script type="text/javascript">
-        function validateForm() {
-            //INSERT CUSTOM CONTENT HERE
-
-            validateSubjectAssessorForm();
-            return false;
-        }
-    </script>

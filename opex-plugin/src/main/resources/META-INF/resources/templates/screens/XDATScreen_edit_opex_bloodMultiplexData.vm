@@ -25,6 +25,7 @@
 #if ($data.message)
 <div class="alert alert-danger error"><span>$data.message</span></div>
 #end
+
 <div id="EditForm" class="container col-md-8">
     <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
         <input type="hidden" name="project" value="$!{project}">
@@ -35,10 +36,11 @@
         <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
         <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
         <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
+
+        <h2 class="edit-title">OPEX Multiplex Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
         #if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
         #end
-        <h2 class="edit-title">OPEX Multiplex Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
         <div class="row">
             #parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
@@ -87,18 +89,4 @@
         </table>
 
         <!-- END opex:bloodMultiplexData -->
-        <div>
-            #xdatEditProps($item $edit_screen)
-            <input type="button" ONCLICK="validateForm();" name="eventSubmit_doInsert" value="Submit"/>
-        </div>
-
-    </form>
-
-    <script type="text/javascript">
-        function validateForm() {
-            //INSERT CUSTOM CONTENT HERE
-
-            validateSubjectAssessorForm();
-            return false;
-        }
-    </script>
+        #parse("screens/validateform.vm")

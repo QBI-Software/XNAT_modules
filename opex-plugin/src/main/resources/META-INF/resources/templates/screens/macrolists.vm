@@ -15,3 +15,5 @@
 #set($endstat = {0:"Not collected",1:"Complete data",2:"Partial complete data"})
 #set($prepost ={"pre":"Pre-Exercise","post":"Post-Exercise"})
 #set($interval ={0:"Baseline",1:"1m",2:"2m",3:"3m",4:"4m",5:"5m",6:"6m"})
+#set($quality={"Good":"Good","Questionable":"Questionable","Poor":"Poor","Unknown":"Unknown"})
+#set($status={"COMPLETED":"COMPLETED","SYSTEM_ERROR":"SYSTEM_ERROR","NOT_RUN":"NOT_RUN","ABORTED":"ABORTED","UNKNOWN":"UNKNOWN"})

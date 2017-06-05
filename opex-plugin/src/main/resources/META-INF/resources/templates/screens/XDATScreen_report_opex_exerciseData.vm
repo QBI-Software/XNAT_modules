@@ -21,10 +21,24 @@
 	<TD>$!item.getStringProperty("$om.getXSIType()/sample_id")</TD>
 </TR>
 <TR>
-	<TD>Sample</TD>
+	<TD>Sample Number</TD>
 	<TD>$!item.getStringProperty("$om.getXSIType()/sample_num")</TD>
 </TR>
-#if($om.getXSIType() == "opex:bloodMultiplexData" || $om.getXSIType() == "opex:bloodElisasData" || $om.getXSIType() == "opex:bloodCobasData")
+<TR>
+    <TD>Sample Quality</TD>
+    <TD>$!item.getStringProperty("$om.getXSIType()/sample_quality")</TD>
+</TR>
+#if($om.getXSIType().startsWith("opex:cantab"))
+<TR>
+    <TD>Processing status</TD>
+    <TD>$!item.getStringProperty("$om.getXSIType()/status")</TD>
+</TR>
+#end
+<TR>
+    <TD>Comments</TD>
+    <TD>$!item.getStringProperty("$om.getXSIType()/comments")</TD>
+</TR>
+#if($om.getXSIType().startsWith("opex:blood"))
 <TR>
     <TD>Prepost</TD>
     <TD>$prepost.get($!item.getStringProperty("$om.getXSIType()/prepost"))</TD>

@@ -19,8 +19,21 @@
     <td>Interval</td>
     <td>#xdatSelectGroup("$om.getXSIType()/interval" "" $item $interval $vr)</td>
 </tr>
-
-#if($om.getXSIType() == "opex:bloodMultiplexData" || $om.getXSIType() == "opex:bloodElisasData" || $om.getXSIType() == "opex:bloodCobasData")
+<TR>
+    <TD>Sample Quality</TD>
+    <TD>#xdatSelectGroup("$om.getXSIType()/sample_quality" "" $item $quality $vr)</TD>
+</TR>
+#if($om.getXSIType().startsWith("opex:cantab"))
+<TR>
+    <TD>Processing status</TD>
+    <TD>#xdatSelectGroup("$om.getXSIType()/status" "" $item $status $vr)</TD>
+</TR>
+#end
+<TR>
+    <TD>Comments</TD>
+    <TD>#xdatTextArea("$om.getXSIType()/comments" $item "" $vr "3" "50")</TD>
+</TR>
+#if($om.getXSIType().startsWith("opex:blood"))
 <tr>
     <td>Pre or post</td>
     <td>#xdatSelectGroup("$om.getXSIType()/prepost" "" $item $prepost $vr)</td>

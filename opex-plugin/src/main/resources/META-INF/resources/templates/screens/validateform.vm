@@ -1,0 +1,22 @@
+<!--Validate form -->
+<div class="form-inline">
+    #xdatEditProps($item $edit_screen)
+
+    <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
+           value="Submit"/>
+    <input class="btn btn-default" type="button" value="Cancel" onclick="goBack();"/>
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+    function validateForm() {
+        document.getElementById("form1").submit();
+        return true;
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<!-- End Validate form -->

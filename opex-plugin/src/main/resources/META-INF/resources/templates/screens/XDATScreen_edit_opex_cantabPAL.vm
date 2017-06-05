@@ -83,19 +83,4 @@
         </table>
 
         <!-- END opex:cantabPAL -->
-        <div>
-            #xdatEditProps($item $edit_screen)
-            <input type="button" ONCLICK="validateForm();" name="eventSubmit_doInsert" value="Submit"/>
-        </div>
-
-    </form>
-
-
-    <script type="text/javascript">
-        function validateForm() {
-            //INSERT CUSTOM CONTENT HERE
-
-            validateSubjectAssessorForm();
-            return false;
-        }
-    </script>
+#parse("screens/validateform.vm")
