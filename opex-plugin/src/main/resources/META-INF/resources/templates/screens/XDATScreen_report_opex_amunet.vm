@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	$page.setTitle("OPEX Amunet")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+	#parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Virtual Water Maze</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+				<!-- start opex:amunet -->
+				<TR><TD>Interval</TD><TD>$interval.get($!item.getIntegerProperty("opex:amunet/interval"))</TD></TR>
+				<TR><TD>AEV Comments</TD><TD>$!item.getStringProperty("opex:amunet/AEVcomments")</TD></TR>
+				<TR><TD>AEV</TD><TD>$!item.getDoubleProperty("opex:amunet/AEV")</TD></TR>
+				<TR><TD>EV</TD><TD>$!item.getDoubleProperty("opex:amunet/EV")</TD></TR>
+				<TR><TD>AV</TD><TD>$!item.getDoubleProperty("opex:amunet/AV")</TD></TR>
+				<TR><TD>DV</TD><TD>$!item.getDoubleProperty("opex:amunet/DV")</TD></TR>
+                <TR><TD>SCS Comments</TD><TD>$!item.getStringProperty("opex:amunet/SCScomments")</TD></TR>
+				<TR><TD>SCS</TD><TD>$!item.getDoubleProperty("opex:amunet/SCS")</TD></TR>
+				<TR><TD>SCD</TD><TD>$!item.getDoubleProperty("opex:amunet/SCD")</TD></TR>
+				<TR><TD>SAS</TD><TD>$!item.getDoubleProperty("opex:amunet/SAS")</TD></TR>
+				<TR><TD>SAD</TD><TD>$!item.getDoubleProperty("opex:amunet/SAD")</TD></TR>
+				<TR><TD>SES</TD><TD>$!item.getDoubleProperty("opex:amunet/SES")</TD></TR>
+				<TR><TD>SED</TD><TD>$!item.getDoubleProperty("opex:amunet/SED")</TD></TR>
+                <!-- END opex:amunet -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+		#parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

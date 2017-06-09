@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- OPEX datatype for Exercise tests-->
+<xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<xs:element name="AMUNET" type="opex:amunet"/>
+	<xs:complexType name="amunet">
+		<xs:annotation>
+			<xs:documentation>Virtual Water Maze</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="interval" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+                                Monthly interval stage
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AEVcomments" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								AEV Comments
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="SCScomments" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								SCS Comments
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="AEV" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="EV" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="AV" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DV" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SCS" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SCD" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SAS" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SAD" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SES" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SED" type="xs:float" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

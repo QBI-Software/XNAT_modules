@@ -3,6 +3,9 @@
 #* @vtlvariable name="om" type="org.nrg.xdat.om.XnatSubjectdata" *#
 <!-- Sequence: 6 -->
 <li class="yuimenuitem" group="OPEX samples">
+    <A href="$link.setPage("XDATScreen_edit_opex_amunet.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add Amunet</A>
+</li>
+<li class="yuimenuitem" group="OPEX samples">
     <A href="$link.setPage("XDATScreen_edit_opex_bloodMultiplexData.vm").addQueryData("part_id", $!om.getId()).addQueryData("project", $project)"><div class="ic">&nbsp;</div><div class="ic_spacer">&nbsp;</div>Add Blood Multiplex</A>
 </li>
 <li class="yuimenuitem" group="OPEX samples">

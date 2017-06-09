@@ -28,6 +28,9 @@ dataModels = {@XnatDataModel(value = OpexBloodmultiplexdataBean.SCHEMA_ELEMENT_N
 		@XnatDataModel(value = OpexCantabswmBean.SCHEMA_ELEMENT_NAME,
 				singular = "CANTAB SWM",
 				plural = "CANTAB SWM"),
+		@XnatDataModel(value = OpexAmunetBean.SCHEMA_ELEMENT_NAME,
+				singular = "AMUNET",
+				plural = "AMUNET"),
 
 } )
 public class OPEXPlugin {
