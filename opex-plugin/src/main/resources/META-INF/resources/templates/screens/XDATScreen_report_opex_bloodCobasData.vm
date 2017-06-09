@@ -9,7 +9,7 @@
     #parse("/screens/macrolists.vm")
 <div class="container">
     <div>
-        <h3>OPEX Multiplex Blood Sample</h3>
+        <h3>OPEX Cobas Blood Sample</h3>
         #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">

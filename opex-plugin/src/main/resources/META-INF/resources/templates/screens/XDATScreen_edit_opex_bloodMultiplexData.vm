@@ -37,7 +37,7 @@
         <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
         <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
 
-        <h2 class="edit-title">OPEX Multiplex Blood Sample #if($om.getId()) : Edit #else  : Create #end</h2>
+        <div class="row btn-success"><h3 class="edit-title">OPEX Multiplex Blood Sample #if($om.getId()) : Edit #else  : New #end</h3></div>
         #if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
         #end

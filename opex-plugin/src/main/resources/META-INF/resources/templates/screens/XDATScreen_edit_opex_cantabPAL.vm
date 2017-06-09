@@ -39,7 +39,7 @@
         #if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
         #end
-        <h2 class="edit-title">CANTAB Paired Associate Learning (PAL))#if($om.getId()) : Edit #else  : Create #end</h2>
+        <div class="row btn-success"><h3 class="edit-title">CANTAB Paired Associate Learning (PAL))#if($om.getId()) : Edit #else  : New #end</h3></div>
         <div class="row">
             #parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
