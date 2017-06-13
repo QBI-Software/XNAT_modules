@@ -3,7 +3,7 @@
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
     #parse("/screens/macrolists.vm")
@@ -48,17 +48,16 @@
         </div>
         <table class="table table-striped">
             <!-- BEGIN opex:cantabMOT -->
-            <input type="hidden" name="$om.getXSIType()/sample_type" value='cognition'/>
             <tbody>
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <TR>
-                <TD>MOTML</TD>
-                <TD>#xdatNumberBox("opex:cantabMOT/MOTML" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>MOTSDL</TD>
-                <TD>#xdatNumberBox("opex:cantabMOT/MOTSDL" $item "" $vr)</TD>
-            </TR>
+            <tr>
+                <td>MOTML</td>
+                <td>#xdatNumberBox("opex:cantabMOT/MOTML" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>MOTSDL</td>
+                <td>#xdatNumberBox("opex:cantabMOT/MOTSDL" $item "" $vr)</td>
+            </tr>
             </tbody>
         </table>
 

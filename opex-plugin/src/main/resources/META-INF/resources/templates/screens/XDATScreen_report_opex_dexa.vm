@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	$page.setTitle("OPEX DEXA")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+
+	#parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Body composition (DEXA)</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:dexa -->
+					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+					<tr><td>Fat mass</td><td>$!item.getDoubleProperty("opex:dexa/fatmass")</td></tr>
+					<tr><td>Lean mass</td><td>$!item.getDoubleProperty("opex:dexa/leanmass")</td></tr>
+					<tr><td>Body mass</td><td>$!item.getDoubleProperty("opex:dexa/bodymass")</td></tr>
+					<tr><td>Percent body fat</td><td>$!item.getDoubleProperty("opex:dexa/percentbodyfat")</td></tr>
+                <!-- END opex:dexa -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+		#parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

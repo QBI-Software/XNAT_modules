@@ -1,43 +1,46 @@
 <!-- START Report opex:exerciseData -->
 <tr>
-	<TD>Date collected</TD>
-	<TD>$!item.getProperty("$om.getXSIType()/date")</TD>
-</TR>
+    <td>Date collected</td>
+    <td>$!item.getProperty("$om.getXSIType()/date")</td>
+</tr>
+<tr>
+	<td>Interval</td>
+	<td>$interval.get($!item.getIntegerProperty("$om.getXSIType()/interval"))</td>
+</tr>
+<tr>
+	<td>Sample ID</td>
+	<td>$!item.getStringProperty("$om.getXSIType()/sample_id")</td>
+</tr>
+
+<tr>
+    <td>Data Quality</td>
+    <td>$!item.getStringProperty("$om.getXSIType()/sample_quality")</td>
+</tr>
+#if($om.getXSIType().startsWith("opex:cantab"))
+<tr>
+    <td>Processing status</td>
+    <td>$!item.getStringProperty("$om.getXSIType()/status")</td>
+</tr>
+#end
+
+#if($om.getXSIType().startsWith("opex:blood"))
 <tr>
 
-	<TD>Date analysed</TD>
-	<TD>$!item.getProperty("$om.getXSIType()/date_analysed")</TD>
-</TR>
-<TR>
-	<TD>Interval</TD>
-	<TD>$interval.get($!item.getIntegerProperty("$om.getXSIType()/interval"))</TD>
-</TR>
-<TR>
-	<TD>Sample ID</TD>
-	<TD>$!item.getStringProperty("$om.getXSIType()/sample_id")</TD>
-</TR>
-<TR>
-	<TD>Sample Run</TD>
-	<TD>$!item.getStringProperty("$om.getXSIType()/sample_num")</TD>
-</TR>
-<TR>
-    <TD>Sample Quality</TD>
-    <TD>$!item.getStringProperty("$om.getXSIType()/sample_quality")</TD>
-</TR>
-#if($om.getXSIType().startsWith("opex:cantab"))
-<TR>
-    <TD>Processing status</TD>
-    <TD>$!item.getStringProperty("$om.getXSIType()/status")</TD>
-</TR>
+    <td>Date analysed</td>
+    <td>$!item.getProperty("$om.getXSIType()/date_analysed")</td>
+</tr>
+<tr>
+    <td>Sample run (repeat)</td>
+    <td>$!item.getStringProperty("$om.getXSIType()/sample_num")</td>
+</tr>
+<tr>
+    <td>Pre or post</td>
+    <td>$prepost.get($!item.getStringProperty("$om.getXSIType()/prepost"))</td>
+</tr>
 #end
-<TR>
-    <TD>Comments</TD>
-    <TD>$!item.getStringProperty("$om.getXSIType()/comments")</TD>
-</TR>
-#if($om.getXSIType().startsWith("opex:blood"))
-<TR>
-    <TD>Prepost</TD>
-    <TD>$prepost.get($!item.getStringProperty("$om.getXSIType()/prepost"))</TD>
-</TR>
-#end
+
+<tr>
+    <td>Comments</td>
+    <td>$!item.getStringProperty("$om.getXSIType()/comments")</td>
+</tr>
 <!-- END Report opex:exerciseData -->

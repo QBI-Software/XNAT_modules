@@ -4,39 +4,42 @@
     <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date" "" $item $vr $years $formclass)</div></td>
 </tr>
 <tr>
-    <td>Date analysed</td>
-    <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date_analysed" "" $item $vr $years $formclass)</div></td>
+    <td>Interval</td>
+    <td>#xdatSelectGroup("$om.getXSIType()/interval" "" $item $interval $vr)</td>
 </tr>
 <tr>
     <td>Sample ID</td>
     <td>#xdatStringBox("$om.getXSIType()/sample_id" $item "" $vr)</td>
 </tr>
 <tr>
-    <td>Sample</td>
-    <td>#xdatStringBox("$om.getXSIType()/sample_num" $item "" $vr)</td>
+    <td>Data Quality</td>
+    <td>#xdatSelectGroup("$om.getXSIType()/sample_quality" "" $item $quality $vr)</td>
 </tr>
-<tr>
-    <td>Interval</td>
-    <td>#xdatSelectGroup("$om.getXSIType()/interval" "" $item $interval $vr)</td>
-</tr>
-<TR>
-    <TD>Sample Quality</TD>
-    <TD>#xdatSelectGroup("$om.getXSIType()/sample_quality" "" $item $quality $vr)</TD>
-</TR>
+
 #if($om.getXSIType().startsWith("opex:cantab"))
-<TR>
-    <TD>Processing status</TD>
-    <TD>#xdatSelectGroup("$om.getXSIType()/status" "" $item $status $vr)</TD>
-</TR>
+<tr>
+    <td>Processing status</td>
+    <td>#xdatSelectGroup("$om.getXSIType()/status" "" $item $status $vr)</td>
+</tr>
 #end
-<TR>
-    <TD>Comments</TD>
-    <TD>#xdatTextArea("$om.getXSIType()/comments" $item "" $vr "3" "50")</TD>
-</TR>
+
 #if($om.getXSIType().startsWith("opex:blood"))
+<tr>
+    <td>Date analysed</td>
+    <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date_analysed" "" $item $vr $years $formclass)</div></td>
+</tr>
 <tr>
     <td>Pre or post</td>
     <td>#xdatSelectGroup("$om.getXSIType()/prepost" "" $item $prepost $vr)</td>
 </tr>
+<tr>
+    <td>Sample run (repeat)</td>
+    <td>#xdatStringBox("$om.getXSIType()/sample_num" $item "" $vr)</td>
+</tr>
 #end
+
+<tr>
+    <td>Comments</td>
+    <td>#xdatTextArea("$om.getXSIType()/comments" $item "" $vr "3" "50")</td>
+</tr>
 <!-- END Edit opex:exerciseData -->

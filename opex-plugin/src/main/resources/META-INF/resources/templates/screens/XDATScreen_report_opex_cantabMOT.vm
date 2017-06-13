@@ -33,14 +33,14 @@
                 <tbody>
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cantabMOT -->
-                <TR>
-                    <TD>MOTML</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabMOT/MOTML")</TD>
-                </TR>
-                <TR>
-                    <TD>MOTSDL</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabMOT/MOTSDL")</TD>
-                </TR>
+                <tr>
+                    <td>MOTML</td>
+                    <td>$!item.getDoubleProperty("opex:cantabMOT/MOTML")</td>
+                </tr>
+                <tr>
+                    <td>MOTSDL</td>
+                    <td>$!item.getDoubleProperty("opex:cantabMOT/MOTSDL")</td>
+                </tr>
 
                 <!-- END opex:cantabMOT -->
                 </tbody>

@@ -48,7 +48,6 @@
         </div>
         <table class="table table-striped">
             <!-- BEGIN opex:bloodMultiplexData -->
-            <input type="hidden" name="$om.getXSIType()/sample_type" value='blood'/>
             <tbody>
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
             <tr>

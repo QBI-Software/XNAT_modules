@@ -28,19 +28,19 @@
                 </thead>
                 <tbody>
 				<!-- start opex:amunet -->
-				<TR><TD>Interval</TD><TD>$interval.get($!item.getIntegerProperty("opex:amunet/interval"))</TD></TR>
-				<TR><TD>AEV Comments</TD><TD>$!item.getStringProperty("opex:amunet/AEVcomments")</TD></TR>
-				<TR><TD>AEV</TD><TD>$!item.getDoubleProperty("opex:amunet/AEV")</TD></TR>
-				<TR><TD>EV</TD><TD>$!item.getDoubleProperty("opex:amunet/EV")</TD></TR>
-				<TR><TD>AV</TD><TD>$!item.getDoubleProperty("opex:amunet/AV")</TD></TR>
-				<TR><TD>DV</TD><TD>$!item.getDoubleProperty("opex:amunet/DV")</TD></TR>
-                <TR><TD>SCS Comments</TD><TD>$!item.getStringProperty("opex:amunet/SCScomments")</TD></TR>
-				<TR><TD>SCS</TD><TD>$!item.getDoubleProperty("opex:amunet/SCS")</TD></TR>
-				<TR><TD>SCD</TD><TD>$!item.getDoubleProperty("opex:amunet/SCD")</TD></TR>
-				<TR><TD>SAS</TD><TD>$!item.getDoubleProperty("opex:amunet/SAS")</TD></TR>
-				<TR><TD>SAD</TD><TD>$!item.getDoubleProperty("opex:amunet/SAD")</TD></TR>
-				<TR><TD>SES</TD><TD>$!item.getDoubleProperty("opex:amunet/SES")</TD></TR>
-				<TR><TD>SED</TD><TD>$!item.getDoubleProperty("opex:amunet/SED")</TD></TR>
+					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+				<tr><td>AEV Comments</td><td>$!item.getStringProperty("opex:amunet/AEVcomments")</td></tr>
+				<tr><td>AEV</td><td>$!item.getDoubleProperty("opex:amunet/AEV")</td></tr>
+				<tr><td>EV</td><td>$!item.getDoubleProperty("opex:amunet/EV")</td></tr>
+				<tr><td>AV</td><td>$!item.getDoubleProperty("opex:amunet/AV")</td></tr>
+				<tr><td>DV</td><td>$!item.getDoubleProperty("opex:amunet/DV")</td></tr>
+                <tr><td>SCS Comments</td><td>$!item.getStringProperty("opex:amunet/SCScomments")</td></tr>
+				<tr><td>SCS</td><td>$!item.getDoubleProperty("opex:amunet/SCS")</td></tr>
+				<tr><td>SCD</td><td>$!item.getDoubleProperty("opex:amunet/SCD")</td></tr>
+				<tr><td>SAS</td><td>$!item.getDoubleProperty("opex:amunet/SAS")</td></tr>
+				<tr><td>SAD</td><td>$!item.getDoubleProperty("opex:amunet/SAD")</td></tr>
+				<tr><td>SES</td><td>$!item.getDoubleProperty("opex:amunet/SES")</td></tr>
+				<tr><td>SED</td><td>$!item.getDoubleProperty("opex:amunet/SED")</td></tr>
                 <!-- END opex:amunet -->
                 </tbody>
             </table>

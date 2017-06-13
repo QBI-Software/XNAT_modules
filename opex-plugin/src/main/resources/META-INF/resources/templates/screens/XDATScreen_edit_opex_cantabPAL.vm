@@ -3,7 +3,7 @@
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
     #parse("/screens/macrolists.vm")
@@ -48,37 +48,36 @@
         </div>
         <table class="table table-striped">
             <!-- BEGIN opex:cantabPAL -->
-            <input type="hidden" name="$om.getXSIType()/sample_type" value='cognition'/>
             <tbody>
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <TR>
-                <TD>PALFAMS</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALFAMS" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>PALMETS</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALMETS" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>PALTA</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALTA" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>PALTE</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALTE" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>PALTEA</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALTEA" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>PALTEA6</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALTEA6" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>PALTEA8</TD>
-                <TD>#xdatNumberBox("opex:cantabPAL/PALTEA8" $item "" $vr)</TD>
-            </TR>
+            <tr>
+                <td>PALFAMS</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALFAMS" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>PALMETS</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALMETS" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>PALTA</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALTA" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>PALTE</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALTE" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>PALTEA</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALTEA" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>PALTEA6</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALTEA6" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>PALTEA8</td>
+                <td>#xdatNumberBox("opex:cantabPAL/PALTEA8" $item "" $vr)</td>
+            </tr>
             </tbody>
         </table>
 

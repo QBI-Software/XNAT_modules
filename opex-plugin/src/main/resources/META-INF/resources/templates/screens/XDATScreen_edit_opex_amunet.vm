@@ -3,7 +3,7 @@
 	$page.setLinkColor($ui.alink)
 	$page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
 	#parse("/screens/macrolists.vm")
@@ -49,20 +49,19 @@
         <!-- BEGIN opex:amunet -->
         <table class="table table-striped">
 			<tbody>
-
-			<TR><TD>Interval</TD><TD>#xdatSelectGroup("$om.getXSIType()/interval" "" $item $interval $vr)</TD></TR>
-			<TR><TD>AEV Comments</TD><TD>#xdatTextArea("$om.getXSIType()/AEVcomments" $item "" $vr "3" "50")</TD></TR>
-			<TR><TD>AEV</TD><TD>#xdatNumberBox("opex:amunet/AEV" $item "" $vr)</TD></TR>
-			<TR><TD>EV</TD><TD>#xdatNumberBox("opex:amunet/EV" $item "" $vr)</TD></TR>
-			<TR><TD>AV</TD><TD>#xdatNumberBox("opex:amunet/AV" $item "" $vr)</TD></TR>
-			<TR><TD>DV</TD><TD>#xdatNumberBox("opex:amunet/DV" $item "" $vr)</TD></TR>
-            <TR><TD>SCS Comments</TD><TD>#xdatTextArea("$om.getXSIType()/SCScomments" $item "" $vr "3" "50")</TD></TR>
-			<TR><TD>SCS</TD><TD>#xdatNumberBox("opex:amunet/SCS" $item "" $vr)</TD></TR>
-			<TR><TD>SCD</TD><TD>#xdatNumberBox("opex:amunet/SCD" $item "" $vr)</TD></TR>
-			<TR><TD>SAS</TD><TD>#xdatNumberBox("opex:amunet/SAS" $item "" $vr)</TD></TR>
-			<TR><TD>SAD</TD><TD>#xdatNumberBox("opex:amunet/SAD" $item "" $vr)</TD></TR>
-			<TR><TD>SES</TD><TD>#xdatNumberBox("opex:amunet/SES" $item "" $vr)</TD></TR>
-			<TR><TD>SED</TD><TD>#xdatNumberBox("opex:amunet/SED" $item "" $vr)</TD></TR>
+			#parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+			<tr><td>AEV Comments</td><td>#xdatTextArea("$om.getXSIType()/AEVcomments" $item "" $vr "3" "50")</td></tr>
+			<tr><td>AEV</td><td>#xdatNumberBox("opex:amunet/AEV" $item "" $vr)</td></tr>
+			<tr><td>EV</td><td>#xdatNumberBox("opex:amunet/EV" $item "" $vr)</td></tr>
+			<tr><td>AV</td><td>#xdatNumberBox("opex:amunet/AV" $item "" $vr)</td></tr>
+			<tr><td>DV</td><td>#xdatNumberBox("opex:amunet/DV" $item "" $vr)</td></tr>
+            <tr><td>SCS Comments</td><td>#xdatTextArea("$om.getXSIType()/SCScomments" $item "" $vr "3" "50")</td></tr>
+			<tr><td>SCS</td><td>#xdatNumberBox("opex:amunet/SCS" $item "" $vr)</td></tr>
+			<tr><td>SCD</td><td>#xdatNumberBox("opex:amunet/SCD" $item "" $vr)</td></tr>
+			<tr><td>SAS</td><td>#xdatNumberBox("opex:amunet/SAS" $item "" $vr)</td></tr>
+			<tr><td>SAD</td><td>#xdatNumberBox("opex:amunet/SAD" $item "" $vr)</td></tr>
+			<tr><td>SES</td><td>#xdatNumberBox("opex:amunet/SES" $item "" $vr)</td></tr>
+			<tr><td>SED</td><td>#xdatNumberBox("opex:amunet/SED" $item "" $vr)</td></tr>
             </tbody>
         </table>
 

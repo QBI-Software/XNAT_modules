@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+	$page.setTitle("OPEX ACER")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+
+	#parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Addenbrookes Cognition Examination - revised (ACE-R)</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:acer -->
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+				<tr><td>Attention and Orientation (/18))</td><td>$!item.getDoubleProperty("opex:acer/attention")</td></tr>
+				<tr><td>Memory (/26)</td><td>$!item.getDoubleProperty("opex:acer/memory")</td></tr>
+				<tr><td>Fluency (/14)</td><td>$!item.getDoubleProperty("opex:acer/fluency")</td></tr>
+				<tr><td>Language (/26)</td><td>$!item.getDoubleProperty("opex:acer/language")</td></tr>
+				<tr><td>Visuospatial (/16)</td><td>$!item.getDoubleProperty("opex:acer/visuospatial")</td></tr>
+				<tr><td>MMSE Total (/30)</td><td>$!item.getDoubleProperty("opex:acer/MMSE")</td></tr>
+				<tr><td>ACE-R Total (/100)</td><td>$!item.getDoubleProperty("opex:acer/total")</td></tr>
+                <!-- END opex:acer -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+		#parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

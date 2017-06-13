@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+	$page.setTitle("OPEX Multiplex Blood Sample")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+	#parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Multiplex Blood Sample</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <!-- START opex:cosmed -->
+				<tr><td>HR</td><td>$!item.getDoubleProperty("opex:cosmed/hr")</td></tr>
+				<tr><td>Borg scale</td><td>$!item.getDoubleProperty("opex:cosmed/borg")</td></tr>
+				<tr><td>Blood pressure</td><td>$!item.getDoubleProperty("opex:cosmed/bp")</td></tr>
+				<tr><td>VO2 Peak</td><td>$!item.getDoubleProperty("opex:cosmed/vo2")</td></tr>
+				<tr><td>Ventilatory threshold</td><td>$!item.getDoubleProperty("opex:cosmed/ventilatory")</td></tr>
+				<tr><td>Respiratory exchange ratio</td><td>$!item.getDoubleProperty("opex:cosmed/respiratory")</td></tr>
+                <!-- END opex:cosmed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+		#parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

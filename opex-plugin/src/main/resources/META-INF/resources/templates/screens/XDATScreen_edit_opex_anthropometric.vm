@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	$page.setTitle("CANTAB SWM")
+	$page.setTitle("OPEX Anthropometric")
 	$page.setLinkColor($ui.alink)
 	$page.setVlinkColor($ui.vlink)
 ##----------------------------------------
@@ -39,27 +39,25 @@
 		#if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
 		#end
-        <div class="row btn-success"><h3 class="edit-title">CANTAB Spatial Working Memory #if($om.getId()) : Edit #else  : New #end</h3></div>
+        <div class="row btn-success"><h3 class="edit-title">OPEX Anthropometric measures #if($om.getId()) : Edit #else  : New #end</h3></div>
         <div class="row">
 			#parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
         <div class="row">
 			#parse("/screens/EditProjectSpecificFields.vm")
         </div>
+        <!-- BEGIN opex:anthropometric -->
         <table class="table table-striped">
-            <!-- BEGIN opex:cantabSWM -->
             <tbody>
-				#parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <tr><td>SWMBE</td><td>#xdatTextBox("opex:cantabSWM/SWMBE" $item "" $vr)</td></tr>
-			<tr><td>SWMBE6</td><td>#xdatTextBox("opex:cantabSWM/SWMBE6" $item "" $vr)</td></tr>
-			<tr><td>SWMBE8</td><td>#xdatTextBox("opex:cantabSWM/SWMBE8" $item "" $vr)</td></tr>
-			<tr><td>SWMDE8</td><td>#xdatTextBox("opex:cantabSWM/SWMDE8" $item "" $vr)</td></tr>
-			<tr><td>SWMTE</td><td>#xdatTextBox("opex:cantabSWM/SWMTE" $item "" $vr)</td></tr>
-			<tr><td>SWMTE6</td><td>#xdatTextBox("opex:cantabSWM/SWMTE6" $item "" $vr)</td></tr>
-			<tr><td>SWMTE8</td><td>#xdatTextBox("opex:cantabSWM/SWMTE8" $item "" $vr)</td></tr>
-			<tr><td>SWMWE</td><td>#xdatTextBox("opex:cantabSWM/SWMWE" $item "" $vr)</td></tr>
-</tbody>
+                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+			<tr><td>Body mass</td><td>#xdatNumberBox("opex:anthropometric/bodymass" $item "" $vr)</td></tr>
+			<tr><td>Stature</td><td>#xdatNumberBox("opex:anthropometric/stature" $item "" $vr)</td></tr>
+			<tr><td>BMI</td><td>#xdatNumberBox("opex:anthropometric/bmi" $item "" $vr)</td></tr>
+			<tr><td>Waist circumference</td><td>#xdatNumberBox("opex:anthropometric/waist" $item "" $vr)</td></tr>
+			<tr><td>Hip circumference</td><td>#xdatNumberBox("opex:anthropometric/hip" $item "" $vr)</td></tr>
+			<tr><td>Waist:Hip ratio</td><td>#xdatNumberBox("opex:anthropometric/ratio" $item "" $vr)</td></tr>
+            </tbody>
         </table>
 
-        <!-- END opex:cantabSWM -->
-#parse("screens/validateform.vm")
+        <!-- END opex:anthropometric -->
+		#parse("screens/validateform.vm")

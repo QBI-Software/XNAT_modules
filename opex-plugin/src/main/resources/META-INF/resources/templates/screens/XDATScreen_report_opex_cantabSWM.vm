@@ -33,38 +33,38 @@
                 <tbody>
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cantabSWM -->
-                <TR>
-                    <TD>SWMBE</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMBE")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMBE6</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMBE6")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMBE8</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMBE8")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMDE8</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMDE8")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMTE</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMTE")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMTE6</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMTE6")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMTE8</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMTE8")</TD>
-                </TR>
-                <TR>
-                    <TD>SWMWE</TD>
-                    <TD>$!item.getDoubleProperty("opex:cantabSWM/SWMWE")</TD>
-                </TR>
+                <tr>
+                    <td>SWMBE</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMBE")</td>
+                </tr>
+                <tr>
+                    <td>SWMBE6</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMBE6")</td>
+                </tr>
+                <tr>
+                    <td>SWMBE8</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMBE8")</td>
+                </tr>
+                <tr>
+                    <td>SWMDE8</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMDE8")</td>
+                </tr>
+                <tr>
+                    <td>SWMTE</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMTE")</td>
+                </tr>
+                <tr>
+                    <td>SWMTE6</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMTE6")</td>
+                </tr>
+                <tr>
+                    <td>SWMTE8</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMTE8")</td>
+                </tr>
+                <tr>
+                    <td>SWMWE</td>
+                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMWE")</td>
+                </tr>
                 <!-- END opex:cantabSWM -->
                 </tbody>
             </table>

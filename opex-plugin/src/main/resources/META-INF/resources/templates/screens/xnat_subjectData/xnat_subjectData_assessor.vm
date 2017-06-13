@@ -8,30 +8,30 @@
     #if($siteConfig.uiLoginFailureMessage)
         #set($denied=true)
     <TR BGCOLOR="FF9999">
-        <TD>$!assessor.getProperty("date")</TD>
+        <td>$!assessor.getProperty("date")</td>
 
         #if($assessor.getItem().instanceOf("xnat:imageAssessorData"))
-            <TD>&nbsp;&nbsp;$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</TD>
+            <td>&nbsp;&nbsp;$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</td>
         #else
-            <TD>$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</TD>
+            <td>$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</td>
         #end
-        <TD>$!assessor.getProjectDisplayID()</TD>
-        <TD>#if($!assessor.getIdentifier($project,true))$!assessor.getIdentifier($project,true)#elseif($assessor.getLabel())$!assessor.getLabel()#else$!assessor.getId()#end</TD>
-    </TR>
+        <td>$!assessor.getProjectDisplayID()</td>
+        <td>#if($!assessor.getIdentifier($project,true))$!assessor.getIdentifier($project,true)#elseif($assessor.getLabel())$!assessor.getLabel()#else$!assessor.getId()#end</td>
+    </tr>
     #end
 #else
     #if($assessor.getProject()==$project)
-    <TR>
+    <tr>
     #else
         #if($assessor.hasProject($project))
             #set($shared=true)
         <TR BGCOLOR="FFCC99">
         #else
-        <TR>
+        <tr>
         #end
     #end
-    <TD>$!assessor.getProperty("date")</TD>
-    <TD>
+    <td>$!assessor.getProperty("date")</td>
+    <td>
         #set ( $assessorID = $!assessor.getProperty("ID"))
         #set ( $assessorField = "${assessor.getXSIType()}.ID")
         #set ( $url = "$link.setAction('DisplayItemAction').addPathInfo('search_element',$!assessor.getXSIType()).addPathInfo('search_field',$assessorField).addPathInfo('search_value',$assessorID).addPathInfo('popup',$popup)" )
@@ -51,8 +51,8 @@
 
         #end
 
-    </TD>
-    <TD>$!assessor.getProjectDisplayID()</TD>
-    <TD>#if($!assessor.getIdentifier($project,true))$!assessor.getIdentifier($project,true)#elseif($assessor.getLabel())$!assessor.getLabel()#else$!assessor.getId()#end</TD>
-</TR>
+    </td>
+    <td>$!assessor.getProjectDisplayID()</td>
+    <td>#if($!assessor.getIdentifier($project,true))$!assessor.getIdentifier($project,true)#elseif($assessor.getLabel())$!assessor.getLabel()#else$!assessor.getId()#end</td>
+</tr>
 #end

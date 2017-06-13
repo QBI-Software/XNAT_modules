@@ -29,8 +29,20 @@ dataModels = {@XnatDataModel(value = OpexBloodmultiplexdataBean.SCHEMA_ELEMENT_N
 				singular = "CANTAB SWM",
 				plural = "CANTAB SWM"),
 		@XnatDataModel(value = OpexAmunetBean.SCHEMA_ELEMENT_NAME,
-				singular = "AMUNET",
-				plural = "AMUNET"),
+				singular = "Virtual Water Maze",
+				plural = "Virtual Water Maze"),
+		@XnatDataModel(value = OpexAcerBean.SCHEMA_ELEMENT_NAME,
+				singular = "ACER",
+				plural = "ACER"),
+		@XnatDataModel(value = OpexAnthropometricBean.SCHEMA_ELEMENT_NAME,
+				singular = "Anthropometric measures",
+				plural = "Anthropometric measures"),
+		@XnatDataModel(value = OpexCosmedBean.SCHEMA_ELEMENT_NAME,
+				singular = "COSMED",
+				plural = "COSMED"),
+		@XnatDataModel(value = OpexDexaBean.SCHEMA_ELEMENT_NAME,
+				singular = "DEXA",
+				plural = "DEXA"),
 
 } )
 public class OPEXPlugin {

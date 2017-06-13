@@ -9,58 +9,58 @@
     document.title = "Tasks Summary Details: $!item.getProperty('behavioral:tasksSummaryData/imageSession_ID') $!item.getProperty('behavioral:tasksSummaryData/task_type')";
 </script>
 <TABLE width="100%">
-    <TR>
-        <TD>
+    <tr>
+        <td>
             <table width="100%">
-                <TR>
+                <tr>
                     <TD align="left" valign="middle">
                         <font face="$ui.sansSerifFonts" size="3"><b>Tasks Summary Details</b></font>
-                    </TD>
-                </TR>
+                    </td>
+                </tr>
             </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <TABLE width="100%">
-                <TR>
+                <tr>
                     <TD valign="top">
 
                         <HR>
                         <TABLE align="left">
-                            <TR><TH align="left" colspan=2><font face="$ui.sansSerifFonts" size="3"><b>Experiment Info</b></font><BR><BR></TH></TR>
+                            <tr><TH align="left" colspan=2><font face="$ui.sansSerifFonts" size="3"><b>Experiment Info</b></font><BR><BR></TH></tr>
                             #parse($turbineUtils.getTemplateName("_summary",$om.getXSIType(),$project))
-                            <TR align="left"><TH align="left">Task Type</TH><TD>$!item.getStringProperty("behavioral:tasksSummaryData/task_type")</TD></TR>
-                            <TR align="left"><TH align="left">Delay</TH><TD>$!item.getIntegerProperty("behavioral:tasksSummaryData/delay")</TD></TR>
+                            <TR align="left"><TH align="left">Task Type</TH><td>$!item.getStringProperty("behavioral:tasksSummaryData/task_type")</td></tr>
+                            <TR align="left"><TH align="left">Delay</TH><td>$!item.getIntegerProperty("behavioral:tasksSummaryData/delay")</td></tr>
 
                         </TABLE>
-                    </TD>
+                    </td>
                     <TD valign="top" align="right">
                         #elementActionsBox($element $search_field $search_value $data.getSession().getAttribute("user") $item)
-                    </TD>
-                </TR>
+                    </td>
+                </tr>
             </TABLE>
-        </TD>
-    </TR>
+        </td>
+    </tr>
     #set($EXPANTION_COUNT = 0)
-    <TR>
-        <TD>
+    <tr>
+        <td>
             <HR><BR>
             <TABLE>
-                <TR><TH align="left"><font face="$ui.sansSerifFonts" size="2">Task/Run Summary</font></TH></TR>
+                <tr><TH align="left"><font face="$ui.sansSerifFonts" size="2">Task/Run Summary</font></TH></tr>
                 #set($behavioral_task_15_NUM_ROWS=$item.getChildItems("behavioral:tasksSummaryData/Tasks/task").size())
                 #if($behavioral_task_15_NUM_ROWS>0)
                     #set($behavioral_task_15_NUM_ROWS=$behavioral_task_15_NUM_ROWS - 1)
-                    <TR>
+                    <tr>
                         <TD align="left" valign="top">
-                            <TABLE><TR><TD>
+                            <TABLE><tr><td>
                                 #foreach($behavioral_task_15_COUNTER in [0..$behavioral_task_15_NUM_ROWS])
                                     <TABLE>
-                                        <TR><TH align="left"><BR>Task: <font face="$ui.sansSerifFonts" size="2">$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/name")</font></TH></TR>
-                                        <TR>
+                                        <tr><TH align="left"><BR>Task: <font face="$ui.sansSerifFonts" size="2">$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/name")</font></TH></tr>
+                                        <tr>
                                             <TD align="left" valign="top">
                                                 <TABLE>
-                                                    <TR>
+                                                    <tr>
                                                         <TH></TH>
                                                         <TH>number</TH>
                                                         <TH>correct</TH>
@@ -75,222 +75,222 @@
                                                         <TH>weighted_average</TH>
                                                         <TH>maximum</TH>
                                                         <TH>minimum</TH>
-                                                    </TR>
+                                                    </tr>
                                                     #set($behavioral_task_run_16_NUM_ROWS=$item.getChildItems("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run").size())
                                                     #if($behavioral_task_run_16_NUM_ROWS>0)
                                                         #set($behavioral_task_run_16_NUM_ROWS=$behavioral_task_run_16_NUM_ROWS - 1)
                                                         #foreach($behavioral_task_run_16_COUNTER in [0..$behavioral_task_run_16_NUM_ROWS])
-                                                            <TR>
-                                                                <TD>
+                                                            <tr>
+                                                                <td>
                                                                     #set($behavioral_statistics_additional_18_NUM_ROWS=$item.getChildItems("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/additional").size())
                                                                     #if($behavioral_statistics_additional_18_NUM_ROWS>0)
                                                                         <A name="LINK$EXPANTION_COUNT" HREF="#LINK$EXPANTION_COUNT" onClick=" return blocking($EXPANTION_COUNT);"><img ID="IMG$EXPANTION_COUNT" src="$content.getURI("images/plus.jpg")" border=0></a>
                                                                     #end
-                                                                </TD>
-                                                                <TD>$!item.getIntegerProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/number")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/correct")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/missed")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/wrong")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/response_time")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/mean")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/median")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/mode")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/std_deviation")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/std_error")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/weighted_average")</TD>
-                                                                <TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/maximum")</TD>
-                                                                <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/minimum")</TD>
-                                                            </TR>
+                                                                </td>
+                                                                <td>$!item.getIntegerProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/number")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/correct")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/missed")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/wrong")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/response_time")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/mean")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/median")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/mode")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/std_deviation")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/std_error")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/weighted_average")</td>
+                                                                <td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/maximum")</td>
+                                                                <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/minimum")</td>
+                                                            </tr>
                                                             #if($behavioral_statistics_additional_18_NUM_ROWS>0)
                                                                 #set($behavioral_statistics_additional_18_NUM_ROWS=$behavioral_statistics_additional_18_NUM_ROWS - 1)
-                                                                <TR>
+                                                                <tr>
                                                                     <TD align="left" valign="top" colspan="14">
 														<span ID="span$EXPANTION_COUNT" style="position:relative; display:none;">
 														#set($EXPANTION_COUNT = $EXPANTION_COUNT +1)
                                                             <TABLE>
-																				<TR><TH align="left" colspan=2><BR><font face="$ui.sansSerifFonts" size="2">Additional Parameters</font></TH></TR>
+																				<tr><TH align="left" colspan=2><BR><font face="$ui.sansSerifFonts" size="2">Additional Parameters</font></TH></tr>
                                                                 #foreach($behavioral_statistics_additional_18_COUNTER in [0..$behavioral_statistics_additional_18_NUM_ROWS])
-                                                                    <TR>
-																					<TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/additional[$behavioral_statistics_additional_18_COUNTER]/name"):</TD>
-																					<TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/additional[$behavioral_statistics_additional_18_COUNTER]/additional")</TD>
-																				</TR>
+                                                                    <tr>
+																					<td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/additional[$behavioral_statistics_additional_18_COUNTER]/name"):</td>
+																					<td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/run[$behavioral_task_run_16_COUNTER]/statistics/additional[$behavioral_statistics_additional_18_COUNTER]/additional")</td>
+																				</tr>
 
                                                                 #end
 																			</TABLE>
 														</span>
-                                                                    </TD>
-                                                                </TR>
+                                                                    </td>
+                                                                </tr>
                                                             #end
 
                                                         #end
                                                     #end
                                                 </TABLE>
-                                            </TD>
-                                        </TR>
+                                            </td>
+                                        </tr>
                                         #set($task_stat_counter=$item.getChildItems("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns").size())
                                         #if($task_stat_counter>0)
-                                            <TR>
+                                            <tr>
                                                 <TD align="left" valign="top">
                                                     <A name="LINK$EXPANTION_COUNT" HREF="#LINK$EXPANTION_COUNT" onClick=" return blocking($EXPANTION_COUNT);"><img ID="IMG$EXPANTION_COUNT" src="$content.getURI("images/plus.jpg")" border=0><font face="$ui.sansSerifFonts" size="2">&nbsp;Statistics Across Runs</font></a><BR>
 
                                                     <span ID="span$EXPANTION_COUNT" style="position:relative; display:none;">
 												<TABLE>
 													#set($EXPANTION_COUNT = $EXPANTION_COUNT +1)
-                                                    <TR>
+                                                    <tr>
 														<TD align="left" valign="top">
 															<TABLE>
-																<TR><TD>correct</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/correct")</TD></TR>
-																<TR><TD>missed</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/missed")</TD></TR>
-																<TR><TD>wrong</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/wrong")</TD></TR>
-																<TR><TD>response_time</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/response_time")</TD></TR>
-																<TR><TD>mean</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/mean")</TD></TR>
-																<TR><TD>median</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/median")</TD></TR>
-																<TR><TD>mode</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/mode")</TD></TR>
-																<TR><TD>std_deviation</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/std_deviation")</TD></TR>
-																<TR><TD>std_error</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/std_error")</TD></TR>
-																<TR><TD>weighted_average</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/weighted_average")</TD></TR>
-																<TR><TD>maximum</TD><TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/maximum")</TD></TR>
-																<TR><TD>minimum</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/minimum")</TD></TR>
+																<tr><td>correct</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/correct")</td></tr>
+																<tr><td>missed</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/missed")</td></tr>
+																<tr><td>wrong</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/wrong")</td></tr>
+																<tr><td>response_time</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/response_time")</td></tr>
+																<tr><td>mean</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/mean")</td></tr>
+																<tr><td>median</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/median")</td></tr>
+																<tr><td>mode</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/mode")</td></tr>
+																<tr><td>std_deviation</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/std_deviation")</td></tr>
+																<tr><td>std_error</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/std_error")</td></tr>
+																<tr><td>weighted_average</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/weighted_average")</td></tr>
+																<tr><td>maximum</td><td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/maximum")</td></tr>
+																<tr><td>minimum</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/minimum")</td></tr>
 															</TABLE>
-														</TD>
-													</TR>
+														</td>
+													</tr>
                                                     #set($behavioral_statistics_additional_20_NUM_ROWS=$item.getChildItems("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/additional").size())
                                                     #if($behavioral_statistics_additional_20_NUM_ROWS>0)
                                                         #set($behavioral_statistics_additional_20_NUM_ROWS=$behavioral_statistics_additional_20_NUM_ROWS - 1)
-                                                        <TR>
+                                                        <tr>
 														<TD align="left" valign="top">
-															<TABLE><TR><TD>
+															<TABLE><tr><td>
                                                                 #foreach($behavioral_statistics_additional_20_COUNTER in [0..$behavioral_statistics_additional_20_NUM_ROWS])
                                                                     <TABLE>
-																			<TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Additional Parameters</font></TH></TR>
-																			<TR>
+																			<tr><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Additional Parameters</font></TH></tr>
+																			<tr>
 																				<TD align="left" valign="top">
 																					<TABLE>
-																						<TR><TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_20_COUNTER]/name"):</TD>
-																						<TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_20_COUNTER]/additional")</TD></TR>
+																						<tr><td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_20_COUNTER]/name"):</td>
+																						<td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/task[$behavioral_task_15_COUNTER]/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_20_COUNTER]/additional")</td></tr>
 																					</TABLE>
-																				</TD>
-																			</TR>
+																				</td>
+																			</tr>
 																		</TABLE>
                                                                 #end
-															</TD></TR></TABLE>
-														</TD>
-													</TR>
+															</td></tr></TABLE>
+														</td>
+													</tr>
                                                     #end
 												</TABLE>
-                                                </TD>
-                                            </TR>
+                                                </td>
+                                            </tr>
                                         #end
                                     </TABLE>
                                     <HR>
                                 #end
-                            </TD></TR></TABLE>
-                        </TD>
-                    </TR>
+                            </td></tr></TABLE>
+                        </td>
+                    </tr>
                 #end
                 #set($task_stat_counter=$item.getChildItems("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks").size())
                 #if($task_stat_counter>0)
-                    <TR>
+                    <tr>
                         <TD align="left" valign="top">
                             <TABLE>
-                                <TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Statistics Across Tasks</font></TH></TR>
-                                <TR>
+                                <tr><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Statistics Across Tasks</font></TH></tr>
+                                <tr>
                                     <TD align="left" valign="top">
                                         <TABLE>
-                                            <TR><TD>correct</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/correct")</TD></TR>
-                                            <TR><TD>missed</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/missed")</TD></TR>
-                                            <TR><TD>wrong</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/wrong")</TD></TR>
-                                            <TR><TD>response_time</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/response_time")</TD></TR>
-                                            <TR><TD>mean</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/mean")</TD></TR>
-                                            <TR><TD>median</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/median")</TD></TR>
-                                            <TR><TD>mode</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/mode")</TD></TR>
-                                            <TR><TD>std_deviation</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/std_deviation")</TD></TR>
-                                            <TR><TD>std_error</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/std_error")</TD></TR>
-                                            <TR><TD>weighted_average</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/weighted_average")</TD></TR>
-                                            <TR><TD>maximum</TD><TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/maximum")</TD></TR>
-                                            <TR><TD>minimum</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/minimum")</TD></TR>
+                                            <tr><td>correct</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/correct")</td></tr>
+                                            <tr><td>missed</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/missed")</td></tr>
+                                            <tr><td>wrong</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/wrong")</td></tr>
+                                            <tr><td>response_time</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/response_time")</td></tr>
+                                            <tr><td>mean</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/mean")</td></tr>
+                                            <tr><td>median</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/median")</td></tr>
+                                            <tr><td>mode</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/mode")</td></tr>
+                                            <tr><td>std_deviation</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/std_deviation")</td></tr>
+                                            <tr><td>std_error</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/std_error")</td></tr>
+                                            <tr><td>weighted_average</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/weighted_average")</td></tr>
+                                            <tr><td>maximum</td><td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/maximum")</td></tr>
+                                            <tr><td>minimum</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/minimum")</td></tr>
                                         </TABLE>
-                                    </TD>
-                                </TR>
+                                    </td>
+                                </tr>
                                 #set($behavioral_statistics_additional_22_NUM_ROWS=$item.getChildItems("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/additional").size())
                                 #if($behavioral_statistics_additional_22_NUM_ROWS>0)
                                     #set($behavioral_statistics_additional_22_NUM_ROWS=$behavioral_statistics_additional_22_NUM_ROWS - 1)
-                                    <TR>
+                                    <tr>
                                         <TD align="left" valign="top">
-                                            <TABLE><TR><TD>
+                                            <TABLE><tr><td>
                                                 <TABLE>
-                                                    <TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Additional Parameters</font></TH></TR>
-                                                    <TR>
+                                                    <tr><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Additional Parameters</font></TH></tr>
+                                                    <tr>
                                                         <TD align="left" valign="top">
                                                             <TABLE>
                                                                 #foreach($behavioral_statistics_additional_22_COUNTER in [0..$behavioral_statistics_additional_22_NUM_ROWS])
-                                                                    <TR>
-                                                                        <TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/additional[$behavioral_statistics_additional_22_COUNTER]/name"):</TD>
-                                                                        <TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/additional[$behavioral_statistics_additional_22_COUNTER]/additional")</TD></TR>
+                                                                    <tr>
+                                                                        <td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/additional[$behavioral_statistics_additional_22_COUNTER]/name"):</td>
+                                                                        <td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossTasks/additional[$behavioral_statistics_additional_22_COUNTER]/additional")</td></tr>
                                                                 #end
                                                             </TABLE>
-                                                        </TD>
-                                                    </TR>
+                                                        </td>
+                                                    </tr>
                                                 </TABLE>
-                                            </TD></TR></TABLE>
-                                        </TD>
-                                    </TR>
+                                            </td></tr></TABLE>
+                                        </td>
+                                    </tr>
                                 #end
                             </TABLE>
-                        </TD>
-                    </TR>
+                        </td>
+                    </tr>
                 #end
                 #set($task_stat_counter=$item.getChildItems("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns").size())
                 #if($task_stat_counter>0)
-                    <TR>
+                    <tr>
                         <TD align="left" valign="top">
                             <TABLE>
-                                <TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Statistics Across Runs</font></TH></TR>
-                                <TR>
+                                <tr><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">Statistics Across Runs</font></TH></tr>
+                                <tr>
                                     <TD align="left" valign="top">
                                         <TABLE>
-                                            <TR><TD>correct</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/correct")</TD></TR>
-                                            <TR><TD>missed</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/missed")</TD></TR>
-                                            <TR><TD>wrong</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/wrong")</TD></TR>
-                                            <TR><TD>response_time</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/response_time")</TD></TR>
-                                            <TR><TD>mean</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/mean")</TD></TR>
-                                            <TR><TD>median</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/median")</TD></TR>
-                                            <TR><TD>mode</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/mode")</TD></TR>
-                                            <TR><TD>std_deviation</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/std_deviation")</TD></TR>
-                                            <TR><TD>std_error</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/std_error")</TD></TR>
-                                            <TR><TD>weighted_average</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/weighted_average")</TD></TR>
-                                            <TR><TD>maximum</TD><TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/maximum")</TD></TR>
-                                            <TR><TD>minimum</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/minimum")</TD></TR>
+                                            <tr><td>correct</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/correct")</td></tr>
+                                            <tr><td>missed</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/missed")</td></tr>
+                                            <tr><td>wrong</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/wrong")</td></tr>
+                                            <tr><td>response_time</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/response_time")</td></tr>
+                                            <tr><td>mean</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/mean")</td></tr>
+                                            <tr><td>median</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/median")</td></tr>
+                                            <tr><td>mode</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/mode")</td></tr>
+                                            <tr><td>std_deviation</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/std_deviation")</td></tr>
+                                            <tr><td>std_error</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/std_error")</td></tr>
+                                            <tr><td>weighted_average</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/weighted_average")</td></tr>
+                                            <tr><td>maximum</td><td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/maximum")</td></tr>
+                                            <tr><td>minimum</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/minimum")</td></tr>
                                         </TABLE>
-                                    </TD>
-                                </TR>
+                                    </td>
+                                </tr>
                                 #set($behavioral_statistics_additional_24_NUM_ROWS=$item.getChildItems("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional").size())
                                 #if($behavioral_statistics_additional_24_NUM_ROWS>0)
                                     #set($behavioral_statistics_additional_24_NUM_ROWS=$behavioral_statistics_additional_24_NUM_ROWS - 1)
-                                    <TR>
+                                    <tr>
                                         <TD align="left" valign="top">
-                                            <TABLE><TR><TD>
+                                            <TABLE><tr><td>
                                                 <TABLE>
-                                                    <TR><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_24_COUNTER]</font></TH></TR>
-                                                    <TR>
+                                                    <tr><TH align="left"><BR><font face="$ui.sansSerifFonts" size="2">behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_24_COUNTER]</font></TH></tr>
+                                                    <tr>
                                                         <TD align="left" valign="top">
                                                             <TABLE>
                                                                 #foreach($behavioral_statistics_additional_24_COUNTER in [0..$behavioral_statistics_additional_24_NUM_ROWS])
-                                                                    <TR><TD>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_24_COUNTER]/name"):</TD><TD>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_24_COUNTER]/additional")</TD></TR>
+                                                                    <tr><td>$!item.getStringProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_24_COUNTER]/name"):</td><td>$!item.getDoubleProperty("behavioral:tasksSummaryData/Tasks/StatisticsAcrossRuns/additional[$behavioral_statistics_additional_24_COUNTER]/additional")</td></tr>
                                                                 #end
                                                             </TABLE>
-                                                        </TD>
-                                                    </TR>
+                                                        </td>
+                                                    </tr>
                                                 </TABLE>
-                                            </TD></TR></TABLE>
-                                        </TD>
-                                    </TR>
+                                            </td></tr></TABLE>
+                                        </td>
+                                    </tr>
                                 #end
                             </TABLE>
-                        </TD>
-                    </TR>
+                        </td>
+                    </tr>
                 #end
             </TABLE>
-        </TD>
-    </TR>
+        </td>
+    </tr>
 </TABLE>

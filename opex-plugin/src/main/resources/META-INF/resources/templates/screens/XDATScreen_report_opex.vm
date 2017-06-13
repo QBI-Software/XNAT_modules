@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX Summary Report")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+
+    #parse("/screens/macrolists.vm")
+
+<div class="container">
+    <div>
+        <h3>OPEX Summary Report for $!item.getXSIType()</h3>
+        <span>om = $!om</span>
+        <span>item getinterval = $!item.getInterval()</span>
+
+        <span>subject experiments = $!item.getExperiments_experiment().size()</span>
+
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Test</th>
+                    <th>Baseline</th>
+                    <th>1 mth</th>
+                    <th>2 mth</th>
+                    <th>3 mth</th>
+                    <th>4 mth</th>
+                    <th>5 mth</th>
+                    <th>6 mth</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start SUMMARY -->
+                #if ($item.getChildItems() > 0)
+                    #set($acer_expts=$item.getChildItems("opex:acer"))
+                        <tr>
+                            <td>ACE-R</td><td>$acer_expts.size()</td><td>$acer_expts</td><td></td><td></td><td></td><td></td>
+                        </tr>
+                #end
+
+
+                <!-- END SUMMARY -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

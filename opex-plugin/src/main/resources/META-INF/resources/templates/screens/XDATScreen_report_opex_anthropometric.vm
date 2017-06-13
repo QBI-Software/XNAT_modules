@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	$page.setTitle("OPEX Anthropometric")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+	#if ($turbineUtils.GetPassedParameter("popup", $data))
+		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+		#set ($popup = "false")
+	#end
+	#parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Anthropometric measures</h3>
+		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:anthropometric -->
+					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+					<tr><td>Body mass</td><td>$!item.getDoubleProperty("opex:anthropometric/bodymass")</td></tr>
+					<tr><td>Stature</td><td>$!item.getDoubleProperty("opex:anthropometric/stature")</td></tr>
+					<tr><td>BMI</td><td>$!item.getDoubleProperty("opex:anthropometric/bmi")</td></tr>
+					<tr><td>Waist circumference</td><td>$!item.getDoubleProperty("opex:anthropometric/waist")</td></tr>
+					<tr><td>Hip circumference</td><td>$!item.getDoubleProperty("opex:anthropometric/hip")</td></tr>
+					<tr><td>Waist:Hip ratio</td><td>$!item.getDoubleProperty("opex:anthropometric/ratio")</td></tr>
+                <!-- END opex:anthropometric -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+		#parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

@@ -3,7 +3,7 @@
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
     #parse("/screens/macrolists.vm")
@@ -48,69 +48,68 @@
         </div>
         <table class="table table-striped">
             <!-- BEGIN opex:cantabDMS -->
-            <input type="hidden" name="$om.getXSIType()/sample_type" value='cognition'/>
             <tbody>
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <TR>
-                <TD>DMSCC</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSML</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSML" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSML0</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSML0" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSML12</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSML12" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSMLAD</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSMLAD" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSPC</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSPC" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSPC0</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSPC0" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSPC12</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSPC12" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSPCAD</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSPCAD" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSTC0</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSTC0" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSTC12</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSTC12" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSTCAD</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSTCAD" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSTCS</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSTCS" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSTE</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSTE" $item "" $vr)</TD>
-            </TR>
-            <TR>
-                <TD>DMSTEAD</TD>
-                <TD>#xdatNumberBox("opex:cantabDMS/DMSTEAD" $item "" $vr)</TD>
-            </TR>
+            <tr>
+                <td>DMSCC</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSML</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSML" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSML0</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSML0" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSML12</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSML12" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSMLAD</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSMLAD" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSPC</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSPC" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSPC0</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSPC0" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSPC12</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSPC12" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSPCAD</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSPCAD" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSTC0</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSTC0" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSTC12</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSTC12" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSTCAD</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSTCAD" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSTCS</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSTCS" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSTE</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSTE" $item "" $vr)</td>
+            </tr>
+            <tr>
+                <td>DMSTEAD</td>
+                <td>#xdatNumberBox("opex:cantabDMS/DMSTEAD" $item "" $vr)</td>
+            </tr>
             </tbody>
         </table>
 

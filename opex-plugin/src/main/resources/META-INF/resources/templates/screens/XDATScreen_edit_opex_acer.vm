@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	$page.setTitle("CANTAB SWM")
+	$page.setTitle("OPEX ACE-R")
 	$page.setLinkColor($ui.alink)
 	$page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
 	#parse("/screens/macrolists.vm")
@@ -39,27 +39,27 @@
 		#if($vr)
             <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
 		#end
-        <div class="row btn-success"><h3 class="edit-title">CANTAB Spatial Working Memory #if($om.getId()) : Edit #else  : New #end</h3></div>
+        <div class="row btn-success"><h3 class="edit-title">OPEX Addenbrookes Cognition Examination - revised (ACE-R) #if($om.getId()) : Edit #else  : New #end</h3></div>
         <div class="row">
 			#parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>
         <div class="row">
 			#parse("/screens/EditProjectSpecificFields.vm")
         </div>
+        <!-- BEGIN opex:acer -->
         <table class="table table-striped">
-            <!-- BEGIN opex:cantabSWM -->
             <tbody>
-				#parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <tr><td>SWMBE</td><td>#xdatTextBox("opex:cantabSWM/SWMBE" $item "" $vr)</td></tr>
-			<tr><td>SWMBE6</td><td>#xdatTextBox("opex:cantabSWM/SWMBE6" $item "" $vr)</td></tr>
-			<tr><td>SWMBE8</td><td>#xdatTextBox("opex:cantabSWM/SWMBE8" $item "" $vr)</td></tr>
-			<tr><td>SWMDE8</td><td>#xdatTextBox("opex:cantabSWM/SWMDE8" $item "" $vr)</td></tr>
-			<tr><td>SWMTE</td><td>#xdatTextBox("opex:cantabSWM/SWMTE" $item "" $vr)</td></tr>
-			<tr><td>SWMTE6</td><td>#xdatTextBox("opex:cantabSWM/SWMTE6" $item "" $vr)</td></tr>
-			<tr><td>SWMTE8</td><td>#xdatTextBox("opex:cantabSWM/SWMTE8" $item "" $vr)</td></tr>
-			<tr><td>SWMWE</td><td>#xdatTextBox("opex:cantabSWM/SWMWE" $item "" $vr)</td></tr>
-</tbody>
+
+                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+				<tr><td>Attention and Orientation (/18))</td><td>#xdatNumberBox("opex:acer/attention" $item "" $vr)</td></tr>
+				<tr><td>Memory (/26)</td><td>#xdatNumberBox("opex:acer/memory" $item "" $vr)</td></tr>
+				<tr><td>Fluency (/14)</td><td>#xdatNumberBox("opex:acer/fluency" $item "" $vr)</td></tr>
+				<tr><td>Language (/26)</td><td>#xdatNumberBox("opex:acer/language" $item "" $vr)</td></tr>
+				<tr><td>Visuospatial (/16)</td><td>#xdatNumberBox("opex:acer/visuospatial" $item "" $vr)</td></tr>
+				<tr><td>MMSE Total (/30)</td><td>#xdatNumberBox("opex:acer/MMSE" $item "" $vr)</td></tr>
+				<tr><td>ACE-R Total (/100)</td><td>#xdatNumberBox("opex:acer/total" $item "" $vr)</td></tr>
+            </tbody>
         </table>
 
-        <!-- END opex:cantabSWM -->
-#parse("screens/validateform.vm")
+        <!-- END opex:acer -->
+		#parse("screens/validateform.vm")
