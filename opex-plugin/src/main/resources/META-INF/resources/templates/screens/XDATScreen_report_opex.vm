@@ -16,6 +16,16 @@
         <span>item getinterval = $!item.getInterval()</span>
 
         <span>subject experiments = $!item.getExperiments_experiment().size()</span>
+        #if($item)
+            #if($item.instanceOf("xnat:subjectData"))
+                XNAT.app.current_uri=serverRoot+"/REST/projects/$om.getProject()/subjects/$om.getId()";
+            #elseif($item.instanceOf("xnat:derivedData"))
+                XNAT.app.current_uri=serverRoot+"/REST/projects/$om.getProject()/subjects/$om.getImageSessionData().getSubjectId()/experiments/$om.getImageSessionData().getId()/assessors/$om.getId()";
+            #else
+                XNAT.app.current_uri=serverRoot+"/REST/projects/$om.getProject()/subjects/$om.getSubjectId()/experiments/$om.getId()";
+            #end
+        #end
+
 
     </div>
     <br/>
