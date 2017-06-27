@@ -6,7 +6,7 @@ $page.setVlinkColor($ui.vlink)
 	"November", "December"])
 #set($days = [ 1..31 ])
 #set($years = [ $!turbineUtils.getYear()..1900])
-#set($maxtubes = 4 )
+#set($maxtubes = 0 )
 ##----------------------------------------
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
@@ -71,14 +71,15 @@ $page.setVlinkColor($ui.vlink)
                 <thead>
                     <th>Tube number</th>
                     <th>Date analysed</th>
-                    <th>Ratio</th>
+                    <th>260/280</th>
+                    <th>260/230</th>
                     <th>Concentration</th>
                     <th>Recheck</th>
                     <th>Action</th>
 
                 </thead>
                 <tbody id="tubes">
-
+                <input type="hidden" name="TUBES_COLLECTED" id="TUBES_COLLECTED" value="$om.getTotal()"/>
 
                 #if($om.getTubes_tube().size() > 0)
                     <div class="msg msg-info">Edit Num tubes = $om.getTubes_tube().size()</div>
@@ -88,14 +89,17 @@ $page.setVlinkColor($ui.vlink)
                     #foreach($tubeidx in [0..$maxtubes])
                         #set($tube=$om.getTubes_tube().get($tubeidx))
                         #set($tubetype=$!tube.getXSIType())
+                        #set($tubeid=$tube.getIrc5SalivatubedataId())
+                        #set($exptid=$!{part_id})
 
                     <tr>#xdatHiddenBoxID("irc5:salivaData/tubes/tube[$tubeidx]/irc5_salivatubedata_id" "irc5_salivatubedata_id" $tube "")
-                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/tube_number" "tube_number" $tube "" $vr "form-control" "" "10")</td>
+                        <td>#xdatNumberBoxParamsIDRequired("irc5:salivaData/tubes/tube[$tubeidx]/tube_number" "tube_number" $tube "" $vr "form-control" "" "3")</td>
                         <td>#xdatDateBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/date_analysed" "date_analysed" $tube $vr $years "form-control" )</td>
-                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio" "ratio" $tube "" $vr "form-control" "" "10")</td>
-                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/concentration" "concentration" $tube "" $vr "form-control" "" "10")</td>
+                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio230" "ratio230" $tube "" $vr "form-control" "" "3")</td>
+                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio280" "ratio280" $tube "" $vr "form-control" "" "3")</td>
+                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/concentration" "concentration" $tube "" $vr "form-control" "" "3")</td>
                         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "recheck" $tube $vr "form-control")</td>
-                        <td><!--<button id="$tubeidx" exptid = $!item.getProperty("ID") tubeid="$tube.getIrc5SalivatubedataId()" class="delete_tube" title="Delete tube"><span class="glyphicon glyphicon-trash"></span></button>-->
+                        <td><button id="$tubeidx" exptid="$exptid" tubeid="$tubeid" class="delete_tube" title="Delete tube"><span class="glyphicon glyphicon-trash"></span></button>
                         </td>
                     </tr>
 
@@ -104,10 +108,11 @@ $page.setVlinkColor($ui.vlink)
                 <input type="hidden" name="EDIT" id="EDIT" value="false"/>
                         #foreach($tubeidx in [0..$maxtubes])
                         <tr>
-                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/tube_number" $item "" $vr "form-control" "" "10")</td>
+                            <td>#xdatNumberBoxParamsRequired("irc5:salivaData/tubes/tube[$tubeidx]/tube_number" $item "" $vr "form-control" "" "3")</td>
                             <td>#xdatDateBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/date_analysed" "" $item $vr $years "form-control")</td>
-                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio" $item "" $vr "form-control" "" "10")</td>
-                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/concentration" $item "" $vr "form-control" "" "10")</td>
+                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio230" $item "" $vr "form-control" "" "3")</td>
+                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio280" $item "" $vr "form-control" "" "3")</td>
+                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/concentration" $item "" $vr "form-control" "" "3")</td>
                             <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "" $item $vr "form-control")</td>
                             <td><button class="remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></button></td>
                         </tr>
@@ -134,16 +139,18 @@ $page.setVlinkColor($ui.vlink)
     </form>
     <div id="empty_tube" style="display:none"><table>
     <tr>
-        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/tube_number" $item "" $vr "form-control" "" "5")</td>
+        <td>#xdatNumberBoxParamsRequired("irc5:salivaData/tubes/tube[COUNTER]/tube_number" $item "" $vr "form-control" "" "3")</td>
         <td>#xdatDateBoxParams("irc5:salivaData/tubes/tube[COUNTER]/date_analysed" "" $item $vr $years "form-control")</td>
-        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio" $item "" $vr "form-control" "" "5")</td>
-        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/concentration" $item "" $vr "form-control" "" "10")</td>
+        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio230" $item "" $vr "form-control" "" "3")</td>
+        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio280" $item "" $vr "form-control" "" "3")</td>
+        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/concentration" $item "" $vr "form-control" "" "3")</td>
         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[COUNTER]/recheck" "" $item $vr "form-control")</td>
         <td><button class="remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></button></td>
     </tr> </table></div>
 </div>
 
 <script type="text/javascript">
+    window.csrfToken = "$!{XNAT_CSRF}";
     function validateForm() {
 
         document.getElementById("form1").submit();
@@ -156,10 +163,15 @@ $page.setVlinkColor($ui.vlink)
     $('#add_tube').click(function() {
         var tube_counter = $('#TUBE_COUNTER').val();
         var new_tube = parseInt(tube_counter) + 1;
+        var tubescollected = $('#TUBES_COLLECTED').val();
         var newrow = $('#empty_tube table tbody').html().replace(/COUNTER/g, new_tube);
-        alert(newrow);
-        $('#tubes').append(newrow);
-        $('#TUBE_COUNTER').val(new_tube);
+        //alert(newrow);
+        if (new_tube < tubescollected) {
+            $('#tubes').append(newrow);
+            $('#TUBE_COUNTER').val(new_tube);
+        }else{
+            alert("Maximum number of tubes reached");
+        }
     });
 
     $('.remove_row').click(function(event) {
@@ -175,15 +187,20 @@ $page.setVlinkColor($ui.vlink)
         var tube_counter = $('#TUBE_COUNTER').val();
         var new_tube = parseInt(tube_counter) - 1;
         var exptid = $(this).attr("exptid");
+        var tubeid = $(this).attr("tubeid");
         if (tubeidx != ""){
             var i = parseInt(tubeidx);
-            //TODO: FIND WAY TO DELETE TUBE
-            //om.removeTubes_tube(i);
-            YAHOO.util.Connect.asyncRequest('DELETE',serverRoot +'/REST/experiments/' + exptid +'/tubes/tube/' + i +'?format=json',this.initCallback,null,this);
+            //DELETE TUBE IN DB
+            //https://xnat-devel.qbi.uq.edu.au:8443/REST/experiments/XNATDEV_E00001/tubes/tube?format=json&tube_number=4
+            params="&event_reason=Delete tube";
+            params+="&event_type=WEB_FORM";
+            params+="&event_action=deleted tube";
+            YAHOO.util.Connect.asyncRequest('DELETE',serverRoot +'/REST/experiments/' + exptid +'/tubes/tube[' + tubeidx +']?format=json&XNAT_CSRF=' + window.csrfToken+params,null,null,this);
             $(this).parents("tr").remove();
             $('#TUBE_COUNTER').val(new_tube);
         }
 
     });
+
 </script>
 

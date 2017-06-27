@@ -70,14 +70,22 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ratio" minOccurs="0" maxOccurs="1" type="xs:float">
+			<xs:element name="ratio230" minOccurs="0" maxOccurs="1" type="xs:float">
 				<xs:annotation>
 					<xs:documentation>     
-						 Ratio			
+						 Ratio	260/230
 					</xs:documentation>
 				</xs:annotation>
 				
 			</xs:element>
+			<xs:element name="ratio280" minOccurs="0" maxOccurs="1" type="xs:float">
+			<xs:annotation>
+				<xs:documentation>
+					Ratio 260/280
+				</xs:documentation>
+			</xs:annotation>
+
+		</xs:element>
 			<xs:element name="concentration" minOccurs="0" maxOccurs="1" type="xs:float">
 				<xs:annotation>
 					<xs:documentation>     

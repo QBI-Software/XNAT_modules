@@ -18,6 +18,7 @@
     </div>
     <br/>
     #set($numTubes = $om.getTubes_tube().size())
+    #set($totaltubes = $!item.getIntegerProperty("irc5:salivaData/total"))
     <div class="row">
         <div class="col-sm-8">
             <table class="table resultstable">
@@ -39,33 +40,37 @@
                 </tr>
                 <tr>
                     <th>Total tubes collected</th>
-                    <td>$!item.getIntegerProperty("irc5:salivaData/total")</td>
+                    <td>$!totaltubes</td>
                 </tr>
                 <tr>
                     <th>Total tubes analysed</th>
-                    <td>$numTubes</td>
+                    <td>$!numTubes</td>
                 </tr>
                 <tr>
-                    <th>Number tubes remaining</th>
+                    <th>Number of tubes remaining</th>
 
-                    <td>#if ($numTubes > 0)
-                    #set($remaining = $!item.getIntegerProperty("irc5:salivaData/total") - $numTubes)
-                        $remaining
-                    #end
+                    <td>
+                        #if ($numTubes > 0)
+                            #set($remaining = $totaltubes - $numTubes)
+                            $!remaining
+                        #else
+                            $!totaltubes
+                        #end
                     </td>
                 </tr>
 
                 <tr>
 
                     #if ($numTubes > 0)
-                        <th>Tubes Analysed</th>
+                        <th>Tubes analysed</th>
 
                         <td>
                             <table class="table table-striped">
                                 <thead>
                                 <th>Tube number</th>
                                 <th>Date analysed</th>
-                                <th>Ratio</th>
+                                <th>260/280</th>
+                                <th>260/230</th>
                                 <th>Concentration</th>
                                 <th>Recheck</th>
 
@@ -73,23 +78,11 @@
                                 <tbody id="tubes">
                                     #foreach($tube in $om.getTubes_tube())
                                     <tr>
-                                        <td>#if ($tube.getTubeNumber())
-                                            $tube.getTubeNumber()
-                                        #else &nbsp;
-                                        #end
-                                        </td>
-                                        <td>#if ($tube.getDateAnalysed())
-                                            $tube.getDateAnalysed()
-                                        #else &nbsp;
-                                        #end</td>
-                                        <td>#if($tube.getRatio())
-                                            $tube.getRatio()
-                                        #else &nbsp;
-                                        #end</td>
-                                        <td>#if($tube.getConcentration())
-                                            $tube.getConcentration()
-                                        #else &nbsp;
-                                        #end</td>
+                                        <td>$!{tube.getTubeNumber()}</td>
+                                        <td>$!{tube.getDateAnalysed()}</td>
+                                        <td>$!{tube.getRatio230()}</td>
+                                        <td>$!{tube.getRatio280()}</td>
+                                        <td>$!{tube.getConcentration()}</td>
                                         <td>#if($tube.getRecheck()) Yes #else No  #end
                                         </td>
 
