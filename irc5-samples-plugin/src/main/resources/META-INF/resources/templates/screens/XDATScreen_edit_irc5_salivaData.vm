@@ -197,7 +197,7 @@ $page.setVlinkColor($ui.vlink)
     $('#totaltd').find("input").click(function(event){
         event.preventDefault();
         var tube_counter = $('#TUBE_COUNTER').val();
-        if ($(this).val() != null && ($(this).val() < tube_counter){
+        if ($(this).val() != null && ($(this).val() < tube_counter)){
             alert("Cannot decrease total unless delete tubes first")
         }
     })
