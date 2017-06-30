@@ -50,6 +50,8 @@
             <!-- BEGIN opex:cantabDMS -->
             <tbody>
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+
+            #foreach
             <tr>
                 <td>DMSCC</td>
                 <td>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</td>

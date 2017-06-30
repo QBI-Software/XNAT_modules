@@ -16,6 +16,11 @@
     <td>#xdatSelectGroup("$om.getXSIType()/sample_quality" "" $item $quality $vr)</td>
 </tr>
 
+<tr>
+    <td>Data Validity Check</td>
+    <td>#xdatSelectGroup("$om.getXSIType()/data_valid" "" $item $validity $vr)</td>
+</tr>
+
 #if($om.getXSIType().startsWith("opex:cantab"))
 <tr>
     <td>Processing status</td>

@@ -3,10 +3,10 @@
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-	<xs:element name="ANTHROPOMETRIC" type="opex:anthropometric"/>
-	<xs:complexType name="anthropometric">
+	<xs:element name="METRIC" type="opex:metric"/>
+	<xs:complexType name="metric">
 		<xs:annotation>
-			<xs:documentation>Anthropometric measures</xs:documentation>
+			<xs:documentation>Anthropometric measures (Participant screening metrics)</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
@@ -37,6 +37,21 @@
 								<xs:enumeration value="Questionable"/>
 								<xs:enumeration value="Poor"/>
 								<xs:enumeration value="Unknown"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="data_valid" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Data validation check
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Initial"/>
+								<xs:enumeration value="Checked"/>
+								<xs:enumeration value="Corrected"/>
+								<xs:enumeration value="Invalid"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>

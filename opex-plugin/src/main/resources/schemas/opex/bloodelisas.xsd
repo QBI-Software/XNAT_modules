@@ -50,8 +50,8 @@
 					<xs:element name="sample_quality" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-                                Sample Quality
-                            </xs:documentation>
+								Sample Quality
+							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
@@ -59,6 +59,21 @@
 								<xs:enumeration value="Questionable"/>
 								<xs:enumeration value="Poor"/>
 								<xs:enumeration value="Unknown"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="data_valid" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Data validation check
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Initial"/>
+								<xs:enumeration value="Checked"/>
+								<xs:enumeration value="Corrected"/>
+								<xs:enumeration value="Invalid"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>

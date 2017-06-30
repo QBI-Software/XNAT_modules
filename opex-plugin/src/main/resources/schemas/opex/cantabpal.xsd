@@ -11,7 +11,6 @@
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
 				<xs:sequence>
-
 					<xs:element name="interval" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -19,7 +18,6 @@
                             </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -27,7 +25,6 @@
                             </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="sample_quality" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -40,6 +37,21 @@
 								<xs:enumeration value="Questionable"/>
 								<xs:enumeration value="Poor"/>
 								<xs:enumeration value="Unknown"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="data_valid" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Data validation check
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Initial"/>
+								<xs:enumeration value="Checked"/>
+								<xs:enumeration value="Corrected"/>
+								<xs:enumeration value="Invalid"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -73,9 +85,20 @@
 					</xs:element>
 					<xs:element name="PALFAMS" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PALMETS" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALNPR" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PALTA" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTA2" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTA4" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTA6" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTA8" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PALTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTE2" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTE4" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PALTEA" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTEA2" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PALTEA4" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PALTEA6" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PALTEA8" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
