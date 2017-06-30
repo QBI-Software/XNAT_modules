@@ -117,7 +117,7 @@ $page.setVlinkColor($ui.vlink)
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio280" $item "" $vr "form-control" "" "3")</td>
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/concentration" $item "" $vr "form-control" "" "3")</td>
                             <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "0" $item $vr "form-control")</td>
-                            <td><a class="btn btn-default remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></a></td>
+                            <td><button class="btn btn-default remove_row" title="Remove tube" onclick="removeRow();"><span class="glyphicon glyphicon-remove"></span></button></td>
                         </tr>
                         #end
 
@@ -148,7 +148,7 @@ $page.setVlinkColor($ui.vlink)
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio280" $item "" $vr "form-control" "" "3")</td>
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/concentration" $item "" $vr "form-control" "" "3")</td>
         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[COUNTER]/recheck" "0" $item $vr "form-control")</td>
-        <td><a class="btn btn-default remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></a></td>
+        <td><button class="btn btn-default remove_row" title="Remove tube" onclick="removeRow();"><span class="glyphicon glyphicon-remove"></span></button></td>
     </tr> </table></div>
 </div>
 
@@ -193,12 +193,18 @@ $page.setVlinkColor($ui.vlink)
 
     $('.remove_row').click(function(event) {
         event.preventDefault();
-        event.stopImmediatePropagation();
-        event.stopPropagation();
+        //event.stopImmediatePropagation();
+        //event.stopPropagation();
         var tube_counter = $('#TUBE_COUNTER').val();
         $(this).parents("tr").remove();
         $('#TUBE_COUNTER').val(parseInt(tube_counter) - 1);
     });
+
+    function removeRow(){
+        var tube_counter = $('#TUBE_COUNTER').val();
+        $(this).parents("tr").remove();
+        $('#TUBE_COUNTER').val(parseInt(tube_counter) - 1);
+    }
 
 
 </script>
