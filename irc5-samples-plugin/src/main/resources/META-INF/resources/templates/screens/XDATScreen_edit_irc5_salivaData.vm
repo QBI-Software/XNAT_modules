@@ -101,9 +101,7 @@ $page.setVlinkColor($ui.vlink)
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/concentration" "concentration" $tube "" $vr "form-control" "" "3")</td>
                         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "recheck" $tube $vr "form-control")</td>
                         <td><!-- Delete row-->
-
-
-                        </td>
+                            <button id="$tubeidx" type="button" class="btn btn-info delete_tube" title="Delete saved tube"><span class="glyphicon glyphicon-trash"></span></button></td>
                     </tr>
 
                     #end
@@ -117,7 +115,7 @@ $page.setVlinkColor($ui.vlink)
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio280" $item "" $vr "form-control" "" "3")</td>
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/concentration" $item "" $vr "form-control" "" "3")</td>
                             <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[$tubeidx]/recheck" "0" $item $vr "form-control")</td>
-                            <td><button class="btn btn-default remove_row" title="Remove tube" onclick="removeRow();"><span class="glyphicon glyphicon-remove"></span></button></td>
+                            <td><button type="button" class="btn btn-info remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></button></td>
                         </tr>
                         #end
 
@@ -134,10 +132,8 @@ $page.setVlinkColor($ui.vlink)
     </div>
         <div class="form-group">
 			#xdatEditProps($item $edit_screen)
-
-            <input class="btn btn-primary" type="submit" onclick="validateForm();" name="eventSubmit_doInsert"
-                   value="Submit"/>
-            <input class="btn btn-default" type="cancel" value="Cancel" onclick="goBack();"/>
+            <button class="btn btn-primary" type="submit" name="eventSubmit_doInsert" value="Submit">Save</button>
+            <button class="btn btn-default" type="reset" value="Cancel" onclick="goBack();">Cancel</button>
         </div>
     </form>
     <div id="empty_tube" style="display:none"><table>
@@ -148,63 +144,103 @@ $page.setVlinkColor($ui.vlink)
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio280" $item "" $vr "form-control" "" "3")</td>
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/concentration" $item "" $vr "form-control" "" "3")</td>
         <td>#xdatBooleanCheckboxParams("irc5:salivaData/tubes/tube[COUNTER]/recheck" "0" $item $vr "form-control")</td>
-        <td><button class="btn btn-default remove_row" title="Remove tube" onclick="removeRow();"><span class="glyphicon glyphicon-remove"></span></button></td>
+        <td><button type="button" class="btn btn-info remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></button></td>
     </tr> </table></div>
 </div>
 
 <script type="text/javascript">
-    function validateForm() {
-        var tube_counter = $('#TUBE_COUNTER').val();
-        document.getElementById("form1").submit();
-        return true;
-    }
+
 
     function goBack() {
         window.history.back();
     }
 
-    function validateTotal(myval){
+    $("#form1").submit(function(event) {
         var tube_counter = $('#TUBE_COUNTER').val();
-        if (tube_counter > 0 && (myval < tube_counter)){
-            alert("Cannot decrease total unless delete tubes first");
+        var num_tubes = $('#tubes tr').length;
+        if (tube_counter != num_tubes - 1){
+            event.preventDefault();
+            $("#totaltd").append("<span class='errmsg alert alert-danger'>Please check number of tubes</span>");
         }
-    }
+    });
 
-
-    $('#totaltd').find("input").click(function(event){
-        event.preventDefault();
+    $('#totaltd').find("input").change(function(event) {
         var myval = parseInt($(this).val());
-        validateTotal(myval);
+
+        $("#totaltd span.errmsg").remove();
+        $("#totaltd").append(function() {
+            var tube_counter = parseInt($('#TUBE_COUNTER').val());
+            //clear any previous messages
+            if (tube_counter > 0 && (myval < tube_counter + 1)) {
+                msg = "<span class='errmsg alert alert-danger'>Cannot decrease total unless delete tubes first</span>";
+            } else {
+                msg = "<span class='errmsg alert-success glyphicon glyphicon-check'></span>";
+            }
+            return msg;
+        });
+
     });
 
     $('#add_tube').click(function() {
         var tube_counter = $('#TUBE_COUNTER').val();
         var new_tube = parseInt(tube_counter) + 1;
         var tubescollected = $('#TUBES_COLLECTED').val();
-        var newrow = $('#empty_tube table tbody').html().replace(/COUNTER/g, new_tube);
-        //alert(newrow);
         if (new_tube < tubescollected) {
-            $('#tubes').append(newrow);
-            $('#TUBE_COUNTER').val(new_tube);
-        }else{
-            alert("Maximum number of tubes reached");
+            $('#tubes').append(function(){
+                $('#TUBE_COUNTER').val(new_tube);
+                return $('#empty_tube table tbody').html().replace(/COUNTER/g, new_tube);
+            });
+
+        } else {
+            $(".errmsg").remove();
+            $('#tubes').parents("table").append("<span class='errmsg alert alert-danger'>Maximum number of tubes reached</span>");
         }
     });
 
-    $('.remove_row').click(function(event) {
+    $('#tubes').on('click', '.remove_row', function(event) {
         event.preventDefault();
-        //event.stopImmediatePropagation();
-        //event.stopPropagation();
-        var tube_counter = $('#TUBE_COUNTER').val();
+        event.stopImmediatePropagation();
+
         $(this).parents("tr").remove();
-        $('#TUBE_COUNTER').val(parseInt(tube_counter) - 1);
+        var tube_counter = $('#TUBE_COUNTER').val();
+        if (tube_counter > 0){
+            $('#TUBE_COUNTER').val(parseInt(tube_counter) - 1);
+        }
+
     });
 
-    function removeRow(){
+    $('.delete_tube').click(function(event){
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        var tubeidx = $(this).attr("id");
         var tube_counter = $('#TUBE_COUNTER').val();
-        $(this).parents("tr").remove();
-        $('#TUBE_COUNTER').val(parseInt(tube_counter) - 1);
-    }
+
+        var url = serverRoot + XNAT.app.current_uri + "/tubes/tube[" + tubeidx + "]";
+        ///REST/projects/TEST_PJ00/subjects/XNATDEV_S00001/experiments/XNATDEV_E00004/tubes/tube[1]
+        //https://xnat-devel.qbi.uq.edu.au:8443/REST/experiments/XNATDEV_E00001/tubes/tube?format=json&tube_number=4
+        var params = '?format=json&XNAT_CSRF=' + window.csrfToken;
+        params += "&event_reason=standard unshare";
+        //YAHOO.util.Connect.asyncRequest('GET',this.obj.URL,this.initCallback,null,this);
+        var callback = {
+            cache: false, // Turn off caching for IE
+            success: function( oResponse ){
+                $(this).parents("tr").remove();
+                if (tube_counter > 0){
+                    $('#TUBE_COUNTER').val(parseInt(tube_counter) - 1);
+                }
+
+            },
+            failure: function( oResponse ){
+                $(".errmsg").remove();
+                $(this).parents("table").append("<span class='errmsg alert alert-danger'>Database Error: tube delete failed</span>");
+            }
+
+        };
+
+        var transaction = YAHOO.util.Connect.asyncRequest('DELETE',url+params,callback,null, this);
+
+    });
+
 
 
 </script>
