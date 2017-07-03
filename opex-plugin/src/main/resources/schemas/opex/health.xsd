@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- OPEX datatype for Exercise tests-->
+<xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<xs:include schemaLocation="exercise.xsd"/>
+	<xs:element name="HEALTH" type="opex:health"/>
+	<xs:complexType name="health">
+		<xs:annotation>
+			<xs:documentation>Health measures</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="exercise" type="opex:exercise" />
+					
+					<xs:element name="risk" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Risk stratification
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="1"/>
+								<xs:maxInclusive value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="A_rbps" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Assessment A Resting blood pressure (mmHg) - systolic
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="200"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="A_rbpd" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Assessment A Resting blood pressure (mmHg) - diastolic
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="200"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="A_rhr" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Assessment A Resting heart rate
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="150"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="B_rbps" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Assessment B Resting blood pressure (mmHg) - systolic
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="200"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="B_rbpd" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Assessment B Resting blood pressure (mmHg) - diastolic
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="200"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="B_rhr" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Assessment B Resting heart rate
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="150"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="bodymass" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Body mass (kg)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="30"/>
+								<xs:maxInclusive value="120"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="height" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Height (cm)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="200"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="BMI" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Body Mass Index (bodymass / height(m)^2)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="10"/>
+								<xs:maxInclusive value="40"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="waist" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Waist circumference (cm)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="150"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="hip" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Hip circumference (cm)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="150"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="WHR" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Waist to hip ratio
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="2"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="semitandem" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Semi-tandem Stance Score
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="30"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="tandem" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Tandem stance Score
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="30"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="singleleg" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Single Leg Stance Score							
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="30"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="F_semitandem" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Semi-tandem Stance (FOAM) Score
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="30"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="F_tandem" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Tandem stance (FOAM) Score
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="F_singleleg" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Single Leg Stance (FOAM) Score
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="dhand" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Dominant Hand Best
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="ndhand" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Non-Dominant Hand Best
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

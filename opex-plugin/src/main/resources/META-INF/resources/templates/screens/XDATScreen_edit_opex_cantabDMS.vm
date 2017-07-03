@@ -6,114 +6,178 @@
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-    #parse("/screens/macrolists.vm")
-<script type="text/javascript">
-    window.currentID = "$!om.getId()";
-        #if($om.getProject())
-            #if($om.getProject().equals(""))
-            window.currentProject = "$!project";
-            #else
-            window.currentProject = "$!om.getProject()";
-            #end
-        #else
-        window.currentProject = "$!project";
-        #end
+#parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">CANTAB Delayed Match to Sample (DMS) #if($om.getId()) : Edit #else  :
+    New #end</h3></div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<table class="table table-striped">
+    <!-- BEGIN opex:cantabDMS -->
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
 
-    window.currentSubject = "$!om.getSubjectId()";
-    window.currentLabel = "$!om.getLabel()";
-</script>
-#if ($data.message)
-<div class="alert alert-danger error"><span>$data.message</span></div>
-#end
-<div id="EditForm" class="container col-md-8">
-    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
-        <input type="hidden" name="project" value="$!{project}">
-        <input type="hidden" name="part_id" value="$!{part_id}">
-        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
-        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
-        <input type='hidden' name='$om.getXSIType()/subject_ID'
-               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
-        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
-        #if($vr)
-            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
-        #end
-        <div class="row btn-success"><h3 class="edit-title">CANTAB Delayed Match to Sample (DMS) #if($om.getId()) : Edit #else  : New #end</h3></div>
-        <div class="row">
-            #parse("/screens/xnat_edit_subjectAssessorData.vm")
-        </div>
-        <div class="row">
-            #parse("/screens/EditProjectSpecificFields.vm")
-        </div>
-        <table class="table table-striped">
-            <!-- BEGIN opex:cantabDMS -->
-            <tbody>
-                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr>
+        <td>DMSCC</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSL0SD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSL0SD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSL12SD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSL12SD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSL4SD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSL4SD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSLADSD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSLADSD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSLSD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSLSD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSLSSD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSLSSD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMDL</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMDL" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMDL0</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMDL0" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMDL12</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMDL12" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMDL4</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMDL4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMDLAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMDLAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMDLS</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMDLS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSML</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSML" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSML0</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSML0" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSML12</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSML12" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSML4</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSML4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMLAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMLAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSMLS</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSMLS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPC</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPC0</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPC0" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPC12</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPC12" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPC4</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPC4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPCS</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPCS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPEGC</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPEGC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTC</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTC0</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTC0" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTC12</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTC12" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTC4</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTC4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTCAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTCAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTCS</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTCS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTE</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTE" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTEAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTEAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTEC</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTEC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTECAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTECAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTED</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTED" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTEDAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTEDAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTEP</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTEP" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSTEPAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSTEPAD" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
 
-            #foreach
-            <tr>
-                <td>DMSCC</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSML</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSML" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSML0</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSML0" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSML12</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSML12" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSMLAD</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSMLAD" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSPC</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSPC" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSPC0</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSPC0" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSPC12</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSPC12" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSPCAD</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSPCAD" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSTC0</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSTC0" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSTC12</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSTC12" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSTCAD</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSTCAD" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSTCS</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSTCS" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSTE</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSTE" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>DMSTEAD</td>
-                <td>#xdatNumberBox("opex:cantabDMS/DMSTEAD" $item "" $vr)</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <!-- END opex:cantabDMS -->
+<!-- END opex:cantabDMS -->
 #parse("screens/validateform.vm")

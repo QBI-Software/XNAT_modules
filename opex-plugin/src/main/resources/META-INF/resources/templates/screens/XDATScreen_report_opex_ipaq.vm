@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX IPAQ")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX IPAQ</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:dexa -->
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+
+                <tr>
+                    <td>
+                        Physical activity (mins/week)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/pa")</td>
+                </tr>
+                <tr>
+                    <td>
+                        MV Physical activity (mins/week)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/mvpa")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days time spent sitting (mins/week)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/sitting")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days, days spent walking more than 10 mins (days)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/walking_days")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days time spent walking total (mins/week)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/walking_time")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days, days doing moderate activities (days)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/moderate_days")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days time doing moderate activities (mins/week)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/moderate_time")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days, days doing vigorous activities (days)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/vigorous_days")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last 7 days time doing vigorous activities (mins/week)
+                    </td>
+                    <td>$!item.getProperty("opex:ipaq/vigorous_time")</td>
+                </tr>
+                <!-- END opex:dexa -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

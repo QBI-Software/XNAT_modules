@@ -33,65 +33,162 @@
                 <tbody>
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cantabDMS -->
+
                 <tr>
                     <td>DMSCC</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSCC")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSCC")</td>
+                </tr>
+                <tr>
+                    <td>DMSL0SD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSL0SD")</td>
+                </tr>
+                <tr>
+                    <td>DMSL12SD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSL12SD")</td>
+                </tr>
+                <tr>
+                    <td>DMSL4SD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSL4SD")</td>
+                </tr>
+                <tr>
+                    <td>DMSLADSD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSLADSD")</td>
+                </tr>
+                <tr>
+                    <td>DMSLSD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSLSD")</td>
+                </tr>
+                <tr>
+                    <td>DMSLSSD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSLSSD")</td>
+                </tr>
+                <tr>
+                    <td>DMSMDL</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMDL")</td>
+                </tr>
+                <tr>
+                    <td>DMSMDL0</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMDL0")</td>
+                </tr>
+                <tr>
+                    <td>DMSMDL12</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMDL12")</td>
+                </tr>
+                <tr>
+                    <td>DMSMDL4</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMDL4")</td>
+                </tr>
+                <tr>
+                    <td>DMSMDLAD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMDLAD")</td>
+                </tr>
+                <tr>
+                    <td>DMSMDLS</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMDLS")</td>
                 </tr>
                 <tr>
                     <td>DMSML</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSML")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSML")</td>
                 </tr>
                 <tr>
                     <td>DMSML0</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSML0")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSML0")</td>
                 </tr>
                 <tr>
                     <td>DMSML12</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSML12")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSML12")</td>
+                </tr>
+                <tr>
+                    <td>DMSML4</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSML4")</td>
                 </tr>
                 <tr>
                     <td>DMSMLAD</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSMLAD")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMLAD")</td>
+                </tr>
+                <tr>
+                    <td>DMSMLS</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSMLS")</td>
                 </tr>
                 <tr>
                     <td>DMSPC</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSPC")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPC")</td>
                 </tr>
                 <tr>
                     <td>DMSPC0</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSPC0")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPC0")</td>
                 </tr>
                 <tr>
                     <td>DMSPC12</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSPC12")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPC12")</td>
                 </tr>
                 <tr>
-                    <td>DMSPCAD</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSPCAD")</td>
+                    <td>DMSPC4</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPC4")</td>
+                </tr>
+                <tr>
+                    <td>DMSPCS</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPCS")</td>
+                </tr>
+                <tr>
+                    <td>DMSPEGC</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPEGC")</td>
+                </tr>
+                <tr>
+                    <td>DMSTC</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTC")</td>
                 </tr>
                 <tr>
                     <td>DMSTC0</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSTC0")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTC0")</td>
                 </tr>
                 <tr>
                     <td>DMSTC12</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSTC12")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTC12")</td>
+                </tr>
+                <tr>
+                    <td>DMSTC4</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTC4")</td>
                 </tr>
                 <tr>
                     <td>DMSTCAD</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSTCAD")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTCAD")</td>
                 </tr>
                 <tr>
                     <td>DMSTCS</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSTCS")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTCS")</td>
                 </tr>
                 <tr>
                     <td>DMSTE</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSTE")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTE")</td>
                 </tr>
                 <tr>
                     <td>DMSTEAD</td>
-                    <td>$!item.getDoubleProperty("opex:cantabDMS/DMSTEAD")</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTEAD")</td>
+                </tr>
+                <tr>
+                    <td>DMSTEC</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTEC")</td>
+                </tr>
+                <tr>
+                    <td>DMSTECAD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTECAD")</td>
+                </tr>
+                <tr>
+                    <td>DMSTED</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTED")</td>
+                </tr>
+                <tr>
+                    <td>DMSTEDAD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTEDAD")</td>
+                </tr>
+                <tr>
+                    <td>DMSTEP</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTEP")</td>
+                </tr>
+                <tr>
+                    <td>DMSTEPAD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSTEPAD")</td>
                 </tr>
                 <!-- END opex:cantabDMS -->
                 </tbody>

@@ -193,7 +193,7 @@ $page.setVlinkColor($ui.vlink)
 
         } else {
             $(".errmsg").remove();
-            $('#tubes').parents("table").append("<span class='errmsg alert alert-danger'>Maximum number of tubes reached</span>");
+            $('#totaltd').append("<span class='errmsg alert alert-danger'>Maximum number of tubes reached</span>");
         }
     });
 
@@ -232,7 +232,7 @@ $page.setVlinkColor($ui.vlink)
             },
             failure: function( oResponse ){
                 $(".errmsg").remove();
-                $(this).parents("table").append("<span class='errmsg alert alert-danger'>Database Error: tube delete failed</span>");
+                $("#totaltd").append("<span class='errmsg alert alert-danger'>Delete Tube function not available yet</span>");
             }
 
         };

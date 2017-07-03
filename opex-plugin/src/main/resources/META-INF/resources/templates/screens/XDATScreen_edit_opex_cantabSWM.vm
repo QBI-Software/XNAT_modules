@@ -1,65 +1,99 @@
 <!DOCTYPE html>
-	$page.setTitle("CANTAB SWM")
-	$page.setLinkColor($ui.alink)
-	$page.setVlinkColor($ui.vlink)
+    $page.setTitle("CANTAB SWM")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-	#parse("/screens/macrolists.vm")
-<script type="text/javascript">
-    window.currentID = "$!om.getId()";
-		#if($om.getProject())
-			#if($om.getProject().equals(""))
-            window.currentProject = "$!project";
-			#else
-            window.currentProject = "$!om.getProject()";
-			#end
-		#else
-        window.currentProject = "$!project";
-		#end
+    #parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">CANTAB Spatial Working Memory #if($om.getId()) : Edit #else  : New #end</h3>
+</div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<table class="table table-striped">
+    <!-- BEGIN opex:cantabSWM -->
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
 
-    window.currentSubject = "$!om.getSubjectId()";
-    window.currentLabel = "$!om.getLabel()";
-</script>
-#if ($data.message)
-<div class="alert alert-danger error"><span>$data.message</span></div>
-#end
-<div id="EditForm" class="container col-md-8">
-    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
-        <input type="hidden" name="project" value="$!{project}">
-        <input type="hidden" name="part_id" value="$!{part_id}">
-        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
-        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
-        <input type='hidden' name='$om.getXSIType()/subject_ID'
-               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
-        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
-		#if($vr)
-            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
-		#end
-        <div class="row btn-success"><h3 class="edit-title">CANTAB Spatial Working Memory #if($om.getId()) : Edit #else  : New #end</h3></div>
-        <div class="row">
-			#parse("/screens/xnat_edit_subjectAssessorData.vm")
-        </div>
-        <div class="row">
-			#parse("/screens/EditProjectSpecificFields.vm")
-        </div>
-        <table class="table table-striped">
-            <!-- BEGIN opex:cantabSWM -->
-            <tbody>
-				#parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <tr><td>SWMBE</td><td>#xdatTextBox("opex:cantabSWM/SWMBE" $item "" $vr)</td></tr>
-			<tr><td>SWMBE6</td><td>#xdatTextBox("opex:cantabSWM/SWMBE6" $item "" $vr)</td></tr>
-			<tr><td>SWMBE8</td><td>#xdatTextBox("opex:cantabSWM/SWMBE8" $item "" $vr)</td></tr>
-			<tr><td>SWMDE8</td><td>#xdatTextBox("opex:cantabSWM/SWMDE8" $item "" $vr)</td></tr>
-			<tr><td>SWMTE</td><td>#xdatTextBox("opex:cantabSWM/SWMTE" $item "" $vr)</td></tr>
-			<tr><td>SWMTE6</td><td>#xdatTextBox("opex:cantabSWM/SWMTE6" $item "" $vr)</td></tr>
-			<tr><td>SWMTE8</td><td>#xdatTextBox("opex:cantabSWM/SWMTE8" $item "" $vr)</td></tr>
-			<tr><td>SWMWE</td><td>#xdatTextBox("opex:cantabSWM/SWMWE" $item "" $vr)</td></tr>
-</tbody>
-        </table>
+    <tr>
+        <td>SWMBE</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMBE" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMBE4</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMBE4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMBE6</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMBE6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMBE8</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMBE8" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMDE</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMDE" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMDE4</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMDE4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMDE6</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMDE6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMDE8</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMDE8" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMPR</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMPR" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMS</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMTE</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMTE" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMTE4</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMTE4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMTE6</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMTE6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMTE8</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMTE8" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMWE</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMWE" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMWE4</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMWE4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMWE6</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMWE6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>SWMWE8</td>
+        <td>#xdatNumberBox("opex:cantabSWM/SWMWE8" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
 
-        <!-- END opex:cantabSWM -->
+<!-- END opex:cantabSWM -->
 #parse("screens/validateform.vm")

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    $page.setTitle("CANTAB ERT Data")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>CANTAB ERT Data</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <!-- START opex:cantab -->
+
+                <tr>
+                    <td>ERTMDCRTA</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDCRTA")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDCRTD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDCRTD")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDCRTF</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDCRTF")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDCRTH</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDCRTH")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDCRTS</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDCRTS")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDCRTSU</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDCRTSU")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDRTA</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDRTA")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDRTD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDRTD")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDRTF</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDRTF")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDRTH</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDRTH")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDRTS</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDRTS")</td>
+                </tr>
+                <tr>
+                    <td>ERTMDRTSU</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTMDRTSU")</td>
+                </tr>
+                <tr>
+                    <td>ERTOCRTSD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTOCRTSD")</td>
+                </tr>
+                <tr>
+                    <td>ERTOMDCRT</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTOMDCRT")</td>
+                </tr>
+                <tr>
+                    <td>ERTOMDRT</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTOMDRT")</td>
+                </tr>
+                <tr>
+                    <td>ERTORTSD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTORTSD")</td>
+                </tr>
+                <tr>
+                    <td>ERTTFAA</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTFAA")</td>
+                </tr>
+                <tr>
+                    <td>ERTTFAD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTFAD")</td>
+                </tr>
+                <tr>
+                    <td>ERTTFAF</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTFAF")</td>
+                </tr>
+                <tr>
+                    <td>ERTTFAH</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTFAH")</td>
+                </tr>
+                <tr>
+                    <td>ERTTFAS</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTFAS")</td>
+                </tr>
+                <tr>
+                    <td>ERTTFASU</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTFASU")</td>
+                </tr>
+                <tr>
+                    <td>ERTTH</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTH")</td>
+                </tr>
+                <tr>
+                    <td>ERTTHA</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTHA")</td>
+                </tr>
+                <tr>
+                    <td>ERTTHD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTHD")</td>
+                </tr>
+                <tr>
+                    <td>ERTTHF</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTHF")</td>
+                </tr>
+                <tr>
+                    <td>ERTTHH</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTHH")</td>
+                </tr>
+                <tr>
+                    <td>ERTTHS</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTHS")</td>
+                </tr>
+                <tr>
+                    <td>ERTTHSU</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTTHSU")</td>
+                </tr>
+                <tr>
+                    <td>ERTUHRA</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTUHRA")</td>
+                </tr>
+                <tr>
+                    <td>ERTUHRD</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTUHRD")</td>
+                </tr>
+                <tr>
+                    <td>ERTUHRF</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTUHRF")</td>
+                </tr>
+                <tr>
+                    <td>ERTUHRH</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTUHRH")</td>
+                </tr>
+                <tr>
+                    <td>ERTUHRS</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTUHRS")</td>
+                </tr>
+                <tr>
+                    <td>ERTUHRSU</td>
+                    <td>$!item.getProperty("opex:cantabERT/ERTUHRSU")</td>
+                </tr>
+
+                <!-- END opex:cantab -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

@@ -34,32 +34,88 @@
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cantabPAL -->
                 <tr>
+                    <td>CANTABPAL</td>
+                    <td>$!item.getProperty("opex:cantabPAL/CANTABPAL")</td>
+                </tr>
+                <tr>
+                    <td>exercise</td>
+                    <td>$!item.getProperty("opex:cantabPAL/exercise")</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>$!item.getProperty("opex:cantabPAL/status")</td>
+                </tr>
+                <tr>
                     <td>PALFAMS</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALFAMS")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALFAMS")</td>
                 </tr>
                 <tr>
                     <td>PALMETS</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALMETS")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALMETS")</td>
+                </tr>
+                <tr>
+                    <td>PALNPR</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALNPR")</td>
                 </tr>
                 <tr>
                     <td>PALTA</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALTA")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTA")</td>
+                </tr>
+                <tr>
+                    <td>PALTA2</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTA2")</td>
+                </tr>
+                <tr>
+                    <td>PALTA4</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTA4")</td>
+                </tr>
+                <tr>
+                    <td>PALTA6</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTA6")</td>
+                </tr>
+                <tr>
+                    <td>PALTA8</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTA8")</td>
                 </tr>
                 <tr>
                     <td>PALTE</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALTE")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTE")</td>
+                </tr>
+                <tr>
+                    <td>PALTE2</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTE2")</td>
+                </tr>
+                <tr>
+                    <td>PALTE4</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTE4")</td>
+                </tr>
+                <tr>
+                    <td>PALTE6</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTE6")</td>
+                </tr>
+                <tr>
+                    <td>PALTE8</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTE8")</td>
                 </tr>
                 <tr>
                     <td>PALTEA</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALTEA")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTEA")</td>
+                </tr>
+                <tr>
+                    <td>PALTEA2</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTEA2")</td>
+                </tr>
+                <tr>
+                    <td>PALTEA4</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTEA4")</td>
                 </tr>
                 <tr>
                     <td>PALTEA6</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALTEA6")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTEA6")</td>
                 </tr>
                 <tr>
                     <td>PALTEA8</td>
-                    <td>$!item.getDoubleProperty("opex:cantabPAL/PALTEA8")</td>
+                    <td>$!item.getProperty("opex:cantabPAL/PALTEA8")</td>
                 </tr>
                 <!-- END opex:cantabPAL -->
                 </tbody>

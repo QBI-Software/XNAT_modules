@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- OPEX datatype for Exercise tests-->
+<xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<xs:include schemaLocation="exercise.xsd"/>
+	<xs:element name="DASS" type="opex:dass"/>
+	<xs:complexType name="dass">
+		<xs:annotation>
+			<xs:documentation>Depression Anxiety Stress Scales (DASS)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="exercise" type="opex:exercise" />
+					<xs:element name="depression" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Depression
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="42"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="anxiety" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Anxiety
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="42"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="stress" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Stress
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="42"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="total" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Total
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="126"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

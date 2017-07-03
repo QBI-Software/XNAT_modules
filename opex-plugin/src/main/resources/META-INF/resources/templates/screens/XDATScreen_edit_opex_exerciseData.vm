@@ -8,7 +8,7 @@
     <td>#xdatSelectGroup("$om.getXSIType()/interval" "" $item $interval $vr)</td>
 </tr>
 <tr>
-    <td>Sample ID</td>
+    <td>Sample reference ID</td>
     <td>#xdatStringBox("$om.getXSIType()/sample_id" $item "" $vr)</td>
 </tr>
 <tr>

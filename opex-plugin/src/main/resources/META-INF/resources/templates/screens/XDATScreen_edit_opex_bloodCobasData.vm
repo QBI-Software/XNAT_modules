@@ -6,40 +6,8 @@
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-    #parse("/screens/macrolists.vm")
-<script type="text/javascript">
-    window.currentID = "$!om.getId()";
-        #if($om.getProject())
-            #if($om.getProject().equals(""))
-            window.currentProject = "$!project";
-            #else
-            window.currentProject = "$!om.getProject()";
-            #end
-        #else
-        window.currentProject = "$!project";
-        #end
-
-    window.currentSubject = "$!om.getSubjectId()";
-    window.currentLabel = "$!om.getLabel()";
-</script>
-#if ($data.message)
-<div class="alert alert-danger error"><span>$data.message</span></div>
-#end
-<div id="EditForm" class="container col-md-8">
-    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
-        <input type="hidden" name="project" value="$!{project}">
-        <input type="hidden" name="part_id" value="$!{part_id}">
-        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
-        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
-        <input type='hidden' name='$om.getXSIType()/subject_ID'
-               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
-        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
-        #if($vr)
-            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
-        #end
-        <div class="row btn-success"><h3 class="edit-title">OPEX Cobas Blood Sample #if($om.getId()) : Edit #else  : New #end</h3></div>
+    #parse("/screens/formheader.vm")
+        <div class="row"><h3 class="edit-title">OPEX Cobas Blood Sample #if($om.getId()) : Edit #else  : New #end</h3></div>
         <div class="row">
             #parse("/screens/xnat_edit_subjectAssessorData.vm")
         </div>

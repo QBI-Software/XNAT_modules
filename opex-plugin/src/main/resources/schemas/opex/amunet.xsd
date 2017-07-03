@@ -3,6 +3,7 @@
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<xs:include schemaLocation="exercise.xsd"/>
 	<xs:element name="AMUNET" type="opex:amunet"/>
 	<xs:complexType name="amunet">
 		<xs:annotation>
@@ -11,36 +12,8 @@
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
 				<xs:sequence>
-					<xs:element name="interval" type="xs:integer" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-                                Monthly interval stage
-                            </xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Sample ID from analyser
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="sample_quality" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Sample Quality
-							</xs:documentation>
-						</xs:annotation>
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="Good"/>
-								<xs:enumeration value="Questionable"/>
-								<xs:enumeration value="Poor"/>
-								<xs:enumeration value="Unknown"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="data_valid" minOccurs="0" maxOccurs="1">
+					<xs:element name="exercise" type="opex:exercise" />
+					<xs:element name="data_valid" default="Initial">
 						<xs:annotation>
 							<xs:documentation>
 								Data validation check

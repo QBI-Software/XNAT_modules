@@ -16,6 +16,10 @@
     <td>Data Quality</td>
     <td>$!item.getStringProperty("$om.getXSIType()/sample_quality")</td>
 </tr>
+<tr>
+    <td>Data Validation</td>
+    <td>$!item.getStringProperty("$om.getXSIType()/data_valid")</td>
+</tr>
 #if($om.getXSIType().startsWith("opex:cantab"))
 <tr>
     <td>Processing status</td>

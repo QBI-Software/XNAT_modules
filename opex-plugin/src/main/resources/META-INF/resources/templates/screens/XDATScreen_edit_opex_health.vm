@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX Health")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+#parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">OPEX Health measures #if($om.getId()) : Edit #else  : New #end</h3>
+</div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<!-- BEGIN opex:anthropometric -->
+<table class="table table-striped">
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr>
+        <td>
+            Risk stratification
+        </td>
+        <td>#xdatNumberBox("opex:health/risk" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Assessment A Resting blood pressure (mmHg) - systolic
+        </td>
+        <td>#xdatNumberBox("opex:health/A_rbps" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Assessment A Resting blood pressure (mmHg) - diastolic
+        </td>
+        <td>#xdatNumberBox("opex:health/A_rbpd" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Assessment A Resting heart rate
+        </td>
+        <td>#xdatNumberBox("opex:health/A_rhr" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Assessment B Resting blood pressure (mmHg) - systolic
+        </td>
+        <td>#xdatNumberBox("opex:health/B_rbps" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Assessment B Resting blood pressure (mmHg) - diastolic
+        </td>
+        <td>#xdatNumberBox("opex:health/B_rbpd" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Assessment B Resting heart rate
+        </td>
+        <td>#xdatNumberBox("opex:health/B_rhr" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Body mass (kg)
+        </td>
+        <td>#xdatNumberBox("opex:health/bodymass" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Height (cm)
+        </td>
+        <td>#xdatNumberBox("opex:health/height" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Body Mass Index (bodymass / height(m)^2)
+        </td>
+        <td>#xdatNumberBox("opex:health/BMI" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Waist circumference (cm)
+        </td>
+        <td>#xdatNumberBox("opex:health/waist" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Hip circumference (cm)
+        </td>
+        <td>#xdatNumberBox("opex:health/hip" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Waist to hip ratio
+        </td>
+        <td>#xdatNumberBox("opex:health/WHR" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Semi-tandem Stance Score
+        </td>
+        <td>#xdatNumberBox("opex:health/semitandem" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Tandem stance Score
+        </td>
+        <td>#xdatNumberBox("opex:health/tandem" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Single Leg Stance Score
+        </td>
+        <td>#xdatNumberBox("opex:health/singleleg" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Semi-tandem Stance (FOAM) Score
+        </td>
+        <td>#xdatNumberBox("opex:health/F_semitandem" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Tandem stance (FOAM) Score
+        </td>
+        <td>#xdatNumberBox("opex:health/F_tandem" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Single Leg Stance (FOAM) Score
+        </td>
+        <td>#xdatNumberBox("opex:health/F_singleleg" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Dominant Hand Best
+        </td>
+        <td>#xdatNumberBox("opex:health/dhand" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Non-Dominant Hand Best
+        </td>
+        <td>#xdatNumberBox("opex:health/ndhand" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:anthropometric -->
+#parse("screens/validateform.vm")

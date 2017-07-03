@@ -35,8 +35,9 @@
 				<tr><td>Fluency (/14)</td><td>$!item.getDoubleProperty("opex:acer/fluency")</td></tr>
 				<tr><td>Language (/26)</td><td>$!item.getDoubleProperty("opex:acer/language")</td></tr>
 				<tr><td>Visuospatial (/16)</td><td>$!item.getDoubleProperty("opex:acer/visuospatial")</td></tr>
-				<tr><td>MMSE Total (/30)</td><td>$!item.getDoubleProperty("opex:acer/MMSE")</td></tr>
-				<tr><td>ACE-R Total (/100)</td><td>$!item.getDoubleProperty("opex:acer/total")</td></tr>
+                <tr><td>ACE-R Total (/100)</td><td>$!item.getDoubleProperty("opex:acer/total")</td></tr>
+                <tr><td>MMSE Total (/30)</td><td>$!item.getDoubleProperty("opex:acer/MMSE")</td></tr>
+
                 <!-- END opex:acer -->
                 </tbody>
             </table>

@@ -3,106 +3,133 @@
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-	<xs:include schemaLocation="exercise.xsd"/>
-	<xs:element name="ACER" type="opex:acer"/>
-	<xs:complexType name="acer">
+	<xs:include schemaLocation="exercise.xsd"/>	
+	<xs:element name="IPAQ" type="opex:ipaq"/>
+	<xs:complexType name="ipaq">
 		<xs:annotation>
-			<xs:documentation>Addenbrookes Cognition Examination - revised (ACE-R)</xs:documentation>
+			<xs:documentation>International Physical Activity Questionnaire (IPAQ)</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
 				<xs:sequence>
 					<xs:element name="exercise" type="opex:exercise" />
-					<xs:element name="attention">
+					<xs:element name="pa" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Attention and orientation
+								Physical activity (mins/week)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
-							<xs:restriction base="xs:integer">
+							<xs:restriction base="xs:float">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="18"/>
+								<xs:maxInclusive value="10080"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="memory">
+					<xs:element name="mvpa" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Memory
+								MV Physical activity (mins/week)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
-							<xs:restriction base="xs:integer">
+							<xs:restriction base="xs:float">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="26"/>
+								<xs:maxInclusive value="10080"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="fluency">
+					<xs:element name="sitting" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Fluency
+								Last 7 days time spent sitting (mins/week)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
-							<xs:restriction base="xs:integer">
+							<xs:restriction base="xs:float">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="14"/>
+								<xs:maxInclusive value="10080"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="language">
+					<xs:element name="walking_days" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Language
+								Last 7 days, days spent walking more than 10 mins (days)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
 							<xs:restriction base="xs:integer">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="26"/>
+								<xs:maxInclusive value="7"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="visuospatial">
+					<xs:element name="walking_time" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Visuospatial
+								Last 7 days time spent walking total (mins/week)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
-							<xs:restriction base="xs:integer">
+							<xs:restriction base="xs:float">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="16"/>
+								<xs:maxInclusive value="10080"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="total">
+					<xs:element name="moderate_days" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Total ACE-R (5 params)
+								Last 7 days, days doing moderate activities (days)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
 							<xs:restriction base="xs:integer">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="100"/>
+								<xs:maxInclusive value="7"/>
 							</xs:restriction>
-						</xs:simpleType>					
+						</xs:simpleType>
 					</xs:element>
-					<xs:element name="MMSE">
-					<xs:annotation>
+					<xs:element name="moderate_time" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
 							<xs:documentation>
-								MMSE
+								Last 7 days time doing moderate activities (mins/week)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="10080"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="vigorous_days" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Last 7 days, days doing vigorous activities (days)
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
 							<xs:restriction base="xs:integer">
 								<xs:minInclusive value="0"/>
-								<xs:maxInclusive value="30"/>
+								<xs:maxInclusive value="7"/>
 							</xs:restriction>
-						</xs:simpleType></xs:element>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="vigorous_time" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Last 7 days time doing vigorous activities (mins/week)
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:float">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="10080"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

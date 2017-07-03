@@ -34,36 +34,88 @@
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cantabSWM -->
                 <tr>
+                    <td>CANTABSWM</td>
+                    <td>$!item.getProperty("opex:cantabSWM/CANTABSWM")</td>
+                </tr>
+                <tr>
+                    <td>exercise</td>
+                    <td>$!item.getProperty("opex:cantabSWM/exercise")</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>$!item.getProperty("opex:cantabSWM/status")</td>
+                </tr>
+                <tr>
                     <td>SWMBE</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMBE")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMBE")</td>
+                </tr>
+                <tr>
+                    <td>SWMBE4</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMBE4")</td>
                 </tr>
                 <tr>
                     <td>SWMBE6</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMBE6")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMBE6")</td>
                 </tr>
                 <tr>
                     <td>SWMBE8</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMBE8")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMBE8")</td>
+                </tr>
+                <tr>
+                    <td>SWMDE</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMDE")</td>
+                </tr>
+                <tr>
+                    <td>SWMDE4</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMDE4")</td>
+                </tr>
+                <tr>
+                    <td>SWMDE6</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMDE6")</td>
                 </tr>
                 <tr>
                     <td>SWMDE8</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMDE8")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMDE8")</td>
+                </tr>
+                <tr>
+                    <td>SWMPR</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMPR")</td>
+                </tr>
+                <tr>
+                    <td>SWMS</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMS")</td>
                 </tr>
                 <tr>
                     <td>SWMTE</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMTE")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMTE")</td>
+                </tr>
+                <tr>
+                    <td>SWMTE4</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMTE4")</td>
                 </tr>
                 <tr>
                     <td>SWMTE6</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMTE6")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMTE6")</td>
                 </tr>
                 <tr>
                     <td>SWMTE8</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMTE8")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMTE8")</td>
                 </tr>
                 <tr>
                     <td>SWMWE</td>
-                    <td>$!item.getDoubleProperty("opex:cantabSWM/SWMWE")</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMWE")</td>
+                </tr>
+                <tr>
+                    <td>SWMWE4</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMWE4")</td>
+                </tr>
+                <tr>
+                    <td>SWMWE6</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMWE6")</td>
+                </tr>
+                <tr>
+                    <td>SWMWE8</td>
+                    <td>$!item.getProperty("opex:cantabSWM/SWMWE8")</td>
                 </tr>
                 <!-- END opex:cantabSWM -->
                 </tbody>

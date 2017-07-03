@@ -2,18 +2,17 @@
 <div class="form-inline">
     #xdatEditProps($item $edit_screen)
 
-    <input class="btn btn-primary" type="button" onclick="validateForm();" name="eventSubmit_doInsert"
+    <button class="btn btn-primary" type="submit" name="eventSubmit_doInsert"
            value="Submit"/>
-    <input class="btn btn-default" type="button" value="Cancel" onclick="goBack();"/>
+    <button class="btn btn-default" type="reset" value="Cancel" onclick="goBack();"/>
 </div>
 </form>
 </div>
 
 <script type="text/javascript">
-    function validateForm() {
-        document.getElementById("form1").submit();
-        return true;
-    }
+    $("#form1").submit(function(event) {
+        //can provide checks here
+    });
 
     function goBack() {
         window.history.back();

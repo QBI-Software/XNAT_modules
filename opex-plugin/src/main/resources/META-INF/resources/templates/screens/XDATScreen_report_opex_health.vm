@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX Anthropometric")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX Anthropometric measures</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:anthropometric -->
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <tr>
+                    <td>
+                        Risk stratification
+                    </td>
+                    <td>$!item.getProperty("opex:health/risk")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Assessment A Resting blood pressure (mmHg) - systolic
+                    </td>
+                    <td>$!item.getProperty("opex:health/A_rbps")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Assessment A Resting blood pressure (mmHg) - diastolic
+                    </td>
+                    <td>$!item.getProperty("opex:health/A_rbpd")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Assessment A Resting heart rate
+                    </td>
+                    <td>$!item.getProperty("opex:health/A_rhr")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Assessment B Resting blood pressure (mmHg) - systolic
+                    </td>
+                    <td>$!item.getProperty("opex:health/B_rbps")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Assessment B Resting blood pressure (mmHg) - diastolic
+                    </td>
+                    <td>$!item.getProperty("opex:health/B_rbpd")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Assessment B Resting heart rate
+                    </td>
+                    <td>$!item.getProperty("opex:health/B_rhr")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Body mass (kg)
+                    </td>
+                    <td>$!item.getProperty("opex:health/bodymass")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Height (cm)
+                    </td>
+                    <td>$!item.getProperty("opex:health/height")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Body Mass Index (bodymass / height(m)^2)
+                    </td>
+                    <td>$!item.getProperty("opex:health/BMI")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Waist circumference (cm)
+                    </td>
+                    <td>$!item.getProperty("opex:health/waist")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Hip circumference (cm)
+                    </td>
+                    <td>$!item.getProperty("opex:health/hip")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Waist to hip ratio
+                    </td>
+                    <td>$!item.getProperty("opex:health/WHR")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Semi-tandem Stance Score
+                    </td>
+                    <td>$!item.getProperty("opex:health/semitandem")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Tandem stance Score
+                    </td>
+                    <td>$!item.getProperty("opex:health/tandem")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Single Leg Stance Score
+                    </td>
+                    <td>$!item.getProperty("opex:health/singleleg")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Semi-tandem Stance (FOAM) Score
+                    </td>
+                    <td>$!item.getProperty("opex:health/F_semitandem")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Tandem stance (FOAM) Score
+                    </td>
+                    <td>$!item.getProperty("opex:health/F_tandem")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Single Leg Stance (FOAM) Score
+                    </td>
+                    <td>$!item.getProperty("opex:health/F_singleleg")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Dominant Hand Best
+                    </td>
+                    <td>$!item.getProperty("opex:health/dhand")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Non-Dominant Hand Best
+                    </td>
+                    <td>$!item.getProperty("opex:health/ndhand")</td>
+                </tr>
+                <!-- END opex:anthropometric -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

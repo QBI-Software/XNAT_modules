@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX IPAQ")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">OPEX IPAQ #if($om.getId()) : Edit #else  : New #end</h3>
+</div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<!-- BEGIN opex:dexa -->
+<table class="table table-striped">
+    <tbody>
+
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+
+    <tr>
+        <td>
+            Physical activity (mins/week)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/pa" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            MV Physical activity (mins/week)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/mvpa" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days time spent sitting (mins/week)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/sitting" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days, days spent walking more than 10 mins (days)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/walking_days" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days time spent walking total (mins/week)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/walking_time" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days, days doing moderate activities (days)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/moderate_days" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days time doing moderate activities (mins/week)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/moderate_time" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days, days doing vigorous activities (days)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/vigorous_days" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Last 7 days time doing vigorous activities (mins/week)
+        </td>
+        <td>#xdatNumberBox("opex:ipaq/vigorous_time" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:dexa -->
+#parse("screens/validateform.vm")

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX Insomnia")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">OPEX Insomnia #if($om.getId()) : Edit #else  : New #end</h3>
+</div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<!-- BEGIN opex:dexa -->
+<table class="table table-striped">
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+
+    <tr>
+        <td>
+            C1 score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/c1" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            C2 score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/c2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            C3 score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/c3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            C4 score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/c4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            C5 score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/c5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            C6 score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/c6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Global PSQI score
+        </td>
+        <td>#xdatNumberBox("opex:psqi/total" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:dexa -->
+#parse("screens/validateform.vm")

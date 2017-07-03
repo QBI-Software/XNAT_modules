@@ -6,80 +6,94 @@
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-    #parse("/screens/macrolists.vm")
-<script type="text/javascript">
-    window.currentID = "$!om.getId()";
-        #if($om.getProject())
-            #if($om.getProject().equals(""))
-            window.currentProject = "$!project";
-            #else
-            window.currentProject = "$!om.getProject()";
-            #end
-        #else
-        window.currentProject = "$!project";
-        #end
+    #parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">CANTAB Paired Associate Learning (PAL))#if($om.getId()) : Edit #else  :
+    New #end</h3></div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<table class="table table-striped">
+    <!-- BEGIN opex:cantabPAL -->
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
 
-    window.currentSubject = "$!om.getSubjectId()";
-    window.currentLabel = "$!om.getLabel()";
-</script>
-#if ($data.message)
-<div class="alert alert-danger error"><span>$data.message</span></div>
-#end
-<div id="EditForm" class="container col-md-8">
-    <form ID="form1" name="form1" method="post" action="$link.setAction("ModifySubjectAssessorData")">
-        <input type="hidden" name="project" value="$!{project}">
-        <input type="hidden" name="part_id" value="$!{part_id}">
-        <input type='hidden' name='$om.getXSIType()/ID' value='$!item.getProperty("ID")'/>
-        <input type="hidden" name="$om.getXSIType()/project" value='$!{project}'/>
-        <input type='hidden' name='$om.getXSIType()/subject_ID'
-               value='$!item.getProperty("$om.getXSIType()/subject_ID")'/>
-        <input type="hidden" name="$om.getXSIType().date.month" id="$om.getXSIType().date.month" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.date" id="$om.getXSIType().date.date" value=""/>
-        <input type="hidden" name="$om.getXSIType().date.year" id="$om.getXSIType().date.year" value=""/>
-        #if($vr)
-            <div class="alert alert-danger">Invalid parameters:<br/>$vr.toHTML()</div>
-        #end
-        <div class="row btn-success"><h3 class="edit-title">CANTAB Paired Associate Learning (PAL))#if($om.getId()) : Edit #else  : New #end</h3></div>
-        <div class="row">
-            #parse("/screens/xnat_edit_subjectAssessorData.vm")
-        </div>
-        <div class="row">
-            #parse("/screens/EditProjectSpecificFields.vm")
-        </div>
-        <table class="table table-striped">
-            <!-- BEGIN opex:cantabPAL -->
-            <tbody>
-                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <tr>
-                <td>PALFAMS</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALFAMS" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>PALMETS</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALMETS" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>PALTA</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALTA" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>PALTE</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALTE" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>PALTEA</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALTEA" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>PALTEA6</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALTEA6" $item "" $vr)</td>
-            </tr>
-            <tr>
-                <td>PALTEA8</td>
-                <td>#xdatNumberBox("opex:cantabPAL/PALTEA8" $item "" $vr)</td>
-            </tr>
-            </tbody>
-        </table>
+    <tr>
+        <td>PALFAMS</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALFAMS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALMETS</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALMETS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALNPR</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALNPR" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTA</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTA2</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTA2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTA4</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTA4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTA6</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTA6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTA8</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTA8" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTE</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTE" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTE2</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTE2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTE4</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTE4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTE6</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTE6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTE8</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTE8" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTEA</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTEA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTEA2</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTEA2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTEA4</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTEA4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTEA6</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTEA6" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>PALTEA8</td>
+        <td>#xdatNumberBox("opex:cantabPAL/PALTEA8" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
 
-        <!-- END opex:cantabPAL -->
+<!-- END opex:cantabPAL -->
 #parse("screens/validateform.vm")

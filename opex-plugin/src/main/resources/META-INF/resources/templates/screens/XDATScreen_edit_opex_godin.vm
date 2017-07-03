@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX Godin")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">OPEX Godin #if($om.getId()) : Edit #else  : New #end</h3>
+</div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<!-- BEGIN opex:dexa -->
+<table class="table table-striped">
+    <tbody>
+
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+
+    <tr>
+        <td>
+            Total Leisure Activity Score
+        </td>
+        <td>#xdatNumberBox("opex:godin/total" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:dexa -->
+#parse("screens/validateform.vm")

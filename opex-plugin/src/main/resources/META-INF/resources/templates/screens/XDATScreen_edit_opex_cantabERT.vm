@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+    $page.setTitle("CANTAB ERT")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #parse("/screens/formheader.vm")
+<div class="row"><h3 class="edit-title">CANTAB Emotion Recognition Task #if($om.getId()) : Edit #else  :
+    New #end</h3></div>
+<div class="row">
+    #parse("/screens/xnat_edit_subjectAssessorData.vm")
+</div>
+<div class="row">
+    #parse("/screens/EditProjectSpecificFields.vm")
+</div>
+<table class="table table-striped">
+    <!-- BEGIN opex:cantabDMS -->
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+
+    <tr>
+        <td>ERTMDCRTA</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDCRTA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDCRTD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDCRTD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDCRTF</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDCRTF" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDCRTH</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDCRTH" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDCRTS</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDCRTS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDCRTSU</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDCRTSU" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDRTA</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDRTA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDRTD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDRTD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDRTF</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDRTF" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDRTH</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDRTH" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDRTS</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDRTS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTMDRTSU</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTMDRTSU" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTOCRTSD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTOCRTSD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTOMDCRT</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTOMDCRT" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTOMDRT</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTOMDRT" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTORTSD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTORTSD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTFAA</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTFAA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTFAD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTFAD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTFAF</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTFAF" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTFAH</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTFAH" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTFAS</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTFAS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTFASU</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTFASU" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTH</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTH" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTHA</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTHA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTHD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTHD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTHF</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTHF" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTHH</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTHH" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTHS</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTHS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTTHSU</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTTHSU" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTUHRA</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTUHRA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTUHRD</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTUHRD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTUHRF</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTUHRF" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTUHRH</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTUHRH" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTUHRS</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTUHRS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>ERTUHRSU</td>
+        <td>#xdatNumberBox("opex:cantabERT/ERTUHRSU" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:cantabDMS -->
+#parse("screens/validateform.vm")

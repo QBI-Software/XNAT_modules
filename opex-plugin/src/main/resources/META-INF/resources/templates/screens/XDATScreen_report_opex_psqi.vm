@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX IPAQ")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX IPAQ</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:dexa -->
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+
+                <tr>
+                    <td>
+                        C1 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c1")</td>
+                </tr>
+                <tr>
+                    <td>
+                        C2 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c2")</td>
+                </tr>
+                <tr>
+                    <td>
+                        C3 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c3")</td>
+                </tr>
+                <tr>
+                    <td>
+                        C4 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c4")</td>
+                </tr>
+                <tr>
+                    <td>
+                        C5 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c5")</td>
+                </tr>
+                <tr>
+                    <td>
+                        C6 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c6")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Global PSQI score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/total")</td>
+                </tr>
+                <!-- END opex:dexa -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>
