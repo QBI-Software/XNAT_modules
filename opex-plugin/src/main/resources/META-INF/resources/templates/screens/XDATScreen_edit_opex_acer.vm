@@ -19,7 +19,7 @@
             <tbody>
 
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-				<tr><td>Attention and Orientation (/18))</td><td class="addtotal">#xdatNumberBox("opex:acer/attention" $item "" $vr)</td></tr>
+				<tr><td>Attention and Orientation (/18)</td><td class="addtotal">#xdatNumberBox("opex:acer/attention" $item "" $vr)</td></tr>
 				<tr><td>Memory (/26)</td><td class="addtotal">#xdatNumberBox("opex:acer/memory" $item "" $vr)</td></tr>
 				<tr><td>Fluency (/14)</td><td class="addtotal">#xdatNumberBox("opex:acer/fluency" $item "" $vr)</td></tr>
 				<tr><td>Language (/26)</td><td class="addtotal">#xdatNumberBox("opex:acer/language" $item "" $vr)</td></tr>
@@ -34,23 +34,26 @@
         <div class="form-inline">
             #xdatEditProps($item $edit_screen)
 
-            <button class="btn btn-primary" type="submit" name="eventSubmit_doInsert" value="Submit"/>
-            <button class="btn btn-default" type="reset" value="Cancel" onclick="goBack();"/>
+            <button class="btn btn-primary" type="submit" name="eventSubmit_doInsert" value="Submit">Save</button>
+            <button class="btn btn-default" type="reset" value="Cancel" onclick="goBack();">Cancel</button>
         </div>
     </form>
 </div>
 
 <script type="text/javascript">
     $("#form1").submit(function(event) {
-        //check Total ACE-R
-        var children = $(".addtotal").find('input');
-        var total = $('#acertotal :input').val();
-        for (child in children){
-            total -= child.val();
-        }
-        if (total != 0){
+
+        var total = parseInt($('#acertotal :input').val());
+        var addedtotal = 0;
+        $(".addtotal").find('input').each(function() {
+            addedtotal = addedtotal + parseInt($(this).val());
+            //$('#acertotal').append('<span">Total=' + addedtotal + '</span>');
+        });
+        if (total != addedtotal){
             event.preventDefault();
-            $('#acertotal').append('<span class="alert alert-danger">Total does not match</span>');
+            $('#acertotal').append('<span class="alert alert-danger">Total should be ' + addedtotal + '</span>');
+        }else{
+            $('#acertotal span').remove();
         }
     });
 

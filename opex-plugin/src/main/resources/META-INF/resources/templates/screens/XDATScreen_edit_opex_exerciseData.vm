@@ -29,10 +29,7 @@
 #end
 
 #if($om.getXSIType().startsWith("opex:blood"))
-<tr>
-    <td>Date analysed</td>
-    <td><div class="form-inline">#xdatDateBoxParams("$om.getXSIType()/date_analysed" "" $item $vr $years $formclass)</div></td>
-</tr>
+
 <tr>
     <td>Pre or post</td>
     <td>#xdatSelectGroup("$om.getXSIType()/prepost" "" $item $prepost $vr)</td>

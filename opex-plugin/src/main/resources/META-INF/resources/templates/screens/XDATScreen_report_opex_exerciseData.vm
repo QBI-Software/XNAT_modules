@@ -28,11 +28,7 @@
 #end
 
 #if($om.getXSIType().startsWith("opex:blood"))
-<tr>
 
-    <td>Date analysed</td>
-    <td>$!item.getProperty("$om.getXSIType()/date_analysed")</td>
-</tr>
 <tr>
     <td>Sample run (repeat)</td>
     <td>$!item.getStringProperty("$om.getXSIType()/sample_num")</td>

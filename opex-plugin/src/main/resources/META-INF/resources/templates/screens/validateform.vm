@@ -2,9 +2,9 @@
 <div class="form-inline">
     #xdatEditProps($item $edit_screen)
 
-    <button class="btn btn-primary" type="submit" name="eventSubmit_doInsert"
+    <input class="btn btn-primary" type="submit" name="eventSubmit_doInsert"
            value="Submit"/>
-    <button class="btn btn-default" type="reset" value="Cancel" onclick="goBack();"/>
+    <input class="btn btn-default" type="reset" value="Cancel" onclick="goBack();"/>
 </div>
 </form>
 </div>
