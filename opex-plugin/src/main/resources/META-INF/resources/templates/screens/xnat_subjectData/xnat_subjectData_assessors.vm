@@ -42,7 +42,7 @@
                     <th align="left" class="underscore sort">Date</th>
                     <th align="left" class="underscore sort">Experiment</th>
                     <th align="left" class="underscore sort">Interval</th>
-                    <th align="left" class="underscore sort">Valid</th>
+                    <th align="left" class="underscore sort">Validation</th>
                     <th align="left" class="underscore sort">Quality</th>
                 </tr>
                 #foreach ($assessor in $subject.getExperiments_experiment())

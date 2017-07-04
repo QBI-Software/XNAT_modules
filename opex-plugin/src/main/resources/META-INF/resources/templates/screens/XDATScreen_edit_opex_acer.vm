@@ -6,14 +6,9 @@
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
+    #set($formtitle="OPEX Addenbrookes Cognition Examination - revised (ACE-R)")
     #parse("/screens/formheader.vm")
-        <div class="row"><h3 class="edit-title">OPEX Addenbrookes Cognition Examination - revised (ACE-R) #if($om.getId()) : Edit #else  : New #end</h3></div>
-        <div class="row">
-			#parse("/screens/xnat_edit_subjectAssessorData.vm")
-        </div>
-        <div class="row">
-			#parse("/screens/EditProjectSpecificFields.vm")
-        </div>
+
         <!-- BEGIN opex:acer -->
         <table class="table table-striped">
             <tbody>
@@ -24,41 +19,11 @@
 				<tr><td>Fluency (/14)</td><td class="addtotal">#xdatNumberBox("opex:acer/fluency" $item "" $vr)</td></tr>
 				<tr><td>Language (/26)</td><td class="addtotal">#xdatNumberBox("opex:acer/language" $item "" $vr)</td></tr>
 				<tr><td>Visuospatial (/16)</td><td class="addtotal">#xdatNumberBox("opex:acer/visuospatial" $item "" $vr)</td></tr>
-                <tr><td>ACE-R Total (/100)</td><td id="acertotal">#xdatNumberBox("opex:acer/total" $item "" $vr)</td></tr>
+                <tr><td>ACE-R Total (/100)</td><td id="opextotal">#xdatNumberBox("opex:acer/total" $item "" $vr)</td></tr>
 				<tr><td>MMSE (/30)</td><td>#xdatNumberBox("opex:acer/MMSE" $item "" $vr)</td></tr>
             </tbody>
         </table>
 
         <!-- END opex:acer -->
-        <!--ACER Validate form -->
-        <div class="form-inline">
-            #xdatEditProps($item $edit_screen)
+#parse("screens/validateform.vm")
 
-            <button class="btn btn-primary" type="submit" name="eventSubmit_doInsert" value="Submit">Save</button>
-            <button class="btn btn-default" type="reset" value="Cancel" onclick="goBack();">Cancel</button>
-        </div>
-    </form>
-</div>
-
-<script type="text/javascript">
-    $("#form1").submit(function(event) {
-
-        var total = parseInt($('#acertotal :input').val());
-        var addedtotal = 0;
-        $(".addtotal").find('input').each(function() {
-            addedtotal = addedtotal + parseInt($(this).val());
-            //$('#acertotal').append('<span">Total=' + addedtotal + '</span>');
-        });
-        if (total != addedtotal){
-            event.preventDefault();
-            $('#acertotal').append('<span class="alert alert-danger">Total should be ' + addedtotal + '</span>');
-        }else{
-            $('#acertotal span').remove();
-        }
-    });
-
-    function goBack() {
-        window.history.back();
-    }
-</script>
-<!-- End ACER Validate form -->

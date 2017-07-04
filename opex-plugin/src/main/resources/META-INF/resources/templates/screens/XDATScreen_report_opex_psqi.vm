@@ -69,6 +69,12 @@
                 </tr>
                 <tr>
                     <td>
+                        C7 score
+                    </td>
+                    <td>$!item.getProperty("opex:psqi/c7")</td>
+                </tr>
+                <tr>
+                    <td>
                         Global PSQI score
                     </td>
                     <td>$!item.getProperty("opex:psqi/total")</td>

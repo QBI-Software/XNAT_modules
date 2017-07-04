@@ -11,24 +11,9 @@
 
 <div class="container">
     <div>
-        <h3>OPEX Summary Report for $!item.getXSIType()</h3>
-        <span>om = $!om</span>
-        <span>item getinterval = $!item.getInterval()</span>
+        <h3>OPEX Summary Report for $!om.getId()</h3>
 
-        <span>subject experiments = $!item.getExperiments_experiment().size()</span>
-        #if($item)
-            #if($item.instanceOf("xnat:subjectData"))
-                XNAT.app.current_uri=serverRoot+"/REST/projects/$om.getProject()/subjects/$om.getId()";
-            #elseif($item.instanceOf("xnat:derivedData"))
-                XNAT.app.current_uri=serverRoot+"/REST/projects/$om.getProject()/subjects/$om.getImageSessionData().getSubjectId()/experiments/$om.getImageSessionData().getId()/assessors/$om.getId()";
-            #else
-                XNAT.app.current_uri=serverRoot+"/REST/projects/$om.getProject()/subjects/$om.getSubjectId()/experiments/$om.getId()";
-            #end
-        #end
-
-
-    </div>
-    <br/>
+    <hr/>
     <div class="row">
         <div class="col-sm-8 table-responsive">
             <table class="table table-striped resultstable">
@@ -47,11 +32,13 @@
                 </thead>
                 <tbody>
                 <!-- start SUMMARY -->
-                #if ($item.getChildItems() > 0)
-                    #set($acer_expts=$item.getChildItems("opex:acer"))
+                #set($expts = $!om.getExperiments())
+                #if ($expts.size() > 0)
+                    #foreach ($e in $expts)
                         <tr>
-                            <td>ACE-R</td><td>$acer_expts.size()</td><td>$acer_expts</td><td></td><td></td><td></td><td></td>
+                            <td>$e.getXSIType()</td><td>$e.getInterval()</td><td></td><td></td><td></td><td></td><td></td>
                         </tr>
+                    #end
                 #end
 
 

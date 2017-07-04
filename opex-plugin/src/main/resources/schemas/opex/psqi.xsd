@@ -3,7 +3,6 @@
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-
 	<xs:element name="PSQI" type="opex:psqi"/>
 	<xs:complexType name="psqi">
 		<xs:annotation>
@@ -12,62 +11,62 @@
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
 				<xs:sequence>
-				<xs:element name="interval" type="xs:integer" default="0">
-				<xs:annotation>
-					<xs:documentation>
+					<xs:element name="interval" type="xs:integer" default="0">
+						<xs:annotation>
+							<xs:documentation>
                                 Monthly interval stage
                             </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
 								Sample ID from analyser
 							</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_quality" default="Unknown">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_quality" default="Unknown">
+						<xs:annotation>
+							<xs:documentation>
 								Sample Quality
 							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Good"/>
-						<xs:enumeration value="Questionable"/>
-						<xs:enumeration value="Poor"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="data_valid" default="Initial">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Good"/>
+								<xs:enumeration value="Questionable"/>
+								<xs:enumeration value="Poor"/>
+								<xs:enumeration value="Unknown"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="data_valid" default="Initial">
+						<xs:annotation>
+							<xs:documentation>
 								Data validation check
 							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Initial"/>
-						<xs:enumeration value="Checked"/>
-						<xs:enumeration value="Corrected"/>
-						<xs:enumeration value="Invalid"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="comments" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Initial"/>
+								<xs:enumeration value="Checked"/>
+								<xs:enumeration value="Corrected"/>
+								<xs:enumeration value="Invalid"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="comments" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
 								Comments
 							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="10000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
 					<xs:element name="c1" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -137,6 +136,19 @@
 						<xs:annotation>
 							<xs:documentation>
 								C6 score
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="c7" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								C7 score
 							</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>

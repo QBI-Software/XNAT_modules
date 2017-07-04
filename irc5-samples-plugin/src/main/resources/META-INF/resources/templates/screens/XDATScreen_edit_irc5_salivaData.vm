@@ -80,7 +80,7 @@ $page.setVlinkColor($ui.vlink)
 
                 </thead>
                 <tbody id="tubes">
-                <input type="hidden" name="TUBES_COLLECTED" id="TUBES_COLLECTED" value="$om.getTotal()"/>
+                <input type="hidden" name="TUBES_COLLECTED" id="TUBES_COLLECTED" value="$!om.getTotal()"/>
 
                 #if($om.getTubes_tube().size() > 0)
 
@@ -183,9 +183,17 @@ $page.setVlinkColor($ui.vlink)
 
     $('#add_tube').click(function() {
         var tube_counter = $('#TUBE_COUNTER').val();
+        if (!$.isNumeric(tube_counter)){
+            tube_counter = 0;
+        }
         var new_tube = parseInt(tube_counter) + 1;
-        var tubescollected = $('#TUBES_COLLECTED').val();
-        if (new_tube < tubescollected) {
+        var tubescollected = $('#totaltd :input').val();
+        if (!$.isNumeric(tubescollected)){
+            tubescollected = 0;
+        }else{
+            tubescollected = parseInt(tubescollected);
+        }
+        if ((tubescollected== 0)||(new_tube < tubescollected)) {
             $('#tubes').append(function(){
                 $('#TUBE_COUNTER').val(new_tube);
                 return $('#empty_tube table tbody').html().replace(/COUNTER/g, new_tube);

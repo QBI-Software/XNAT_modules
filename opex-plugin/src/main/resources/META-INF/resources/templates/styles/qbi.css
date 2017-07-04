@@ -1,0 +1,63 @@
+/* Additional styles for QBI reports */
+.resultsheader{
+	padding: 6px 8px;
+	font-weight: bold;
+	background: none repeat scroll 0% 0% #1A75BB;
+	color: #FFF;
+	font-size: 1.1em;
+}
+.resultstable th{
+	width:45%;
+}
+
+#EditForm label{
+	min-width:20%;
+}
+h3.reportheader{
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.qbiactions #actionsMenu{
+	margin-left:-10px !important;
+	margin-top:10px !important;
+}
+#projectSummary{
+	margin-right: 15px;
+}
+.expt_row{
+	width: 100%;
+    float: left;
+}
+#search_selector{
+	color:black !important;
+}
+/* Override app.css*/
+.btn, .btn2, body button, body [type="button"], body [type="reset"] {
+	/*background: None;*/
+
+}
+/*From embedded style in xnat_subjectData
+DIV.container{
+	border: 1px solid #AAAAAA;
+    width:250px;  
+}
+DIV.containerTitle{
+			    border: 1px solid #AAAAAA;
+    padding:3px;
+    font-weight:500;
+	font-family:verdana,geneva,helvetica;
+}
+DIV.containerBody{
+    width:99%;
+    overflow:auto;
+    font-size:13px;
+    line-height:15px;
+    padding:3px;
+    }
+
+span.spacer{
+height:12px;
+width:1px;
+}
+
+*/

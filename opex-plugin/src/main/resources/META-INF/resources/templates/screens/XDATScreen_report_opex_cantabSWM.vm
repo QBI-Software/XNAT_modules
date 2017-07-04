@@ -33,18 +33,7 @@
                 <tbody>
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cantabSWM -->
-                <tr>
-                    <td>CANTABSWM</td>
-                    <td>$!item.getProperty("opex:cantabSWM/CANTABSWM")</td>
-                </tr>
-                <tr>
-                    <td>exercise</td>
-                    <td>$!item.getProperty("opex:cantabSWM/exercise")</td>
-                </tr>
-                <tr>
-                    <td>status</td>
-                    <td>$!item.getProperty("opex:cantabSWM/status")</td>
-                </tr>
+
                 <tr>
                     <td>SWMBE</td>
                     <td>$!item.getProperty("opex:cantabSWM/SWMBE")</td>

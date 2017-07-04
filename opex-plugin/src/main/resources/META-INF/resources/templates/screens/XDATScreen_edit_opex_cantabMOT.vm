@@ -6,15 +6,9 @@
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
+    #set($formtitle="CANTAB Motor Control Task (MOT)")
     #parse("/screens/formheader.vm")
-<div class="row"><h3 class="edit-title">CANTAB Motor Control Task (MOT) #if($om.getId()) : Edit #else  : New #end</h3>
-</div>
-<div class="row">
-    #parse("/screens/xnat_edit_subjectAssessorData.vm")
-</div>
-<div class="row">
-    #parse("/screens/EditProjectSpecificFields.vm")
-</div>
+
 <table class="table table-striped">
     <!-- BEGIN opex:cantabMOT -->
     <tbody>

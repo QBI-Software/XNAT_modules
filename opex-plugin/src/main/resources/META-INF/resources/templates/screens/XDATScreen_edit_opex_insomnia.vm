@@ -6,15 +6,9 @@
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
+    #set($formtitle="OPEX Insomnia")
     #parse("/screens/formheader.vm")
-<div class="row"><h3 class="edit-title">OPEX Insomnia #if($om.getId()) : Edit #else  : New #end</h3>
-</div>
-<div class="row">
-    #parse("/screens/xnat_edit_subjectAssessorData.vm")
-</div>
-<div class="row">
-    #parse("/screens/EditProjectSpecificFields.vm")
-</div>
+
 <!-- BEGIN opex:dexa -->
 <table class="table table-striped">
     <tbody>

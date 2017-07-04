@@ -11,7 +11,21 @@
 
 <script type="text/javascript">
     $("#form1").submit(function(event) {
-        //can provide checks here
+        //For forms with totals
+        if ($('#opextotal').length > 0){
+            var total = parseInt($('#opextotal :input').val());
+            var addedtotal = 0;
+            $(".addtotal").find('input').each(function() {
+                addedtotal = addedtotal + parseInt($(this).val());
+            });
+            if (total != addedtotal){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                $('#opextotal span').parents('tr').remove();
+                $('#opextotal').parents('table').append('<tr><td colspan="2"><span class="alert alert-danger">Total should be ' + addedtotal + '</span></td></tr>');
+            }
+        }
+
     });
 
     function goBack() {
