@@ -50,6 +50,27 @@
 
 #end
 
+#macro(xdatStringBoxParamsReqd $id $field $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($field))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($field))
+        #set($value = $!item.getProperty($field))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$id" type="text" name="$id" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+    required
+/>
+
+#end
+
 #macro(xdatNumberBox $name $item $defaultValue $vr)
     #xdatNumberBoxParams($name $item $defaultValue $vr "form-control"  "" "")
 #end
@@ -70,6 +91,7 @@
     #if($!onChange != "") onchange="$!{onChange}(this)" #end
     #if($!size != "") size="$!size" #end
     #if($!classes != "") class="$!classes" #end
+        step="any"
 />
 
 #end
@@ -90,6 +112,7 @@
     #if($!onChange != "") onchange="$!{onChange}(this)" #end
     #if($!size != "") size="$!size" #end
     #if($!classes != "") class="$!classes" #end
+       step="any"
         required
 />
 
@@ -111,6 +134,7 @@
     #if($!onChange != "") onchange="$!{onChange}(this)" #end
     #if($!size != "") size="$!size" #end
     #if($!classes != "") class="$!classes" #end
+       step="any"
 />
 
 #end
@@ -132,6 +156,7 @@
     #if($!size != "") size="$!size" #end
     #if($!classes != "") class="$!classes" #end
         required
+       step="any"
 />
 
 #end

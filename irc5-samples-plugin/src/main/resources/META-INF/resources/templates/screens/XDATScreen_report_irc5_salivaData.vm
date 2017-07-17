@@ -67,24 +67,21 @@
                         <td>
                             <table class="table table-striped">
                                 <thead>
-                                <th>Tube number</th>
+                                <th>Tube ID</th>
                                 <th>Date analysed</th>
                                 <th>260/280</th>
                                 <th>260/230</th>
-                                <th>Concentration</th>
-                                <th>Recheck</th>
+                                <th>Concentration(ng/&micro;L)</th>
 
                                 </thead>
                                 <tbody id="tubes">
                                     #foreach($tube in $om.getTubes_tube())
                                     <tr>
-                                        <td>$!{tube.getTubeNumber()}</td>
+                                        <td>$!{tube.getTubeId()}</td>
                                         <td>$!{tube.getDateAnalysed()}</td>
                                         <td>$!{tube.getRatio230()}</td>
                                         <td>$!{tube.getRatio280()}</td>
                                         <td>$!{tube.getConcentration()}</td>
-                                        <td>#if($tube.getRecheck()) Yes #else No  #end
-                                        </td>
 
                                     </tr>
 

@@ -50,19 +50,15 @@
 <xs:complexType name="salivaTubeData">
 
 	<xs:sequence>               
-			<xs:element name="tube_number" minOccurs="0" maxOccurs="1" >
+
+		<xs:element name="tube_id" minOccurs="0" maxOccurs="1" type="xs:string" >
 			<xs:annotation>
-				<xs:documentation>     
-					Tube No.			
+				<xs:documentation>
+					Tube ID
 				</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-					<xs:restriction base="xs:integer">
-						<xs:minInclusive value="0"></xs:minInclusive>
-						<xs:maxInclusive value="10000"></xs:maxInclusive>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+
+		</xs:element>
 			<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -89,19 +85,12 @@
 			<xs:element name="concentration" minOccurs="0" maxOccurs="1" type="xs:float">
 				<xs:annotation>
 					<xs:documentation>     
-						Concentration			
+						Concentration (ng/uL)
 					</xs:documentation>
 				</xs:annotation>
 				
 			</xs:element>
-			<xs:element name="recheck" minOccurs="0" type="xs:boolean">
-				<xs:annotation>
-					<xs:documentation>     
-						To Be Rechecked			
-					</xs:documentation>
-				</xs:annotation>
-				
-			</xs:element>
+
 		</xs:sequence>
 
 </xs:complexType>
