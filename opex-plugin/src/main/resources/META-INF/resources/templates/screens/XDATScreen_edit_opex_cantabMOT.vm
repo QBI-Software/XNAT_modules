@@ -22,12 +22,12 @@
         <td>#xdatNumberBox("opex:cantabMOT/MOTSDL" $item "" $vr)</td>
     </tr>
     <tr>
-        <td>MOTC</td>
-        <td>#xdatNumberBox("opex:cantabMOT/MOTC" $item "" $vr)</td>
+        <td>MOTTC</td>
+        <td>#xdatNumberBox("opex:cantabMOT/MOTTC" $item "" $vr)</td>
     </tr>
     <tr>
-        <td>MOTE</td>
-        <td>#xdatNumberBox("opex:cantabMOT/MOTE" $item "" $vr)</td>
+        <td>MOTTE</td>
+        <td>#xdatNumberBox("opex:cantabMOT/MOTTE" $item "" $vr)</td>
     </tr>
     </tbody>
 </table>

@@ -86,8 +86,8 @@
 					</xs:element>
 					<xs:element name="MOTML" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="MOTSDL" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="MOTC" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="MOTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="MOTTC" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="MOTTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

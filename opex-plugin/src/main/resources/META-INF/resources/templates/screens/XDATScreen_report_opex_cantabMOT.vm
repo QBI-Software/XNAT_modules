@@ -43,12 +43,12 @@
                     <td>$!item.getProperty("opex:cantabMOT/MOTSDL")</td>
                 </tr>
                 <tr>
-                    <td>MOTC</td>
-                    <td>$!item.getProperty("opex:cantabMOT/MOTC")</td>
+                    <td>MOTTC</td>
+                    <td>$!item.getProperty("opex:cantabMOT/MOTTC")</td>
                 </tr>
                 <tr>
-                    <td>MOTE</td>
-                    <td>$!item.getProperty("opex:cantabMOT/MOTE")</td>
+                    <td>MOTTE</td>
+                    <td>$!item.getProperty("opex:cantabMOT/MOTTE")</td>
                 </tr>
 
                 <!-- END opex:cantabMOT -->
