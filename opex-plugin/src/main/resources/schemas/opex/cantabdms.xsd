@@ -107,8 +107,10 @@
 					<xs:element name="DMSPC0" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSPC12" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSPC4" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSPCAD" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSPCS" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSPEGC" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DMSPEGE" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSTC" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSTC0" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DMSTC12" type="xs:float" minOccurs="0" maxOccurs="1"/>

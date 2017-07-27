@@ -35,6 +35,34 @@
                 <!-- START opex:cantabDMS -->
 
                 <tr>
+                    <td>CANTABDMS</td>
+                    <td>$!item.getProperty("opex:cantabDMS/CANTABDMS")</td>
+                </tr>
+                <tr>
+                    <td>interval</td>
+                    <td>$!item.getProperty("opex:cantabDMS/interval")</td>
+                </tr>
+                <tr>
+                    <td>sample_id</td>
+                    <td>$!item.getProperty("opex:cantabDMS/sample_id")</td>
+                </tr>
+                <tr>
+                    <td>sample_quality</td>
+                    <td>$!item.getProperty("opex:cantabDMS/sample_quality")</td>
+                </tr>
+                <tr>
+                    <td>data_valid</td>
+                    <td>$!item.getProperty("opex:cantabDMS/data_valid")</td>
+                </tr>
+                <tr>
+                    <td>comments</td>
+                    <td>$!item.getProperty("opex:cantabDMS/comments")</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>$!item.getProperty("opex:cantabDMS/status")</td>
+                </tr>
+                <tr>
                     <td>DMSCC</td>
                     <td>$!item.getProperty("opex:cantabDMS/DMSCC")</td>
                 </tr>
@@ -127,12 +155,20 @@
                     <td>$!item.getProperty("opex:cantabDMS/DMSPC4")</td>
                 </tr>
                 <tr>
+                    <td>DMSPCAD</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPCAD")</td>
+                </tr>
+                <tr>
                     <td>DMSPCS</td>
                     <td>$!item.getProperty("opex:cantabDMS/DMSPCS")</td>
                 </tr>
                 <tr>
                     <td>DMSPEGC</td>
                     <td>$!item.getProperty("opex:cantabDMS/DMSPEGC")</td>
+                </tr>
+                <tr>
+                    <td>DMSPEGE</td>
+                    <td>$!item.getProperty("opex:cantabDMS/DMSPEGE")</td>
                 </tr>
                 <tr>
                     <td>DMSTC</td>

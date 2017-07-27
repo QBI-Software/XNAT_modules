@@ -15,6 +15,34 @@
         #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
 
     <tr>
+        <td>CANTABDMS</td>
+        <td>#xdatNumberBox("opex:cantabDMS/CANTABDMS" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>interval</td>
+        <td>#xdatNumberBox("opex:cantabDMS/interval" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>sample_id</td>
+        <td>#xdatNumberBox("opex:cantabDMS/sample_id" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>sample_quality</td>
+        <td>#xdatNumberBox("opex:cantabDMS/sample_quality" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>data_valid</td>
+        <td>#xdatNumberBox("opex:cantabDMS/data_valid" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>comments</td>
+        <td>#xdatNumberBox("opex:cantabDMS/comments" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>#xdatNumberBox("opex:cantabDMS/status" $item "" $vr)</td>
+    </tr>
+    <tr>
         <td>DMSCC</td>
         <td>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</td>
     </tr>
@@ -107,12 +135,20 @@
         <td>#xdatNumberBox("opex:cantabDMS/DMSPC4" $item "" $vr)</td>
     </tr>
     <tr>
+        <td>DMSPCAD</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPCAD" $item "" $vr)</td>
+    </tr>
+    <tr>
         <td>DMSPCS</td>
         <td>#xdatNumberBox("opex:cantabDMS/DMSPCS" $item "" $vr)</td>
     </tr>
     <tr>
         <td>DMSPEGC</td>
         <td>#xdatNumberBox("opex:cantabDMS/DMSPEGC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>DMSPEGE</td>
+        <td>#xdatNumberBox("opex:cantabDMS/DMSPEGE" $item "" $vr)</td>
     </tr>
     <tr>
         <td>DMSTC</td>
