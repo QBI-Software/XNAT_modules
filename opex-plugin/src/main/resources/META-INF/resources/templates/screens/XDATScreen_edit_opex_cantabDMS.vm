@@ -13,35 +13,6 @@
     <!-- BEGIN opex:cantabDMS -->
     <tbody>
         #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-
-    <tr>
-        <td>CANTABDMS</td>
-        <td>#xdatNumberBox("opex:cantabDMS/CANTABDMS" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>interval</td>
-        <td>#xdatNumberBox("opex:cantabDMS/interval" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>sample_id</td>
-        <td>#xdatNumberBox("opex:cantabDMS/sample_id" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>sample_quality</td>
-        <td>#xdatNumberBox("opex:cantabDMS/sample_quality" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>data_valid</td>
-        <td>#xdatNumberBox("opex:cantabDMS/data_valid" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>comments</td>
-        <td>#xdatNumberBox("opex:cantabDMS/comments" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>status</td>
-        <td>#xdatNumberBox("opex:cantabDMS/status" $item "" $vr)</td>
-    </tr>
     <tr>
         <td>DMSCC</td>
         <td>#xdatNumberBox("opex:cantabDMS/DMSCC" $item "" $vr)</td>
