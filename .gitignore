@@ -17,6 +17,3 @@ qtab-plugin/.gradle/
 *.lock
 *~
 *.vm~
-*.xml
-*.zip
-irc5-samples-plugin/.idea/workspace.xml
