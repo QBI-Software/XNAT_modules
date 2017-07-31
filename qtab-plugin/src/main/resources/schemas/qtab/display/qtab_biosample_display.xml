@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd"
+          schema-element="qtab:biosample" full-description="qtabexpt" brief-description="qtabexpt">
+    <Arc name="PARTICIPANT_EXPERIMENT">
+        <CommonField id="PART_ID" local-field="SUBJECT_ID"/>
+        <CommonField id="DATE" local-field="DATE"/>
+        <CommonField id="EXPT_ID" local-field="EXPT_ID"/>
+    </Arc>
+    <DisplayField id="SUBJECT_ID" header="Subject" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.subject_ID"/>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','xnat:subjectData','xnat:subjectData.ID');">
+                <InsertValue id="Field1" field="SUBJECT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="EXPT_ID" header="ID" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.ID"/>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','qtab:biosample','qtab:biosample.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="RPT" header="ID" visible="true" image="true">
+        <Content type="sql">'/@WEBAPP/images/r.gif'::text</Content>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','qtab:biosample','qtab:biosample.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="DATE" header="Date" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.date"/>
+    </DisplayField>
+    <DisplayField id="AGE" header="Age" visible="true" searchable="true" data-type="integer">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.date"/>
+        <DisplayFieldElement name="Field2" schema-element="xnat:demographicData.dob"/>
+        <DisplayFieldElement name="Field3" schema-element="xnat:demographicData.yob"/>
+        <Content type="sql">CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS
+            numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)
+        </Content>
+    </DisplayField>
+    <DisplayField header="Projects" id="PROJECTS" data-type="string">
+        <DisplayFieldElement name="Field1" viewName="QTAB_BIOSAMPLE_PROJECTS" viewColumn="PROJECTS"/>
+    </DisplayField>
+    <DisplayField header="Label" id="LABEL" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.ID"/>
+        <DisplayFieldElement name="Field2" schema-element="qtab:biosample.label"/>
+        <Content type="sql">COALESCE(@Field2, @Field1)</Content>
+        <HTML-Link>
+            <SecureLink elementName="qtab:biosample">
+                <securityMappingValue displayFieldId="PROJECTS"
+                                      schemaElementMap="qtab:biosample/sharing/share/project"/>
+                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="qtab:biosample/project"/>
+            </SecureLink>
+            <Property name="HREF"
+                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/qtab:biosample/search_field/qtab:biosample.ID">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+            <Property name="ONCLICK" value="return rpt('@Field1','qtab:biosample','qtab:biosample.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+            <Property name="TITLE" value="Inserted: @Field1 (@Field2)">
+                <InsertValue id="Field1" field="INSERT_DATE"/>
+                <InsertValue id="Field2" field="INSERT_USER"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="PROJECT" header="Project" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.project"/>
+    </DisplayField>
+    <DisplayField id="QTAB_BIOSAMPLE_PROJECT_IDENTIFIER" header="QTAB_BIOSAMPLE ID" visible="true" searchable="false"
+                  data-type="string" xsi:type="SubQueryField">
+        <Content type="sql">qtab_biosample_project_id</Content>
+        <HTML-Link>
+            <SecureLink elementName="qtab:biosample">
+                <securityMappingValue displayFieldId="PROJECTS"
+                                      schemaElementMap="qtab:biosample/sharing/share/project"/>
+                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="qtab:biosample/project"/>
+            </SecureLink>
+            <Property name="HREF"
+                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/qtab:biosample/search_field/qtab:biosample.ID/project/@Field2">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+                <InsertValue id="Field2" field="@WHERE"/>
+            </Property>
+        </HTML-Link>
+        <SubQuery>SELECT DISTINCT COALESCE(label,sharing_share_xnat_experimentda_id) AS
+            qtab_biosample_project_id,sharing_share_xnat_experimentda_id FROM ( SELECT
+            sharing_share_xnat_experimentda_id,label FROM xnat_experimentdata_share WHERE project='@WHERE' UNION SELECT
+            id,label FROM xnat_experimentData WHERE project='@WHERE' )SEARCH
+        </SubQuery>
+        <MappingColumns>
+            <MappingColumn schemaField="qtab:biosample.ID" queryField="sharing_share_xnat_experimentda_id"/>
+        </MappingColumns>
+    </DisplayField>
+    <DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.meta.insert_date"/>
+    </DisplayField>
+    <DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample.meta.insert_user.login"/>
+    </DisplayField>
+    <DisplayField id="QTAB_BIOSAMPLE_FIELD_MAP" header="Field" visible="true" searchable="false" data-type="string"
+                  xsi:type="SubQueryField">
+        <Content type="sql">field</Content>
+        <SubQuery>SELECT DISTINCT ON ( e.ID) e.ID AS expt_id,field FROM xnat_experimentData_field ef JOIN (SELECT
+            ID,extension,element_name FROM xnat_experimentData e JOIN xdat_meta_element xme ON
+            e.extension=xme.xdat_meta_element_id WHERE xme.element_name='qtab:biosample') e on
+            ef.fields_field_xnat_experimentdat_id=e.id WHERE name='@WHERE'
+        </SubQuery>
+        <MappingColumns>
+            <MappingColumn schemaField="qtab:biosample.ID" queryField="expt_id"/>
+        </MappingColumns>
+    </DisplayField>
+    <DisplayField id="WAVE" header="wave" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/wave"/>
+    </DisplayField>
+    <DisplayField id="COLLECTED" header="collected" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/collected"/>
+    </DisplayField>
+    <DisplayField id="COMMENT" header="comment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/comment"/>
+    </DisplayField>
+    <DisplayField id="BIO_ID" header="bio_id" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/bio_id"/>
+    </DisplayField>
+    <DisplayField id="COLLECTION_ID" header="collection_id" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/collection_id"/>
+    </DisplayField>
+    <DisplayField id="LOCATION" header="location" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/location"/>
+    </DisplayField>
+    <DisplayField id="DATE_ANALYSED" header="date_analysed" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/date_analysed"/>
+    </DisplayField>
+    <DisplayField id="PROTOCOL_ID" header="protocol_id" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/protocol_id"/>
+    </DisplayField>
+    <DisplayField id="PROTOCOL_COMMENT" header="protocol_comment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/protocol_comment"/>
+    </DisplayField>
+    <DisplayField id="ENDSTAT" header="endstat" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/endstat"/>
+    </DisplayField>
+    <DisplayField id="ENDSTAT_COMMENT" header="endstat_comment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/endstat_comment"/>
+    </DisplayField>
+    <DisplayField id="SAMPLE_TYPE" header="sample_type" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/sample_type"/>
+    </DisplayField>
+    <DisplayField id="PARENT_COLLECTED" header="parent_collected" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/parent_collected"/>
+    </DisplayField>
+    <DisplayField id="PARENT_ID" header="parent_id" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/parent_id"/>
+    </DisplayField>
+    <DisplayField id="PARENT_COMMENT" header="parent_comment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/parent_comment"/>
+    </DisplayField>
+    <DisplayField id="NATURAL_COLOUR" header="natural_colour" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/natural_colour"/>
+    </DisplayField>
+    <DisplayField id="DYED" header="dyed" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/dyed"/>
+    </DisplayField>
+    <DisplayField id="LENGTH" header="length" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/length"/>
+    </DisplayField>
+    <DisplayField id="SENT" header="sent" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/sent"/>
+    </DisplayField>
+    <DisplayField id="COLLECTION_DATETIME" header="collection_datetime" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/collection_datetime"/>
+    </DisplayField>
+    <DisplayField id="COURIER" header="courier" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/courier"/>
+    </DisplayField>
+    <DisplayField id="CONSIGNMENT" header="consignment" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/consignment"/>
+    </DisplayField>
+    <DisplayField id="RETURNED" header="returned" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/returned"/>
+    </DisplayField>
+    <DisplayField id="RETURNED_DATE" header="returned_date" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:biosample/returned_date"/>
+    </DisplayField>
+    <DisplayVersion versionName="listing" default-order-by="DATE" default-sort-order="DESC" brief-description="qtabexpt"
+                    dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="RPT"/>
+        <DisplayFieldRef id="LABEL"/>
+        <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="GENDER" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="WAVE"/>
+        <DisplayFieldRef id="LOCATION"/>
+        <DisplayFieldRef id="SAMPLE_TYPE"/>
+        <DisplayFieldRef id="COLLECTED"/>
+        <DisplayFieldRef id="COMMENT"/>
+        <DisplayFieldRef id="BIO_ID"/>
+        <DisplayFieldRef id="COLLECTION_ID"/>
+        <DisplayFieldRef id="DATE_ANALYSED"/>
+        <DisplayFieldRef id="PROTOCOL_ID"/>
+        <DisplayFieldRef id="PROTOCOL_COMMENT"/>
+        <DisplayFieldRef id="ENDSTAT"/>
+        <DisplayFieldRef id="ENDSTAT_COMMENT"/>
+        <DisplayFieldRef id="PARENT_COLLECTED"/>
+        <DisplayFieldRef id="PARENT_ID"/>
+        <DisplayFieldRef id="PARENT_COMMENT"/>
+        <DisplayFieldRef id="NATURAL_COLOUR"/>
+        <DisplayFieldRef id="DYED"/>
+        <DisplayFieldRef id="LENGTH"/>
+        <DisplayFieldRef id="SENT"/>
+        <DisplayFieldRef id="COLLECTION_DATETIME"/>
+        <DisplayFieldRef id="COURIER"/>
+        <DisplayFieldRef id="CONSIGNMENT"/>
+        <DisplayFieldRef id="RETURNED"/>
+        <DisplayFieldRef id="RETURNED_DATE"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="qtabexpt" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="LABEL"/>
+        <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="DATE"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="WAVE"/>
+        <DisplayFieldRef id="LOCATION"/>
+        <DisplayFieldRef id="SAMPLE_TYPE"/>
+        <DisplayFieldRef id="COLLECTED"/>
+        <DisplayFieldRef id="COMMENT"/>
+        <DisplayFieldRef id="BIO_ID"/>
+        <DisplayFieldRef id="COLLECTION_ID"/>
+        <DisplayFieldRef id="DATE_ANALYSED"/>
+        <DisplayFieldRef id="PROTOCOL_ID"/>
+        <DisplayFieldRef id="PROTOCOL_COMMENT"/>
+        <DisplayFieldRef id="ENDSTAT"/>
+        <DisplayFieldRef id="ENDSTAT_COMMENT"/>
+        <DisplayFieldRef id="PARENT_COLLECTED"/>
+        <DisplayFieldRef id="PARENT_ID"/>
+        <DisplayFieldRef id="PARENT_COMMENT"/>
+        <DisplayFieldRef id="NATURAL_COLOUR"/>
+        <DisplayFieldRef id="DYED"/>
+        <DisplayFieldRef id="LENGTH"/>
+        <DisplayFieldRef id="SENT"/>
+        <DisplayFieldRef id="COLLECTION_DATETIME"/>
+        <DisplayFieldRef id="COURIER"/>
+        <DisplayFieldRef id="CONSIGNMENT"/>
+        <DisplayFieldRef id="RETURNED"/>
+        <DisplayFieldRef id="RETURNED_DATE"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="qtabexpt"
+                    dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="EXPT_ID"/>
+        <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="WAVE"/>
+        <DisplayFieldRef id="LOCATION"/>
+        <DisplayFieldRef id="SAMPLE_TYPE"/>
+        <DisplayFieldRef id="COLLECTED"/>
+        <DisplayFieldRef id="COMMENT"/>
+        <DisplayFieldRef id="BIO_ID"/>
+        <DisplayFieldRef id="COLLECTION_ID"/>
+        <DisplayFieldRef id="DATE_ANALYSED"/>
+        <DisplayFieldRef id="PROTOCOL_ID"/>
+        <DisplayFieldRef id="PROTOCOL_COMMENT"/>
+        <DisplayFieldRef id="ENDSTAT"/>
+        <DisplayFieldRef id="ENDSTAT_COMMENT"/>
+        <DisplayFieldRef id="PARENT_COLLECTED"/>
+        <DisplayFieldRef id="PARENT_ID"/>
+        <DisplayFieldRef id="PARENT_COMMENT"/>
+        <DisplayFieldRef id="NATURAL_COLOUR"/>
+        <DisplayFieldRef id="DYED"/>
+        <DisplayFieldRef id="LENGTH"/>
+        <DisplayFieldRef id="SENT"/>
+        <DisplayFieldRef id="COLLECTION_DATETIME"/>
+        <DisplayFieldRef id="COURIER"/>
+        <DisplayFieldRef id="CONSIGNMENT"/>
+        <DisplayFieldRef id="RETURNED"/>
+        <DisplayFieldRef id="RETURNED_DATE"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="detailed" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="qtabexpt" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="WAVE"/>
+        <DisplayFieldRef id="LOCATION"/>
+        <DisplayFieldRef id="SAMPLE_TYPE"/>
+        <DisplayFieldRef id="COLLECTED"/>
+        <DisplayFieldRef id="COMMENT"/>
+        <DisplayFieldRef id="BIO_ID"/>
+        <DisplayFieldRef id="COLLECTION_ID"/>
+        <DisplayFieldRef id="DATE_ANALYSED"/>
+        <DisplayFieldRef id="PROTOCOL_ID"/>
+        <DisplayFieldRef id="PROTOCOL_COMMENT"/>
+        <DisplayFieldRef id="ENDSTAT"/>
+        <DisplayFieldRef id="ENDSTAT_COMMENT"/>
+        <DisplayFieldRef id="PARENT_COLLECTED"/>
+        <DisplayFieldRef id="PARENT_ID"/>
+        <DisplayFieldRef id="PARENT_COMMENT"/>
+        <DisplayFieldRef id="NATURAL_COLOUR"/>
+        <DisplayFieldRef id="DYED"/>
+        <DisplayFieldRef id="LENGTH"/>
+        <DisplayFieldRef id="SENT"/>
+        <DisplayFieldRef id="COLLECTION_DATETIME"/>
+        <DisplayFieldRef id="COURIER"/>
+        <DisplayFieldRef id="CONSIGNMENT"/>
+        <DisplayFieldRef id="RETURNED"/>
+        <DisplayFieldRef id="RETURNED_DATE"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="project_bundle" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="qtabexpt" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="QTAB_BIOSAMPLE_PROJECT_IDENTIFIER"/>
+        <DisplayFieldRef id="SUB_PROJECT_IDENTIFIER" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="WAVE"/>
+        <DisplayFieldRef id="LOCATION"/>
+        <DisplayFieldRef id="SAMPLE_TYPE"/>
+        <DisplayFieldRef id="COLLECTED"/>
+        <DisplayFieldRef id="COMMENT"/>
+        <DisplayFieldRef id="BIO_ID"/>
+        <DisplayFieldRef id="COLLECTION_ID"/>
+        <DisplayFieldRef id="DATE_ANALYSED"/>
+        <DisplayFieldRef id="PROTOCOL_ID"/>
+        <DisplayFieldRef id="PROTOCOL_COMMENT"/>
+        <DisplayFieldRef id="ENDSTAT"/>
+        <DisplayFieldRef id="ENDSTAT_COMMENT"/>
+        <DisplayFieldRef id="PARENT_COLLECTED"/>
+        <DisplayFieldRef id="PARENT_ID"/>
+        <DisplayFieldRef id="PARENT_COMMENT"/>
+        <DisplayFieldRef id="NATURAL_COLOUR"/>
+        <DisplayFieldRef id="DYED"/>
+        <DisplayFieldRef id="LENGTH"/>
+        <DisplayFieldRef id="SENT"/>
+        <DisplayFieldRef id="COLLECTION_DATETIME"/>
+        <DisplayFieldRef id="COURIER"/>
+        <DisplayFieldRef id="CONSIGNMENT"/>
+        <DisplayFieldRef id="RETURNED"/>
+        <DisplayFieldRef id="RETURNED_DATE"/>
+    </DisplayVersion>
+    <ViewLink alias="QTAB_BIOSAMPLE_PROJECTS">
+        <Mapping TableName="QTAB_BIOSAMPLE_PROJECTS">
+            <MappingColumn rootElement="qtab:biosample" fieldElement="qtab:biosample.ID" mapsTo="id"/>
+        </Mapping>
+    </ViewLink>
+    <SQLView name="QTAB_BIOSAMPLE_PROJECTS"
+             sql="SELECT id, '&lt;' || expt.project || '&gt;' || xs_a_concat(',&lt;' || shared.project || '&gt;') AS projects FROM xnat_experimentData expt LEFT JOIN xnat_experimentData_share shared ON expt.id=shared.sharing_share_xnat_experimentda_id LEFT JOIN xdat_meta_element xme ON expt.extension = xme.xdat_meta_element_id WHERE element_name='qtab:biosample' GROUP BY expt.id,expt.project"/>
+</Displays>

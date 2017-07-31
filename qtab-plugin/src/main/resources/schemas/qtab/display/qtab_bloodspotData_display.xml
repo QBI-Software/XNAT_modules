@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Displays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xdat/display.xsd"
+          schema-element="qtab:bloodspotData" full-description="bloodspot" brief-description="bloodspot">
+    <Arc name="PARTICIPANT_EXPERIMENT">
+        <CommonField id="PART_ID" local-field="SUBJECT_ID"/>
+        <CommonField id="DATE" local-field="DATE"/>
+        <CommonField id="EXPT_ID" local-field="EXPT_ID"/>
+    </Arc>
+    <DisplayField id="SUBJECT_ID" header="Subject" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.subject_ID"/>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','xnat:subjectData','xnat:subjectData.ID');">
+                <InsertValue id="Field1" field="SUBJECT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="EXPT_ID" header="ID" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.ID"/>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','qtab:bloodspotData','qtab:bloodspotData.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="RPT" header="ID" visible="true" image="true">
+        <Content type="sql">'/@WEBAPP/images/r.gif'::text</Content>
+        <HTML-Link>
+            <Property name="HREF" value="none"/>
+            <Property name="ONCLICK" value="return rpt('@Field1','qtab:bloodspotData','qtab:bloodspotData.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="DATE" header="Date" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.date"/>
+    </DisplayField>
+    <DisplayField id="AGE" header="Age" visible="true" searchable="true" data-type="integer">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.date"/>
+        <DisplayFieldElement name="Field2" schema-element="xnat:demographicData.dob"/>
+        <DisplayFieldElement name="Field3" schema-element="xnat:demographicData.yob"/>
+        <Content type="sql">CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS
+            numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)
+        </Content>
+    </DisplayField>
+    <DisplayField header="Projects" id="PROJECTS" data-type="string">
+        <DisplayFieldElement name="Field1" viewName="QTAB_BLOODSPOTDATA_PROJECTS" viewColumn="PROJECTS"/>
+    </DisplayField>
+    <DisplayField header="Label" id="LABEL" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.ID"/>
+        <DisplayFieldElement name="Field2" schema-element="qtab:bloodspotData.label"/>
+        <Content type="sql">COALESCE(@Field2, @Field1)</Content>
+        <HTML-Link>
+            <SecureLink elementName="qtab:bloodspotData">
+                <securityMappingValue displayFieldId="PROJECTS"
+                                      schemaElementMap="qtab:bloodspotData/sharing/share/project"/>
+                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="qtab:bloodspotData/project"/>
+            </SecureLink>
+            <Property name="HREF"
+                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/qtab:bloodspotData/search_field/qtab:bloodspotData.ID">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+            <Property name="ONCLICK" value="return rpt('@Field1','qtab:bloodspotData','qtab:bloodspotData.ID');">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+            </Property>
+            <Property name="TITLE" value="Inserted: @Field1 (@Field2)">
+                <InsertValue id="Field1" field="INSERT_DATE"/>
+                <InsertValue id="Field2" field="INSERT_USER"/>
+            </Property>
+        </HTML-Link>
+    </DisplayField>
+    <DisplayField id="PROJECT" header="Project" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.project"/>
+    </DisplayField>
+    <DisplayField id="QTAB_BLOODSPOTDATA_PROJECT_IDENTIFIER" header="QTAB_BLOODSPOTDATA ID" visible="true"
+                  searchable="false" data-type="string" xsi:type="SubQueryField">
+        <Content type="sql">qtab_bloodspotdata_project_id</Content>
+        <HTML-Link>
+            <SecureLink elementName="qtab:bloodspotData">
+                <securityMappingValue displayFieldId="PROJECTS"
+                                      schemaElementMap="qtab:bloodspotData/sharing/share/project"/>
+                <securityMappingValue displayFieldId="PROJECT" schemaElementMap="qtab:bloodspotData/project"/>
+            </SecureLink>
+            <Property name="HREF"
+                      value="@WEBAPPapp/action/DisplayItemAction/search_value/@Field1/search_element/qtab:bloodspotData/search_field/qtab:bloodspotData.ID/project/@Field2">
+                <InsertValue id="Field1" field="EXPT_ID"/>
+                <InsertValue id="Field2" field="@WHERE"/>
+            </Property>
+        </HTML-Link>
+        <SubQuery>SELECT DISTINCT COALESCE(label,sharing_share_xnat_experimentda_id) AS
+            qtab_bloodspotdata_project_id,sharing_share_xnat_experimentda_id FROM ( SELECT
+            sharing_share_xnat_experimentda_id,label FROM xnat_experimentdata_share WHERE project='@WHERE' UNION SELECT
+            id,label FROM xnat_experimentData WHERE project='@WHERE' )SEARCH
+        </SubQuery>
+        <MappingColumns>
+            <MappingColumn schemaField="qtab:bloodspotData.ID" queryField="sharing_share_xnat_experimentda_id"/>
+        </MappingColumns>
+    </DisplayField>
+    <DisplayField id="INSERT_DATE" header="Inserted" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.meta.insert_date"/>
+    </DisplayField>
+    <DisplayField id="INSERT_USER" header="Creator" visible="true" searchable="true" data-type="string">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData.meta.insert_user.login"/>
+    </DisplayField>
+    <DisplayField id="QTAB_BLOODSPOTDATA_FIELD_MAP" header="Field" visible="true" searchable="false" data-type="string"
+                  xsi:type="SubQueryField">
+        <Content type="sql">field</Content>
+        <SubQuery>SELECT DISTINCT ON ( e.ID) e.ID AS expt_id,field FROM xnat_experimentData_field ef JOIN (SELECT
+            ID,extension,element_name FROM xnat_experimentData e JOIN xdat_meta_element xme ON
+            e.extension=xme.xdat_meta_element_id WHERE xme.element_name='qtab:bloodspotData') e on
+            ef.fields_field_xnat_experimentdat_id=e.id WHERE name='@WHERE'
+        </SubQuery>
+        <MappingColumns>
+            <MappingColumn schemaField="qtab:bloodspotData.ID" queryField="expt_id"/>
+        </MappingColumns>
+    </DisplayField>
+    <DisplayField id="GUTHRIE" header="guthrie" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData/guthrie"/>
+    </DisplayField>
+    <DisplayField id="COLLECTION" header="collection" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData/collection"/>
+    </DisplayField>
+    <DisplayField id="GUTHRIE_ENDSTAT" header="guthrie_endstat" visible="true" searchable="true">
+        <DisplayFieldElement name="Field1" schema-element="qtab:bloodspotData/guthrie_endstat"/>
+    </DisplayField>
+    <DisplayVersion versionName="listing" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="bloodspot" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="RPT"/>
+        <DisplayFieldRef id="LABEL"/>
+        <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="DATE"/>
+        <DisplayFieldRef id="GENDER" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="GUTHRIE"/>
+        <DisplayFieldRef id="COLLECTION"/>
+        <DisplayFieldRef id="GUTHRIE_ENDSTAT"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="listing_csv" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="bloodspot" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="LABEL"/>
+        <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="DATE"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="GUTHRIE"/>
+        <DisplayFieldRef id="COLLECTION"/>
+        <DisplayFieldRef id="GUTHRIE_ENDSTAT"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="full" default-order-by="DATE" default-sort-order="DESC" brief-description="bloodspot"
+                    dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="EXPT_ID"/>
+        <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="DATE"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="GUTHRIE"/>
+        <DisplayFieldRef id="COLLECTION"/>
+        <DisplayFieldRef id="GUTHRIE_ENDSTAT"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="detailed" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="bloodspot" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="GUTHRIE"/>
+        <DisplayFieldRef id="COLLECTION"/>
+        <DisplayFieldRef id="GUTHRIE_ENDSTAT"/>
+    </DisplayVersion>
+    <DisplayVersion versionName="project_bundle" default-order-by="DATE" default-sort-order="DESC"
+                    brief-description="bloodspot" dark-color="9999CC" light-color="CCCCFF">
+        <DisplayFieldRef id="QTAB_BLOODSPOTDATA_PROJECT_IDENTIFIER"/>
+        <DisplayFieldRef id="SUB_PROJECT_IDENTIFIER" element_name="xnat:subjectData"/>
+        <DisplayFieldRef id="DATE"/>
+        <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="GUTHRIE"/>
+        <DisplayFieldRef id="COLLECTION"/>
+        <DisplayFieldRef id="GUTHRIE_ENDSTAT"/>
+    </DisplayVersion>
+    <ViewLink alias="QTAB_BLOODSPOTDATA_PROJECTS">
+        <Mapping TableName="QTAB_BLOODSPOTDATA_PROJECTS">
+            <MappingColumn rootElement="qtab:bloodspotData" fieldElement="qtab:bloodspotData.ID" mapsTo="id"/>
+        </Mapping>
+    </ViewLink>
+    <SQLView name="QTAB_BLOODSPOTDATA_PROJECTS"
+             sql="SELECT id, '&lt;' || expt.project || '&gt;' || xs_a_concat(',&lt;' || shared.project || '&gt;') AS projects FROM xnat_experimentData expt LEFT JOIN xnat_experimentData_share shared ON expt.id=shared.sharing_share_xnat_experimentda_id LEFT JOIN xdat_meta_element xme ON expt.extension = xme.xdat_meta_element_id WHERE element_name='qtab:bloodspotData' GROUP BY expt.id,expt.project"/>
+</Displays>
