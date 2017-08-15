@@ -1,7 +1,7 @@
 ##Copyright 2005 Harvard University / Howard Hughes Medical Institute (HHMI) All Rights Reserved
 ##
 ## Default Macro file for QBI
-##
+## IRC5 and OPEX projects
 ## Put your Application macros in this file.
 ##
 ## patch test
@@ -75,6 +75,29 @@
     #xdatNumberBoxParams($name $item $defaultValue $vr "form-control"  "" "")
 #end
 
+#macro(xdatNumberBoxParamsAll $name $item $defaultValue $vr $classes $onChange $size $minmax $required)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$name" type="number" name="$name" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+    #if($!minmax != "") min="$minmax[0]" max="#$minmax[1]" #end
+    #if($!required != "") required #end
+       step="any"
+/>
+
+#end
+
 #macro(xdatNumberBoxParams $name $item $defaultValue $vr $classes $onChange $size)
     #if ($vr)
         #if($vr.getField($name))
@@ -91,7 +114,7 @@
     #if($!onChange != "") onchange="$!{onChange}(this)" #end
     #if($!size != "") size="$!size" #end
     #if($!classes != "") class="$!classes" #end
-        step="any"
+       step="any"
 />
 
 #end

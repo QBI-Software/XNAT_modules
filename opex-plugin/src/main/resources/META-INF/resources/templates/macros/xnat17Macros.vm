@@ -1,7 +1,7 @@
 ##Copyright 2005 Harvard University / Howard Hughes Medical Institute (HHMI) All Rights Reserved
 ##
 ## Default Macro file for QBI
-##
+## IRC5 and OPEX projects
 ## Put your Application macros in this file.
 ##
 ## patch test
@@ -47,6 +47,27 @@
         #if($!size != "") size="$!size" #end
         #if($!classes != "") class="$!classes" #end
     />
+
+#end
+
+#macro(xdatStringBoxParamsReqd $id $field $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($field))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($field))
+        #set($value = $!item.getProperty($field))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$id" type="text" name="$id" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+    required
+/>
 
 #end
 
@@ -98,6 +119,28 @@
 
 #end
 
+#macro(xdatNumberBoxParamsRequired $name $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($name))
+        #set($value = $!item.getProperty($name))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$name" type="number" name="$name" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+       step="any"
+        required
+/>
+
+#end
+
 #macro(xdatNumberBoxParamsID $id $field $item $defaultValue $vr $classes $onChange $size)
     #if ($vr)
         #if($vr.getField($field))
@@ -114,6 +157,28 @@
     #if($!onChange != "") onchange="$!{onChange}(this)" #end
     #if($!size != "") size="$!size" #end
     #if($!classes != "") class="$!classes" #end
+       step="any"
+/>
+
+#end
+
+#macro(xdatNumberBoxParamsIDRequired $id $field $item $defaultValue $vr $classes $onChange $size)
+    #if ($vr)
+        #if($vr.getField($field))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($!item.getProperty($field))
+        #set($value = $!item.getProperty($field))
+    #else
+        #set($value = $defaultValue)
+    #end
+
+<input id="$id" type="number" name="$id" value="$value"
+    #if($!onChange != "") onchange="$!{onChange}(this)" #end
+    #if($!size != "") size="$!size" #end
+    #if($!classes != "") class="$!classes" #end
+        required
        step="any"
 />
 
@@ -208,7 +273,32 @@
 		  </select>
 		</div>
 #end
+#macro(xdatDateTimeBootstrap $id $name $item $vr)
+    #if ($name=="")
+        #set($name = $id)
+    #end
 
+    #if ($vr)
+        #if($vr.getField($name))
+        <span style="color:red;">&#8658</span>
+        #end
+    #end
+    #if($item.getDateProperty($name))
+        #set ($expt_date = $!item.getDateProperty($name))
+    #else
+    	#set ($expt_date = "")
+    #end
+    	
+    	<div class="form-group">
+                <div class='input-group date' id='$id'>
+                    <input type='text' class="form-control" 
+                    value="$expt_date" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+#end
 
 #macro(xdatDateBoxParams $id $name $item $vr $years $class )
     #if ($name=="")

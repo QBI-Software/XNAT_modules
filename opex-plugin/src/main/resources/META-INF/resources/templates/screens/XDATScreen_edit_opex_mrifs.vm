@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX MRI FS")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #set($formtitle="OPEX MRI Free Surfer")
+    #parse("/screens/formheader.vm")
+
+<!-- BEGIN opex:mriashs -->
+<table class="table table-striped">
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+
+    <tr>
+        <td>mrifs</td>
+        <td>#xdatNumberBox("opex:mrifs/mrifs" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>interval</td>
+        <td>#xdatNumberBox("opex:mrifs/interval" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>sample_id</td>
+        <td>#xdatNumberBox("opex:mrifs/sample_id" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>sample_quality</td>
+        <td>#xdatNumberBox("opex:mrifs/sample_quality" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>data_valid</td>
+        <td>#xdatNumberBox("opex:mrifs/data_valid" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>comments</td>
+        <td>#xdatNumberBox("opex:mrifs/comments" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_Hippocampal_tail</td>
+        <td>#xdatNumberBox("opex:mrifs/left_Hippocampal_tail" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_subiculum</td>
+        <td>#xdatNumberBox("opex:mrifs/left_subiculum" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_CA1</td>
+        <td>#xdatNumberBox("opex:mrifs/left_CA1" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_hippocampal-fissure</td>
+        <td>#xdatNumberBox("opex:mrifs/left_hippocampal-fissure" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_presubiculum</td>
+        <td>#xdatNumberBox("opex:mrifs/left_presubiculum" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_parasubiculum</td>
+        <td>#xdatNumberBox("opex:mrifs/left_parasubiculum" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_molecular_layer_HP</td>
+        <td>#xdatNumberBox("opex:mrifs/left_molecular_layer_HP" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_GC-ML-DG</td>
+        <td>#xdatNumberBox("opex:mrifs/left_GC-ML-DG" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_CA3</td>
+        <td>#xdatNumberBox("opex:mrifs/left_CA3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_CA4</td>
+        <td>#xdatNumberBox("opex:mrifs/left_CA4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_fimbria</td>
+        <td>#xdatNumberBox("opex:mrifs/left_fimbria" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_HATA</td>
+        <td>#xdatNumberBox("opex:mrifs/left_HATA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_Whole_hippocampus</td>
+        <td>#xdatNumberBox("opex:mrifs/left_Whole_hippocampus" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_Hippocampal_tail</td>
+        <td>#xdatNumberBox("opex:mrifs/right_Hippocampal_tail" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_subiculum</td>
+        <td>#xdatNumberBox("opex:mrifs/right_subiculum" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_CA1</td>
+        <td>#xdatNumberBox("opex:mrifs/right_CA1" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_hippocampal-fissure</td>
+        <td>#xdatNumberBox("opex:mrifs/right_hippocampal-fissure" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_presubiculum</td>
+        <td>#xdatNumberBox("opex:mrifs/right_presubiculum" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_parasubiculum</td>
+        <td>#xdatNumberBox("opex:mrifs/right_parasubiculum" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_molecular_layer_HP</td>
+        <td>#xdatNumberBox("opex:mrifs/right_molecular_layer_HP" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_GC-ML-DG</td>
+        <td>#xdatNumberBox("opex:mrifs/right_GC-ML-DG" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_CA3</td>
+        <td>#xdatNumberBox("opex:mrifs/right_CA3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_CA4</td>
+        <td>#xdatNumberBox("opex:mrifs/right_CA4" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_fimbria</td>
+        <td>#xdatNumberBox("opex:mrifs/right_fimbria" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_HATA</td>
+        <td>#xdatNumberBox("opex:mrifs/right_HATA" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_Whole_hippocampus</td>
+        <td>#xdatNumberBox("opex:mrifs/right_Whole_hippocampus" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:mrifs -->
+#parse("screens/validateform.vm")
+

@@ -3,7 +3,7 @@
     $page.setLinkColor($ui.alink)
     $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
-## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
     #set($formtitle="OPEX Health measures")

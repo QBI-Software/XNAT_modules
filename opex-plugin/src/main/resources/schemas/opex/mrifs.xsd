@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- OPEX datatype for Exercise tests-->
+<xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<xs:element name="mrifs" type="opex:mrifs"/>
+	<xs:complexType name="mrifs">
+		<xs:annotation>
+			<xs:documentation>MRI Data - FreeSurfer analysis</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="interval" type="xs:integer" default="0">
+						<xs:annotation>
+							<xs:documentation>
+                                Monthly interval stage
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Sample ID from analyser
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_quality" default="Unknown">
+						<xs:annotation>
+							<xs:documentation>
+								Sample Quality
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Good"/>
+								<xs:enumeration value="Questionable"/>
+								<xs:enumeration value="Poor"/>
+								<xs:enumeration value="Unknown"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="data_valid" default="Initial">
+						<xs:annotation>
+							<xs:documentation>
+								Data validation check
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Initial"/>
+								<xs:enumeration value="Checked"/>
+								<xs:enumeration value="Corrected"/>
+								<xs:enumeration value="Invalid"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="comments" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Comments
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="left_Hippocampal_tail" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_subiculum" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_CA1" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_hippocampal-fissure" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_presubiculum" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_parasubiculum" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_molecular_layer_HP" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_GC-ML-DG" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_CA3" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_CA4" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_fimbria" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_HATA" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="left_Whole_hippocampus" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_Hippocampal_tail" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_subiculum" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_CA1" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_hippocampal-fissure" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_presubiculum" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_parasubiculum" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_molecular_layer_HP" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_GC-ML-DG" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_CA3" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_CA4" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_fimbria" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_HATA" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="right_Whole_hippocampus" type="xs:float" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

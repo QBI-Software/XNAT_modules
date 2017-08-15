@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX MRI FS")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>OPEX MRI Free Surfer</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:mrifs -->
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <tr>
+                    <td>mrifs</td>
+                    <td>$!item.getProperty("opex:mrifs/mrifs")</td>
+                </tr>
+                <tr>
+                    <td>interval</td>
+                    <td>$!item.getProperty("opex:mrifs/interval")</td>
+                </tr>
+                <tr>
+                    <td>sample_id</td>
+                    <td>$!item.getProperty("opex:mrifs/sample_id")</td>
+                </tr>
+                <tr>
+                    <td>sample_quality</td>
+                    <td>$!item.getProperty("opex:mrifs/sample_quality")</td>
+                </tr>
+                <tr>
+                    <td>data_valid</td>
+                    <td>$!item.getProperty("opex:mrifs/data_valid")</td>
+                </tr>
+                <tr>
+                    <td>comments</td>
+                    <td>$!item.getProperty("opex:mrifs/comments")</td>
+                </tr>
+                <tr>
+                    <td>left_Hippocampal_tail</td>
+                    <td>$!item.getProperty("opex:mrifs/left_Hippocampal_tail")</td>
+                </tr>
+                <tr>
+                    <td>left_subiculum</td>
+                    <td>$!item.getProperty("opex:mrifs/left_subiculum")</td>
+                </tr>
+                <tr>
+                    <td>left_CA1</td>
+                    <td>$!item.getProperty("opex:mrifs/left_CA1")</td>
+                </tr>
+                <tr>
+                    <td>left_hippocampal-fissure</td>
+                    <td>$!item.getProperty("opex:mrifs/left_hippocampal-fissure")</td>
+                </tr>
+                <tr>
+                    <td>left_presubiculum</td>
+                    <td>$!item.getProperty("opex:mrifs/left_presubiculum")</td>
+                </tr>
+                <tr>
+                    <td>left_parasubiculum</td>
+                    <td>$!item.getProperty("opex:mrifs/left_parasubiculum")</td>
+                </tr>
+                <tr>
+                    <td>left_molecular_layer_HP</td>
+                    <td>$!item.getProperty("opex:mrifs/left_molecular_layer_HP")</td>
+                </tr>
+                <tr>
+                    <td>left_GC-ML-DG</td>
+                    <td>$!item.getProperty("opex:mrifs/left_GC-ML-DG")</td>
+                </tr>
+                <tr>
+                    <td>left_CA3</td>
+                    <td>$!item.getProperty("opex:mrifs/left_CA3")</td>
+                </tr>
+                <tr>
+                    <td>left_CA4</td>
+                    <td>$!item.getProperty("opex:mrifs/left_CA4")</td>
+                </tr>
+                <tr>
+                    <td>left_fimbria</td>
+                    <td>$!item.getProperty("opex:mrifs/left_fimbria")</td>
+                </tr>
+                <tr>
+                    <td>left_HATA</td>
+                    <td>$!item.getProperty("opex:mrifs/left_HATA")</td>
+                </tr>
+                <tr>
+                    <td>left_Whole_hippocampus</td>
+                    <td>$!item.getProperty("opex:mrifs/left_Whole_hippocampus")</td>
+                </tr>
+                <tr>
+                    <td>right_Hippocampal_tail</td>
+                    <td>$!item.getProperty("opex:mrifs/right_Hippocampal_tail")</td>
+                </tr>
+                <tr>
+                    <td>right_subiculum</td>
+                    <td>$!item.getProperty("opex:mrifs/right_subiculum")</td>
+                </tr>
+                <tr>
+                    <td>right_CA1</td>
+                    <td>$!item.getProperty("opex:mrifs/right_CA1")</td>
+                </tr>
+                <tr>
+                    <td>right_hippocampal-fissure</td>
+                    <td>$!item.getProperty("opex:mrifs/right_hippocampal-fissure")</td>
+                </tr>
+                <tr>
+                    <td>right_presubiculum</td>
+                    <td>$!item.getProperty("opex:mrifs/right_presubiculum")</td>
+                </tr>
+                <tr>
+                    <td>right_parasubiculum</td>
+                    <td>$!item.getProperty("opex:mrifs/right_parasubiculum")</td>
+                </tr>
+                <tr>
+                    <td>right_molecular_layer_HP</td>
+                    <td>$!item.getProperty("opex:mrifs/right_molecular_layer_HP")</td>
+                </tr>
+                <tr>
+                    <td>right_GC-ML-DG</td>
+                    <td>$!item.getProperty("opex:mrifs/right_GC-ML-DG")</td>
+                </tr>
+                <tr>
+                    <td>right_CA3</td>
+                    <td>$!item.getProperty("opex:mrifs/right_CA3")</td>
+                </tr>
+                <tr>
+                    <td>right_CA4</td>
+                    <td>$!item.getProperty("opex:mrifs/right_CA4")</td>
+                </tr>
+                <tr>
+                    <td>right_fimbria</td>
+                    <td>$!item.getProperty("opex:mrifs/right_fimbria")</td>
+                </tr>
+                <tr>
+                    <td>right_HATA</td>
+                    <td>$!item.getProperty("opex:mrifs/right_HATA")</td>
+                </tr>
+                <tr>
+                    <td>right_Whole_hippocampus</td>
+                    <td>$!item.getProperty("opex:mrifs/right_Whole_hippocampus")</td>
+                </tr>
+                <!-- end opex:mrifs -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX MRI ASHS")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #set($formtitle="OPEX MRI ASHS")
+    #parse("/screens/formheader.vm")
+
+<!-- BEGIN opex:mriashs -->
+<table class="table table-striped">
+    <tbody>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr>
+        <td>mriashs</td>
+        <td>#xdatNumberBox("opex:mriashs/mriashs" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>interval</td>
+        <td>#xdatNumberBox("opex:mriashs/interval" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>sample_id</td>
+        <td>#xdatNumberBox("opex:mriashs/sample_id" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>sample_quality</td>
+        <td>#xdatNumberBox("opex:mriashs/sample_quality" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>data_valid</td>
+        <td>#xdatNumberBox("opex:mriashs/data_valid" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>comments</td>
+        <td>#xdatNumberBox("opex:mriashs/comments" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_CA1</td>
+        <td>#xdatNumberBox("opex:mriashs/left_CA1" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_CA2</td>
+        <td>#xdatNumberBox("opex:mriashs/left_CA2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_DG</td>
+        <td>#xdatNumberBox("opex:mriashs/left_DG" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_CA3</td>
+        <td>#xdatNumberBox("opex:mriashs/left_CA3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_head</td>
+        <td>#xdatNumberBox("opex:mriashs/left_head" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_tail</td>
+        <td>#xdatNumberBox("opex:mriashs/left_tail" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_misc</td>
+        <td>#xdatNumberBox("opex:mriashs/left_misc" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_SUB</td>
+        <td>#xdatNumberBox("opex:mriashs/left_SUB" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_ERC</td>
+        <td>#xdatNumberBox("opex:mriashs/left_ERC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_BA35</td>
+        <td>#xdatNumberBox("opex:mriashs/left_BA35" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_BA36</td>
+        <td>#xdatNumberBox("opex:mriashs/left_BA36" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_PHC</td>
+        <td>#xdatNumberBox("opex:mriashs/left_PHC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_sulcus</td>
+        <td>#xdatNumberBox("opex:mriashs/left_sulcus" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>left_Hippoc</td>
+        <td>#xdatNumberBox("opex:mriashs/left_Hippoc" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_CA1</td>
+        <td>#xdatNumberBox("opex:mriashs/right_CA1" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_CA2</td>
+        <td>#xdatNumberBox("opex:mriashs/right_CA2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_DG</td>
+        <td>#xdatNumberBox("opex:mriashs/right_DG" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_CA3</td>
+        <td>#xdatNumberBox("opex:mriashs/right_CA3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_head</td>
+        <td>#xdatNumberBox("opex:mriashs/right_head" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_tail</td>
+        <td>#xdatNumberBox("opex:mriashs/right_tail" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_misc</td>
+        <td>#xdatNumberBox("opex:mriashs/right_misc" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_SUB</td>
+        <td>#xdatNumberBox("opex:mriashs/right_SUB" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_ERC</td>
+        <td>#xdatNumberBox("opex:mriashs/right_ERC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_BA35</td>
+        <td>#xdatNumberBox("opex:mriashs/right_BA35" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_BA36</td>
+        <td>#xdatNumberBox("opex:mriashs/right_BA36" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_PHC</td>
+        <td>#xdatNumberBox("opex:mriashs/right_PHC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_sulcus</td>
+        <td>#xdatNumberBox("opex:mriashs/right_sulcus" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>right_Hippoc</td>
+        <td>#xdatNumberBox("opex:mriashs/right_Hippoc" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Total_Hippoc</td>
+        <td>#xdatNumberBox("opex:mriashs/Total_Hippoc" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:mriashs -->
+#parse("screens/validateform.vm")
