@@ -79,13 +79,13 @@ import org.springframework.context.annotation.Bean;
                         plural = "PSQI",
                         code = "PSQ"),
                 @XnatDataModel(value = OpexMriashsBean.SCHEMA_ELEMENT_NAME,
-                        singular = "MRIASHS",
-                        plural = "MRIASHS",
-                        code = "MRIASHS"),
+                        singular = "MRI ASHS",
+                        plural = "MRI ASHS",
+                        code = "ASHS"),
                 @XnatDataModel(value = OpexMrifsBean.SCHEMA_ELEMENT_NAME,
-                        singular = "MRIFS",
-                        plural = "MRIFS",
-                        code = "MRIFS"),
+                        singular = "MRI FreeSurfer",
+                        plural = "MRI FreeSurfer",
+                        code = "FS"),
 
         })
 public class OPEXPlugin {
