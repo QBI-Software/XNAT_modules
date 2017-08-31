@@ -4,6 +4,7 @@ import org.nrg.framework.annotations.XnatDataModel;
 import org.nrg.framework.annotations.XnatPlugin;
 import org.nrg.xdat.bean.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 @XnatPlugin(name = "QBI OPEX Bio samples", value = "OPEXPlugin", description = "QBI OPEX Bio samples",
         dataModels = {@XnatDataModel(value = OpexBloodmultiplexdataBean.SCHEMA_ELEMENT_NAME,
@@ -88,6 +89,10 @@ import org.springframework.context.annotation.Bean;
                         code = "FS"),
 
         })
+@ComponentScan({"qbi.xnat.opex.samples.subjectmapping.preferences",
+        "qbi.xnat.opex.samples.subjectmapping.repositories",
+        "qbi.xnat.opex.samples.subjectmapping.rest",
+        "qbi.xnat.opex.samples.subjectmapping.services.impl"})
 public class OPEXPlugin {
     @Bean
     public String OPEXPluginMessage() {
