@@ -14,19 +14,19 @@
             <tbody>
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
             <tr>
-                <td>GH</td>
-                <td>#xdatNumberBox("opex:bloodCobasData/GH" $item "" $vr)</td>
+                <td>Human GH (ng/ml)</td>
+                <td>#xdatNumberBox("opex:bloodCobasData/HGH" $item "" $vr)</td>
             </tr>
             <tr>
-                <td>Prolactin</td>
+                <td>Prolactin (ng/ml)</td>
                 <td>#xdatNumberBox("opex:bloodCobasData/Prolactin" $item "" $vr)</td>
             </tr>
             <tr>
-                <td>Cortisol</td>
+                <td>Cortisol (&micro;g/L)</td>
                 <td>#xdatNumberBox("opex:bloodCobasData/Cortisol" $item "" $vr)</td>
             </tr>
             <tr>
-                <td>Insulin</td>
+                <td>Insulin (pmol/L)</td>
                 <td>#xdatNumberBox("opex:bloodCobasData/Insulin" $item "" $vr)</td>
             </tr>
             </tbody>

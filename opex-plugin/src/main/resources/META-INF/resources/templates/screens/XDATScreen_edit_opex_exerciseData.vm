@@ -31,7 +31,7 @@
 #if($om.getXSIType().startsWith("opex:blood"))
 
 <tr>
-    <td>Pre or post</td>
+    <td>Fasted, pre or post</td>
     <td>#xdatSelectGroup("$om.getXSIType()/prepost" "" $item $prepost $vr)</td>
 </tr>
 <tr>

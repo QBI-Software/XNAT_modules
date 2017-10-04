@@ -30,19 +30,19 @@
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:bloodCobasData -->
                 <tr>
-                    <td>GH</td>
-                    <td>$!item.getDoubleProperty("opex:bloodCobasData/GH")</td>
+                    <td>Human GH (ng/ml)</td>
+                    <td>$!item.getDoubleProperty("opex:bloodCobasData/HGH")</td>
                 </tr>
                 <tr>
-                    <td>Prolactin</td>
+                    <td>Prolactin (ng/ml)</td>
                     <td>$!item.getDoubleProperty("opex:bloodCobasData/Prolactin")</td>
                 </tr>
                 <tr>
-                    <td>Cortisol</td>
+                    <td>Cortisol (&micro;g/L)</td>
                     <td>$!item.getDoubleProperty("opex:bloodCobasData/Cortisol")</td>
                 </tr>
                 <tr>
-                    <td>Insulin</td>
+                    <td>Insulin (pmol/L)</td>
                     <td>$!item.getDoubleProperty("opex:bloodCobasData/Insulin")</td>
                 </tr>
                 <!-- END opex:bloodCobasData -->
