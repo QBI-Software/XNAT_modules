@@ -33,13 +33,14 @@
                 <tbody>
 					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cosmed -->
-				<tr><td>HR</td><td>$!item.getDoubleProperty("opex:cosmed/hr")</td></tr>
-				<tr><td>Borg scale</td><td>$!item.getDoubleProperty("opex:cosmed/borg")</td></tr>
-				<tr><td>Blood pressure</td><td>$!item.getDoubleProperty("opex:cosmed/bp")</td></tr>
-				<tr><td>VO2 Peak</td><td>$!item.getDoubleProperty("opex:cosmed/vo2")</td></tr>
-				<tr><td>Ventilatory threshold</td><td>$!item.getDoubleProperty("opex:cosmed/ventilatory")</td></tr>
-				<tr><td>Respiratory exchange ratio</td><td>$!item.getDoubleProperty("opex:cosmed/respiratory")</td></tr>
-                <!-- END opex:cosmed -->
+                <tr><td>
+                    VE/VCO2 Slope
+                </td><td>$!item.getProperty("opex:cosmed/slope")</td></tr><tr><td>
+                    VE/VCO2 Intercept
+                </td><td>$!item.getProperty("opex:cosmed/intercept")</td></tr><tr><td>
+                    OUES
+                </td><td>$!item.getProperty("opex:cosmed/oues")</td></tr>
+				<!-- END opex:cosmed -->
                 </tbody>
             </table>
         </div>

@@ -3,7 +3,6 @@
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-
 	<xs:element name="DEXA" type="opex:dexa"/>
 	<xs:complexType name="dexa">
 		<xs:annotation>
@@ -12,66 +11,182 @@
 		<xs:complexContent>
 			<xs:extension base="xnat:subjectAssessorData">
 				<xs:sequence>
-				<xs:element name="interval" type="xs:integer" default="0">
-				<xs:annotation>
-					<xs:documentation>
+					<xs:element name="interval" type="xs:integer" default="0">
+						<xs:annotation>
+							<xs:documentation>
                                 Monthly interval stage
                             </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
 								Sample ID from analyser
 							</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_quality" default="Unknown">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sample_quality" default="Unknown">
+						<xs:annotation>
+							<xs:documentation>
 								Sample Quality
 							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Good"/>
-						<xs:enumeration value="Questionable"/>
-						<xs:enumeration value="Poor"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="data_valid" default="Initial">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Good"/>
+								<xs:enumeration value="Questionable"/>
+								<xs:enumeration value="Poor"/>
+								<xs:enumeration value="Unknown"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="data_valid" default="Initial">
+						<xs:annotation>
+							<xs:documentation>
 								Data validation check
 							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Initial"/>
-						<xs:enumeration value="Checked"/>
-						<xs:enumeration value="Corrected"/>
-						<xs:enumeration value="Invalid"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="comments" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Initial"/>
+								<xs:enumeration value="Checked"/>
+								<xs:enumeration value="Corrected"/>
+								<xs:enumeration value="Invalid"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="comments" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
 								Comments
 							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="10000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-					<xs:element name="fatmass" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="leanmass" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="bodymass" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="percentbodyfat" type="xs:float" minOccurs="0" maxOccurs="1"/>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="BMC" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Bone Mineral Content (g)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="BMD" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Bone Mineral Density (g/cm2))
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="fatmass" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Fat Mass (g)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="leanmass" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Lean Mass (g)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="totalmass" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Total mass (g) 
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="percentbodyfat" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                               % Body Fat 
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="android_fm" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Android Fat Mass (g)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="gynoid_fm" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Gynoid Fat Mass (g)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="BMI" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Body Mass Index
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FM_H2" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Fat mass / height squared 
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AG_ratio" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Andriod/Gynoid ratio
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WB_Tscore" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Whole Body T-score 
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WB_Zscore" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Whole Body Z-score 
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="lhip_BMC" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Left Hip BMC (g)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="lhip_BMD" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Left Hip BMD (g/cm2)
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="lhip_Tscore" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Left Hip T-score
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="lhip_Zscore" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+                                Left Hip Z-score
+                            </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

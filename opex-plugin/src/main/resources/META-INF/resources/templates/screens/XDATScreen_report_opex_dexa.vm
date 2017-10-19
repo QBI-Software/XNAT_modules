@@ -30,10 +30,41 @@
                 <tbody>
                 <!-- start opex:dexa -->
 					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
-					<tr><td>Fat mass</td><td>$!item.getDoubleProperty("opex:dexa/fatmass")</td></tr>
-					<tr><td>Lean mass</td><td>$!item.getDoubleProperty("opex:dexa/leanmass")</td></tr>
-					<tr><td>Body mass</td><td>$!item.getDoubleProperty("opex:dexa/bodymass")</td></tr>
-					<tr><td>Percent body fat</td><td>$!item.getDoubleProperty("opex:dexa/percentbodyfat")</td></tr>
+                <tr><td>
+                    Bone Mineral Content (g)
+                </td><td>$!item.getProperty("opex:dexa/BMC")</td></tr><tr><td>
+                    Bone Mineral Density (g/cm2))
+                </td><td>$!item.getProperty("opex:dexa/BMD")</td></tr><tr><td>
+                    Fat Mass (g)
+                </td><td>$!item.getProperty("opex:dexa/fatmass")</td></tr><tr><td>
+                    Lean Mass (g)
+                </td><td>$!item.getProperty("opex:dexa/leanmass")</td></tr><tr><td>
+                    Total mass (g)
+                </td><td>$!item.getProperty("opex:dexa/totalmass")</td></tr><tr><td>
+                    % Body Fat
+                </td><td>$!item.getProperty("opex:dexa/percentbodyfat")</td></tr><tr><td>
+                    Android Fat Mass (g)
+                </td><td>$!item.getProperty("opex:dexa/android_fm")</td></tr><tr><td>
+                    Gynoid Fat Mass (g)
+                </td><td>$!item.getProperty("opex:dexa/gynoid_fm")</td></tr><tr><td>
+                    Body Mass Index
+                </td><td>$!item.getProperty("opex:dexa/BMI")</td></tr><tr><td>
+                    Fat mass / height squared
+                </td><td>$!item.getProperty("opex:dexa/FM_H2")</td></tr><tr><td>
+                    Andriod/Gynoid ratio
+                </td><td>$!item.getProperty("opex:dexa/AG_ratio")</td></tr><tr><td>
+                    Whole Body T-score
+                </td><td>$!item.getProperty("opex:dexa/WB_Tscore")</td></tr><tr><td>
+                    Whole Body Z-score
+                </td><td>$!item.getProperty("opex:dexa/WB_Zscore")</td></tr><tr><td>
+                    Left Hip BMC (g)
+                </td><td>$!item.getProperty("opex:dexa/lhip_BMC")</td></tr><tr><td>
+                    Left Hip BMD (g/cm2)
+                </td><td>$!item.getProperty("opex:dexa/lhip_BMD")</td></tr><tr><td>
+                    Left Hip T-score
+                </td><td>$!item.getProperty("opex:dexa/lhip_Tscore")</td></tr><tr><td>
+                    Left Hip Z-score
+                </td><td>$!item.getProperty("opex:dexa/lhip_Zscore")</td></tr>
                 <!-- END opex:dexa -->
                 </tbody>
             </table>
