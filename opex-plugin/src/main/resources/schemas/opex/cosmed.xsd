@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by e.cooperwilliams (The University of Queensland) -->
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Liz Cooper-Williams (University of Queensland) -->
 <!-- OPEX datatype for Exercise tests-->
 <xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
@@ -67,25 +67,104 @@
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="slope" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="t" type="xs:float" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>
-								VE/VCO2 Slope
-							</xs:documentation>
+							<xs:documentation>Protocol: time (s)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="intercept" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="speed" type="xs:float" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>
-								VE/VCO2 Intercept
-							</xs:documentation>
+							<xs:documentation>Protocol: speed (Kmh)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="grade" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Protocol: gradient (%)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="rpe" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Protocol: rating of perceived exertion (Borg)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vo2" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Metabolic: maximal volume of oxygen consumed (mL/min)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vo2kg" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Metabolic: relative maximal volume of oxygem consumed (mL/min/Kg)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="mets" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Metabolic: Metabolic equivalents (METS)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="rq" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Metabolic: respiratory quotient (RQ)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="hr" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cardiovascular: heart rate (bpm)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sbp" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cardiovascular: systolic blood pressure (mmHg)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="dbp" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cardiovascular: diastolic blood pressure  (mmHg)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="o2pulse" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cardiovascular: oxygen pulse (mL/min)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sv" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cardiovascular: stroke volume  (mL)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="co" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cardiovascular: cardiac output (L/min)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vevco2_slope" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Efficiency: VeVCO2 Slope (slope)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vevco2_intercept" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Efficiency: VEVCO2 Intercept (L/min)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="oues" type="xs:float" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>
-								OUES
-							</xs:documentation>
+							<xs:documentation>Efficiency: oxygen uptake efficiency slope (slope)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="hrr1" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Recovery: heart rate recovery at one minute (bpm)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="hrr3" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Recovery: heart rate recovery at three minutes  (bpm)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="hrr5" type="xs:float" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Recovery: heart rate recovery at five minutes (bpm)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>

@@ -3,21 +3,21 @@
 ## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
 ##
 ##----------------------------------------
-	$page.setTitle("OPEX Multiplex Blood Sample")
-	$page.setLinkColor($ui.alink)
-	$page.setVlinkColor($ui.vlink)
-	#if ($turbineUtils.GetPassedParameter("popup", $data))
-		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
-		#set ($popup = "false")
-	#end
-	#parse("/screens/macrolists.vm")
+    $page.setTitle("OPEX Multiplex Blood Sample")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+    #parse("/screens/macrolists.vm")
 <div class="container">
     <div>
         <h3>OPEX Multiplex Blood Sample</h3>
-		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">
-			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
         </div>
     </div>
     <br/>
@@ -31,22 +31,95 @@
                 </tr>
                 </thead>
                 <tbody>
-					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
                 <!-- START opex:cosmed -->
-                <tr><td>
-                    VE/VCO2 Slope
-                </td><td>$!item.getProperty("opex:cosmed/slope")</td></tr><tr><td>
-                    VE/VCO2 Intercept
-                </td><td>$!item.getProperty("opex:cosmed/intercept")</td></tr><tr><td>
-                    OUES
-                </td><td>$!item.getProperty("opex:cosmed/oues")</td></tr>
-				<!-- END opex:cosmed -->
+                <tr>
+                    <td>Protocol: time (s)</td>
+                    <td>$!item.getProperty("opex:cosmed/t")</td>
+                </tr>
+                <tr>
+                    <td>Protocol: speed (Kmh)</td>
+                    <td>$!item.getProperty("opex:cosmed/speed")</td>
+                </tr>
+                <tr>
+                    <td>Protocol: gradient (%)</td>
+                    <td>$!item.getProperty("opex:cosmed/grade")</td>
+                </tr>
+                <tr>
+                    <td>Protocol: rating of perceived exertion (Borg)</td>
+                    <td>$!item.getProperty("opex:cosmed/rpe")</td>
+                </tr>
+                <tr>
+                    <td>Metabolic: maximal volume of oxygen consumed (mL/min)</td>
+                    <td>$!item.getProperty("opex:cosmed/vo2")</td>
+                </tr>
+                <tr>
+                    <td>Metabolic: relative maximal volume of oxygem consumed (mL/min/Kg)</td>
+                    <td>$!item.getProperty("opex:cosmed/vo2kg")</td>
+                </tr>
+                <tr>
+                    <td>Metabolic: Metabolic equivalents (METS)</td>
+                    <td>$!item.getProperty("opex:cosmed/mets")</td>
+                </tr>
+                <tr>
+                    <td>Metabolic: respiratory quotient (RQ)</td>
+                    <td>$!item.getProperty("opex:cosmed/rq")</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular: heart rate (bpm)</td>
+                    <td>$!item.getProperty("opex:cosmed/hr")</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular: systolic blood pressure (mmHg)</td>
+                    <td>$!item.getProperty("opex:cosmed/sbp")</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular: diastolic blood pressure (mmHg)</td>
+                    <td>$!item.getProperty("opex:cosmed/dbp")</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular: oxygen pulse (mL/min)</td>
+                    <td>$!item.getProperty("opex:cosmed/o2pulse")</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular: stroke volume (mL)</td>
+                    <td>$!item.getProperty("opex:cosmed/sv")</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular: cardiac output (L/min)</td>
+                    <td>$!item.getProperty("opex:cosmed/co")</td>
+                </tr>
+                <tr>
+                    <td>Efficiency: VeVCO2 Slope (slope)</td>
+                    <td>$!item.getProperty("opex:cosmed/vevco2_slope")</td>
+                </tr>
+                <tr>
+                    <td>Efficiency: VEVCO2 Intercept (L/min)</td>
+                    <td>$!item.getProperty("opex:cosmed/vevco2_intercept")</td>
+                </tr>
+                <tr>
+                    <td>Efficiency: oxygen uptake efficiency slope (slope)</td>
+                    <td>$!item.getProperty("opex:cosmed/oues")</td>
+                </tr>
+                <tr>
+                    <td>Recovery: heart rate recovery at one minute (bpm)</td>
+                    <td>$!item.getProperty("opex:cosmed/hrr1")</td>
+                </tr>
+                <tr>
+                    <td>Recovery: heart rate recovery at three minutes (bpm)</td>
+                    <td>$!item.getProperty("opex:cosmed/hrr3")</td>
+                </tr>
+                <tr>
+                    <td>Recovery: heart rate recovery at five minutes (bpm)</td>
+                    <td>$!item.getProperty("opex:cosmed/hrr5")</td>
+                </tr>
+                <!-- END opex:cosmed -->
                 </tbody>
             </table>
         </div>
     </div>
 
     <div class="row">
-		#parse("/screens/ReportProjectSpecificFields.vm")
+        #parse("/screens/ReportProjectSpecificFields.vm")
     </div>
 </div>

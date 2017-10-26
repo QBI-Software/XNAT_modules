@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-	$page.setTitle("OPEX COSMED")
-	$page.setLinkColor($ui.alink)
-	$page.setVlinkColor($ui.vlink)
+    $page.setTitle("OPEX COSMED")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
@@ -9,20 +9,93 @@
     #set($formtitle="OPEX Peak Aerobic capacity (COSMED)")
     #parse("/screens/formheader.vm")
 
-        <!-- BEGIN opex:cosmed -->
-        <table class="table table-striped">
-            <tbody>
+<!-- BEGIN opex:cosmed -->
+<table class="table table-striped">
+    <tbody>
 
-                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <tr><td>
-                VE/VCO2 Slope
-            </td><td>#xdatNumberBox("opex:cosmed/slope" $item "" $vr)</td></tr><tr><td>
-                VE/VCO2 Intercept
-            </td><td>#xdatNumberBox("opex:cosmed/intercept" $item "" $vr)</td></tr><tr><td>
-                OUES
-            </td><td>#xdatNumberBox("opex:cosmed/oues" $item "" $vr)</td></tr>
-            </tbody>
-        </table>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr>
+        <td>Protocol: time (s)</td>
+        <td>#xdatNumberBox("opex:cosmed/t" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Protocol: speed (Kmh)</td>
+        <td>#xdatNumberBox("opex:cosmed/speed" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Protocol: gradient (%)</td>
+        <td>#xdatNumberBox("opex:cosmed/grade" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Protocol: rating of perceived exertion (Borg)</td>
+        <td>#xdatNumberBox("opex:cosmed/rpe" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Metabolic: maximal volume of oxygen consumed (mL/min)</td>
+        <td>#xdatNumberBox("opex:cosmed/vo2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Metabolic: relative maximal volume of oxygem consumed (mL/min/Kg)</td>
+        <td>#xdatNumberBox("opex:cosmed/vo2kg" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Metabolic: Metabolic equivalents (METS)</td>
+        <td>#xdatNumberBox("opex:cosmed/mets" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Metabolic: respiratory quotient (RQ)</td>
+        <td>#xdatNumberBox("opex:cosmed/rq" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Cardiovascular: heart rate (bpm)</td>
+        <td>#xdatNumberBox("opex:cosmed/hr" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Cardiovascular: systolic blood pressure (mmHg)</td>
+        <td>#xdatNumberBox("opex:cosmed/sbp" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Cardiovascular: diastolic blood pressure (mmHg)</td>
+        <td>#xdatNumberBox("opex:cosmed/dbp" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Cardiovascular: oxygen pulse (mL/min)</td>
+        <td>#xdatNumberBox("opex:cosmed/o2pulse" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Cardiovascular: stroke volume (mL)</td>
+        <td>#xdatNumberBox("opex:cosmed/sv" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Cardiovascular: cardiac output (L/min)</td>
+        <td>#xdatNumberBox("opex:cosmed/co" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Efficiency: VeVCO2 Slope (slope)</td>
+        <td>#xdatNumberBox("opex:cosmed/vevco2_slope" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Efficiency: VEVCO2 Intercept (L/min)</td>
+        <td>#xdatNumberBox("opex:cosmed/vevco2_intercept" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Efficiency: oxygen uptake efficiency slope (slope)</td>
+        <td>#xdatNumberBox("opex:cosmed/oues" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Recovery: heart rate recovery at one minute (bpm)</td>
+        <td>#xdatNumberBox("opex:cosmed/hrr1" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Recovery: heart rate recovery at three minutes (bpm)</td>
+        <td>#xdatNumberBox("opex:cosmed/hrr3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>Recovery: heart rate recovery at five minutes (bpm)</td>
+        <td>#xdatNumberBox("opex:cosmed/hrr5" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
 
-        <!-- END opex:cosmed -->
-		#parse("screens/validateform.vm")
+<!-- END opex:cosmed -->
+#parse("screens/validateform.vm")
