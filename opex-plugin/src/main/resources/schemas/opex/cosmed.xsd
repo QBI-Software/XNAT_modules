@@ -77,12 +77,12 @@
 							<xs:documentation>Protocol: speed (Kmh)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="grade" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="grade" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Protocol: gradient (%)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="rpe" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="rpe" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Protocol: rating of perceived exertion (Borg)</xs:documentation>
 						</xs:annotation>
@@ -107,17 +107,17 @@
 							<xs:documentation>Metabolic: respiratory quotient (RQ)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="hr" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="hr" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Cardiovascular: heart rate (bpm)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="sbp" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="sbp" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Cardiovascular: systolic blood pressure (mmHg)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="dbp" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="dbp" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Cardiovascular: diastolic blood pressure  (mmHg)</xs:documentation>
 						</xs:annotation>
@@ -152,17 +152,17 @@
 							<xs:documentation>Efficiency: oxygen uptake efficiency slope (slope)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="hrr1" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="hrr1" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Recovery: heart rate recovery at one minute (bpm)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="hrr3" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="hrr3" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Recovery: heart rate recovery at three minutes  (bpm)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="hrr5" type="xs:float" minOccurs="0" maxOccurs="1">
+					<xs:element name="hrr5" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Recovery: heart rate recovery at five minutes (bpm)</xs:documentation>
 						</xs:annotation>
