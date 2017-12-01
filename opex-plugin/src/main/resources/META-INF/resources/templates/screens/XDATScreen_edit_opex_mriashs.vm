@@ -13,30 +13,7 @@
 <table class="table table-striped">
     <tbody>
         #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-    <tr>
-        <td>mriashs</td>
-        <td>#xdatNumberBox("opex:mriashs/mriashs" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>interval</td>
-        <td>#xdatNumberBox("opex:mriashs/interval" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>sample_id</td>
-        <td>#xdatNumberBox("opex:mriashs/sample_id" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>sample_quality</td>
-        <td>#xdatNumberBox("opex:mriashs/sample_quality" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>data_valid</td>
-        <td>#xdatNumberBox("opex:mriashs/data_valid" $item "" $vr)</td>
-    </tr>
-    <tr>
-        <td>comments</td>
-        <td>#xdatNumberBox("opex:mriashs/comments" $item "" $vr)</td>
-    </tr>
+
     <tr>
         <td>left_CA1</td>
         <td>#xdatNumberBox("opex:mriashs/left_CA1" $item "" $vr)</td>

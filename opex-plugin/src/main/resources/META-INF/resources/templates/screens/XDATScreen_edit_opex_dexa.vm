@@ -35,7 +35,7 @@
             </td><td>#xdatNumberBox("opex:dexa/BMI" $item "" $vr)</td></tr><tr><td>
                 Fat mass / height squared
             </td><td>#xdatNumberBox("opex:dexa/FM_H2" $item "" $vr)</td></tr><tr><td>
-                Andriod/Gynoid ratio
+                Android/Gynoid ratio
             </td><td>#xdatNumberBox("opex:dexa/AG_ratio" $item "" $vr)</td></tr><tr><td>
                 Whole Body T-score
             </td><td>#xdatNumberBox("opex:dexa/WB_Tscore" $item "" $vr)</td></tr><tr><td>

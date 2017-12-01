@@ -29,30 +29,7 @@
                 <tbody>
                 <!-- start opex:mrifs -->
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
-                <tr>
-                    <td>mrifs</td>
-                    <td>$!item.getProperty("opex:mrifs/mrifs")</td>
-                </tr>
-                <tr>
-                    <td>interval</td>
-                    <td>$!item.getProperty("opex:mrifs/interval")</td>
-                </tr>
-                <tr>
-                    <td>sample_id</td>
-                    <td>$!item.getProperty("opex:mrifs/sample_id")</td>
-                </tr>
-                <tr>
-                    <td>sample_quality</td>
-                    <td>$!item.getProperty("opex:mrifs/sample_quality")</td>
-                </tr>
-                <tr>
-                    <td>data_valid</td>
-                    <td>$!item.getProperty("opex:mrifs/data_valid")</td>
-                </tr>
-                <tr>
-                    <td>comments</td>
-                    <td>$!item.getProperty("opex:mrifs/comments")</td>
-                </tr>
+
                 <tr>
                     <td>left_Hippocampal_tail</td>
                     <td>$!item.getProperty("opex:mrifs/left_Hippocampal_tail")</td>

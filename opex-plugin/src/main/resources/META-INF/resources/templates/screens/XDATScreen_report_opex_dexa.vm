@@ -51,7 +51,7 @@
                 </td><td>$!item.getProperty("opex:dexa/BMI")</td></tr><tr><td>
                     Fat mass / height squared
                 </td><td>$!item.getProperty("opex:dexa/FM_H2")</td></tr><tr><td>
-                    Andriod/Gynoid ratio
+                    Android/Gynoid ratio
                 </td><td>$!item.getProperty("opex:dexa/AG_ratio")</td></tr><tr><td>
                     Whole Body T-score
                 </td><td>$!item.getProperty("opex:dexa/WB_Tscore")</td></tr><tr><td>

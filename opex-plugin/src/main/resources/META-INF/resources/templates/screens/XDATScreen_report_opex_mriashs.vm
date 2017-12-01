@@ -29,30 +29,7 @@
                 <tbody>
                 <!-- start opex:mriashs -->
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
-                <tr>
-                    <td>mriashs</td>
-                    <td>$!item.getProperty("opex:mriashs/mriashs")</td>
-                </tr>
-                <tr>
-                    <td>interval</td>
-                    <td>$!item.getProperty("opex:mriashs/interval")</td>
-                </tr>
-                <tr>
-                    <td>sample_id</td>
-                    <td>$!item.getProperty("opex:mriashs/sample_id")</td>
-                </tr>
-                <tr>
-                    <td>sample_quality</td>
-                    <td>$!item.getProperty("opex:mriashs/sample_quality")</td>
-                </tr>
-                <tr>
-                    <td>data_valid</td>
-                    <td>$!item.getProperty("opex:mriashs/data_valid")</td>
-                </tr>
-                <tr>
-                    <td>comments</td>
-                    <td>$!item.getProperty("opex:mriashs/comments")</td>
-                </tr>
+
                 <tr>
                     <td>left_CA1</td>
                     <td>$!item.getProperty("opex:mriashs/left_CA1")</td>
