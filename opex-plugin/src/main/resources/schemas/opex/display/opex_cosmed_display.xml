@@ -47,25 +47,7 @@
             numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)
         </Content>
     </DisplayField>
-    <!--https://wiki.xnat.org/docs16/4-developer-documentation/xnat-codex/xnat-code-structure/xnat-display-documents
-    https://groups.google.com/forum/#!msg/xnat_discussion/Y6H24Ydd2jU/4SiqKPHwFAAJ;context-place=forum/xnat_discussion
 
-    <DisplayField id="VO2BM" header="VO2_BM" visible="true" searchable="false"
-                  data-type="float">
-        <DisplayFieldElement name="Field1" viewName="VO2BM" viewColumn="opex_cosmed_vo2bm"/>
-        <description>Combined Cosmed VO2 with DXA BMI</description>
-    </DisplayField>
-    <ViewLink alias="VO2BM">
-        <Mapping TableName="opex_VO2BM">
-            <MappingColumn rootElement="opex:cosmed" fieldElement="opex:cosmed.ID" mapsTo="COSMED_exptid"/>
-        </Mapping>
-    </ViewLink>
-    <SQLView name="VO2BM" sql="WITH dm AS (SELECT d.totalmass as totalmass FROM opex_dexa as d INNER JOIN xnat_subjectassessordata as s
-            ON s.id=d.id WHERE s.subject_id = (SELECT s.subject_id FROM opex_cosmed as c JOIN xnat_subjectassessordata as s
-            ON s.id=c.id WHERE c.id=@COSMED_exptid) AND d.interval= (SELECT c.interval FROM opex_cosmed as c WHERE
-            c.id=@COSMED_exptid)) SELECT c.id as exptid, 1000*COALESCE(c.vo2,0)/COALESCE(d.totalmass,1) as opex_cosmed_vo2bm, c.vo2,
-            c.vo2kg, d.totalmass FROM opex_cosmed as c, dm as d WHERE c.id=@COSMED_exptid" />
--->
     <DisplayField header="Projects" id="PROJECTS" data-type="string">
         <DisplayFieldElement name="Field1" viewName="OPEX_COSMED_PROJECTS" viewColumn="PROJECTS"/>
     </DisplayField>
@@ -135,6 +117,8 @@
             <MappingColumn schemaField="opex:cosmed.ID" queryField="expt_id"/>
         </MappingColumns>
     </DisplayField>
+
+
     <DisplayField id="INTERVAL" header="interval" visible="true" searchable="true">
         <DisplayFieldElement name="Field1" schema-element="opex:cosmed/interval"/>
     </DisplayField>
@@ -218,6 +202,7 @@
         <DisplayFieldRef id="DATE"/>
         <DisplayFieldRef id="GENDER" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="Birth"/>
         <DisplayFieldRef id="INTERVAL"/>
         <DisplayFieldRef id="SAMPLE_ID"/>
         <DisplayFieldRef id="SAMPLE_QUALITY"/>
@@ -228,7 +213,6 @@
         <DisplayFieldRef id="GRADE"/>
         <DisplayFieldRef id="RPE"/>
         <DisplayFieldRef id="VO2"/>
-        <DisplayFieldRef id="VO2BM"/>
         <DisplayFieldRef id="VO2KG"/>
         <DisplayFieldRef id="METS"/>
         <DisplayFieldRef id="RQ"/>
@@ -251,6 +235,7 @@
         <DisplayFieldRef id="SUBJECT_LABEL" element_name="xnat:subjectData"/>
         <DisplayFieldRef id="DATE"/>
         <DisplayFieldRef id="AGE"/>
+        <DisplayFieldRef id="Birth"/>
         <DisplayFieldRef id="INTERVAL"/>
         <DisplayFieldRef id="SAMPLE_ID"/>
         <DisplayFieldRef id="SAMPLE_QUALITY"/>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX FMRI")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
+
+    #parse("/screens/macrolists.vm")
+<div class="container">
+    <div>
+        <h3>Functional MRI parameters</h3>
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+
+        <div align="right">
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8 table-responsive">
+            <table class="table table-striped resultstable">
+                <thead>
+                <tr class="resultsheader">
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- start opex:acer -->
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <tr>
+                    <td>accProportions_Obj_3</td>
+                    <td>$!item.getProperty("opex:fmri/accProportions_Obj_3")</td>
+                </tr>
+                <tr>
+                    <td>accProportions_Obj_5</td>
+                    <td>$!item.getProperty("opex:fmri/accProportions_Obj_5 ")</td>
+                </tr>
+                <tr>
+                    <td>accProportions_Loc_3</td>
+                    <td>$!item.getProperty("opex:fmri/accProportions_Loc_3")</td>
+                </tr>
+                <tr>
+                    <td>accProportions_Loc_5</td>
+                    <td>$!item.getProperty("opex:fmri/accProportions_Loc_5")</td>
+                </tr>
+                <tr>
+                    <td>accProportions_Bind_3</td>
+                    <td>$!item.getProperty("opex:fmri/accProportions_Bind_3")</td>
+                </tr>
+                <tr>
+                    <td>accProportions_Bind_5</td>
+                    <td>$!item.getProperty("opex:fmri/accProportions_Bind_5")</td>
+                </tr>
+                <tr>
+                    <td>RTmean_Obj_3</td>
+                    <td>$!item.getProperty("opex:fmri/RTmean_Obj_3")</td>
+                </tr>
+                <tr>
+                    <td>RTmean_Obj_5</td>
+                    <td>$!item.getProperty("opex:fmri/RTmean_Obj_5")</td>
+                </tr>
+                <tr>
+                    <td>RTmean_Loc_3</td>
+                    <td>$!item.getProperty("opex:fmri/RTmean_Loc_3")</td>
+                </tr>
+                <tr>
+                    <td>RTmean_Loc_5</td>
+                    <td>$!item.getProperty("opex:fmri/RTmean_Loc_5")</td>
+                </tr>
+                <tr>
+                    <td>RTmean_Bind_3</td>
+                    <td>$!item.getProperty("opex:fmri/RTmean_Bind_3")</td>
+                </tr>
+                <tr>
+                    <td>RTmean_Bind_5</td>
+                    <td>$!item.getProperty("opex:fmri/RTmean_Bind_5")</td>
+                </tr>
+                <tr>
+                    <td>RTsd_Obj_3</td>
+                    <td>$!item.getProperty("opex:fmri/RTsd_Obj_3")</td>
+                </tr>
+                <tr>
+                    <td>RTsd_Obj_5</td>
+                    <td>$!item.getProperty("opex:fmri/RTsd_Obj_5")</td>
+                </tr>
+                <tr>
+                    <td>RTsd_Loc_3</td>
+                    <td>$!item.getProperty("opex:fmri/RTsd_Loc_3")</td>
+                </tr>
+                <tr>
+                    <td>RTsd_Loc_5</td>
+                    <td>$!item.getProperty("opex:fmri/RTsd_Loc_5")</td>
+                </tr>
+                <tr>
+                    <td>RTsd_Bind_3</td>
+                    <td>$!item.getProperty("opex:fmri/RTsd_Bind_3")</td>
+                </tr>
+                <tr>
+                    <td>RTsd_Bind_5</td>
+                    <td>$!item.getProperty("opex:fmri/RTsd_Bind_5")</td>
+                </tr>
+                <tr>
+                    <td>d_Obj_3</td>
+                    <td>$!item.getProperty("opex:fmri/d_Obj_3")</td>
+                </tr>
+                <tr>
+                    <td>d_Obj_5</td>
+                    <td>$!item.getProperty("opex:fmri/d_Obj_5")</td>
+                </tr>
+                <tr>
+                    <td>d_Loc_3</td>
+                    <td>$!item.getProperty("opex:fmri/d_Loc_3")</td>
+                </tr>
+                <tr>
+                    <td>d_Loc_5</td>
+                    <td>$!item.getProperty("opex:fmri/d_Loc_5")</td>
+                </tr>
+                <tr>
+                    <td>d_Bind_3</td>
+                    <td>$!item.getProperty("opex:fmri/d_Bind_3")</td>
+                </tr>
+                <tr>
+                    <td>d_Bind_5</td>
+                    <td>$!item.getProperty("opex:fmri/d_Bind_5")</td>
+                </tr>
+                <tr>
+                    <td>beta_Obj_3</td>
+                    <td>$!item.getProperty("opex:fmri/beta_Obj_3")</td>
+                </tr>
+                <tr>
+                    <td>beta_Obj_5</td>
+                    <td>$!item.getProperty("opex:fmri/beta_Obj_5")</td>
+                </tr>
+                <tr>
+                    <td>beta_Loc_3</td>
+                    <td>$!item.getProperty("opex:fmri/beta_Loc_3")</td>
+                </tr>
+                <tr>
+                    <td>beta_Loc_5</td>
+                    <td>$!item.getProperty("opex:fmri/beta_Loc_5")</td>
+                </tr>
+                <tr>
+                    <td>beta_Bind_3</td>
+                    <td>$!item.getProperty("opex:fmri/beta_Bind_3")</td>
+                </tr>
+                <tr>
+                    <td>beta_Bind_5</td>
+                    <td>$!item.getProperty("opex:fmri/beta_Bind_5")</td>
+                </tr>
+                <tr>
+                    <td>c_Obj_3</td>
+                    <td>$!item.getProperty("opex:fmri/c_Obj_3")</td>
+                </tr>
+                <tr>
+                    <td>c_Obj_5</td>
+                    <td>$!item.getProperty("opex:fmri/c_Obj_5")</td>
+                </tr>
+                <tr>
+                    <td>c_Loc_3</td>
+                    <td>$!item.getProperty("opex:fmri/c_Loc_3")</td>
+                </tr>
+                <tr>
+                    <td>c_Loc_5</td>
+                    <td>$!item.getProperty("opex:fmri/c_Loc_5")</td>
+                </tr>
+                <tr>
+                    <td>c_Bind_3</td>
+                    <td>$!item.getProperty("opex:fmri/c_Bind_3")</td>
+                </tr>
+                <tr>
+                    <td>c_Bind_5</td>
+                    <td>$!item.getProperty("opex:fmri/c_Bind_5")</td>
+                </tr>
+
+                <!-- END opex:acer -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        #parse("/screens/ReportProjectSpecificFields.vm")
+    </div>
+</div>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+    $page.setTitle("OPEX FMRI")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+    #set($formtitle="Function MRI")
+    #parse("/screens/formheader.vm")
+
+<!-- BEGIN opex:acer -->
+<table class="table table-striped">
+    <tbody>
+
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr>
+        <td>accProportions_Obj_3</td>
+        <td>#xdatNumberBox("opex:fmri/accProportions_Obj_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>accProportions_Obj_5</td>
+        <td>#xdatNumberBox("opex:fmri/accProportions_Obj_5 " $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>accProportions_Loc_3</td>
+        <td>#xdatNumberBox("opex:fmri/accProportions_Loc_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>accProportions_Loc_5</td>
+        <td>#xdatNumberBox("opex:fmri/accProportions_Loc_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>accProportions_Bind_3</td>
+        <td>#xdatNumberBox("opex:fmri/accProportions_Bind_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>accProportions_Bind_5</td>
+        <td>#xdatNumberBox("opex:fmri/accProportions_Bind_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTmean_Obj_3</td>
+        <td>#xdatNumberBox("opex:fmri/RTmean_Obj_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTmean_Obj_5</td>
+        <td>#xdatNumberBox("opex:fmri/RTmean_Obj_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTmean_Loc_3</td>
+        <td>#xdatNumberBox("opex:fmri/RTmean_Loc_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTmean_Loc_5</td>
+        <td>#xdatNumberBox("opex:fmri/RTmean_Loc_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTmean_Bind_3</td>
+        <td>#xdatNumberBox("opex:fmri/RTmean_Bind_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTmean_Bind_5</td>
+        <td>#xdatNumberBox("opex:fmri/RTmean_Bind_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTsd_Obj_3</td>
+        <td>#xdatNumberBox("opex:fmri/RTsd_Obj_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTsd_Obj_5</td>
+        <td>#xdatNumberBox("opex:fmri/RTsd_Obj_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTsd_Loc_3</td>
+        <td>#xdatNumberBox("opex:fmri/RTsd_Loc_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTsd_Loc_5</td>
+        <td>#xdatNumberBox("opex:fmri/RTsd_Loc_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTsd_Bind_3</td>
+        <td>#xdatNumberBox("opex:fmri/RTsd_Bind_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>RTsd_Bind_5</td>
+        <td>#xdatNumberBox("opex:fmri/RTsd_Bind_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>d_Obj_3</td>
+        <td>#xdatNumberBox("opex:fmri/d_Obj_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>d_Obj_5</td>
+        <td>#xdatNumberBox("opex:fmri/d_Obj_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>d_Loc_3</td>
+        <td>#xdatNumberBox("opex:fmri/d_Loc_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>d_Loc_5</td>
+        <td>#xdatNumberBox("opex:fmri/d_Loc_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>d_Bind_3</td>
+        <td>#xdatNumberBox("opex:fmri/d_Bind_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>d_Bind_5</td>
+        <td>#xdatNumberBox("opex:fmri/d_Bind_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>beta_Obj_3</td>
+        <td>#xdatNumberBox("opex:fmri/beta_Obj_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>beta_Obj_5</td>
+        <td>#xdatNumberBox("opex:fmri/beta_Obj_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>beta_Loc_3</td>
+        <td>#xdatNumberBox("opex:fmri/beta_Loc_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>beta_Loc_5</td>
+        <td>#xdatNumberBox("opex:fmri/beta_Loc_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>beta_Bind_3</td>
+        <td>#xdatNumberBox("opex:fmri/beta_Bind_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>beta_Bind_5</td>
+        <td>#xdatNumberBox("opex:fmri/beta_Bind_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>c_Obj_3</td>
+        <td>#xdatNumberBox("opex:fmri/c_Obj_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>c_Obj_5</td>
+        <td>#xdatNumberBox("opex:fmri/c_Obj_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>c_Loc_3</td>
+        <td>#xdatNumberBox("opex:fmri/c_Loc_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>c_Loc_5</td>
+        <td>#xdatNumberBox("opex:fmri/c_Loc_5" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>c_Bind_3</td>
+        <td>#xdatNumberBox("opex:fmri/c_Bind_3" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>c_Bind_5</td>
+        <td>#xdatNumberBox("opex:fmri/c_Bind_5" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- END opex:acer -->
+#parse("screens/validateform.vm")
+
