@@ -1,0 +1,54 @@
+##set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
+#if($groups.size()>0)
+
+	#set($fieldCounter=0)
+	#set($groupCount=0)
+	#foreach($group in $groups)
+		#if($group.getId() != "default" && $group.getFields_field().size()>0)
+            #set($gid=$group.getId().replace(" ",""))
+        <div id="$gid" class="tab-pane fade">
+            <h4>$group.getId()</h4>
+            #if($group.getDescription())<p>$group.getDescription()</p>#end
+            <div class="panel-body">
+                <table class="table table-striped">
+                    #foreach($f in $group.getFields_field())
+                        #parse("/screens/EditProjectSpecificFields_field.vm")
+                        #set($fieldCounter=$fieldCounter + 1)
+                    #end
+                </table>
+			</div>
+        </div>
+				#set($groupCount=$groupCount+1)
+			#end
+		#end
+
+  
+  <script>
+    $(document).ready(function(){
+      $('#eventSubmit_doInsert').click(function(e){
+        var required = $('.required');
+        var errors = [];
+        for(var i=0; i<required.length; i++){
+          var val = $(required[i]).val();
+          if(!val || val == 'NULL'){
+            var label = $('[for="'+required[i].name+'"]');
+            if(label[0]){
+              label = $(label[0]);
+              errors.push(label.text());
+              label.html('<b>'+label.text()+'</b>');
+            }
+          }
+        }
+        if(errors.length > 0){
+          e.preventDefault();
+          var fields = "";
+          for(var i=0; i<errors.length; i++){
+            fields += '&nbsp;&nbsp;&nbsp;<span class="noteRequired">'+errors[i]+'</span><br/>';
+          }
+          xmodal.message('Required variables', 'Missing required variable values:<br/><br/>'+fields);
+        }
+      });
+    });
+  </script>
+  
+#end

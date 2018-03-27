@@ -71,10 +71,15 @@ $page.setVlinkColor($ui.vlink)
             <table class="table table-striped">
                 <thead>
                     <th>Tube ID</th>
-                    <th>Date analysed</th>
+                    <th>Processing date</th>
                     <th>260/280</th>
                     <th>260/230</th>
-                    <th>Concentration (ng/&micro;L)</th>
+                    <th>Nanodrop concentration (ng/&micro;L)</th>
+                    <th>Qubit concentration (ng/&micro;L)</th>
+                    <th>Resuspension volume (&micro;L)</th>
+                    <th>Quantity of DNA (ng)</th>
+                    <th>Location</th>
+                    <th>Comment</th>
                     <th>Action</th>
 
                 </thead>
@@ -92,13 +97,18 @@ $page.setVlinkColor($ui.vlink)
                         #set($tubetype=$!tube.getXSIType())
                         #set($tubeid=$tube.getIrc5SalivatubedataId())
                         #set($exptid=$!item.getProperty("ID"))
-
                     <tr>#xdatHiddenBoxID("irc5:salivaData/tubes/tube[$tubeidx]/irc5_salivatubedata_id" "irc5_salivatubedata_id" $tube "")
                         <td>#xdatStringBoxParamsReqd("irc5:salivaData/tubes/tube[$tubeidx]/tube_id" "tube_id" $tube "" $vr "form-control" "" $numboxsize)</td>
                         <td>#xdatDateBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/date_analysed" "date_analysed" $tube $vr $years "form-control" )</td>
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio230" "ratio230" $tube "" $vr "form-control" "" $numboxsize)</td>
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/ratio280" "ratio280" $tube "" $vr "form-control" "" $numboxsize)</td>
                         <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/concentration" "concentration" $tube "" $vr "form-control" "" $numboxsize)</td>
+                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/qubit" "qubit" $tube "" $vr "form-control" "" $numboxsize)</td>
+                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/resuspension" "resuspension" $tube "" $vr "form-control" "" $numboxsize)</td>
+                        <td>#xdatNumberBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/dna" "dna" $tube "" $vr "form-control" "" $numboxsize)</td>
+                        <td>#xdatStringBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/location" "location" $tube "" $vr "form-control" "" $txtboxsize)</td>
+                        <td>#xdatStringBoxParamsID("irc5:salivaData/tubes/tube[$tubeidx]/comment" "comment" $tube "" $vr "form-control" "" $txtboxsize)</td>
+
                         <td><!-- Delete row-->
                             <button id="$tubeidx" type="button" class="btn btn-info delete_tube" title="Delete saved tube"><span class="glyphicon glyphicon-trash"></span></button></td>
                     </tr>
@@ -113,6 +123,12 @@ $page.setVlinkColor($ui.vlink)
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio230" $item "" $vr "form-control" "" $numboxsize)</td>
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/ratio280" $item "" $vr "form-control" "" $numboxsize)</td>
                             <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/concentration" $item "" $vr "form-control" "" $numboxsize)</td>
+                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/qubit" $item "" $vr "form-control" "" $numboxsize)</td>
+                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/resuspension" $item "" $vr "form-control" "" $numboxsize)</td>
+                            <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/dna" $item "" $vr "form-control" "" $numboxsize)</td>
+                            <td>#xdatStringBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/location" $item "" $vr "form-control" "" $txtboxsize)</td>
+                            <td>#xdatStringBoxParams("irc5:salivaData/tubes/tube[$tubeidx]/comment" $item "" $vr "form-control" "" $txtboxsize)</td>
+
                             <td><button type="button" class="btn btn-info remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></button></td>
                         </tr>
                         #end
@@ -141,6 +157,12 @@ $page.setVlinkColor($ui.vlink)
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio230" $item "" $vr "form-control" "" $numboxsize)</td>
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/ratio280" $item "" $vr "form-control" "" $numboxsize)</td>
         <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/concentration" $item "" $vr "form-control" "" $numboxsize)</td>
+        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/qubit" $item "" $vr "form-control" "" $numboxsize)</td>
+        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/resuspension" $item "" $vr "form-control" "" $numboxsize)</td>
+        <td>#xdatNumberBoxParams("irc5:salivaData/tubes/tube[COUNTER]/dna" $item "" $vr "form-control" "" $numboxsize)</td>
+        <td>#xdatStringBoxParams("irc5:salivaData/tubes/tube[COUNTER]/location" $item "" $vr "form-control" "" $txtboxsize)</td>
+        <td>#xdatStringBoxParams("irc5:salivaData/tubes/tube[COUNTER]/comment" $item "" $vr "form-control" "" $txtboxsize)</td>
+
         <td><button type="button" class="btn btn-info remove_row" title="Remove tube"><span class="glyphicon glyphicon-remove"></span></button></td>
     </tr> </table></div>
 </div>
@@ -221,8 +243,12 @@ $page.setVlinkColor($ui.vlink)
         var tube_counter = $('#TUBE_COUNTER').val();
 
         var url = serverRoot + XNAT.app.current_uri + "/tubes/tube[" + tubeidx + "]";
+        //https://xnat-devel.qbi.uq.edu.au:8443/app/action/DisplayItemAction/search_element/irc5%3AsalivaData/search_field/irc5%3AsalivaData.ID/search_value/IRC5XNAT_E00001/popup/false/project/TEST
         ///REST/projects/TEST_PJ00/subjects/XNATDEV_S00001/experiments/XNATDEV_E00004/tubes/tube[1]
         //https://xnat-devel.qbi.uq.edu.au:8443/REST/experiments/XNATDEV_E00001/tubes/tube?format=json&tube_number=4
+        //var uri=serverRoot +'/REST/projects/' +oRecord.getData("id")+'/subjects/IRC5XNAT_S00001/experiments/'+ label +'?format=json&XNAT_CSRF='+csrfToken+'&event_reason=standard unshare';
+
+
         var params = '?format=json&XNAT_CSRF=' + window.csrfToken;
         params += "&event_reason=standard unshare";
         //YAHOO.util.Connect.asyncRequest('GET',this.obj.URL,this.initCallback,null,this);
@@ -237,14 +263,16 @@ $page.setVlinkColor($ui.vlink)
             },
             failure: function( oResponse ){
                 $(".errmsg").remove();
-                $("#totaltd").append("<span class='errmsg alert alert-danger'>Delete Tube function not available yet</span>");
+                $("#totaltd").append("<span class='errmsg alert alert-danger'>XNAT does not currently support deleting a single Tube so the whole experiment must be deleted and re-entered - sorry</span>");
             }
 
         };
 
         var transaction = YAHOO.util.Connect.asyncRequest('DELETE',url+params,callback,null, this);
 
+
     });
+
 
 
 

@@ -68,10 +68,15 @@
                             <table class="table table-striped">
                                 <thead>
                                 <th>Tube ID</th>
-                                <th>Date analysed</th>
+                                <th>Processing date</th>
                                 <th>260/280</th>
                                 <th>260/230</th>
-                                <th>Concentration(ng/&micro;L)</th>
+                                <th>Nanodrop concentration (ng/&micro;L)</th>
+                                <th>Qubit concentration (ng/&micro;L)</th>
+                                <th>Resuspension volume (&micro;L)</th>
+                                <th>Quantity of DNA (ng)</th>
+                                <th>Location</th>
+                                <th>Comment</th>
 
                                 </thead>
                                 <tbody id="tubes">
@@ -82,6 +87,11 @@
                                         <td>$!{tube.getRatio230()}</td>
                                         <td>$!{tube.getRatio280()}</td>
                                         <td>$!{tube.getConcentration()}</td>
+                                        <td>$!{tube.getQubit()}</td>
+                                        <td>$!{tube.getResuspension()}</td>
+                                        <td>$!{tube.getDna()}</td>
+                                        <td>$!{tube.getLocation()}</td>
+                                        <td>$!{tube.getComment()}</td>
 
                                     </tr>
 

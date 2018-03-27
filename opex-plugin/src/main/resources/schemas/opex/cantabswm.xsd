@@ -1,109 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2017 sp2 (http://www.altova.com) by Liz Cooper-Williams (The University of Queensland) -->
-<!-- OPEX datatype for Exercise tests-->
-<xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-
-	<xs:element name="CANTABSWM" type="opex:cantabSWM"/>
-	<xs:complexType name="cantabSWM">
-		<xs:annotation>
-			<xs:documentation>CANTAB Spatial Working Memory</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="xnat:subjectAssessorData">
-				<xs:sequence>
-				<xs:element name="interval" type="xs:integer" default="0">
-				<xs:annotation>
-					<xs:documentation>
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2017 sp2 (http://www.altova.com) by Liz Cooper-Williams (The University of Queensland) --><!-- OPEX datatype for Exercise tests--><xs:schema xmlns:opex="http://qbi.uq.edu.au/opex" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/opex" elementFormDefault="qualified" attributeFormDefault="unqualified"><xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/><xs:element name="CANTABSWM" type="opex:cantabSWM"/><xs:complexType name="cantabSWM"><xs:annotation><xs:documentation>CANTAB Spatial Working Memory</xs:documentation></xs:annotation><xs:complexContent><xs:extension base="xnat:subjectAssessorData"><xs:sequence><xs:element name="interval" type="xs:integer" default="0"><xs:annotation><xs:documentation>
                                 Monthly interval stage
-                            </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+                            </xs:documentation></xs:annotation></xs:element><xs:element name="sample_id" type="xs:string" minOccurs="0" maxOccurs="1"><xs:annotation><xs:documentation>
 								Sample ID from analyser
-							</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="sample_quality" default="Unknown">
-				<xs:annotation>
-					<xs:documentation>
+							</xs:documentation></xs:annotation></xs:element><xs:element name="sample_quality" default="Unknown"><xs:annotation><xs:documentation>
 								Sample Quality
-							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Good"/>
-						<xs:enumeration value="Questionable"/>
-						<xs:enumeration value="Poor"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="data_valid" default="Initial">
-				<xs:annotation>
-					<xs:documentation>
+							</xs:documentation></xs:annotation><xs:simpleType><xs:restriction base="xs:string"><xs:enumeration value="Good"/><xs:enumeration value="Questionable"/><xs:enumeration value="Poor"/><xs:enumeration value="Unknown"/></xs:restriction></xs:simpleType></xs:element><xs:element name="data_valid" default="Initial"><xs:annotation><xs:documentation>
 								Data validation check
-							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Initial"/>
-						<xs:enumeration value="Checked"/>
-						<xs:enumeration value="Corrected"/>
-						<xs:enumeration value="Invalid"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="comments" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
+							</xs:documentation></xs:annotation><xs:simpleType><xs:restriction base="xs:string"><xs:enumeration value="Initial"/><xs:enumeration value="Checked"/><xs:enumeration value="Corrected"/><xs:enumeration value="Invalid"/></xs:restriction></xs:simpleType></xs:element><xs:element name="comments" minOccurs="0" maxOccurs="1"><xs:annotation><xs:documentation>
 								Comments
-							</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="10000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-					<xs:element name="status" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
+							</xs:documentation></xs:annotation><xs:simpleType><xs:restriction base="xs:string"><xs:maxLength value="10000"/></xs:restriction></xs:simpleType></xs:element><xs:element name="status" minOccurs="0" maxOccurs="1"><xs:annotation><xs:documentation>
                                 Processing status
-                            </xs:documentation>
-						</xs:annotation>
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="COMPLETED"/>
-								<xs:enumeration value="SYSTEM_ERROR"/>
-								<xs:enumeration value="NOT_RUN"/>
-								<xs:enumeration value="ABORTED"/>
-								<xs:enumeration value="UNKNOWN"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="SWMBE" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMBE4" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMBE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMBE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMDE" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMDE4" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMDE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMDE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMPR" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMS" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMTE" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMTE4" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMTE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMTE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMWE" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMWE4" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMWE6" type="xs:float" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="SWMWE8" type="xs:float" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-</xs:schema>
+                            </xs:documentation></xs:annotation><xs:simpleType><xs:restriction base="xs:string"><xs:enumeration value="COMPLETED"/><xs:enumeration value="SYSTEM_ERROR"/><xs:enumeration value="NOT_RUN"/><xs:enumeration value="ABORTED"/><xs:enumeration value="UNKNOWN"/></xs:restriction></xs:simpleType></xs:element><xs:element name="SWMBE" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMBE4" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMBE6" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMBE8" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMDE" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMDE4" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMDE6" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMDE8" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMPR" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMS" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMTE" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMTE4" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMTE6" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMTE8" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMWE" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMWE4" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMWE6" type="xs:float" minOccurs="0" maxOccurs="1"/><xs:element name="SWMWE8" type="xs:float" minOccurs="0" maxOccurs="1"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType></xs:schema>

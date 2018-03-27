@@ -1,97 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XNAT datatype for IRC5 saliva test-->
-<xs:schema targetNamespace="http://qbi.uq.edu.au/irc5" xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
-<xs:element name="SALIVA" type="irc5:salivaData"></xs:element>
-<xs:complexType name="salivaData">
-	<xs:annotation>
-		<xs:documentation>IRC5 Saliva sample</xs:documentation>
-	</xs:annotation>
-  <xs:complexContent>
-    <xs:extension base="xnat:subjectAssessorData">
-      <xs:sequence>
-      <xs:element name="comments" minOccurs="0" maxOccurs="1">
-        	<xs:annotation>
-        		<xs:documentation>
+<xs:schema xmlns:irc5="http://qbi.uq.edu.au/irc5" xmlns:prov="http://www.nbirn.net/prov" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://qbi.uq.edu.au/irc5" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../../xnat/xnat.xsd"/>
+	<xs:element name="SALIVA" type="irc5:salivaData"/>
+	<xs:complexType name="salivaData">
+		<xs:annotation>
+			<xs:documentation>IRC5 Saliva sample</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="comments" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
         			Comments
         		</xs:documentation>
-        	</xs:annotation>
-        	<xs:simpleType> 
-        		<xs:restriction base="xs:string"> 
-        			<xs:maxLength value="10000"/> 
-        	    </xs:restriction> 
-           </xs:simpleType> 
-        </xs:element>
-      	<xs:element name="tubes" minOccurs="0" maxOccurs="1">
-      		<xs:annotation>
-        		<xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="10000"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="tubes" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
         			Tubes analysed
         		</xs:documentation>
-        	</xs:annotation>
-        	<xs:complexType >
-        	<xs:sequence>
-				<xs:element name="tube" type="irc5:salivaTubeData" minOccurs="0" maxOccurs="50"/>
-				</xs:sequence>
-        	</xs:complexType>
-        </xs:element>
-        <xs:element name="total" minOccurs="0" maxOccurs="1" type="xs:integer">
-        	<xs:annotation>
-        		<xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="tube" type="irc5:salivaTubeData" minOccurs="0" maxOccurs="50"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="total" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
         			Total tubes collected
         		</xs:documentation>
-        	</xs:annotation>
-        	
-        </xs:element>
-        
-      </xs:sequence>
-    </xs:extension>
-  </xs:complexContent>
-</xs:complexType>
-<xs:complexType name="salivaTubeData">
-
-	<xs:sequence>               
-
-		<xs:element name="tube_id" minOccurs="0" maxOccurs="1" type="xs:string" >
-			<xs:annotation>
-				<xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="salivaTubeData">
+		<xs:sequence>
+			<xs:element name="tube_id" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 					Tube ID
 				</xs:documentation>
-			</xs:annotation>
-
-		</xs:element>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="date_analysed" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Analysis date
+						Processing date
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ratio230" minOccurs="0" maxOccurs="1" type="xs:float">
+			<xs:element name="ratio230" type="xs:float" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>     
 						 Ratio	260/230
 					</xs:documentation>
 				</xs:annotation>
-				
 			</xs:element>
-			<xs:element name="ratio280" minOccurs="0" maxOccurs="1" type="xs:float">
-			<xs:annotation>
-				<xs:documentation>
+			<xs:element name="ratio280" type="xs:float" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 					Ratio 260/280
 				</xs:documentation>
-			</xs:annotation>
-
-		</xs:element>
-			<xs:element name="concentration" minOccurs="0" maxOccurs="1" type="xs:float">
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="concentration" type="xs:float" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>     
-						Concentration (ng/uL)
+						Nanodrop concentration (ng/uL)
 					</xs:documentation>
 				</xs:annotation>
-				
 			</xs:element>
-
+			<xs:element name="qubit" type="xs:float" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>     
+						Qubit concentration (ng/uL)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="resuspension" type="xs:float" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>     
+						Resuspension volume (uL)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dna" type="xs:float" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>     
+						Quantity of DNA (ng)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="location" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>     
+						Location
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>     
+						Comment
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-
-</xs:complexType>
+	</xs:complexType>
 </xs:schema>

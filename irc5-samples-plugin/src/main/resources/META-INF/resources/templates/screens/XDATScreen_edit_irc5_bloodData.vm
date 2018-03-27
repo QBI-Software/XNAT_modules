@@ -54,16 +54,47 @@
             #xdatDateBox("irc5:bloodData/date" $item  $vr $years)
         </div>
         <div class="form-inline">
-            <label for="irc5:bloodData/date_analysed">Date Analysed</label>
+            <label for="irc5:bloodData/date_analysed">Processing Date</label>
             #xdatDateBox("irc5:bloodData/date_analysed" $item  $vr $years)
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/ratio280">260/280</label>
+            #xdatNumberBoxParams("irc5:bloodData/ratio280" $item "" $vr "form-control" "" "5")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/ratio230">260/230</label>
+            #xdatNumberBoxParams("irc5:bloodData/ratio230" $item "" $vr "form-control" "" "5")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/concentration">Nanodrop concentration (ng/&micro;L)</label>
+            #xdatNumberBoxParams("irc5:bloodData/concentration" $item "" $vr "form-control" "" "5")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/qubit">Qubit concentration (ng/&micro;L)</label>
+            #xdatNumberBoxParams("irc5:bloodData/qubit" $item "" $vr "form-control" "" "5")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/resuspension">Resuspension volume (&micro;L)</label>
+            #xdatNumberBoxParams("irc5:bloodData/resuspension" $item "" $vr "form-control" "" "5")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/dna">Quantity of DNA (ng)</label>
+            #xdatNumberBoxParams("irc5:bloodData/dna" $item "" $vr "form-control" "" "5")
+        </div>
+        <div class="form-inline">
+            <label for="irc5:bloodData/location">Location</label>
+            #xdatStringBoxParams("irc5:bloodData/location" $item "" $vr "form-control" "" "20")
+        </div>
+        <div class="form-inline">
+        <label for="irc5:bloodData/comments">Comments</label>
+        #xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")
         </div>
         <div class="form-inline">
             <label for="irc5:bloodData/summary">Summary</label>
             #xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")
         </div>
-        <div class="form-inline">
-            <label for="irc5:bloodData/comments">Comments</label>
-            #xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")
+
+
         </div>
         <div class="form-inline">
             #xdatEditProps($item $edit_screen)

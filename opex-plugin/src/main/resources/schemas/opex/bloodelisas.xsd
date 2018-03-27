@@ -72,6 +72,7 @@
 					<xs:element name="prepost" minOccurs="0" maxOccurs="1">
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
+								<xs:enumeration value="Fasted"/>
 								<xs:enumeration value="Pre"/>
 								<xs:enumeration value="Post"/>
 							</xs:restriction>

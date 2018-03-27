@@ -2,8 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3502a04b-8f42-4557-a84e-5ae5a11d6234" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/app.css" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/qbi.css" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/qbi.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/macros/xnat17Macros.vm" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/macros/xnat17Macros.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_bloodData.vm" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_bloodData.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_bloodData.vm" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_bloodData.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/schemas/blood/blood.xsd" afterPath="$PROJECT_DIR$/src/main/resources/schemas/blood/blood.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/schemas/saliva/saliva.xsd" afterPath="$PROJECT_DIR$/src/main/resources/schemas/saliva/saliva.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_opex_psqi.vm" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_opex_psqi.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/acer.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/acer.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/amunet.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/amunet.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/bloodcobas.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/bloodcobas.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/bloodelisas.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/bloodelisas.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/bloodmultiplex.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/bloodmultiplex.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabdms.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabdms.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabert.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabert.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabmot.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabmot.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabpal.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabpal.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabswm.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cantabswm.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cosmed.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/cosmed.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/dass.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/dass.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/dexa.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/dexa.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/fmri.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/fmri.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/godin.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/godin.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/health.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/health.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/insomnia.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/insomnia.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/ipaq.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/ipaq.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/mriashs.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/mriashs.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/mrifs.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/mrifs.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/psqi.xsd" afterPath="$PROJECT_DIR$/../opex-plugin/src/main/resources/schemas/opex/psqi.xsd" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -65,46 +95,116 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.57158774">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="irc5_salivaData_display.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/schemas/saliva/display/irc5_salivaData_display.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2448">
-                  <caret line="144" column="39" lean-forward="false" selection-start-line="144" selection-start-column="39" selection-end-line="144" selection-end-column="39" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="XDATScreen_edit_irc5_salivaData.vm" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="xnat17Macros.vm" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/macros/xnat17Macros.vm">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
-                  <caret line="61" column="36" lean-forward="false" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2252">
+              <caret line="1838" column="1" lean-forward="false" selection-start-line="1838" selection-start-column="1" selection-end-line="1838" selection-end-column="1" />
+              <folding>
+                <element signature="e#14890#16361#1" expanded="true" />
+                <element signature="e#30565#30828#1" expanded="true" />
+                <element signature="e#36219#36390#2" expanded="true" />
+                <element signature="e#37284#37467#2" expanded="true" />
+                <element signature="e#41265#46116#1" expanded="true" />
+                <element signature="e#57365#57584#1" expanded="true" />
+                <element signature="e#60497#61980#2" expanded="true" />
+                <element signature="e#62115#63606#2" expanded="true" />
+                <element signature="e#63652#65135#2" expanded="true" />
+                <element signature="e#69334#69421#1" expanded="true" />
+                <element signature="e#69636#71503#2" expanded="true" />
+                <element signature="e#71550#73437#2" expanded="true" />
+                <element signature="e#73484#75375#2" expanded="true" />
+                <element signature="e#75422#77297#2" expanded="true" />
+                <element signature="e#77344#79215#2" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeaderIncludes.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/navigations/HeaderIncludes.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1298">
+              <caret line="237" column="57" lean-forward="false" selection-start-line="237" selection-start-column="57" selection-end-line="237" selection-end-column="57" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="irc5_salivaData_display.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/schemas/saliva/display/irc5_salivaData_display.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3600">
+              <caret line="144" column="39" lean-forward="false" selection-start-line="144" selection-start-column="39" selection-end-line="144" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IRC5samples.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/xnat_subjectData/actionsBox/IRC5samples.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="67" lean-forward="false" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XDATScreen_edit_irc5_bloodData.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_bloodData.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="92" column="63" lean-forward="true" selection-start-line="92" selection-start-column="63" selection-end-line="92" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XDATScreen_edit_irc5_salivaData.vm" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="247" column="116" lean-forward="true" selection-start-line="247" selection-start-column="10" selection-end-line="247" selection-end-column="116" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XDATScreen_report_irc5_bloodData.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_bloodData.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1100">
+              <caret line="44" column="69" lean-forward="false" selection-start-line="44" selection-start-column="69" selection-end-line="44" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XDATScreen_report_irc5_salivaData.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2050">
+              <caret line="82" column="74" lean-forward="false" selection-start-line="82" selection-start-column="74" selection-end-line="82" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xnat17Macros.vm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/macros/xnat17Macros.vm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1300">
+              <caret line="52" column="88" lean-forward="false" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -136,6 +236,8 @@
       <find>COUNT</find>
       <find>&lt;/TD&gt;&lt;/TR&gt;</find>
       <find>required</find>
+      <find>StringBox</find>
+      <find>numboxsize</find>
     </findStrings>
     <replaceStrings>
       <replace>IRC5_</replace>
@@ -688,12 +790,12 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://restClient/response1.html" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_brainData.vm" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_npsData.vm" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_opinionData.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_skinData.vm" />
         <option value="$PROJECT_DIR$/src/main/java/org/apache/turbine/app/xnat/modules/screens/XDATScreen_edit_irc5_brainData.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/apache/turbine/app/xnat/modules/screens/XDATScreen_edit_irc5_npsData.java" />
@@ -727,7 +829,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_brainData.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/schemas/imageanalysis/display/irc5_imageanalysisData_display.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/org/nrg/xdat/bean/irc5-samples-plugin-irc5-bean-definition.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/xnat_subjectData/actionsBox/IRC5samples.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_imageanalysisData.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_imageanalysisData.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/qbi.css" />
@@ -735,13 +836,17 @@
         <option value="$PROJECT_DIR$/src/main/resources/scripts/irc5_salivaData.js" />
         <option value="$PROJECT_DIR$/src/main/resources/schemas/brain/display/irc5_brainData_display.xml" />
         <option value="$PROJECT_DIR$/build/xnat-generated/src/main/resources/META-INF/resources/base-templates/screens/irc5_salivaData_search.vm" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/schemas/saliva/saliva.xsd" />
         <option value="$PROJECT_DIR$/build/xnat-generated/src/main/resources/schemas/saliva/display/irc5_salivaData_display.xml" />
         <option value="$PROJECT_DIR$/src/main/java/qbi/xnat/irc5/samples/plugin/IRC5SamplesPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/resources/schemas/saliva/display/irc5_salivaData_display.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/macros/xnat17Macros.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_bloodData.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/app.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/xnat_subjectData/actionsBox/IRC5samples.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_bloodData.vm" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm" />
       </list>
     </option>
   </component>
@@ -752,10 +857,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="146" />
-    <option name="y" value="20" />
-    <option name="width" value="2317" />
-    <option name="height" value="1355" />
+    <option name="x" value="123" />
+    <option name="y" value="10" />
+    <option name="width" value="2746" />
+    <option name="height" value="1983" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -773,6 +878,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -809,15 +917,234 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actionsBox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navigations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="macros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="irc5-samples-plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -832,7 +1159,7 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="SearchEverywhereHistoryKey" value="siteSettings&#9;null&#9;null&#10;behavioral&#9;null&#9;null" />
     <property name="settings.editor.splitter.proportion" value="0.25269344" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/schemas/saliva/display" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../irc5-demographics-plugin" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/resources/schemas/skin/display/irc5_skinData_display.xml" />
   </component>
   <component name="RecentsManager">
@@ -853,6 +1180,32 @@
       <recent name="D:\Projects\XNAT\XNAT_modules\irc5-samples-plugin\src\main\java\org\apache\turbine\app\xnat\modules\screens" />
       <recent name="D:\Projects\XNAT\XNAT_modules\irc5-samples-plugin\src\main\java\qbi\xnat\irc5\samples" />
     </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://xnat-devel.qbi.uq.edu.au:8443" />
+          <option name="urlPath" value="/REST" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Gradle.irc5-samples-plugin [jar]">
     <configuration default="false" name="irc5-samples-plugin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -1424,40 +1777,43 @@
       <workItem from="1499154794375" duration="73000" />
       <workItem from="1500241851578" duration="12464000" />
       <workItem from="1501197806523" duration="165000" />
+      <workItem from="1522045430352" duration="5437000" />
+      <workItem from="1522107893136" duration="8175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230173000" />
+    <option name="totallyTimeSpent" value="243785000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="146" y="20" width="2317" height="1355" extended-state="0" />
-    <editor active="true" />
+    <frame x="123" y="10" width="2746" height="1983" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33226067" sideWeight="0.5230095" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976282" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22150883" sideWeight="0.4769905" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984716" sideWeight="0.4842951" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18991743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.029986963" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39969015" sideWeight="0.49744338" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32948294" sideWeight="0.49744338" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976282" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22112212" sideWeight="0.4769905" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984716" sideWeight="0.4842951" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21842878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.026798826" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39969015" sideWeight="0.49744338" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1465,7 +1821,6 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984716" sideWeight="0.49744338" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14500792" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1486,9 +1841,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/xnat-generated/src/main/resources/schemas/imageanalysis/display/irc5_imageanalysisData_display.xml" />
-    <entry file="file://$PROJECT_DIR$/build/xnat-generated/src/main/java/org/nrg/xdat/turbine/modules/screens/XDATScreen_edit_irc5_imageanalysisData.java" />
-    <entry file="file://$PROJECT_DIR$/build/xnat-generated/src/main/java/org/nrg/xdat/turbine/modules/screens/XDATScreen_edit_irc5_salivaData.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/org/nrg/xdat/bean/irc5-samples-plugin-irc5-bean-definition.properties" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_imageanalysisData.vm">
       <provider selected="true" editor-type-id="text-editor">
@@ -1498,21 +1850,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/xnat-generated/src/main/resources/META-INF/resources/base-templates/screens/XDATScreen_report_irc5_bloodData.vm" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_bloodData.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/irc5_salivaData_search.vm" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/xnat_subjectData/actionsBox/IRC5samples.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="231" lean-forward="false" selection-start-line="18" selection-start-column="231" selection-end-line="18" selection-end-column="231" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_brainData.vm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
@@ -1690,13 +2028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/xnat-generated/src/main/resources/schemas/saliva/display/irc5_salivaData_display.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1776,7 +2107,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/schemas/saliva/display/irc5_salivaData_display.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
+        <state relative-caret-position="3600">
           <caret line="144" column="39" lean-forward="false" selection-start-line="144" selection-start-column="39" selection-end-line="144" selection-end-column="39" />
           <folding />
         </state>
@@ -1784,16 +2115,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/macros/xnat17Macros.vm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="61" column="36" lean-forward="false" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+        <state relative-caret-position="1300">
+          <caret line="52" column="88" lean-forward="false" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_salivaData.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2050">
+          <caret line="82" column="74" lean-forward="false" selection-start-line="82" selection-start-column="74" selection-end-line="82" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2252">
+          <caret line="1838" column="1" lean-forward="false" selection-start-line="1838" selection-start-column="1" selection-end-line="1838" selection-end-column="1" />
+          <folding>
+            <element signature="e#14890#16361#1" expanded="true" />
+            <element signature="e#30565#30828#1" expanded="true" />
+            <element signature="e#36219#36390#2" expanded="true" />
+            <element signature="e#37284#37467#2" expanded="true" />
+            <element signature="e#41265#46116#1" expanded="true" />
+            <element signature="e#57365#57584#1" expanded="true" />
+            <element signature="e#60497#61980#2" expanded="true" />
+            <element signature="e#62115#63606#2" expanded="true" />
+            <element signature="e#63652#65135#2" expanded="true" />
+            <element signature="e#69334#69421#1" expanded="true" />
+            <element signature="e#69636#71503#2" expanded="true" />
+            <element signature="e#71550#73437#2" expanded="true" />
+            <element signature="e#73484#75375#2" expanded="true" />
+            <element signature="e#75422#77297#2" expanded="true" />
+            <element signature="e#77344#79215#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/xnat_subjectData/actionsBox/IRC5samples.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="67" lean-forward="false" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/navigations/HeaderIncludes.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1298">
+          <caret line="237" column="57" lean-forward="false" selection-start-line="237" selection-start-column="57" selection-end-line="237" selection-end-column="57" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_irc5_bloodData.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="44" column="69" lean-forward="false" selection-start-line="44" selection-start-column="69" selection-end-line="44" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_bloodData.vm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="92" column="63" lean-forward="true" selection-start-line="92" selection-start-column="63" selection-end-line="92" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_irc5_salivaData.vm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="748">
+          <caret line="247" column="116" lean-forward="true" selection-start-line="247" selection-start-column="10" selection-end-line="247" selection-end-column="116" />
           <folding />
         </state>
       </provider>

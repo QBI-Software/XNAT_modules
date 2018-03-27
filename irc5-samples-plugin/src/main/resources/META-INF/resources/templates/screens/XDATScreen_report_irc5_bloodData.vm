@@ -33,17 +33,24 @@ $page.setVlinkColor($ui.vlink)
             					<td>$!item.getDateProperty("irc5:bloodData/date")</td>
             				</tr>
                             <tr>
-            					<th>Date Analysed</th>
+            					<th>Processing Date</th>
             					<td>$!item.getDateProperty("irc5:bloodData/date_analysed")</td>
             				</tr>
-            				<tr>
-            					<th>Summary</th>
-            					<td>$!item.getStringProperty("irc5:bloodData/summary")</td>
-            				</tr>
+                            <tr><th>260/280</th><td>$!item.getProperty("irc5:bloodData/ratio280")</td></tr>
+                            <tr><th>260/230</th><td>$!item.getProperty("irc5:bloodData/ratio230")</td></tr>
+                            <tr><th>Nanodrop concentration (ng/&micro;L)</th><td>$!item.getProperty("irc5:bloodData/concentration")</td></tr>
+                            <tr><th>Qubit concentration (ng/&micro;L)</th><td>$!item.getProperty("irc5:bloodData/qubit")</td></tr>
+                            <tr><th>Resuspension volume (&micro;L)</th><td>$!item.getProperty("irc5:bloodData/resuspension")</td></tr>
+                            <tr><th>Quantity of DNA (ng)</th><td>$!item.getProperty("irc5:bloodData/dna")</td></tr>
+                            <tr><th>Location</th><td>$!item.getStringProperty("irc5:bloodData/location")</td></tr>
             				<tr>
             					<th>Comments</th>
             					<td>$!item.getStringProperty("irc5:bloodData/comments")</td>
             				</tr>
+							<tr>
+                                <th>Summary</th>
+                                <td>$!item.getStringProperty("irc5:bloodData/summary")</td>
+                            </tr>
 
                 </tbody>
 			</table>
