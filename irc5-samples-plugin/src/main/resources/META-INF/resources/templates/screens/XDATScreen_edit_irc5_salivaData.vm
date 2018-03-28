@@ -242,15 +242,16 @@ $page.setVlinkColor($ui.vlink)
         var tubeidx = $(this).attr("id");
         var tube_counter = $('#TUBE_COUNTER').val();
 
-        var url = serverRoot + XNAT.app.current_uri + "/tubes/tube[" + tubeidx + "]";
+        var url = serverRoot + XNAT.app.current_uri + "/tubes/tube";
+        var params = "?format=json&XNAT_CSRF=" + window.csrfToken;
+        params += "&tube_id="+tubeidx;
+        params += "&event_action=Removed tube "+tubeidx;
+        params += "&event_type=WEB_FORM";
+        //;
         //https://xnat-devel.qbi.uq.edu.au:8443/app/action/DisplayItemAction/search_element/irc5%3AsalivaData/search_field/irc5%3AsalivaData.ID/search_value/IRC5XNAT_E00001/popup/false/project/TEST
         ///REST/projects/TEST_PJ00/subjects/XNATDEV_S00001/experiments/XNATDEV_E00004/tubes/tube[1]
-        //https://xnat-devel.qbi.uq.edu.au:8443/REST/experiments/XNATDEV_E00001/tubes/tube?format=json&tube_number=4
+        //https://xnat-devel.qbi.uq.edu.au:8443/REST/experiments/IRC5XNAT_E00001/tubes/tube?format=json&tube_number=4
         //var uri=serverRoot +'/REST/projects/' +oRecord.getData("id")+'/subjects/IRC5XNAT_S00001/experiments/'+ label +'?format=json&XNAT_CSRF='+csrfToken+'&event_reason=standard unshare';
-
-
-        var params = '?format=json&XNAT_CSRF=' + window.csrfToken;
-        params += "&event_reason=standard unshare";
         //YAHOO.util.Connect.asyncRequest('GET',this.obj.URL,this.initCallback,null,this);
         var callback = {
             cache: false, // Turn off caching for IE
@@ -263,7 +264,7 @@ $page.setVlinkColor($ui.vlink)
             },
             failure: function( oResponse ){
                 $(".errmsg").remove();
-                $("#totaltd").append("<span class='errmsg alert alert-danger'>XNAT does not currently support deleting a single Tube so the whole experiment must be deleted and re-entered - sorry</span>");
+                $("#totaltd").append("<span class='errmsg alert alert-danger'>XNAT does not currently support deleting a single tube so the whole experiment must be deleted and re-entered - sorry :(</span>");
             }
 
         };
