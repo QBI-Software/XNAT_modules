@@ -47,10 +47,7 @@ $page.setVlinkColor($ui.vlink)
             					<th>Comments</th>
             					<td>$!item.getStringProperty("irc5:bloodData/comments")</td>
             				</tr>
-							<tr>
-                                <th>Summary</th>
-                                <td>$!item.getStringProperty("irc5:bloodData/summary")</td>
-                            </tr>
+							
 
                 </tbody>
 			</table>

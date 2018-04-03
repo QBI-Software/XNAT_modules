@@ -89,11 +89,6 @@
         <label for="irc5:bloodData/comments">Comments</label>
         #xdatTextArea("irc5:bloodData/comments" $item "" $vr "3" "50")
         </div>
-        <div class="form-inline">
-            <label for="irc5:bloodData/summary">Summary</label>
-            #xdatTextArea("irc5:bloodData/summary" $item "" $vr "3" "50")
-        </div>
-
 
         </div>
         <div class="form-inline">
