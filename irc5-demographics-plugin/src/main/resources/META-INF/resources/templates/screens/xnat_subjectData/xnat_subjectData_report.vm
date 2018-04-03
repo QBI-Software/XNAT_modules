@@ -50,7 +50,7 @@ function summaryTabManagerInit(){
 <!--END SUBJECT SUMMARY TABS -->
 <!-- Demographics -->
 <div class="qbiactions col-md-2">#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))</div>
-<div class="col-md-10">
+<div id="qbidemographics" class="col-md-10">
 
 		#set($groups=$om.getFieldDefinitionGroups($item.getXSIType(), $project))
 		#parse("/screens/XDATScreen_report_irc5_qbiccDemographics.vm")
