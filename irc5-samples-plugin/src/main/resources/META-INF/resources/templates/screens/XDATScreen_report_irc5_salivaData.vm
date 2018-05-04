@@ -39,30 +39,14 @@
                     <td>$!item.getStringProperty("irc5:salivaData/comments")</td>
                 </tr>
                 <tr>
-                    <th>Total tubes collected</th>
+                    <th>Total tubes processed</th>
                     <td>$!totaltubes</td>
-                </tr>
-                <tr>
-                    <th>Total tubes analysed</th>
-                    <td>$!numTubes</td>
-                </tr>
-                <tr>
-                    <th>Number of tubes remaining</th>
-
-                    <td>
-                        #if ($numTubes > 0)
-                            #set($remaining = $totaltubes - $numTubes)
-                            $!remaining
-                        #else
-                            $!totaltubes
-                        #end
-                    </td>
                 </tr>
 
                 <tr>
 
                     #if ($numTubes > 0)
-                        <th>Tubes analysed</th>
+                        <th>Tubes processed</th>
 
                         <td>
                             <table class="table table-striped">

@@ -58,7 +58,7 @@ $page.setVlinkColor($ui.vlink)
 			#xdatDateBoxParams("irc5:salivaData/date" "" $item  $vr $years  "form-control")
         </div>
         <div class="form-inline" id="totaltd">
-            <label for="irc5:salivaData/total">Total tubes collected</label>
+            <label for="irc5:salivaData/total">Total tubes processed</label>
             #xdatNumberBoxParams("irc5:salivaData/total" $item "" $vr "form-control" "" "5")
         </div>
 
@@ -67,7 +67,7 @@ $page.setVlinkColor($ui.vlink)
             #xdatTextArea("irc5:salivaData/comments" $item "" $vr "3" "20")
         </div>
         <div class="form-inline">
-        <label for="irc5:salivaData/tubes">Tubes analysed</label>
+        <label for="irc5:salivaData/tubes">Tubes processed</label>
             <table class="table table-striped">
                 <thead>
                     <th>Tube ID</th>
