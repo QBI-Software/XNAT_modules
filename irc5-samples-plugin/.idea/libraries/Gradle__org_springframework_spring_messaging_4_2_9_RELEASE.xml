@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework:spring-messaging:4.2.9.RELEASE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.2.9.RELEASE/939310f172189d1e4f17b1a3b02d8c6354b40b0d/spring-messaging-4.2.9.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.2.9.RELEASE/spring-messaging-4.2.9.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.2.9.RELEASE/c4a9f4e911cee044c1b7a65d52c3ce624e756e9c/spring-messaging-4.2.9.RELEASE-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

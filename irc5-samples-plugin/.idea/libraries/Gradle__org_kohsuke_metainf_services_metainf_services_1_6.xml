@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: org.kohsuke.metainf-services:metainf-services:1.6">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.kohsuke.metainf-services/metainf-services/1.6/b7820ac4c13e0a55fa5d453f736a851efcf49d54/metainf-services-1.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/kohsuke/metainf-services/metainf-services/1.6/metainf-services-1.6.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.kohsuke.metainf-services/metainf-services/1.6/cf4b9a667e6b45dcb0e1b970d6a3b542dd6fbeb4/metainf-services-1.6-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

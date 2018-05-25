@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: turbine:turbine:2.3.3">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/turbine/turbine/2.3.3/c0014105b36511da7e2519d062ce188f45d68dce/turbine-2.3.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/turbine/turbine/2.3.3/turbine-2.3.3.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

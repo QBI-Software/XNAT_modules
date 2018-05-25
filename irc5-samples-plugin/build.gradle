@@ -11,8 +11,8 @@ def pluginVersion = '1.0.0'
 group 'qbi.xnat.irc5.samples'
 version pluginVersion
 
-def vXnatDev = '1.7.3-SNAPSHOT'
-def vXnat = '1.7.2'
+def vXnatDev = '1.7.4'
+def vXnat = '1.7.4'
 def vJunit = '4.12'
 def vSpring = '4.2.9.RELEASE'
 def vSlf4j = '1.7.21'
@@ -44,7 +44,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "org.nrg.xnat.build:xnat-data-builder:1.7.3-SNAPSHOT"
+        classpath "org.nrg.xnat.build:xnat-data-builder:1.7.4"
     }
 }
 
