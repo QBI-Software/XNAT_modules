@@ -33,19 +33,19 @@
                 <tbody>
                     #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
               <tr>
-                    <td>GH</td>
+                    <td>GH (pg/ml)</td>
                     <td>$!item.getDoubleProperty("opex:bloodMultiplexData/GH")</td>
                 </tr>
                 <tr>
-                    <td>Leptin</td>
+                    <td>Leptin (pg/ml)</td>
                     <td>$!item.getDoubleProperty("opex:bloodMultiplexData/Leptin")</td>
                 </tr>
                 <tr>
-                    <td>BDNF</td>
+                    <td>BDNF (pg/ml)</td>
                     <td>$!item.getDoubleProperty("opex:bloodMultiplexData/BDNF")</td>
                 </tr>
                 <tr>
-                    <td>IGFBP7</td>
+                    <td>IGFBP7 (pg/ml)</td>
                     <td>$!item.getDoubleProperty("opex:bloodMultiplexData/IGFBP7")</td>
                 </tr>
                 <tr>

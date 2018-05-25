@@ -15,19 +15,19 @@
                 #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
 
             <tr>
-                <td>GH</td>
+                <td>GH (pg/ml)</td>
                 <td>#xdatNumberBox("opex:bloodMultiplexData/GH" $item "" $vr)</td>
             </tr>
             <tr>
-                <td>Leptin</td>
+                <td>Leptin (pg/ml)</td>
                 <td>#xdatNumberBox("opex:bloodMultiplexData/Leptin" $item "" $vr)</td>
             </tr>
             <tr>
-                <td>BDNF</td>
+                <td>BDNF (pg/ml)</td>
                 <td>#xdatNumberBox("opex:bloodMultiplexData/BDNF" $item "" $vr)</td>
             </tr>
             <tr>
-                <td>IGFBP7</td>
+                <td>IGFBP7 (pg/ml)</td>
                 <td>#xdatNumberBox("opex:bloodMultiplexData/IGFBP7" $item "" $vr)</td>
             </tr>
             <tr>
