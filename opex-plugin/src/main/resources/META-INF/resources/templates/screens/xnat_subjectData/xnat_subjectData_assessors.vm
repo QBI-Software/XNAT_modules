@@ -14,7 +14,7 @@
     #set($hasOtherProjects=false)
     #if($pScope)
         <div id="proj_expts" style="display:none">
-
+            <h4>Scans</h4>
             <table width="100%" class="highlight sortable">
                 <tr>
                     <th align="left" class="underscore sort">Date</th>
@@ -24,17 +24,19 @@
                 </tr>
                 #foreach ($assessor in $subject.getMinimalLoadAssessors())
                     #if($assessor.hasProject($project))
-                        #parse($turbineUtils.getTemplateName("_assessor","xnat:subjectData",$project))
+                        #if(!$assessor.getItem().getXSIType().startsWith("opex"))
+                            #parse($turbineUtils.getTemplateName("_assessor","xnat:subjectData",$project))
+                        #end
                     #else
                         #set($hasOtherProjects=true)
                     #end
                 #end
             </table>
 
-        </div><!-- /proj_expts -->
-    #end
+
+    <hr/>
     #if ($subject.getExperiments_experiment().size() > 0)
-        <div id="opex_expts" >
+        <div class="opex_expts" >
         <h4>OPEX experiments</h4>
 
             <table width="100%" class="highlight sortable">
@@ -44,33 +46,37 @@
                     <th align="left" class="underscore sort">Interval</th>
                     <th align="left" class="underscore sort">Validation</th>
                     <th align="left" class="underscore sort">Quality</th>
+                    <th align="left" class="underscore sort">Project</th>
                 </tr>
                 #foreach ($assessor in $subject.getExperiments_experiment())
-                    #if($assessor.getXSIType().startsWith("opex"))
-                        #set ( $assessorID = $!assessor.getProperty("ID"))
-                        #set ( $assessorField = "${assessor.getXSIType()}.ID")
-                        #set ( $url = "$link.setAction('DisplayItemAction').addPathInfo('search_element',$!assessor.getXSIType()).addPathInfo('search_field',$assessorField).addPathInfo('search_value',$assessorID).addPathInfo('popup',$popup)" )
+                    #if($assessor.hasProject($project))
+                        #set ( $url= "$url/project/$project")
+                        #if($assessor.getXSIType().startsWith("opex"))
+                            #set ( $assessorID = $!assessor.getProperty("ID"))
+                            #set ( $assessorField = "${assessor.getXSIType()}.ID")
+                            #set ( $url = "$link.setAction('DisplayItemAction').addPathInfo('search_element',$!assessor.getXSIType()).addPathInfo('search_field',$assessorField).addPathInfo('search_value',$assessorID).addPathInfo('popup',$popup)" )
 
-                        #if($assessor.hasProject($project))
-                            #set ( $url= "$url/project/$project")
-                        #end
+                            <tr>
+                                <td>$!assessor.getProperty("date")</td>
+                                <td><a href="$url" title="$assessor.getIdentifier($!project)">$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</a></td>
 
-                        <tr>
-                            <td>$!assessor.getProperty("date")</td>
-                            <td><a href="$url" title="$assessor.getIdentifier($!project)">$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</a></td>
-
-                            <td>$interval.get($!assessor.getInterval())
-                            #if ($assessor.getXSIType().startsWith("opex:blood"))
-                                : $!assessor.getPrepost()
-                            #end
-                            </td>
-                            <td>$!assessor.getDataValid()</td>
-                            <td>$!assessor.getSampleQuality()
-                                #if ($assessor.getXSIType().startsWith("opex:cantab"))
-                                    [ $!assessor.getStatus() ]
+                                <td>$interval.get($!assessor.getInterval())
+                                #if ($assessor.getXSIType().startsWith("opex:blood"))
+                                    : $!assessor.getPrepost()
                                 #end
-                            </td>
-                        </tr>
+                                </td>
+                                <td>$!assessor.getDataValid()</td>
+                                <td>$!assessor.getSampleQuality()
+                                    #if ($assessor.getXSIType().startsWith("opex:cantab"))
+                                        [ $!assessor.getStatus() ]
+                                    #end
+                                </td>
+                                <td>$project</td>
+
+                            </tr>
+                        #end
+                    #else
+                        #set($hasOtherProjects=true)
                     #end
                 #end
             </table>
@@ -78,6 +84,8 @@
         </div>
         <br/>
         #end
+        </div><!-- /proj_expts -->
+    #end
     <div id="all_expts" style="display:none">
         <h4>Scans</h4>
         <table width="100%" class="highlight sortable">
@@ -94,6 +102,52 @@
 
             #end
         </table>
+        <hr/>
+        #if ($subject.getExperiments_experiment().size() > 0)
+            <div class="opex_expts" >
+                <h4>OPEX experiments</h4>
+
+                <table width="100%" class="highlight sortable">
+                    <tr>
+                        <th align="left" class="underscore sort">Date</th>
+                        <th align="left" class="underscore sort">Experiment</th>
+                        <th align="left" class="underscore sort">Interval</th>
+                        <th align="left" class="underscore sort">Validation</th>
+                        <th align="left" class="underscore sort">Quality</th>
+                    </tr>
+                    #foreach ($assessor in $subject.getExperiments_experiment())
+                        #if($assessor.getXSIType().startsWith("opex"))
+                            #set ( $assessorID = $!assessor.getProperty("ID"))
+                            #set ( $assessorField = "${assessor.getXSIType()}.ID")
+                            #set ( $url = "$link.setAction('DisplayItemAction').addPathInfo('search_element',$!assessor.getXSIType()).addPathInfo('search_field',$assessorField).addPathInfo('search_value',$assessorID).addPathInfo('popup',$popup)" )
+
+                            #if($assessor.hasProject($project))
+                                #set ( $url= "$url/project/$project")
+                            #end
+
+                            <tr>
+                                <td>$!assessor.getProperty("date")</td>
+                                <td><a href="$url" title="$assessor.getIdentifier($!project)">$data.getSession().getAttribute("userHelper").getDisplayManager().getSingularDisplayNameForElement($assessor.getXSIType())</a></td>
+
+                                <td>$interval.get($!assessor.getInterval())
+                                    #if ($assessor.getXSIType().startsWith("opex:blood"))
+                                        : $!assessor.getPrepost()
+                                    #end
+                                </td>
+                                <td>$!assessor.getDataValid()</td>
+                                <td>$!assessor.getSampleQuality()
+                                    #if ($assessor.getXSIType().startsWith("opex:cantab"))
+                                        [ $!assessor.getStatus() ]
+                                    #end
+                                </td>
+                            </tr>
+                        #end
+                    #end
+                </table>
+
+            </div>
+            <br/>
+        #end
 
     </div><!-- /all_expts -->
 

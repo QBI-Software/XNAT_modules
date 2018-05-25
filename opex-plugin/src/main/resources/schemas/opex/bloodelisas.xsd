@@ -88,6 +88,7 @@
 					</xs:element>
 					<xs:element name="Ghrelin" type="xs:float" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="CathepsinB" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="BetaHydroxy" type="xs:float" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

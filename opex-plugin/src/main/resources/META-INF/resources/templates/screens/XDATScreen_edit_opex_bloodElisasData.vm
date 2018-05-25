@@ -21,6 +21,10 @@
                 <td>CathepsinB</td>
                 <td>#xdatNumberBox("opex:bloodElisasData/CathepsinB" $item "" $vr)</td>
             </tr>
+            <tr>
+                <td>BetaHydroxy (ng/&micro;l)</td>
+                <td>#xdatNumberBox("opex:bloodElisasData/BetaHydroxy" $item "" $vr)</td>
+            </tr>
             </tbody>
         </table>
 

@@ -41,6 +41,10 @@
                     <td>CathepsinB</td>
                     <td>$!item.getDoubleProperty("opex:bloodElisasData/CathepsinB")</td>
                 </tr>
+                <tr>
+                    <td>BetaHydroxy (ng/&micro;l)</td>
+                    <td>$!item.getDoubleProperty("opex:bloodElisasData/BetaHydroxy")</td>
+                </tr>
                 <!-- END opex:bloodElisasData -->
                 </tbody>
             </table>
