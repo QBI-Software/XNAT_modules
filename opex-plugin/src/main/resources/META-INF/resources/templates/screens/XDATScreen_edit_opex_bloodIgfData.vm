@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+	$page.setTitle("OPEX ELISAs Blood Sample - IGF")
+	$page.setLinkColor($ui.alink)
+	$page.setVlinkColor($ui.vlink)
+##----------------------------------------
+## MODIFIED FOR BOOTSTRAP - QBI - e.cooperwilliams@uq.edu.au
+##
+##----------------------------------------
+	#set($formtitle="OPEX ELISAs Blood Sample - IGF")
+	#parse("/screens/formheader.vm")
+
+<table class="table table-striped">
+    <!-- BEGIN opex:bloodElisasData -->
+    <tbody>
+		#parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr><td>IGF-1 (ng/ml)</td><td>#xdatNumberBox("opex:bloodIgfData/IGF1" $item "" $vr)</td></tr>
+    </tbody>
+</table>
+
+<!-- END opex:bloodElisasData -->
+#parse("screens/validateform.vm")
