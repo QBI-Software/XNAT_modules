@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-	$page.setTitle("OPEX DEXA")
-	$page.setLinkColor($ui.alink)
-	$page.setVlinkColor($ui.vlink)
-	#if ($turbineUtils.GetPassedParameter("popup", $data))
-		#set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
-		#set ($popup = "false")
-	#end
+    $page.setTitle("OPEX DEXA")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
+    #if ($turbineUtils.GetPassedParameter("popup", $data))
+        #set ($popup = $turbineUtils.GetPassedParameter("popup", $data) )
+        #set ($popup = "false")
+    #end
 
-	#parse("/screens/macrolists.vm")
+    #parse("/screens/macrolists.vm")
 <div class="container">
     <div>
         <h3>OPEX Body composition (DEXA)</h3>
-		#parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
+        #parse($turbineUtils.getTemplateName("_report",$om.getXSIType(),$project))
 
         <div align="right">
-			#parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
+            #parse($turbineUtils.getTemplateName("actions",$om.getXSIType(),$project))
         </div>
     </div>
     <br/>
@@ -29,42 +29,121 @@
                 </thead>
                 <tbody>
                 <!-- start opex:dexa -->
-					#parse("/screens/XDATScreen_report_opex_exerciseData.vm")
-                <tr><td>
-                    Bone Mineral Content (g)
-                </td><td>$!item.getProperty("opex:dexa/BMC")</td></tr><tr><td>
-                    Bone Mineral Density (g/cm2))
-                </td><td>$!item.getProperty("opex:dexa/BMD")</td></tr><tr><td>
-                    Fat Mass (g)
-                </td><td>$!item.getProperty("opex:dexa/fatmass")</td></tr><tr><td>
-                    Lean Mass (g)
-                </td><td>$!item.getProperty("opex:dexa/leanmass")</td></tr><tr><td>
-                    Total mass (g)
-                </td><td>$!item.getProperty("opex:dexa/totalmass")</td></tr><tr><td>
-                    % Body Fat
-                </td><td>$!item.getProperty("opex:dexa/percentbodyfat")</td></tr><tr><td>
-                    Android Fat Mass (g)
-                </td><td>$!item.getProperty("opex:dexa/android_fm")</td></tr><tr><td>
-                    Gynoid Fat Mass (g)
-                </td><td>$!item.getProperty("opex:dexa/gynoid_fm")</td></tr><tr><td>
-                    Body Mass Index
-                </td><td>$!item.getProperty("opex:dexa/BMI")</td></tr><tr><td>
-                    Fat mass / height squared
-                </td><td>$!item.getProperty("opex:dexa/FM_H2")</td></tr><tr><td>
-                    Android/Gynoid ratio
-                </td><td>$!item.getProperty("opex:dexa/AG_ratio")</td></tr><tr><td>
-                    Whole Body T-score
-                </td><td>$!item.getProperty("opex:dexa/WB_Tscore")</td></tr><tr><td>
-                    Whole Body Z-score
-                </td><td>$!item.getProperty("opex:dexa/WB_Zscore")</td></tr><tr><td>
-                    Left Hip BMC (g)
-                </td><td>$!item.getProperty("opex:dexa/lhip_BMC")</td></tr><tr><td>
-                    Left Hip BMD (g/cm2)
-                </td><td>$!item.getProperty("opex:dexa/lhip_BMD")</td></tr><tr><td>
-                    Left Hip T-score
-                </td><td>$!item.getProperty("opex:dexa/lhip_Tscore")</td></tr><tr><td>
-                    Left Hip Z-score
-                </td><td>$!item.getProperty("opex:dexa/lhip_Zscore")</td></tr>
+                    #parse("/screens/XDATScreen_report_opex_exerciseData.vm")
+                <tr>
+                    <td>
+                        Bone Mineral Content (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/BMC")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Bone Mineral Density (g/cm2))
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/BMD")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Fat Mass (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/fatmass")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Lean Mass (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/leanmass")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Total mass (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/totalmass")</td>
+                </tr>
+                <tr>
+                    <td>
+                        % Body Fat
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/percentbodyfat")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Android Fat Mass (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/android_fm")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Gynoid Fat Mass (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/gynoid_fm")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Body Mass Index
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/BMI")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Fat mass / height squared
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/FM_H2")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Android/Gynoid ratio
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/AG_ratio")</td>
+                </tr>
+                <tr>
+                    <td>VAT mass (g)</td>
+                    <td>$!item.getProperty("opex:dexa/VAT_mass")</td>
+                </tr>
+                <tr>
+                    <td>VAT volume (cm3)</td>
+                    <td>$!item.getProperty("opex:dexa/VAT_vol")</td>
+                </tr>
+                <tr>
+                    <td>VAT area (cm2)</td>
+                    <td>$!item.getProperty("opex:dexa/VAT_area")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Whole Body T-score
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/WB_Tscore")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Whole Body Z-score
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/WB_Zscore")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Left Hip BMC (g)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/lhip_BMC")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Left Hip BMD (g/cm2)
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/lhip_BMD")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Left Hip T-score
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/lhip_Tscore")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Left Hip Z-score
+                    </td>
+                    <td>$!item.getProperty("opex:dexa/lhip_Zscore")</td>
+                </tr>
                 <!-- END opex:dexa -->
                 </tbody>
             </table>
@@ -72,6 +151,6 @@
     </div>
 
     <div class="row">
-		#parse("/screens/ReportProjectSpecificFields.vm")
+        #parse("/screens/ReportProjectSpecificFields.vm")
     </div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-	$page.setTitle("OPEX DEXA")
-	$page.setLinkColor($ui.alink)
-	$page.setVlinkColor($ui.vlink)
+    $page.setTitle("OPEX DEXA")
+    $page.setLinkColor($ui.alink)
+    $page.setVlinkColor($ui.vlink)
 ##----------------------------------------
 ## MODIFIED FOR BOOTStrAP - QBI - e.cooperwilliams@uq.edu.au
 ##
@@ -9,48 +9,127 @@
     #set($formtitle="OPEX Body composition (DEXA)")
     #parse("/screens/formheader.vm")
 
-        <!-- BEGIN opex:dexa -->
-        <table class="table table-striped">
-            <tbody>
+<!-- BEGIN opex:dexa -->
+<table class="table table-striped">
+    <tbody>
 
-                #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
-            <tr><td>
-                Bone Mineral Content (g)
-            </td><td>#xdatNumberBox("opex:dexa/BMC" $item "" $vr)</td></tr><tr><td>
-                Bone Mineral Density (g/cm2))
-            </td><td>#xdatNumberBox("opex:dexa/BMD" $item "" $vr)</td></tr><tr><td>
-                Fat Mass (g)
-            </td><td>#xdatNumberBox("opex:dexa/fatmass" $item "" $vr)</td></tr><tr><td>
-                Lean Mass (g)
-            </td><td>#xdatNumberBox("opex:dexa/leanmass" $item "" $vr)</td></tr><tr><td>
-                Total mass (g)
-            </td><td>#xdatNumberBox("opex:dexa/totalmass" $item "" $vr)</td></tr><tr><td>
-                % Body Fat
-            </td><td>#xdatNumberBox("opex:dexa/percentbodyfat" $item "" $vr)</td></tr><tr><td>
-                Android Fat Mass (g)
-            </td><td>#xdatNumberBox("opex:dexa/android_fm" $item "" $vr)</td></tr><tr><td>
-                Gynoid Fat Mass (g)
-            </td><td>#xdatNumberBox("opex:dexa/gynoid_fm" $item "" $vr)</td></tr><tr><td>
-                Body Mass Index
-            </td><td>#xdatNumberBox("opex:dexa/BMI" $item "" $vr)</td></tr><tr><td>
-                Fat mass / height squared
-            </td><td>#xdatNumberBox("opex:dexa/FM_H2" $item "" $vr)</td></tr><tr><td>
-                Android/Gynoid ratio
-            </td><td>#xdatNumberBox("opex:dexa/AG_ratio" $item "" $vr)</td></tr><tr><td>
-                Whole Body T-score
-            </td><td>#xdatNumberBox("opex:dexa/WB_Tscore" $item "" $vr)</td></tr><tr><td>
-                Whole Body Z-score
-            </td><td>#xdatNumberBox("opex:dexa/WB_Zscore" $item "" $vr)</td></tr><tr><td>
-                Left Hip BMC (g)
-            </td><td>#xdatNumberBox("opex:dexa/lhip_BMC" $item "" $vr)</td></tr><tr><td>
-                Left Hip BMD (g/cm2)
-            </td><td>#xdatNumberBox("opex:dexa/lhip_BMD" $item "" $vr)</td></tr><tr><td>
-                Left Hip T-score
-            </td><td>#xdatNumberBox("opex:dexa/lhip_Tscore" $item "" $vr)</td></tr><tr><td>
-                Left Hip Z-score
-            </td><td>#xdatNumberBox("opex:dexa/lhip_Zscore" $item "" $vr)</td></tr>
-            </tbody>
-        </table>
+        #parse("/screens/XDATScreen_edit_opex_exerciseData.vm")
+    <tr>
+        <td>
+            Bone Mineral Content (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/BMC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Bone Mineral Density (g/cm2))
+        </td>
+        <td>#xdatNumberBox("opex:dexa/BMD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Fat Mass (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/fatmass" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Lean Mass (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/leanmass" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Total mass (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/totalmass" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            % Body Fat
+        </td>
+        <td>#xdatNumberBox("opex:dexa/percentbodyfat" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Android Fat Mass (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/android_fm" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Gynoid Fat Mass (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/gynoid_fm" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Body Mass Index
+        </td>
+        <td>#xdatNumberBox("opex:dexa/BMI" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Fat mass / height squared
+        </td>
+        <td>#xdatNumberBox("opex:dexa/FM_H2" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Android/Gynoid ratio
+        </td>
+        <td>#xdatNumberBox("opex:dexa/AG_ratio" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>VAT mass (g)</td>
+        <td>#xdatNumberBox("opex:dexa/VAT_mass" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>VAT volume (cm3)</td>
+        <td>#xdatNumberBox("opex:dexa/VAT_vol" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>VAT area (cm2)</td>
+        <td>#xdatNumberBox("opex:dexa/VAT_area" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Whole Body T-score
+        </td>
+        <td>#xdatNumberBox("opex:dexa/WB_Tscore" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Whole Body Z-score
+        </td>
+        <td>#xdatNumberBox("opex:dexa/WB_Zscore" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Left Hip BMC (g)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/lhip_BMC" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Left Hip BMD (g/cm2)
+        </td>
+        <td>#xdatNumberBox("opex:dexa/lhip_BMD" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Left Hip T-score
+        </td>
+        <td>#xdatNumberBox("opex:dexa/lhip_Tscore" $item "" $vr)</td>
+    </tr>
+    <tr>
+        <td>
+            Left Hip Z-score
+        </td>
+        <td>#xdatNumberBox("opex:dexa/lhip_Zscore" $item "" $vr)</td>
+    </tr>
+    </tbody>
+</table>
 
-        <!-- END opex:dexa -->
-		#parse("screens/validateform.vm")
+<!-- END opex:dexa -->
+#parse("screens/validateform.vm")
