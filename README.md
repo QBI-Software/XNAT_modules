@@ -13,3 +13,7 @@ These custom modules are developed as plugins as referenced by XNAT Plugin Docum
     2. stylesheets (to /style)
     3. javascript (to /scripts/lib/)
 6. Restart XNAT to pick up the new modules
+
+## Development
+
+Some guidelines for plugin development can be found at [Developer Notes](https://github.com/QBI-Software/XNAT_modules/wiki/Developer-Notes)
