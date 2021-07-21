@@ -1,2 +1,5 @@
-rootProject.name = 'irc5-demographics-plugin'
+/*
+ * This build file is based on https://bitbucket.org/xnatx/xnat-template-plugin
+ */
 
+rootProject.name = "irc5-demographics-plugin"

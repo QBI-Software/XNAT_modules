@@ -85,7 +85,7 @@ public class XDATScreen_edit_irc5_salivaData extends org.nrg.xnat.turbine.module
             }
         } catch (XFTInitException | ElementNotFoundException | FieldNotFoundException e) {
             final String message = "An error occurred trying to get the subject ID when creating a biosample collection assessor.";
-            log.error(message, e);
+            // log.error(message, e);
             throw new RuntimeException(message, e);
         }
     }
